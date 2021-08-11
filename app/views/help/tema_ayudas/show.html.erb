@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Orden:</strong>
+  <%= @tema_ayuda.orden %>
+</p>
+
+<p>
+  <strong>Tema ayuda:</strong>
+  <%= @tema_ayuda.tema_ayuda %>
+</p>
+
+<p>
+  <strong>Detalle:</strong>
+  <%= @tema_ayuda.detalle %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @tema_ayuda.tipo %>
+</p>
+
+<p>
+  <strong>Ilustracion:</strong>
+  <%= @tema_ayuda.ilustracion %>
+</p>
+
+<p>
+  <strong>Ilustracion cache:</strong>
+  <%= @tema_ayuda.ilustracion_cache %>
+</p>
+
+<%= link_to 'Edit', edit_tema_ayuda_path(@tema_ayuda) %> |
+<%= link_to 'Back', tema_ayudas_path %>

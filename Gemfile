@@ -3,8 +3,22 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.1'
 
-# Agregar la gema 'pg
 gem 'pg'
+
+gem 'bootstrap', '~> 4.5.2'
+gem 'jquery-rails'
+
+gem 'devise'
+
+gem 'kaminari'
+
+gem "roo", "~> 2.8.0"
+
+gem "chartkick"
+
+gem 'carrierwave', '~> 2.0'
+
+gem "passenger", ">= 5.0.25", require: "phusion_passenger/rack_handler"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.5'
