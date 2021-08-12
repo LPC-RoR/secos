@@ -40,7 +40,7 @@ module Secos
 
     config.look_app = {
         aplicacion: {
-            favicon: true,
+            favicon: false,
             banner: false,
             nombre_aplicacion: 'Secos',
             home_link: 'http://www.secos.cl',
