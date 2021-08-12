@@ -1,69 +1,87 @@
 class Aplicacion::RecursosController < ApplicationController
-  before_action :set_recurso, only: %i[ show edit update destroy ]
+  before_action :inicia_sesion
+  before_action :carga_temas_ayuda
+#  before_action :set_recurso, only: [:show, :edit, :update, :destroy]
 
-  # GET /recursos or /recursos.json
-  def index
-    @coleccion = Recurso.all
+  def home
+    @coleccion = {}
+    @coleccion['tema_ayudas'] = TemaAyuda.where(tipo: 'inicio').where(activo: true).order(:orden)
   end
 
-  # GET /recursos/1 or /recursos/1.json
-  def show
-  end
+  def bibliografia
+    proyecto_activo = Proyecto.find(session[:proyecto_activo]['id'])
 
-  # GET /recursos/new
-  def new
-    @objeto = Recurso.new
-  end
-
-  # GET /recursos/1/edit
-  def edit
-  end
-
-  # POST /recursos or /recursos.json
-  def create
-    @objeto = Recurso.new(recurso_params)
-
-    respond_to do |format|
-      if @objeto.save
-        format.html { redirect_to @objeto, notice: "Recurso was successfully created." }
-        format.json { render :show, status: :created, location: @objeto }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @objeto.errors, status: :unprocessable_entity }
+    ids_publicaciones = []
+    proyecto_activo.carpetas_personalizadas.each do |carpeta|
+      unless carpeta.publicaciones.empty?
+        ids_publicaciones = ids_publicaciones.union(carpeta.publicaciones.ids)
       end
     end
+    @coleccion = {}
+    @coleccion['publicaciones'] = Publicacion.where(id: ids_publicaciones.uniq).order(:author)
   end
 
-  # PATCH/PUT /recursos/1 or /recursos/1.json
-  def update
-    respond_to do |format|
-      if @objeto.update(recurso_params)
-        format.html { redirect_to @objeto, notice: "Recurso was successfully updated." }
-        format.json { render :show, status: :ok, location: @objeto }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @objeto.errors, status: :unprocessable_entity }
-      end
-    end
+  def administracion
+    @coleccion = {}
+    @coleccion['administradores'] = Administrador.all
+    @coleccion['perfiles'] = Perfil.all
+    @coleccion['tipo_publicaciones'] = TipoPublicacion.all.order(:tipo_publicacion)
+    @coleccion['formato_cargas'] = FormatoCarga.all.order(:formato_carga)
+    
   end
 
-  # DELETE /recursos/1 or /recursos/1.json
-  def destroy
-    @objeto.destroy
-    respond_to do |format|
-      format.html { redirect_to recursos_url, notice: "Recurso was successfully destroyed." }
-      format.json { head :no_content }
+  def procesos
+    proyecto_activo = Proyecto.find(session[:proyecto_activo]['id'])
+
+    @carpeta = proyecto_activo.carpetas.find_by(carpeta: 'plant-pollinator interaction')
+    if @carpeta.blank?
+      @carpeta = proyecto_activo.carpetas.create(carpeta: 'plant-pollinator interaction')
     end
+
+    @huerfanas = proyecto_activo.publicaciones.map {|pub| pub.id if pub.carpetas.empty?}.compact
+
+    @pubs = Publicacion.where(id: @huerfanas)
+
+    @pubs.each do |huerfana|
+      huerfana.carpetas << @carpeta
+    end
+
+  end
+
+  def borrar_archivos
+#   Autor.delete_all
+#   Carga.delete_all
+#   Carpeta.delete_all
+#   Cita.delete_all
+#   Clasificacion.delete_all
+#   Departamento.delete_all
+#   Evaluacion.delete_all
+#   Idioma.delete_all
+#   Institucion.delete_all
+#   Investigador.delete_all
+#   Proceso.delete_all
+#   Publicacion.delete_all
+#   Registro.delete_all
+#   Revista.delete_all
+#   Texto.delete_all
+#   Tema.delete_all
+
+#    buscado = Publicacion.find(1686)
+#    unless buscado.blank?
+#      buscado.evaluaciones.delete_all
+#      buscado.textos.delete_all
+#      buscado.investigadores.delete_all
+#      buscado.cargas.delete_all
+#      buscado.carpetas.delete_all
+#      buscado.proyectos.delete_all
+#      buscado.etiquetas.delete_all
+#      buscado.delete
+#    end
+
+    redirect_to root_path
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_recurso
-      @objeto = Recurso.find(params[:id])
-    end
-
-    # Only allow a list of trusted parameters through.
-    def recurso_params
-      params.fetch(:recurso, {})
-    end
 end
+ 

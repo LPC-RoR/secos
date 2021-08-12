@@ -1,12 +1,16 @@
 class Aplicacion::PerfilesController < ApplicationController
-  before_action :set_perfil, only: %i[ show edit update destroy ]
+  before_action :authenticate_usuario!
+  before_action :inicia_sesion
+  before_action :set_perfil, only: [:show, :edit, :update, :destroy, :desvincular]
 
-  # GET /perfiles or /perfiles.json
+  # GET /perfiles
+  # GET /perfiles.json
   def index
     @coleccion = Perfil.all
   end
 
-  # GET /perfiles/1 or /perfiles/1.json
+  # GET /perfiles/1
+  # GET /perfiles/1.json
   def show
   end
 
@@ -19,39 +23,49 @@ class Aplicacion::PerfilesController < ApplicationController
   def edit
   end
 
-  # POST /perfiles or /perfiles.json
+  # POST /perfiles
+  # POST /perfiles.json
   def create
     @objeto = Perfil.new(perfil_params)
 
     respond_to do |format|
       if @objeto.save
-        format.html { redirect_to @objeto, notice: "Perfil was successfully created." }
+        format.html { redirect_to @objeto, notice: 'Perfil was successfully created.' }
         format.json { render :show, status: :created, location: @objeto }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :new }
         format.json { render json: @objeto.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /perfiles/1 or /perfiles/1.json
+  # PATCH/PUT /perfiles/1
+  # PATCH/PUT /perfiles/1.json
   def update
     respond_to do |format|
       if @objeto.update(perfil_params)
-        format.html { redirect_to @objeto, notice: "Perfil was successfully updated." }
+        format.html { redirect_to @objeto, notice: 'Perfil was successfully updated.' }
         format.json { render :show, status: :ok, location: @objeto }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { render :edit }
         format.json { render json: @objeto.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /perfiles/1 or /perfiles/1.json
+  def desvincular
+    proyecto = Proyecto.find(params[:objeto_id])
+    @objeto.colaboraciones.delete(proyecto)
+
+    redirect_to '/proyectos/proyecto_activo'
+  end
+
+  # DELETE /perfiles/1
+  # DELETE /perfiles/1.json
   def destroy
     @objeto.destroy
     respond_to do |format|
-      format.html { redirect_to perfiles_url, notice: "Perfil was successfully destroyed." }
+      format.html { redirect_to perfiles_url, notice: 'Perfil was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -64,6 +78,6 @@ class Aplicacion::PerfilesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def perfil_params
-      params.require(:perfil).permit(:email, :administrador_id, :usuario_id)
+      params.require(:perfil).permit(:usuario_id, :administrador_id, :investigador_id, :equipo_id, :email)
     end
 end

@@ -8,10 +8,10 @@ module RecursosHelper
 	    # [2] : Tipo de ítem {'admin', 'usuario', 'anonimo', 'excluir'}
 	    # se usa directamente en 0p/navbar/_navbar.html.erb
 	    [
-	        ["Publicaciones",   "/publicaciones",             'usuario'],
-	        ["Ingresos",        "/ingresos",                  'usuario'],
-	        ["Proyectos",       "/proyectos",                 'usuario'],
-	        ["Cargas",          "/cargas",                    'usuario'],
+#	        ["Publicaciones",   "/publicaciones",             'usuario'],
+#	        ["Ingresos",        "/ingresos",                  'usuario'],
+#	        ["Proyectos",       "/proyectos",                 'usuario'],
+#	        ["Cargas",          "/cargas",                    'usuario'],
 	        ['Administración',  '/recursos/administracion',     'admin'],
 	        ["Temas Ayuda",     "/tema_ayudas",                 'admin'],
 	        ["Procesos",        "/recursos/procesos",             'dog']
