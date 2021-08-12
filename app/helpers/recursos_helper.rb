@@ -8,14 +8,34 @@ module RecursosHelper
 	    # [2] : Tipo de ítem {'admin', 'usuario', 'anonimo', 'excluir'}
 	    # se usa directamente en 0p/navbar/_navbar.html.erb
 	    [
-#	        ["Publicaciones",   "/publicaciones",             'usuario'],
-#	        ["Ingresos",        "/ingresos",                  'usuario'],
-#	        ["Proyectos",       "/proyectos",                 'usuario'],
-#	        ["Cargas",          "/cargas",                    'usuario'],
+	        ["Datos Centro",                        root_path,             'usuario'],
+	        ["Investigación",                       "pull_down_item",      'usuario'],
+	        ["Comités Editoriales",                 root_path,             'usuario'],
+	        ["Formación Capital Humano",            "pull_down_item",      'usuario'],
+	        ["Redes de Colaboración",               "pull_down_item",      'usuario'],
+	        ["Actividades de Difusión y PME",       "pull_down_item",      'usuario'],
+	        ["Vínculos con Otros Sectores",         root_path,             'usuario'],
+	        ["Personal Técnico y Administrativo",   root_path,             'usuario'],
+	        ["Fuentes de Financiamiento",           root_path,             'usuario'],
 	        ['Administración',  '/recursos/administracion',     'admin'],
 	        ["Temas Ayuda",     "/tema_ayudas",                 'admin'],
 	        ["Procesos",        "/recursos/procesos",             'dog']
 	    ]
+	end
+
+	def dropdown_items(item)
+		case item
+		when 'Investigación'
+			[
+				['Líneas de Investigación', root_path]
+				['Investigadores Centro', root_path]
+				['Actividades Científicas Organizadas', root_path]
+				['Publicaciones', root_path]
+				['Propiedad Intelectual', 'pull_down_item']
+				['Presentaciones Congresos', root_path]
+				['Premios y Honores', root_path]
+			]
+		end
 	end
 
 	def display_item_app(item, tipo_item)
