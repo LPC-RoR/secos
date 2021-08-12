@@ -58,7 +58,7 @@ module Secos
                 detalle_color: 'primary'
             },
             foot: {
-                active: true,
+                active: false,
                 size: 'quarter',
                 clase: 'mx-auto d-block'
             },
