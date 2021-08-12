@@ -31,7 +31,7 @@ module RecursosHelper
 				['Investigadores Centro', root_path],
 				['Actividades Científicas Organizadas', root_path],
 				['Publicaciones', root_path],
-				['Propiedad Intelectual', 'pull_down_item'],
+				['Propiedad Intelectual', root_path],
 				['Presentaciones Congresos', root_path],
 				['Premios y Honores', root_path]
 			]
