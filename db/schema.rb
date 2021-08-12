@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_11_001635) do
+ActiveRecord::Schema.define(version: 2021_08_12_153155) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,8 @@ ActiveRecord::Schema.define(version: 2021_08_11_001635) do
     t.string "ilustracion_cache"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "activo"
+    t.index ["activo"], name: "index_tema_ayudas_on_activo"
     t.index ["orden"], name: "index_tema_ayudas_on_orden"
     t.index ["tipo"], name: "index_tema_ayudas_on_tipo"
   end
