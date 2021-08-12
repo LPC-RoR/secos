@@ -4,6 +4,8 @@
   </a>
   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
+    <%= drop_items %>
+
     <% unless drop_items.blank? %>
       <% drop_items.each do |item| %>
         <% if item[1] == 'pull_down_item' %>
