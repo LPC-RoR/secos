@@ -27,12 +27,12 @@ module RecursosHelper
 		case item
 		when 'Investigación'
 			[
-				['Líneas de Investigación', root_path]
-				['Investigadores Centro', root_path]
-				['Actividades Científicas Organizadas', root_path]
-				['Publicaciones', root_path]
-				['Propiedad Intelectual', 'pull_down_item']
-				['Presentaciones Congresos', root_path]
+				['Líneas de Investigación', root_path],
+				['Investigadores Centro', root_path],
+				['Actividades Científicas Organizadas', root_path],
+				['Publicaciones', root_path],
+				['Propiedad Intelectual', 'pull_down_item'],
+				['Presentaciones Congresos', root_path],
 				['Premios y Honores', root_path]
 			]
 		end
