@@ -69,7 +69,7 @@ module Secos
         },
         navbar: {
             color: 'primary',
-            logo: true,
+            logo: false,
             nomenu_controllers: ['confirmations', 'mailer', 'passwords', 'registrations', 'sessions', 'unlocks'],
             item_contacto: true,
             item_ayuda: true
