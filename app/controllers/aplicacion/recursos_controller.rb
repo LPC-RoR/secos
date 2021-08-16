@@ -8,25 +8,15 @@ class Aplicacion::RecursosController < ApplicationController
     @coleccion['tema_ayudas'] = TemaAyuda.where(tipo: 'inicio').where(activo: true).order(:orden)
   end
 
-  def bibliografia
-    proyecto_activo = Proyecto.find(session[:proyecto_activo]['id'])
-
-    ids_publicaciones = []
-    proyecto_activo.carpetas_personalizadas.each do |carpeta|
-      unless carpeta.publicaciones.empty?
-        ids_publicaciones = ids_publicaciones.union(carpeta.publicaciones.ids)
-      end
-    end
-    @coleccion = {}
-    @coleccion['publicaciones'] = Publicacion.where(id: ids_publicaciones.uniq).order(:author)
+  def ingreso_datos_anuales
   end
 
   def administracion
     @coleccion = {}
     @coleccion['administradores'] = Administrador.all
     @coleccion['perfiles'] = Perfil.all
-    @coleccion['tipo_publicaciones'] = TipoPublicacion.all.order(:tipo_publicacion)
-    @coleccion['formato_cargas'] = FormatoCarga.all.order(:formato_carga)
+#    @coleccion['tipo_publicaciones'] = TipoPublficacion.all.order(:tipo_publicacion)
+#    @coleccion['formato_cargas'] = FormatoCarga.all.order(:formato_carga)
     
   end
 

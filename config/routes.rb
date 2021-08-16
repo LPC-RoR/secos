@@ -4,8 +4,8 @@ Rails.application.routes.draw do
     resources :recursos do
       collection do
         match :home, via: :get
+        match :ingreso_datos_anuales, via: :get
         match :inicia_sesion, via: :get
-        match :bibliografia, via: :get
         match :procesos, via: :get
         match :administracion, via: :get
         match :borrar_archivos, via: :get

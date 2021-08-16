@@ -9,7 +9,7 @@ class Aplicacion::AdministradoresController < ApplicationController
   def index
     @coleccion = {}
     @coleccion['administradores'] = Administrador.all
-    @coleccion['formato_cargas'] = FormatoCarga.all.order(:formato_carga)
+#    @coleccion['formato_cargas'] = FormatoCarga.all.order(:formato_carga)
   end
 
   # GET /administradores/1

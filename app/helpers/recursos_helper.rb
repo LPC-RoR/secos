@@ -8,9 +8,10 @@ module RecursosHelper
 	    # [2] : Tipo de ítem {'admin', 'usuario', 'anonimo', 'excluir'}
 	    # se usa directamente en 0p/navbar/_navbar.html.erb
 	    [
-	        ['Administración',  '/recursos/administracion',     'admin'],
-	        ["Temas Ayuda",     "/tema_ayudas",                 'admin'],
-	        ["Procesos",        "/recursos/procesos",             'dog']
+	        ['Ingreso Datos Anuales', '/recursos/ingreso_datos_anuales', 'usuario'],
+	        ['Administración',        '/recursos/administracion',          'admin'],
+	        ["Temas Ayuda",           "/tema_ayudas",                      'admin'],
+	        ["Procesos",              "/recursos/procesos",                  'dog']
 	    ]
 	end
 
@@ -72,7 +73,7 @@ module RecursosHelper
 		when 'Temas'
 			session[:hay_proyecto] and Proyecto.find(session[:proyecto_activo]['id']).carpetas_personalizadas.any?
 		else
-			session[:hay_proyecto] or ['Proyectos'].include?(item)
+			true
 		end
 	end
 
