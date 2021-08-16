@@ -9,6 +9,7 @@ class Aplicacion::RecursosController < ApplicationController
   end
 
   def ingreso_datos_anuales
+    @t = params[:t].blank? ? 'Datos Centro' : params[:t]
   end
 
   def administracion

@@ -1,4 +1,4 @@
-<h5><%= name_list %></h5>
+<h5 class='text-info'><%= name_list %></h5>
 <% side_list(name_list).each do |elemento| %>
 	<small>
 
@@ -7,7 +7,11 @@
 		<div class="col-md-<%= 12 - elemento[0]+1%>">
 			<% case elemento[1] %>
 			<% when 'item' %>
-				<%= link_to elemento[2], root_path %>
+				<% if @t == elemento[2] %>
+					<b class='text-primary'><%= elemento[2] %></b>
+				<% else %>
+					<%= link_to elemento[2], "#{link}?t=#{elemento[2]}" %>
+				<% end %>
 			<% when 'list' %>
 				<%= elemento[2] %>
 			<% end %>
