@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :tema_ayudas
   scope module: 'aplicacion' do
     resources :recursos do
       collection do
