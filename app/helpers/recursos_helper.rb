@@ -8,15 +8,6 @@ module RecursosHelper
 	    # [2] : Tipo de ítem {'admin', 'usuario', 'anonimo', 'excluir'}
 	    # se usa directamente en 0p/navbar/_navbar.html.erb
 	    [
-	        ["Datos Centro",                        root_path,             'usuario'],
-	        ["Investigación",                       "pull_down_item",      'usuario'],
-	        ["Comités Editoriales",                 root_path,             'usuario'],
-	        ["Formación Capital Humano",            "pull_down_item",      'usuario'],
-	        ["Redes de Colaboración",               "pull_down_item",      'usuario'],
-	        ["Actividades de Difusión y PME",       "pull_down_item",      'usuario'],
-	        ["Vínculos con Otros Sectores",         root_path,             'usuario'],
-	        ["Personal Técnico y Administrativo",   root_path,             'usuario'],
-	        ["Fuentes de Financiamiento",           root_path,             'usuario'],
 	        ['Administración',  '/recursos/administracion',     'admin'],
 	        ["Temas Ayuda",     "/tema_ayudas",                 'admin'],
 	        ["Procesos",        "/recursos/procesos",             'dog']
@@ -34,6 +25,44 @@ module RecursosHelper
 				['Propiedad Intelectual', root_path],
 				['Presentaciones Congresos', root_path],
 				['Premios y Honores', root_path]
+			]
+		end
+	end
+
+	def side_list(list_name)
+		case list_name
+		when 'Ingreso Datos Anuales'
+			[
+				[1, 'item', 'Datos Centro'],
+				[1, 'list', 'Investigación'],
+				[2, 'item', 'Líneas de Investigación'],
+				[2, 'item', 'Investigadores Centro'],
+				[2, 'item', 'Actividades Científicas Organizadas'],
+				[2, 'item', 'Publicaciones'],
+				[2, 'list', 'Propiedad Intelectual'],
+				[3, 'item', 'Patentes'],
+				[2, 'item', 'Presentaciones Congresos'],
+				[2, 'list', 'Premios y Honores'],
+				[3, 'item', 'P. y H. Investigadores'],
+				[3, 'item', 'P. y H. Centro'],
+				[1, 'item', 'Comités Editoriales'],
+				[1, 'list', 'Formación Capital Humano'],
+				[2, 'item', 'Formación de jóvenes'],
+				[2, 'item', 'Tésis Finalizadas'],
+				[2, 'list', 'Pasantías'],
+				[3, 'item', 'Internos'],
+				[3, 'item', 'Externos'],
+				[1, 'list', 'Redes de Colaboración'],
+				[2, 'item', 'Redes Formales de Colaboración'],
+				[2, 'item', 'Redes de Colaboración'],
+				[1, 'list', 'Actividades de Difusión y PME'],
+				[2, 'item', 'Actividades de Difusión'],
+				[2, 'item', 'Producto de PME (concurso milenio)'],
+				[2, 'item', 'Fondos Actividades de Difusión (concurso milenio)'],
+				[2, 'item', 'Artículos y Entrevistas en Medios de Comunicación'],
+				[1, 'item', 'Vínculos con Otros Sectores'],
+				[1, 'item', 'Personal Técnico y Administrativo'],
+				[1, 'item', 'Fuentes de Financiamiento']
 			]
 		end
 	end

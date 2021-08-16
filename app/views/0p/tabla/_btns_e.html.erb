@@ -1,5 +1,5 @@
 <% if crud_conditions(objeto, 'Editar') %>
-	<%= render partial: '0p/tabla/btn', locals: {texto: 'Editar', link: [:edit, objeto], delete: false, clr: c_color(objeto.class.name.tableize)} %>
+	<%= render partial: '0p/tabla/btn', locals: {texto: 'Editar', link: [:edit, objeto], delete: false, clr: c_color(objeto.class.name.tableize), gly: 'glyphicon glyphicon-edit'} %>
 <% end %>
 <% if crud_conditions(objeto, 'Eliminar') %>
 	<% if not has_child?(objeto) %>

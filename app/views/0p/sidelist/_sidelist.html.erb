@@ -1,0 +1,18 @@
+<h5><%= name_list %></h5>
+<% side_list(name_list).each do |elemento| %>
+	<small>
+
+	<div class='row'>
+		<div class="col-md-<%= elemento[0]-1%>"></div>
+		<div class="col-md-<%= 12 - elemento[0]+1%>">
+			<% case elemento[1] %>
+			<% when 'item' %>
+				<%= link_to elemento[2], root_path %>
+			<% when 'list' %>
+				<%= elemento[2] %>
+			<% end %>
+		</div>
+	</div>
+
+	</small>
+<% end %>
