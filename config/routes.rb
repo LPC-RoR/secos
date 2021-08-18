@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       match :desvincular, via: :get, on: :member
     end
     resources :administradores
+    resources :nominas
     resources :archivos
     resources :documentos do
       resources :archivos

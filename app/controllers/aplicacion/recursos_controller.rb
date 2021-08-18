@@ -15,6 +15,7 @@ class Aplicacion::RecursosController < ApplicationController
   def administracion
     @coleccion = {}
     @coleccion['administradores'] = Administrador.all
+    @coleccion['nominas'] = Nomina.all
     @coleccion['perfiles'] = Perfil.all
 #    @coleccion['tipo_publicaciones'] = TipoPublficacion.all.order(:tipo_publicacion)
 #    @coleccion['formato_cargas'] = FormatoCarga.all.order(:formato_carga)

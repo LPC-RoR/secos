@@ -3,6 +3,10 @@
 	<div class='col-md-6'>
 		<%= render partial: '0p/general/titulo', locals: {c: 'administradores', a: nil, titulo: 'Administradores', size: '5'} %>
 		<%= render partial: '0p/tabla/tabla', locals: {c: 'administradores', a: 'index'} %>
+		</br></br>
+		<%= render partial: '0p/general/titulo', locals: {c: 'nominas', a: nil, titulo: 'Nomina', size: '5'} %>
+		<%= render partial: '0p/tabla/solo_tabla', locals: {c: 'nominas', a: 'index'} %>
+		<%= render partial: '0p/tabla/btn_nuevo', locals: {c: 'nominas'} %>
 	</div>
 	<div class='col-md-6'>
 		<%= render partial: '0p/general/titulo', locals: {c: 'perfiles', a: nil, titulo: 'Perfiles Usuarios', size: '5'} %>

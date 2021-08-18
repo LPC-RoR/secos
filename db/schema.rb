@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_12_153155) do
+ActiveRecord::Schema.define(version: 2021_08_18_212911) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,14 @@ ActiveRecord::Schema.define(version: 2021_08_12_153155) do
     t.index ["fecha_envio"], name: "index_mensajes_on_fecha_envio"
     t.index ["perfil_id"], name: "index_mensajes_on_perfil_id"
     t.index ["tipo"], name: "index_mensajes_on_tipo"
+  end
+
+  create_table "nominas", force: :cascade do |t|
+    t.string "email"
+    t.string "tipo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_nominas_on_email"
   end
 
   create_table "pasos", force: :cascade do |t|

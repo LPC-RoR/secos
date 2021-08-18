@@ -24,21 +24,33 @@ class ApplicationController < ActionController::Base
 			# En este minuto SIMULA que viene de la autenticacion con un usuario.email == 'hugo.chinga.g@gmail.com'
 			# 1.- Verifica si Hay Perfil para ese correo
 			@perfil = Perfil.find_by(email: current_usuario.email)
-			@perfil = Perfil.create(email: current_usuario.email) if @perfil.blank?
 
-			# 2.- Preguntamos SI ESTA EN LA LISTA DE ADMINISTRADORES, si ESTÁ se asegura de relacionarlo
-			@administrador = Administrador.find_by(email: @perfil.email)
-			# ACTUALIZO ADMINISTRADOR DEL PERFIL SI ES NECESARIO
-			if @administrador.present? and @perfil.administrador.blank?
-				@perfil.administrador = @administrador
-				@perfil.save
+			if @perfil.blank?
+				administrador = Administrador.find_by(email: current_usuario.email)
+				if administrador.present?
+					@perfil = Perfil.create(email: current_usuario.email)
+					@perfil.administrador = administrador
+					@perfil.save
+				end
+				nomina = Nomina.find_by(email: current_usuario.email)
+				if nomina.present?
+					@perfil = Perfil.create(email: current_usuario.email)
+				end
 			end
-			session[:perfil_base]      = @perfil
-			session[:perfil_activo]    = @perfil
-			session[:administrador]    = @perfil.administrador
-			session[:es_administrador] = @perfil.administrador.present?
 
-			inicia_app
+			if @perfil.present?
+				session[:hay_perfil]       = true
+
+				session[:perfil_base]      = @perfil
+				session[:perfil_activo]    = @perfil
+				session[:administrador]    = @perfil.administrador
+				session[:es_administrador] = @perfil.administrador.present?
+
+				inicia_app
+			else
+				session[:hay_perfil]       = false
+				
+			end
 		end
 	end
 

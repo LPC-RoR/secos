@@ -72,16 +72,20 @@ module ApplicationHelper
 
 	def display_item_menu?(item, tipo_item)
 		# ITEMS de MENU sólo para USUARIOS REGISTRADOS
-		case tipo_item
-		when 'admin'
-			(usuario_signed_in? and session[:es_administrador] == true)
-		when 'usuario'
-			usuario_signed_in? and display_item_app(item, tipo_item)
-		when 'anonimo'
-			true
-		when 'dog'
-			usuario_signed_in? and session[:perfil_activo]['email'] == 'hugo.chinga.g@gmail.com'
-		when 'excluir'
+		if session[:hay_perfil] == true
+			case tipo_item
+			when 'admin'
+				(usuario_signed_in? and session[:es_administrador] == true)
+			when 'usuario'
+				usuario_signed_in? and display_item_app(item, tipo_item)
+			when 'anonimo'
+				true
+			when 'dog'
+				usuario_signed_in? and session[:perfil_activo]['email'] == 'hugo.chinga.g@gmail.com'
+			when 'excluir'
+				false
+			end
+		else
 			false
 		end
 	end
