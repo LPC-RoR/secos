@@ -1,35 +1,35 @@
-class Aplicacion::NominasController < ApplicationController
+class DisciplinasController < ApplicationController
   before_action :authenticate_usuario!
   before_action :inicia_sesion
   before_action :carga_temas_ayuda
-  before_action :set_nomina, only: %i[ show edit update destroy ]
+  before_action :set_disciplina, only: %i[ show edit update destroy ]
 
-  # GET /nominas or /nominas.json
+  # GET /disciplinas or /disciplinas.json
   def index
-    @coleccion = Nomina.all
+    @coleccion = Disciplina.all
   end
 
-  # GET /nominas/1 or /nominas/1.json
+  # GET /disciplinas/1 or /disciplinas/1.json
   def show
   end
 
-  # GET /nominas/new
+  # GET /disciplinas/new
   def new
-    @objeto = Nomina.new
+    @objeto = Disciplina.new
   end
 
-  # GET /nominas/1/edit
+  # GET /disciplinas/1/edit
   def edit
   end
 
-  # POST /nominas or /nominas.json
+  # POST /disciplinas or /disciplinas.json
   def create
-    @objeto = Nomina.new(nomina_params)
+    @objeto = Disciplina.new(disciplina_params)
 
     respond_to do |format|
       if @objeto.save
         set_redireccion
-        format.html { redirect_to @redireccion, notice: "Nomina was successfully created." }
+        format.html { redirect_to @redireccion, notice: "Disciplina was successfully created." }
         format.json { render :show, status: :created, location: @objeto }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,12 +38,12 @@ class Aplicacion::NominasController < ApplicationController
     end
   end
 
-  # PATCH/PUT /nominas/1 or /nominas/1.json
+  # PATCH/PUT /disciplinas/1 or /disciplinas/1.json
   def update
     respond_to do |format|
-      if @objeto.update(nomina_params)
+      if @objeto.update(disciplina_params)
         set_redireccion
-        format.html { redirect_to @redireccion, notice: "Nomina was successfully updated." }
+        format.html { redirect_to @redireccion, notice: "Disciplina was successfully updated." }
         format.json { render :show, status: :ok, location: @objeto }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,28 +52,28 @@ class Aplicacion::NominasController < ApplicationController
     end
   end
 
-  # DELETE /nominas/1 or /nominas/1.json
+  # DELETE /disciplinas/1 or /disciplinas/1.json
   def destroy
     set_redireccion
     @objeto.destroy
     respond_to do |format|
-      format.html { redirect_to @redireccion, notice: "Nomina was successfully destroyed." }
+      format.html { redirect_to @redireccion, notice: "Disciplina was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_nomina
-      @objeto = Nomina.find(params[:id])
+    def set_disciplina
+      @objeto = Disciplina.find(params[:id])
     end
 
     def set_redireccion
-      @redireccion = '/recursos/administracion?t=Nómina'
+      @redireccion = '/recursos/administracion?t=Disciplinas'
     end
 
     # Only allow a list of trusted parameters through.
-    def nomina_params
-      params.require(:nomina).permit(:email, :tipo)
+    def disciplina_params
+      params.require(:disciplina).permit(:disciplina)
     end
 end

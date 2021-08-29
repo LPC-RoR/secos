@@ -76,7 +76,7 @@ class Aplicacion::AdministradoresController < ApplicationController
     end
 
     def set_redireccion
-      @redireccion = administradores_path
+      @redireccion = '/recursos/administracion?t=Administradores'
     end
 
     # Only allow a list of trusted parameters through.

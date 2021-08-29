@@ -1,0 +1,147 @@
+<div class='row'>
+	<div class='col-md-6'>
+
+		<h3 class='text-info'>Datos del Centro</h3>
+
+		<small><b><%= form.label 'Nombre Español del Centro' %></b></small></br>
+		<%= form.text_field(:nombre_espaniol, size: 74, class: 'form-control-sm') %>
+
+		<small><b><%= form.label 'Nombre Inglés del Centro' %></b></small></br>
+		<%= form.text_field(:nombre_ingles, size: 74, class: 'form-control-sm') %>
+
+		<small><b><%= form.label 'Descripción del Centro' %></b></small></br>
+	  	<%= form.text_area :descripcion, size: '66x8' %><!--/br-->
+
+		<small><b><%= form.label 'Acrónimo' %></b></small></br>
+		<%= form.text_field(:acronimo, size: 74, class: 'form-control-sm') %>
+
+		<small><b><%= form.label 'Tipo de Centro' %></b></small></br>
+		<%= form.text_field(:tipo_centro, size: 74, class: 'form-control-sm') %>
+
+		<small><b><%= form.label 'Ámbito' %></b></small></br>
+		<%= form.text_field(:ambito, size: 74, class: 'form-control-sm') %>
+
+		<small><b><%= form.label 'Estado' %></b></small></br>
+		<%= form.text_field(:estado, size: 74, class: 'form-control-sm') %>
+
+		<small><b><%= form.label 'Documento Decreto Aprobatorio' %></b></small></br>
+		<p>
+		  	<% if @objeto.doc_aprobatorio.present? %>
+			  	<i><%= @objeto.doc_aprobatorio.url.split('/').last %></i></br>
+				<label>
+				  <%= form.check_box :remove_doc_aprobatorio %>
+				  Remueve Documento Decreto Aprobatorio
+				</label>
+		  	<% else %>
+			    <%= form.file_field :doc_aprobatorio %>
+		    <% end %>
+		</p>
+
+		<small><b><%= form.label 'Documento Decreto Aprobatorio Extensión' %></b></small></br>
+		<p>
+		  	<% if @objeto.doc_extension.present? %>
+			  	<i><%= @objeto.doc_extension.url.split('/').last %></i></br>
+				<label>
+				  <%= form.check_box :remove_doc_extension %>
+				  Remueve Documento Documento Decreto Aprobatorio Extensión
+				</label>
+		  	<% else %>
+			    <%= form.file_field :doc_extension %>
+		    <% end %>
+		</p>
+
+		</br></br>
+		<h3 class='text-info'>Datos de Etapa(s)</h3>
+
+		<small><b><%= form.label 'Etapa' %></b></small></br>
+		<%= form.text_field(:etapa, size: 74, class: 'form-control-sm') %>
+
+		<small><b><%= form.label 'Código Proyecto' %></b></small></br>
+		<%= form.text_field(:codigo_proyecto, size: 74, class: 'form-control-sm') %>
+
+		<small><b><%= form.label 'Decreto Aprobatorio' %></b></small></br>
+		<%= form.text_field(:decreto_aprobatorio, size: 74, class: 'form-control-sm') %>
+
+		<small><b><%= form.label 'Fecha Decreto Aprobatorio' %></b></small></br>
+		<%= form.text_field(:fecha_decreto_aprobatorio, size: 74, class: 'form-control-sm') %>
+
+		<small><b><%= form.label 'Fecha Inicio Centro' %></b></small></br>
+		<%= form.text_field(:fecha_inicio, size: 74, class: 'form-control-sm') %>
+
+		<small><b><%= form.label 'Fecha Término Centro' %></b></small></br>
+		<%= form.text_field(:fecha_termino, size: 74, class: 'form-control-sm') %>
+
+		<small><b><%= form.label 'Fecha Término Extensión' %></b></small></br>
+		<%= form.text_field(:fecha_termino_extension, size: 74, class: 'form-control-sm') %>
+
+		<small><b><%= form.label 'Personalidad Jurídica' %></b></small></br>
+		<%= form.text_field(:personalidad_juridica, size: 74, class: 'form-control-sm') %>
+
+		<small><b><%= form.label 'Dirección' %></b></small></br>
+		<%= form.text_field(:direccion, size: 74, class: 'form-control-sm') %>
+
+		<small><b><%= form.label 'Teléfono' %></b></small></br>
+		<%= form.text_field(:telefono, size: 74, class: 'form-control-sm') %>
+
+		<small><b><%= form.label 'Fax' %></b></small></br>
+		<%= form.text_field(:fax, size: 74, class: 'form-control-sm') %>
+
+		<small><b><%= form.label 'Sitio Web' %></b></small></br>
+		<%= form.text_field(:sitio_web, size: 74, class: 'form-control-sm') %>
+
+		</br></br>
+		<h3 class='text-info'>Institución(es) Albergante(s)</h3>
+
+		<small><b><%= form.label 'Institución Albergante' %></b></small></br>
+		<%= form.text_field(:institucion_albergante, size: 74, class: 'form-control-sm') %>
+
+		<small><b><%= form.label 'Nombre de Autoridad' %></b></small></br>
+		<%= form.text_field(:nombre_autoridad, size: 74, class: 'form-control-sm') %>
+
+		</br></br>
+		<h3 class='text-info'>Investigador Responsable</h3>
+
+		<small><b><%= form.label 'Nombres' %></b></small></br>
+		<%= form.text_field(:nombres_investigador_responsable, size: 74, class: 'form-control-sm') %>
+
+		<small><b><%= form.label 'Apellido Paterno' %></b></small></br>
+		<%= form.text_field(:paterno_investigador_responsable, size: 74, class: 'form-control-sm') %>
+
+		<small><b><%= form.label 'Apellido Materno' %></b></small></br>
+		<%= form.text_field(:materno_investigador_responsable, size: 74, class: 'form-control-sm') %>
+
+		</br></br>
+		<h3 class='text-info'>Datos Encargado Administrativo</h3>
+
+		<small><b><%= form.label 'Nombre Encargado Administrativo' %></b></small></br>
+		<%= form.text_field(:admin_nombre, size: 74, class: 'form-control-sm') %>
+
+		<small><b><%= form.label 'Teléfono Encargado Administrativo' %></b></small></br>
+		<%= form.text_field(:admin_telefono, size: 74, class: 'form-control-sm') %>
+
+		<small><b><%= form.label 'E-mail Encargado Administrativo' %></b></small></br>
+		<%= form.text_field(:admin_email, size: 74, class: 'form-control-sm') %>
+
+		<small><b><%= form.label 'Ejecutivo de Rendiciones' %></b></small></br>
+		<%= form.text_field(:admin_ejecutivo_rendiciones, size: 74, class: 'form-control-sm') %>
+
+		</br></br>
+		<h3 class='text-info'>Datos Encargado Científico</h3>
+
+		<small><b><%= form.label 'Nombre Encargado Científico' %></b></small></br>
+		<%= form.text_field(:cientif_nombre, size: 74, class: 'form-control-sm') %>
+
+		<small><b><%= form.label 'E-mail Encargado Científico' %></b></small></br>
+		<%= form.text_field(:cientif_email, size: 74, class: 'form-control-sm') %>
+
+		</br></br>
+		<h3 class='text-info'>Datos Encargado PME y Redes</h3>
+
+		<small><b><%= form.label 'Nombre Encargado PME y Redes' %></b></small></br>
+		<%= form.text_field(:pme_red_nombre, size: 74, class: 'form-control-sm') %>
+
+		<small><b><%= form.label 'E-mail Encargado PME y Redes' %></b></small></br>
+		<%= form.text_field(:pme_red_email, size: 74, class: 'form-control-sm') %>
+
+	</div>
+</div>

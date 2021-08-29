@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Investigadores</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipo documento</th>
+      <th>Rut pasaporte</th>
+      <th>Nombres</th>
+      <th>Paterno</th>
+      <th>Materno</th>
+      <th>Direccion correspondencia</th>
+      <th>Region</th>
+      <th>Fecha nacimiento</th>
+      <th>Nacionalidad</th>
+      <th>Profesion</th>
+      <th>Otra profesion</th>
+      <th>Institucion</th>
+      <th>Cargo</th>
+      <th>Email</th>
+      <th>Telefono 1</th>
+      <th>Telefono 2</th>
+      <th>Celular</th>
+      <th>Fuente financiamiento</th>
+      <th>Relacion centro</th>
+      <th>Fecha inicio</th>
+      <th>Fecha termino</th>
+      <th>Vigencia</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @investigadores.each do |investigador| %>
+      <tr>
+        <td><%= investigador.tipo_documento %></td>
+        <td><%= investigador.rut_pasaporte %></td>
+        <td><%= investigador.nombres %></td>
+        <td><%= investigador.paterno %></td>
+        <td><%= investigador.materno %></td>
+        <td><%= investigador.direccion_correspondencia %></td>
+        <td><%= investigador.region_id %></td>
+        <td><%= investigador.fecha_nacimiento %></td>
+        <td><%= investigador.nacionalidad_id %></td>
+        <td><%= investigador.profesion_id %></td>
+        <td><%= investigador.otra_profesion %></td>
+        <td><%= investigador.institucion %></td>
+        <td><%= investigador.cargo %></td>
+        <td><%= investigador.email %></td>
+        <td><%= investigador.telefono_1 %></td>
+        <td><%= investigador.telefono_2 %></td>
+        <td><%= investigador.celular %></td>
+        <td><%= investigador.fuente_financiamiento %></td>
+        <td><%= investigador.relacion_centro %></td>
+        <td><%= investigador.fecha_inicio %></td>
+        <td><%= investigador.fecha_termino %></td>
+        <td><%= investigador.vigencia %></td>
+        <td><%= link_to 'Show', investigador %></td>
+        <td><%= link_to 'Edit', edit_investigador_path(investigador) %></td>
+        <td><%= link_to 'Destroy', investigador, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Investigador', new_investigador_path %>

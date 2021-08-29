@@ -1,0 +1,49 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tipo_documento: MyString
+  rut_pasaporte: MyString
+  nombres: MyString
+  paterno: MyString
+  materno: MyString
+  direccion_correspondencia: MyString
+  region_id: 1
+  fecha_nacimiento: 2021-08-27 15:47:05
+  nacionalidad_id: 1
+  profesion_id: 1
+  otra_profesion: MyString
+  institucion: MyString
+  cargo: MyString
+  email: MyString
+  telefono_1: MyString
+  telefono_2: MyString
+  celular: MyString
+  fuente_financiamiento: MyString
+  relacion_centro: MyString
+  fecha_inicio: 2021-08-27 15:47:05
+  fecha_termino: 2021-08-27 15:47:05
+  vigencia: MyString
+
+two:
+  tipo_documento: MyString
+  rut_pasaporte: MyString
+  nombres: MyString
+  paterno: MyString
+  materno: MyString
+  direccion_correspondencia: MyString
+  region_id: 1
+  fecha_nacimiento: 2021-08-27 15:47:05
+  nacionalidad_id: 1
+  profesion_id: 1
+  otra_profesion: MyString
+  institucion: MyString
+  cargo: MyString
+  email: MyString
+  telefono_1: MyString
+  telefono_2: MyString
+  celular: MyString
+  fuente_financiamiento: MyString
+  relacion_centro: MyString
+  fecha_inicio: 2021-08-27 15:47:05
+  fecha_termino: 2021-08-27 15:47:05
+  vigencia: MyString

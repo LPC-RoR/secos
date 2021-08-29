@@ -1,0 +1,2 @@
+module LineaInvestigacionesHelper
+end

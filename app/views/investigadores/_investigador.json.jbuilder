@@ -1,0 +1,2 @@
+json.extract! investigador, :id, :tipo_documento, :rut_pasaporte, :nombres, :paterno, :materno, :direccion_correspondencia, :region_id, :fecha_nacimiento, :nacionalidad_id, :profesion_id, :otra_profesion, :institucion, :cargo, :email, :telefono_1, :telefono_2, :celular, :fuente_financiamiento, :relacion_centro, :fecha_inicio, :fecha_termino, :vigencia, :created_at, :updated_at
+json.url investigador_url(investigador, format: :json)

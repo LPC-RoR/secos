@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :investigadores
+  resources :disciplinas
+  resources :linea_investigaciones
+  resources :datos_centros
   scope module: 'aplicacion' do
     resources :recursos do
       collection do

@@ -10,15 +10,48 @@ class Aplicacion::RecursosController < ApplicationController
 
   def ingreso_datos_anuales
     @t = params[:t].blank? ? 'Datos Centro' : params[:t]
+
+    @coleccion = {}
+
+    case @t
+    when 'Datos Centro'
+      @tabla = 'datos_centros'
+    when 'Líneas de Investigación'
+      @tabla = 'linea_investigaciones'
+    when 'Investigadores Centro'
+      @tabla = 'investigadores'
+    when 'Actividades Científicas Organizadas'
+      @tabla = 'perfiles'
+    when 'Publicaciones'
+      @tabla = 'datos_centros'
+    end
+
+    @new_button = true
+
+    @coleccion[@tabla] = @tabla.classify.constantize.all
   end
 
   def administracion
+    @t = params[:t].blank? ? 'Administradores' : params[:t]
+
     @coleccion = {}
-    @coleccion['administradores'] = Administrador.all
-    @coleccion['nominas'] = Nomina.all
-    @coleccion['perfiles'] = Perfil.all
-#    @coleccion['tipo_publicaciones'] = TipoPublficacion.all.order(:tipo_publicacion)
-#    @coleccion['formato_cargas'] = FormatoCarga.all.order(:formato_carga)
+
+    case @t
+    when 'Administradores'
+      @tabla = 'administradores'
+    when 'Nómina'
+      @tabla = 'nominas'
+    when 'Perfiles'
+      @tabla = 'perfiles'
+    when 'Datos Centro'
+      @tabla = 'datos_centros'
+    when 'Disciplinas'
+      @tabla = 'disciplinas'
+    end
+
+    @new_button = true unless ['Perfiles'].include?(@t)
+
+    @coleccion[@tabla] = @tabla.classify.constantize.all
     
   end
 

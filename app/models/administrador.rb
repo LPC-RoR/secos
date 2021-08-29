@@ -1,4 +1,5 @@
 class Administrador < ApplicationRecord
+
 	TABLA_FIELDS = [
 		['administrador', 'normal'], 
 		['email',         'normal']

@@ -65,6 +65,15 @@ module RecursosHelper
 				[1, 'item', 'Personal Técnico y Administrativo'],
 				[1, 'item', 'Fuentes de Financiamiento']
 			]
+		when 'Administracion'
+			[
+				[1, 'item', 'Administradores'],
+				[1, 'item', 'Nómina'],
+				[1, 'item', 'Perfiles'],
+				[1, 'list', 'Archivos'],
+				[2, 'item', 'Datos Centro'],
+				[2, 'item', 'Disciplinas'],
+			]
 		end
 	end
 
@@ -237,7 +246,8 @@ module RecursosHelper
 	## ------------------------------------------------------- FORM & SHOW
 
 	def detail_controller_path(controller)
-		if ['publicaciones'].include?(controller)
+		if File.exist?("app/views/#{controller}/_detail.html.erb")
+#		if ['publicaciones'].include?(controller)
 			"#{controller}/detail"
 		else
 			'0p/form/detail'

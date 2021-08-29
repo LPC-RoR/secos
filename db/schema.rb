@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_18_212911) do
+ActiveRecord::Schema.define(version: 2021_08_28_205637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,8 +36,100 @@ ActiveRecord::Schema.define(version: 2021_08_18_212911) do
     t.index ["orden"], name: "index_archivos_on_orden"
   end
 
+  create_table "datos_centros", force: :cascade do |t|
+    t.string "nombre_espaniol"
+    t.string "nombre_ingles"
+    t.text "descripcion"
+    t.string "acronimo"
+    t.string "tipo_centro"
+    t.string "ambito"
+    t.string "estado"
+    t.string "doc_aprobatorio"
+    t.string "doc_extension"
+    t.string "etapa"
+    t.string "codigo_proyecto"
+    t.string "decreto_aprobatorio"
+    t.datetime "fecha_decreto_aprobatorio"
+    t.datetime "fecha_inicio"
+    t.datetime "fecha_termino"
+    t.datetime "fecha_termino_extension"
+    t.string "personalidad_juridica"
+    t.string "direccion"
+    t.string "telefono"
+    t.string "fax"
+    t.string "sitio_web"
+    t.string "institucion_albergante"
+    t.string "nombre_autoridad"
+    t.string "nombres_investigador_responsable"
+    t.string "paterno_investigador_responsable"
+    t.string "materno_investigador_responsable"
+    t.string "admin_nombre"
+    t.string "admin_telefono"
+    t.string "admin_email"
+    t.string "admin_ejecutivo_rendiciones"
+    t.string "cientif_nombre"
+    t.string "cientif_email"
+    t.string "pme_red_nombre"
+    t.string "pme_red_email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "remove_doc_aprobatorio"
+    t.boolean "remove_doc_extension"
+    t.index ["remove_doc_aprobatorio"], name: "index_datos_centros_on_remove_doc_aprobatorio"
+    t.index ["remove_doc_extension"], name: "index_datos_centros_on_remove_doc_extension"
+  end
+
+  create_table "disciplinas", force: :cascade do |t|
+    t.string "disciplina"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["disciplina"], name: "index_disciplinas_on_disciplina"
+  end
+
   create_table "documentos", force: :cascade do |t|
     t.string "documento"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "investigadores", force: :cascade do |t|
+    t.string "tipo_documento"
+    t.string "rut_pasaporte"
+    t.string "nombres"
+    t.string "paterno"
+    t.string "materno"
+    t.string "direccion_correspondencia"
+    t.integer "region_id"
+    t.datetime "fecha_nacimiento"
+    t.integer "nacionalidad_id"
+    t.integer "profesion_id"
+    t.string "otra_profesion"
+    t.string "institucion"
+    t.string "cargo"
+    t.string "email"
+    t.string "telefono_1"
+    t.string "telefono_2"
+    t.string "celular"
+    t.string "fuente_financiamiento"
+    t.string "relacion_centro"
+    t.datetime "fecha_inicio"
+    t.datetime "fecha_termino"
+    t.string "vigencia"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["nacionalidad_id"], name: "index_investigadores_on_nacionalidad_id"
+    t.index ["profesion_id"], name: "index_investigadores_on_profesion_id"
+    t.index ["region_id"], name: "index_investigadores_on_region_id"
+  end
+
+  create_table "linea_investigaciones", force: :cascade do |t|
+    t.string "linea_investigacion"
+    t.text "objetivo"
+    t.text "descripcion"
+    t.text "conceptos_clave"
+    t.datetime "fecha_inicio"
+    t.datetime "fecha_termino"
+    t.string "validez"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,0 +1,73 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre_espaniol: MyString
+  nombre_ingles: MyString
+  descripcion: MyText
+  acronimo: MyString
+  tipo_centro: MyString
+  ambito: MyString
+  estado: MyString
+  doc_aprobatorio: MyString
+  doc_extension: MyString
+  etapa: MyString
+  codigo_proyecto: MyString
+  decreto_aprobatorio: MyString
+  fecha_decreto_aprobatorio: 2021-08-27 09:36:37
+  fecha_inicio: 2021-08-27 09:36:37
+  fecha_termino: 2021-08-27 09:36:37
+  fecha_termino_extension: 2021-08-27 09:36:37
+  personalidad_juridica: MyString
+  direccion: MyString
+  telefono: MyString
+  fax: MyString
+  sitio_web: MyString
+  institucion_albergante: MyString
+  nombre_autoridad: MyString
+  nombres_investigador_responsable: MyString
+  paterno_investigador_responsable: MyString
+  materno_investigador_responsable: MyString
+  admin_nombre: MyString
+  admin_telefono: MyString
+  admin_email: MyString
+  admin_ejecutivo_rendiciones: MyString
+  cientif_nombre: MyString
+  cientif_email: MyString
+  pme_red_nombre: MyString
+  pme_red_email: MyString
+
+two:
+  nombre_espaniol: MyString
+  nombre_ingles: MyString
+  descripcion: MyText
+  acronimo: MyString
+  tipo_centro: MyString
+  ambito: MyString
+  estado: MyString
+  doc_aprobatorio: MyString
+  doc_extension: MyString
+  etapa: MyString
+  codigo_proyecto: MyString
+  decreto_aprobatorio: MyString
+  fecha_decreto_aprobatorio: 2021-08-27 09:36:37
+  fecha_inicio: 2021-08-27 09:36:37
+  fecha_termino: 2021-08-27 09:36:37
+  fecha_termino_extension: 2021-08-27 09:36:37
+  personalidad_juridica: MyString
+  direccion: MyString
+  telefono: MyString
+  fax: MyString
+  sitio_web: MyString
+  institucion_albergante: MyString
+  nombre_autoridad: MyString
+  nombres_investigador_responsable: MyString
+  paterno_investigador_responsable: MyString
+  materno_investigador_responsable: MyString
+  admin_nombre: MyString
+  admin_telefono: MyString
+  admin_email: MyString
+  admin_ejecutivo_rendiciones: MyString
+  cientif_nombre: MyString
+  cientif_email: MyString
+  pme_red_nombre: MyString
+  pme_red_email: MyString

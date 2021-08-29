@@ -1,0 +1,127 @@
+<%= form_with(model: investigador, local: true) do |form| %>
+  <% if investigador.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(investigador.errors.count, "error") %> prohibited this investigador from being saved:</h2>
+
+      <ul>
+      <% investigador.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :tipo_documento %>
+    <%= form.text_field :tipo_documento %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rut_pasaporte %>
+    <%= form.text_field :rut_pasaporte %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nombres %>
+    <%= form.text_field :nombres %>
+  </div>
+
+  <div class="field">
+    <%= form.label :paterno %>
+    <%= form.text_field :paterno %>
+  </div>
+
+  <div class="field">
+    <%= form.label :materno %>
+    <%= form.text_field :materno %>
+  </div>
+
+  <div class="field">
+    <%= form.label :direccion_correspondencia %>
+    <%= form.text_field :direccion_correspondencia %>
+  </div>
+
+  <div class="field">
+    <%= form.label :region_id %>
+    <%= form.number_field :region_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha_nacimiento %>
+    <%= form.datetime_select :fecha_nacimiento %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nacionalidad_id %>
+    <%= form.number_field :nacionalidad_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :profesion_id %>
+    <%= form.number_field :profesion_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :otra_profesion %>
+    <%= form.text_field :otra_profesion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :institucion %>
+    <%= form.text_field :institucion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cargo %>
+    <%= form.text_field :cargo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :telefono_1 %>
+    <%= form.text_field :telefono_1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :telefono_2 %>
+    <%= form.text_field :telefono_2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :celular %>
+    <%= form.text_field :celular %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fuente_financiamiento %>
+    <%= form.text_field :fuente_financiamiento %>
+  </div>
+
+  <div class="field">
+    <%= form.label :relacion_centro %>
+    <%= form.text_field :relacion_centro %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha_inicio %>
+    <%= form.datetime_select :fecha_inicio %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha_termino %>
+    <%= form.datetime_select :fecha_termino %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vigencia %>
+    <%= form.text_field :vigencia %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
