@@ -1,0 +1,45 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  actividad: MyString
+  tipo_conexion: MyString
+  tipo_actividad: MyString
+  otro_tipo_actividad: MyString
+  objetivo_actividad: MyText
+  fecha_inicio: 2021-09-07 13:14:02
+  fecha_termino: 2021-09-07 13:14:02
+  investigador_encargado: MyString
+  fondos_pesos: 9.99
+  fondos_dolares: 9.99
+  costo_vinculo_pesos: 9.99
+  costo_vinculo_dolares: 9.99
+  nombre_institucion: MyString
+  pais_institucion: MyString
+  region_institucion: MyString
+  ciudad: MyString
+  tipo_institucion: MyString
+  otro_tipo_institucion: MyString
+  sector_economico: MyString
+  otro_sector_economico: MyString
+
+two:
+  actividad: MyString
+  tipo_conexion: MyString
+  tipo_actividad: MyString
+  otro_tipo_actividad: MyString
+  objetivo_actividad: MyText
+  fecha_inicio: 2021-09-07 13:14:02
+  fecha_termino: 2021-09-07 13:14:02
+  investigador_encargado: MyString
+  fondos_pesos: 9.99
+  fondos_dolares: 9.99
+  costo_vinculo_pesos: 9.99
+  costo_vinculo_dolares: 9.99
+  nombre_institucion: MyString
+  pais_institucion: MyString
+  region_institucion: MyString
+  ciudad: MyString
+  tipo_institucion: MyString
+  otro_tipo_institucion: MyString
+  sector_economico: MyString
+  otro_sector_economico: MyString

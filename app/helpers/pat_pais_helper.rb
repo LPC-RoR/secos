@@ -1,0 +1,2 @@
+module PatPaisHelper
+end

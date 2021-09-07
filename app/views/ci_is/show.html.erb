@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Comite editorial:</strong>
+  <%= @ci_i.comite_editorial_id %>
+</p>
+
+<p>
+  <strong>Investigador:</strong>
+  <%= @ci_i.investigador_id %>
+</p>
+
+<%= link_to 'Edit', edit_ci_i_path(@ci_i) %> |
+<%= link_to 'Back', ci_is_path %>

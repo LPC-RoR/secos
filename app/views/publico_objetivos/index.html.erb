@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Publico Objetivos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Publico objetivo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @publico_objetivos.each do |publico_objetivo| %>
+      <tr>
+        <td><%= publico_objetivo.publico_objetivo %></td>
+        <td><%= link_to 'Show', publico_objetivo %></td>
+        <td><%= link_to 'Edit', edit_publico_objetivo_path(publico_objetivo) %></td>
+        <td><%= link_to 'Destroy', publico_objetivo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Publico Objetivo', new_publico_objetivo_path %>

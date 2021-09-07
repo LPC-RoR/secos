@@ -1,0 +1,2 @@
+module RcIsHelper
+end

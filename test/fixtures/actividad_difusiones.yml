@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  asociada_concurso_milenio: MyString
+  organizacion: MyString
+  alcance: MyString
+  titulo_evento: MyString
+  tipo_evento: MyString
+  otro_tipo_evento: MyString
+  fecha: 2021-09-06 00:46:19
+  pais_institucion: MyString
+  region_ubicacion: MyString
+  descripcion_actividad: MyText
+  n_asistentes_estudiantes: 1
+  n_total_asistentes: 1
+  duracion: 1
+  responsable_actividad: MyString
+
+two:
+  asociada_concurso_milenio: MyString
+  organizacion: MyString
+  alcance: MyString
+  titulo_evento: MyString
+  tipo_evento: MyString
+  otro_tipo_evento: MyString
+  fecha: 2021-09-06 00:46:19
+  pais_institucion: MyString
+  region_ubicacion: MyString
+  descripcion_actividad: MyText
+  n_asistentes_estudiantes: 1
+  n_total_asistentes: 1
+  duracion: 1
+  responsable_actividad: MyString

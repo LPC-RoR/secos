@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  investigador: MyString
+  premio: MyString
+  fecha: 2021-09-02 17:31:44
+  contribucion: MyString
+  institucion: MyString
+  pais: MyString
+
+two:
+  investigador: MyString
+  premio: MyString
+  fecha: 2021-09-02 17:31:44
+  contribucion: MyString
+  institucion: MyString
+  pais: MyString

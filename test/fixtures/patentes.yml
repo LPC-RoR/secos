@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  titulo: MyString
+  descripcion: MyText
+  categoria: MyString
+  solicitante: MyString
+  inventor: MyString
+  n_solicitud: MyString
+  fecha_solicitud: 2021-09-02 16:03:59
+  estado: MyString
+  n_registro: MyString
+  fecha_registro: 2021-09-02 16:03:59
+
+two:
+  titulo: MyString
+  descripcion: MyText
+  categoria: MyString
+  solicitante: MyString
+  inventor: MyString
+  n_solicitud: MyString
+  fecha_solicitud: 2021-09-02 16:03:59
+  estado: MyString
+  n_registro: MyString
+  fecha_registro: 2021-09-02 16:03:59

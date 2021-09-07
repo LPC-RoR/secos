@@ -1,0 +1,75 @@
+<div class='row'>
+	<div class='col-md-6'>
+
+		<h3 class='text-info'>Registrar Red Formal de Colaboración</h3>
+
+		<small><%= form.label 'Nombre de la Red' %></small></br>
+		<%= form.text_field(:nombre_red, size: 74, class: 'form-control-sm') %>
+		<small><b><%= form.label 'Objetivo' %></b></small></br>
+	  	<%= form.text_area :objetivo, size: '66x8' %><!--/br-->
+		<small><b><%= form.label 'Descripción' %></b></small></br>
+	  	<%= form.text_area :descripcion, size: '66x8' %><!--/br-->
+
+		<small><%= form.label 'Alcance' %></small></br>
+		<%= form.select :alcance, Aco::ALCANCES, prompt: "Alcance?" %></br>
+
+		<small><%= form.label 'N° Investigadores del Centro Milenio en la Red' %></small></br>
+		<%= form.text_field(:n_investigadores_milenio, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'N° Postdoctorados/Estudiantes del Centro Milenio en la Red' %></small></br>
+		<%= form.text_field(:n_postdoc_estudiantes_milenio, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'N° Investigadores Externos en la Red' %></small></br>
+		<%= form.text_field(:n_investigadores_externos, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'N° Postdoctorados/Estudiantes Externos en la Red' %></small></br>
+		<%= form.text_field(:n_postdoc_estudiantes_externos, size: 74, class: 'form-control-sm') %>
+
+		<small><%= form.label 'Instituciones' %></small></br>
+		<%= form.text_field(:instituciones, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Sitio Web' %></small></br>
+		<%= form.text_field(:sitio_web, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Fecha Inicio Participación' %></small></br>
+		<%= form.text_field(:fecha_inicio, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Fecha Término Participación' %></small></br>
+		<%= form.text_field(:fecha_termino, size: 74, class: 'form-control-sm') %>
+
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+		<small><%= form.label 'Investigadores Asociados del Centro que Participan en la Red' %></small></br>
+
+		<ul>
+		<% @objeto.investigadores.each do |inv| %>
+			<li><%= inv.investigador %></li>
+		<% end %>
+		</ul>
+	</div>
+	<div class='col-md-6'>
+		<%= form.select :investigador_ids,
+		    options_from_collection_for_select(Investigador.all, :id, :investigador),
+		    { include_blank: false },
+		    multiple: true,
+		    class: 'select multiple-select',
+		    size: 5 %>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+		<small><%= form.label 'Estudiantes del Centro que Participan en la Red ' %></small></br>
+
+		<ul>
+		<% @objeto.investigadores.each do |al| %>
+			<li><%= al.investigador %></li>
+		<% end %>
+		</ul>
+	</div>
+	<div class='col-md-6'>
+		<%= form.select :investigador_ids,
+		    options_from_collection_for_select(Investigador.all, :id, :alumno),
+		    { include_blank: false },
+		    multiple: true,
+		    class: 'select multiple-select',
+		    size: 5 %>
+	</div>
+</div>

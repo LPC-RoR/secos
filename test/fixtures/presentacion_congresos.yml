@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  alcance: MyString
+  tipo: MyString
+  otro_tipo: MyString
+  organizacion: MyString
+  nombre_presentacion: MyString
+  nombre_evento: MyString
+  link_presentacion: MyString
+  fecha: MyString
+  ciudad: MyString
+  pais: MyString
+
+two:
+  alcance: MyString
+  tipo: MyString
+  otro_tipo: MyString
+  organizacion: MyString
+  nombre_presentacion: MyString
+  nombre_evento: MyString
+  link_presentacion: MyString
+  fecha: MyString
+  ciudad: MyString
+  pais: MyString

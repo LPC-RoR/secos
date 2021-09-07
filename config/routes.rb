@@ -1,5 +1,53 @@
 Rails.application.routes.draw do
 
+  resources :fuente_financiamientos
+  resources :tecnico_administrativos
+  resources :vinculos
+  resources :ae_is
+  resources :ae_lis
+  resources :ae_pos
+  resources :articulo_entrevistas
+  resources :aporte_actividades
+  resources :pp_pos
+  resources :pp_is
+  resources :producto_pmes
+  resources :ad_is
+  resources :ad_pos
+  resources :actividad_difusiones
+  resources :rc_is
+  resources :r_colaboraciones
+  resources :rfc_as
+  resources :rfc_is
+  resources :rf_colaboraciones
+  resources :pasantia_externos
+  resources :pasantia_internos
+  resources :tf_lis
+  resources :tesis_finalizadas
+  resources :fj_is
+  resources :fj_dis
+  resources :fj_nfores
+  resources :nivel_formaciones
+  resources :formacion_jovenes
+  resources :ci_is
+  resources :comite_editoriales
+  resources :pyh_centros
+  resources :pyh_investigadores
+  resources :pc_is
+  resources :presentacion_congresos
+  resources :pat_pais
+  resources :paises
+  resources :patentes
+  resources :pis
+  resources :p_lis
+  resources :publicaciones
+  resources :aco_pos
+  resources :publico_objetivos
+  resources :acos
+  resources :i_dis
+  resources :i_lis
+  resources :i_gas
+  resources :grado_academicos
+  resources :li_dis
   resources :investigadores
   resources :disciplinas
   resources :linea_investigaciones

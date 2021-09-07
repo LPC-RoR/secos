@@ -15,8 +15,37 @@
 		<small><b><%= form.label 'Conceptos Clave' %></b></small></br>
 	  	<%= form.text_area :conceptos_clave, size: '66x8' %><!--/br-->
 
+	</div>
+</div>
 
+<div class='row'>
+	<div class='col-md-6'>
+		<div class="field">
+			<small><b><%= form.label 'Disciplinas' %></b></small></br>
 
+			<ul>
+			<% @objeto.disciplinas.each do |disc| %>
+				<li><%= disc.disciplina %></li>
+			<% end %>
+			</ul>
+		</div>
+	</div>
+		    
+	<div class='col-md-6'>
+		<div class="field">
+			<%= form.select :disciplina_ids,
+		    options_from_collection_for_select(Disciplina.all, :id, :disciplina),
+		    { include_blank: false },
+		    multiple: true,
+		    class: 'select multiple-select',
+		    size: 5 %>
+		</div>
+
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
 
 		<small><b><%= form.label 'Fecha Inicio' %></b></small></br>
 		<%= form.text_field(:fecha_inicio, size: 74, class: 'form-control-sm') %>

@@ -1,0 +1,109 @@
+<div class='row'>
+	<div class='col-md-6'>
+
+		<h3 class='text-info'>Registrar Publicación</h3>
+
+		<small><%= form.label 'Fecha Publicación' %></small></br>
+		<%= form.text_field(:fecha_publicacion, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Categoría Publicación' %></small></br>
+		<%= form.select :categoria_publicacion, Publicacion::CATEGORIAS, prompt: "Categoría Publicación?" %></br>
+		<small><%= form.label 'Otra Categoría' %></small></br>
+		<%= form.text_field(:otra_categoria, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Título' %></small></br>
+		<%= form.text_field(:titulo, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Autores' %></small></br>
+		<%= form.text_field(:autores, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Fuente (Nombre completo de la revisto o de la editorial)' %></small></br>
+		<%= form.text_field(:materno, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Volumen' %></small></br>
+		<%= form.text_field(:volumen, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Número' %></small></br>
+		<%= form.text_field(:numero, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Página Inicial' %></small></br>
+		<%= form.text_field(:pagina_inicial, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'ISSN (Print)' %></small></br>
+		<%= form.text_field(:issn, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'DOI' %></small></br>
+		<%= form.text_field(:doi, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Cuartil' %></small></br>
+		<%= form.select :cuartil, Publicacion::CUARTILES, prompt: "Cuartil?" %></br>
+
+		<small><%= form.label 'N° Autores Investigadores Asociados del Centro' %></small></br>
+		<%= form.text_field(:n_autores_inv_asociados, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'N° Autores Estudiantes' %></small></br>
+		<%= form.text_field(:n_autores_estudiantes, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'N° Autores "Otros Investigadores"' %></small></br>
+		<%= form.text_field(:n_autores_otros, size: 74, class: 'form-control-sm') %>
+
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+		<small><%= form.label 'Líneas de Investigación Vinculadas' %></small></br>
+
+		<ul>
+		<% @objeto.linea_investigaciones.each do |li| %>
+			<li><%= li.linea_investigacion %></li>
+		<% end %>
+		</ul>
+	</div>
+	<div class='col-md-6'>
+		<%= form.select :linea_investigacion_ids,
+		    options_from_collection_for_select(LineaInvestigacion.all, :id, :linea_investigacion),
+		    { include_blank: false },
+		    multiple: true,
+		    class: 'select multiple-select',
+		    size: 5 %>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+		<small><%= form.label 'Invstigadores Asociados' %></small></br>
+
+		<ul>
+		<% @objeto.investigadores.each do |inv| %>
+			<li><%= "#{inv.nombre} #{inv.paterno} #{inv.materno}" %></li>
+		<% end %>
+		</ul>
+	</div>
+	<div class='col-md-6'>
+		<%= form.select :investigador_ids,
+		    options_from_collection_for_select(Investigador.all, :id, :nombre),
+		    { include_blank: false },
+		    multiple: true,
+		    class: 'select multiple-select',
+		    size: 5 %>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+
+		<div class="field">
+			<small><%= form.label '¿Ligada a Red Formal de Colaboración?' %></small></br>
+			<%= form.label :ligada_red_formal, "Sí"  %>
+			<%= form.radio_button :ligada_red_formal, 'Sí', :checked => true %>
+			<%= form.label :ligada_red_formal, "No" %>
+			<%= form.radio_button :ligada_red_formal, 'No' %>
+		</div>
+
+		<small><%= form.label 'Red Formal de Colaboración en la que Participa' %></small></br>
+		<%= form.select :categoria, Investigador::CATEGORIAS, prompt: "Red Formal?" %></br>
+
+		<small><%= form.label 'Documento Relacionado' %></small></br>
+		<p>
+		  	<% if @objeto.documento_relacionado.present? %>
+			  	<i><%= @objeto.documento_relacionado.url.split('/').last %></i></br>
+				<label>
+				  <%= form.check_box :remove_documento_relacionado %>
+				  Remueve Documento Documento Decreto Aprobatorio Extensión
+				</label>
+		  	<% else %>
+			    <%= form.file_field :documento_relacionado %>
+		    <% end %>
+		</p>
+
+	</div>
+</div>

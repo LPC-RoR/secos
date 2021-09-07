@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: 2021-09-06 09:58:23
+  producto: MyString
+  objetivo: MyText
+  alcance: MyString
+  tipo_producto: MyString
+  otro_tipo_producto: MyString
+
+two:
+  fecha: 2021-09-06 09:58:23
+  producto: MyString
+  objetivo: MyText
+  alcance: MyString
+  tipo_producto: MyString
+  otro_tipo_producto: MyString

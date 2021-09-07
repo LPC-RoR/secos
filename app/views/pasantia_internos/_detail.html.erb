@@ -1,0 +1,26 @@
+<div class='row'>
+	<div class='col-md-6'>
+
+		<h3 class='text-info'>Registrar Pasantía</h3>
+
+		<small><%= form.label 'Estudiante' %></small></br>
+		<%= form.select :estudiante, Investigador.all, prompt: "Estudiante?" %></br>
+		<small><%= form.label 'Institución' %></small></br>
+		<%= form.text_field(:institucion, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'País' %></small></br>
+		<%= form.select :pais, Pais.all, prompt: "Pais?" %></br>
+		<small><%= form.label 'Tutor' %></small></br>
+		<%= form.text_field(:tutor, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'proyecto' %></small></br>
+		<%= form.text_field(:proyecto, size: 74, class: 'form-control-sm') %>
+		<small><b><%= form.label 'Descripción Proyecto' %></b></small></br>
+	  	<%= form.text_area :descripcion_proyecto, size: '66x8' %><!--/br-->
+
+		<small><%= form.label 'Fecha Inicio' %></small></br>
+		<%= form.text_field(:fecha_inicio, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Fecha Término' %></small></br>
+		<%= form.text_field(:fecha_termino, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Unidad o Departamento' %></small></br>
+		<%= form.text_field(:unidad_departamento, size: 74, class: 'form-control-sm') %>
+	</div>
+</div>

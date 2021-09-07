@@ -1,0 +1,27 @@
+<%= form_with(model: ci_i, local: true) do |form| %>
+  <% if ci_i.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ci_i.errors.count, "error") %> prohibited this ci_i from being saved:</h2>
+
+      <ul>
+      <% ci_i.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :comite_editorial_id %>
+    <%= form.number_field :comite_editorial_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :investigador_id %>
+    <%= form.number_field :investigador_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

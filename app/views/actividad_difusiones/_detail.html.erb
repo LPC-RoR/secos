@@ -1,0 +1,92 @@
+<div class='row'>
+	<div class='col-md-6'>
+
+		<h3 class='text-info'>Registrar Actividad de Difusión</h3>
+
+		<div class="field">
+			<small><%= form.label 'Actividad asociada a concurso Milenio de PME' %></small></br>
+			<%= form.label :asociada_concurso_milenio, "Sí"  %>
+			<%= form.radio_button :asociada_concurso_milenio, 'Sí', :checked => true %>
+			<%= form.label :asociada_concurso_milenio, "No" %>
+			<%= form.radio_button :asociada_concurso_milenio, 'No' %>
+		</div>
+
+		<small><%= form.label 'Organización' %></small></br>
+		<%= form.select :organizacion, ActividadDifusion::ORGANIZACIONES, prompt: "Organización?" %></br>
+		<small><%= form.label 'Alcance' %></small></br>
+		<%= form.select :alcance, Aco::ALCANCES, prompt: "Alcance?" %></br>
+
+		<small><%= form.label 'Título Evento' %></small></br>
+		<%= form.text_field(:titulo_evento, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Tipo de Evento' %></small></br>
+		<%= form.text_field(:tipo_evento, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Otro Tipo de Evento' %></small></br>
+		<%= form.text_field(:otro_tipo_evento, size: 74, class: 'form-control-sm') %>
+
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+		<small><%= form.label 'Público Objetivo' %></small></br>
+
+		<ul>
+		<% @objeto.publico_objetivos.each do |po| %>
+			<li><%= po.publico_objetivo %></li>
+		<% end %>
+		</ul>
+	</div>
+	<div class='col-md-6'>
+		<%= form.select :publico_objetivo_ids,
+		    options_from_collection_for_select(PublicoObjetivo.all, :id, :publico_objetivo),
+		    { include_blank: false },
+		    multiple: true,
+		    class: 'select multiple-select',
+		    size: 5 %>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+
+		<small><%= form.label 'Fecha' %></small></br>
+		<%= form.text_field(:fecha, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'País de la Institución' %></small></br>
+		<%= form.select :pais, Aco::PAISES, prompt: "País de la Institución?" %></br>
+		<small><%= form.label 'Región de Ubicación' %></small></br>
+		<%= form.select :region, Investigador::REGIONES, prompt: "Región de Ubicación?" %></br>
+		<small><b><%= form.label 'Descripción de Actividad' %></b></small></br>
+	  	<%= form.text_area :descripcion_actividad, size: '66x8' %><!--/br-->
+
+		<small><%= form.label 'N° de asistentes que son estudiantes del Centro' %></small></br>
+		<%= form.text_field(:n_asistentes_estudiantes, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'N° total de asistentes' %></small></br>
+		<%= form.text_field(:n_total_asistentes, size: 74, class: 'form-control-sm') %>
+
+		<small><%= form.label 'Duración (días)' %></small></br>
+		<%= form.text_field(:duracion, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'responsable_actividad' %></small></br>
+		<%= form.text_field(:responsable_actividad, size: 74, class: 'form-control-sm') %>
+
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+		<small><%= form.label 'Investigadores del Centro Participantes' %></small></br>
+
+		<ul>
+		<% @objeto.investigadores.each do |inv| %>
+			<li><%= inv.investigador %></li>
+		<% end %>
+		</ul>
+	</div>
+	<div class='col-md-6'>
+		<%= form.select :investigador_ids,
+		    options_from_collection_for_select(Investigador.all, :id, :investigador),
+		    { include_blank: false },
+		    multiple: true,
+		    class: 'select multiple-select',
+		    size: 5 %>
+	</div>
+</div>

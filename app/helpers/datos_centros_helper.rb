@@ -64,7 +64,7 @@ module DatosCentrosHelper
 		'Entomología',
 		'Entomología agrícola',
 		'Estadística',
-		'Estructura del Mercado (Análisis del Funcionamiento del Mercado)'
+		'Estructura del Mercado (Análisis del Funcionamiento del Mercado)',
 		'Etnología',
 		'Farmacia, farmacología clínica, laboratotio',
 		'Farmacología',
@@ -81,7 +81,7 @@ module DatosCentrosHelper
 		'Físco-química',
 		'Fisiología biofísica',
 		'Fisiología vegetal',
-		'Fisiopatología, fisiología clínica general'.
+		'Fisiopatología, fisiología clínica general',
 		'Fitopatología',
 		'Fitotecnia',
 		'Fruticultura y viticultura',

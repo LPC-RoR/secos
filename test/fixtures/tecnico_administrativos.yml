@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tipo_documento: MyString
+  rut_pasaporte: MyString
+  nombres: MyString
+  paterno: MyString
+  materno: MyString
+  fecha_nacimiento: 2021-09-07 17:01:15
+  nacionalidad: MyString
+  genero: MyString
+  categoria: MyString
+  relacion_centro: MyString
+  tipo_financiamiento: MyString
+  fecha_ingreso: 2021-09-07 17:01:15
+  fecha_desvinculacion: 2021-09-07 17:01:15
+
+two:
+  tipo_documento: MyString
+  rut_pasaporte: MyString
+  nombres: MyString
+  paterno: MyString
+  materno: MyString
+  fecha_nacimiento: 2021-09-07 17:01:15
+  nacionalidad: MyString
+  genero: MyString
+  categoria: MyString
+  relacion_centro: MyString
+  tipo_financiamiento: MyString
+  fecha_ingreso: 2021-09-07 17:01:15
+  fecha_desvinculacion: 2021-09-07 17:01:15

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  estudiante: MyString
+  nivel_formacion: MyString
+  nombre_tesis: MyString
+  fecha_aprobacion: 2021-09-03 18:09:42
+
+two:
+  estudiante: MyString
+  nivel_formacion: MyString
+  nombre_tesis: MyString
+  fecha_aprobacion: 2021-09-03 18:09:42

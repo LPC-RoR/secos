@@ -1,0 +1,95 @@
+<div class='row'>
+	<div class='col-md-6'>
+
+		<h3 class='text-info'>Ingresar Presentación en Congreso</h3>
+
+		<small><%= form.label 'Alcance' %></small></br>
+		<%= form.select :alcance, Aco::ALCANCES, prompt: "Alcance?" %></br>
+		<small><%= form.label 'Tipo' %></small></br>
+		<%= form.select :tipo, PresentacionCongreso::TIPOS, prompt: "Tipo?" %></br>
+
+		<small><%= form.label 'Otro Tipo' %></small></br>
+		<%= form.text_field(:otro_tipo, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Organización' %></small></br>
+		<%= form.select :tipo, PresentacionCongreso::ORGANIZACIONES, prompt: "Organización?" %></br>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+		<small><%= form.label 'Autores Clasificados como "Asociados"' %></small></br>
+
+		<ul>
+		<% @objeto.investigadores.each do |inv| %>
+			<li><%= inv.investigador %></li>
+		<% end %>
+		</ul>
+	</div>
+	<div class='col-md-6'>
+		<%= form.select :investigador_ids,
+		    options_from_collection_for_select(Investigador.all, :id, :investigador),
+		    { include_blank: false },
+		    multiple: true,
+		    class: 'select multiple-select',
+		    size: 5 %>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+		<small><%= form.label 'Autores Clasificados como "Otros"' %></small></br>
+
+		<ul>
+		<% @objeto.investigadores.each do |inv| %>
+			<li><%= inv.investigador %></li>
+		<% end %>
+		</ul>
+	</div>
+	<div class='col-md-6'>
+		<%= form.select :investigador_ids,
+		    options_from_collection_for_select(Investigador.all, :id, :investigador),
+		    { include_blank: false },
+		    multiple: true,
+		    class: 'select multiple-select',
+		    size: 5 %>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+		<small><%= form.label 'Autores Clasificados como Estudiantes' %></small></br>
+
+		<ul>
+		<% @objeto.investigadores.each do |inv| %>
+			<li><%= inv.investigador %></li>
+		<% end %>
+		</ul>
+	</div>
+	<div class='col-md-6'>
+		<%= form.select :investigador_ids,
+		    options_from_collection_for_select(Investigador.all, :id, :investigador),
+		    { include_blank: false },
+		    multiple: true,
+		    class: 'select multiple-select',
+		    size: 5 %>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+
+		<small><%= form.label 'Nombre Presentación' %></small></br>
+		<%= form.text_field(:nombre_presentacion, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Nombre del Evento' %></small></br>
+		<%= form.text_field(:nombre_evento, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Link a Presentación' %></small></br>
+		<%= form.text_field(:link_presentacion, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Fecha)' %></small></br>
+		<%= form.text_field(:fecha, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Ciudad' %></small></br>
+		<%= form.text_field(:ciudad, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'País' %></small></br>
+		<%= form.select :pais, Pais.all, prompt: "País?" %></br>
+
+	</div>
+</div>

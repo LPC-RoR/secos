@@ -1,0 +1,2 @@
+module TecnicoAdministrativosHelper
+end

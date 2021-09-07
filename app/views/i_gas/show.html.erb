@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Investigador:</strong>
+  <%= @i_ga.investigador_id %>
+</p>
+
+<p>
+  <strong>Grado academico:</strong>
+  <%= @i_ga.grado_academico_id %>
+</p>
+
+<%= link_to 'Edit', edit_i_ga_path(@i_ga) %> |
+<%= link_to 'Back', i_gas_path %>

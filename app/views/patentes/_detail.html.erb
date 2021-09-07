@@ -1,0 +1,55 @@
+<div class='row'>
+	<div class='col-md-6'>
+
+		<h3 class='text-info'>Registrar Propiedad Intelectual</h3>
+
+		<small><%= form.label 'Título' %></small></br>
+		<%= form.text_field(:titulo, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Descripción' %></small></br>
+		<%= form.text_field(:descripcion, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Categoria' %></small></br>
+		<%= form.select :categoria, Patente::CATEGORIAS, prompt: "Categoría?" %></br>
+		<small><%= form.label 'Solicitante' %></small></br>
+		<%= form.text_field(:solicitante, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Inventor' %></small></br>
+		<%= form.text_field(:inventor, size: 74, class: 'form-control-sm') %>
+
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+		<small><%= form.label 'País(es) Donde se Presenta' %></small></br>
+
+		<ul>
+		<% @objeto.paises.each do |pais| %>
+			<li><%= pais.pais %></li>
+		<% end %>
+		</ul>
+	</div>
+	<div class='col-md-6'>
+		<%= form.select :pais_ids,
+		    options_from_collection_for_select(Pais.all, :id, :pais),
+		    { include_blank: false },
+		    multiple: true,
+		    class: 'select multiple-select',
+		    size: 5 %>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+		<small><%= form.label 'N° Solicitud' %></small></br>
+		<%= form.text_field(:n_solicitud, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Fecha Solicitud' %></small></br>
+		<%= form.text_field(:fecha_solicitud, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Estado' %></small></br>
+		<%= form.select :estado, Patente::ESTADOS, prompt: "Estado?" %></br>
+
+		<small><%= form.label 'N° Registro' %></small></br>
+		<%= form.text_field(:n_registro, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Fecha Registro' %></small></br>
+		<%= form.text_field(:fecha_registro, size: 74, class: 'form-control-sm') %>
+
+	</div>
+</div>

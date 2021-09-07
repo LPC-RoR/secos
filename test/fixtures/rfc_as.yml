@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rf_colaboracion_id: 1
+  investigador: 1
+
+two:
+  rf_colaboracion_id: 1
+  investigador: 1

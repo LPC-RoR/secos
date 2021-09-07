@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ad Pos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Actividad difusion</th>
+      <th>Publico objetivo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ad_pos.each do |ad_po| %>
+      <tr>
+        <td><%= ad_po.actividad_difusion_id %></td>
+        <td><%= ad_po.publico_objetivo_id %></td>
+        <td><%= link_to 'Show', ad_po %></td>
+        <td><%= link_to 'Edit', edit_ad_po_path(ad_po) %></td>
+        <td><%= link_to 'Destroy', ad_po, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ad Po', new_ad_po_path %>

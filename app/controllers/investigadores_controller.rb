@@ -74,6 +74,6 @@ class InvestigadoresController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def investigador_params
-      params.require(:investigador).permit(:tipo_documento, :rut_pasaporte, :nombres, :paterno, :materno, :direccion_correspondencia, :region_id, :fecha_nacimiento, :nacionalidad_id, :profesion_id, :otra_profesion, :institucion, :cargo, :email, :telefono_1, :telefono_2, :celular, :fuente_financiamiento, :relacion_centro, :fecha_inicio, :fecha_termino, :vigencia)
+      params.require(:investigador).permit(:tipo_documento, :rut_pasaporte, :nombres, :paterno, :materno, :direccion_correspondencia, :region_id, :fecha_nacimiento, :nacionalidad_id, :profesion_id, :otra_profesion, :institucion, :cargo, :email, :telefono_1, :telefono_2, :celular, :fuente_financiamiento, :relacion_centro, :fecha_inicio, :fecha_termino, :vigencia, grado_academicos_ids: [], linea_investigadores_ids: [], disciplina_ids: [])
     end
 end

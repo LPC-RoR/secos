@@ -1,0 +1,43 @@
+<div class='row'>
+	<div class='col-md-6'>
+
+		<h3 class='text-info'>Registrar Tesis</h3>
+
+		<small><%= form.label 'Estudiante' %></small></br>
+		<%= form.select :estudiante, Investigador.all, prompt: "Estudiante?" %></br>
+
+		<small><%= form.label 'Nivel de Formación' %></small></br>
+		<%= form.select :estudiante, TesisFinalizada::NIVELES_FORMACION, prompt: "Nivel de Formación?" %></br>
+
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+		<small><%= form.label 'Líneas de Investigación' %></small></br>
+
+		<ul>
+		<% @objeto.linea_investigaciones.each do |li| %>
+			<li><%= li.linea_investigacion %></li>
+		<% end %>
+		</ul>
+	</div>
+	<div class='col-md-6'>
+		<%= form.select :linea_investigacion_ids,
+		    options_from_collection_for_select(LineaInvestigacion.all, :id, :linea_investigacion),
+		    { include_blank: false },
+		    multiple: true,
+		    class: 'select multiple-select',
+		    size: 5 %>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+
+		<small><%= form.label 'Fecha Aprobación Tesis' %></small></br>
+		<%= form.text_field(:fecha_aprobacion, size: 74, class: 'form-control-sm') %>
+
+	</div>
+</div>
+

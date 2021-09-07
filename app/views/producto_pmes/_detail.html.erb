@@ -1,0 +1,76 @@
+<div class='row'>
+	<div class='col-md-6'>
+
+		<h3 class='text-info'>Registrar Producto de Proyección al Medio Externo</h3>
+
+		<small><%= form.label 'Fecha' %></small></br>
+		<%= form.text_field(:fecha, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Producto' %></small></br>
+		<%= form.text_field(:producto, size: 74, class: 'form-control-sm') %>
+		<small><b><%= form.label 'Objetivo del Producto' %></b></small></br>
+	  	<%= form.text_area :objetivo, size: '66x8' %><!--/br-->
+
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+		<small><%= form.label 'Investigadores Participantes del Centro' %></small></br>
+
+		<ul>
+		<% @objeto.investigadores.each do |inv| %>
+			<li><%= inv.investigador %></li>
+		<% end %>
+		</ul>
+	</div>
+	<div class='col-md-6'>
+		<%= form.select :investigador_ids,
+		    options_from_collection_for_select(Investigador.all, :id, :investigador),
+		    { include_blank: false },
+		    multiple: true,
+		    class: 'select multiple-select',
+		    size: 5 %>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+
+		<small><%= form.label 'Alcance' %></small></br>
+		<%= form.select :alcance, Aco::ALCANCES, prompt: "Alcance?" %></br>
+
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+		<small><%= form.label 'Público Objetivo' %></small></br>
+
+		<ul>
+		<% @objeto.publico_objetivos.each do |po| %>
+			<li><%= po.publico_objetivo %></li>
+		<% end %>
+		</ul>
+	</div>
+	<div class='col-md-6'>
+		<%= form.select :publico_objetivo_ids,
+		    options_from_collection_for_select(PublicoObjetivo.all, :id, :publico_objetivo),
+		    { include_blank: false },
+		    multiple: true,
+		    class: 'select multiple-select',
+		    size: 5 %>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+
+		<small><%= form.label 'Tipo Producto' %></small></br>
+		<%= form.select :tipo_producto, ProductoPme::TIPOS_PRODUCTO, prompt: "Tipo Producto?" %></br>
+
+		<small><%= form.label 'Otro Tipo Producto' %></small></br>
+		<%= form.text_field(:otro_tipo_producto, size: 74, class: 'form-control-sm') %>
+
+	</div>
+</div>
+

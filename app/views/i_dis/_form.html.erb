@@ -1,0 +1,27 @@
+<%= form_with(model: i_di, local: true) do |form| %>
+  <% if i_di.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(i_di.errors.count, "error") %> prohibited this i_di from being saved:</h2>
+
+      <ul>
+      <% i_di.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :investigador_id %>
+    <%= form.number_field :investigador_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :disciplina_id %>
+    <%= form.number_field :disciplina_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

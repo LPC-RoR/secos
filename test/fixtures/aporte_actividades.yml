@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tipo: MyString
+  actividad_producto: MyString
+  colaborador: MyString
+  tipo_colaboracion: MyString
+  monto: 9.99
+
+two:
+  tipo: MyString
+  actividad_producto: MyString
+  colaborador: MyString
+  tipo_colaboracion: MyString
+  monto: 9.99

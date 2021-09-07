@@ -1,0 +1,55 @@
+<div class='row'>
+	<div class='col-md-6'>
+
+		<h3 class='text-info'>Registrar Actividad Científica Organizada</h3>
+
+		<small><%= form.label 'Título Evento' %></small></br>
+		<%= form.text_field(:titulo_evento, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Tipo Evento' %></small></br>
+		<%= form.select :tipo_evento, Aco::TIPOS_EVENTO, prompt: "Tipo Evento?" %></br>
+		<small><%= form.label 'Otro Tipo de Evento' %></small></br>
+		<%= form.text_field(:otro_tipo_evento, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Alcance' %></small></br>
+		<%= form.select :alcance, Aco::ALCANCES, prompt: "Alcance?" %></br>
+		<small><%= form.label 'Duración en Días' %></small></br>
+		<%= form.text_field(:duracion_dias, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Fecha Inicio' %></small></br>
+		<%= form.text_field(:fecha_inicio, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Fecha Término en Días' %></small></br>
+		<%= form.text_field(:fecha_termino, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'País' %></small></br>
+		<%= form.select :alcance, Aco::PAISES, prompt: "País?" %></br>
+		<small><%= form.label 'Ciudad' %></small></br>
+		<%= form.text_field(:ciudad, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Número de Asistentes' %></small></br>
+		<%= form.text_field(:n_asistentes, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Número expositores Milenio' %></small></br>
+		<%= form.text_field(:n_expositores_milenio, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Número expositores extranjeros' %></small></br>
+		<%= form.text_field(:n_expositores_extranjeros, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Número expositores nacionales' %></small></br>
+		<%= form.text_field(:n_expositores_nacionales, size: 74, class: 'form-control-sm') %>
+
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+		<small><%= form.label 'Público Objetivo' %></small></br>
+
+		<ul>
+		<% @objeto.publico_objetivos.each do |po| %>
+			<li><%= po.publico_objetivo %></li>
+		<% end %>
+		</ul>
+	</div>
+	<div class='col-md-6'>
+		<%= form.select :publico_objetivo_ids,
+		    options_from_collection_for_select(PublicoObjetivo.all, :id, :publico_objetivo),
+		    { include_blank: false },
+		    multiple: true,
+		    class: 'select multiple-select',
+		    size: 5 %>
+	</div>
+</div>
+

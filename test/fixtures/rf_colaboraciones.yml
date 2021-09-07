@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre_red: MyString
+  objetivo: MyText
+  descripcion: MyText
+  alcance: MyString
+  n_investigadores_milenio: 1
+  n_postdoc_estudiantes_milenio: 1
+  n_investigadores_externos: 1
+  n_postdoc_estudiantes_externos: 1
+  instituciones: MyString
+  sitio_web: MyString
+  fecha_inicio: 2021-09-05 23:42:24
+  fecha_termino: 2021-09-05 23:42:24
+
+two:
+  nombre_red: MyString
+  objetivo: MyText
+  descripcion: MyText
+  alcance: MyString
+  n_investigadores_milenio: 1
+  n_postdoc_estudiantes_milenio: 1
+  n_investigadores_externos: 1
+  n_postdoc_estudiantes_externos: 1
+  instituciones: MyString
+  sitio_web: MyString
+  fecha_inicio: 2021-09-05 23:42:24
+  fecha_termino: 2021-09-05 23:42:24

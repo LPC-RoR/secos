@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre_red: MyString
+  objetivo: MyText
+  descripcion: MyText
+  institucion_co_participante: MyString
+  tipo_productos: MyString
+  n_productos: MyString
+  n_investigadores_milenio: 1
+  n_postdoc_alumnos_milenio: 1
+  n_investigadores_externos: 1
+  n_postdoc_alumnos_externos: 1
+
+two:
+  nombre_red: MyString
+  objetivo: MyText
+  descripcion: MyText
+  institucion_co_participante: MyString
+  tipo_productos: MyString
+  n_productos: MyString
+  n_investigadores_milenio: 1
+  n_postdoc_alumnos_milenio: 1
+  n_investigadores_externos: 1
+  n_postdoc_alumnos_externos: 1

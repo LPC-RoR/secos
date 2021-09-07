@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fondos: MyString
+  otro_fondo: MyString
+  monto_pesos: 9.99
+
+two:
+  fondos: MyString
+  otro_fondo: MyString
+  monto_pesos: 9.99

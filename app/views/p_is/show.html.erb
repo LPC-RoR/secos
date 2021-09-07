@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Publicacion:</strong>
+  <%= @pi.publicacion_id %>
+</p>
+
+<p>
+  <strong>Investigador:</strong>
+  <%= @pi.investigador_id %>
+</p>
+
+<%= link_to 'Edit', edit_pi_path(@pi) %> |
+<%= link_to 'Back', pis_path %>

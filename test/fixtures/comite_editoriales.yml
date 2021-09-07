@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre_publicacion: MyString
+  categoria: MyString
+  otra_categoria: MyString
+  anio_inicio: 1
+  anio_termino: 1
+
+two:
+  nombre_publicacion: MyString
+  categoria: MyString
+  otra_categoria: MyString
+  anio_inicio: 1
+  anio_termino: 1

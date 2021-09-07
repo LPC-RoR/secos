@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Producto pme:</strong>
+  <%= @pp_po.producto_pme_id %>
+</p>
+
+<p>
+  <strong>Publico objetivo:</strong>
+  <%= @pp_po.publico_objetivo_id %>
+</p>
+
+<%= link_to 'Edit', edit_pp_po_path(@pp_po) %> |
+<%= link_to 'Back', pp_pos_path %>

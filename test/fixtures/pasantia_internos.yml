@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  estudiante: MyString
+  institucion: MyString
+  pais: MyString
+  tutor: MyString
+  proyecto: MyString
+  descripcion: MyText
+  fecha_inicio: 2021-09-05 22:58:09
+  fecha_termino: 2021-09-05 22:58:09
+  unidad_departamento: MyString
+
+two:
+  estudiante: MyString
+  institucion: MyString
+  pais: MyString
+  tutor: MyString
+  proyecto: MyString
+  descripcion: MyText
+  fecha_inicio: 2021-09-05 22:58:09
+  fecha_termino: 2021-09-05 22:58:09
+  unidad_departamento: MyString

@@ -1,0 +1,148 @@
+<div class='row'>
+	<div class='col-md-6'>
+
+		<h3 class='text-info'> Ingresar Investigador</h3>
+
+		<div class="field">
+			<small><%= form.label 'Tipo Documento' %></small></br>
+			<%= form.label :tipo_documento, "RUT"  %>
+			<%= form.radio_button :tipo_documento, 'RUT', :checked => true %>
+			<%= form.label :tipo_documento, "Pasaporte" %>
+			<%= form.radio_button :tipo_documento, 'Pasaporte' %>
+		</div>
+
+		<small><%= form.label 'N° RUT / Pasaporte ( Formato de RUT: 12345678-9 )' %></small></br>
+		<%= form.text_field(:rut_pasaporte, size: 74, class: 'form-control-sm') %>
+
+		<small><%= form.label 'Nombres' %></small></br>
+		<%= form.text_field(:nombres, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Apellido Paterno' %></small></br>
+		<%= form.text_field(:paterno, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Apellido Materno' %></small></br>
+		<%= form.text_field(:materno, size: 74, class: 'form-control-sm') %>
+
+		<small><%= form.label 'Dirección Correspondencia' %></small></br>
+		<%= form.text_field(:direccion_correspondencia, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Comuna' %></small></br>
+		<%= form.text_field(:comuna, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Región Correspondencia' %></small></br>
+		<%= form.select :region, Investigador::REGIONES, prompt: "Region Correspondencia?" %></br>
+
+		<small><%= form.label 'Fecha de Nacimiento' %></small></br>
+		<%= form.text_field(:fecha_nacimiento, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Nacionalidad' %></small></br>
+		<%= form.select :nacionalidad, Investigador::NACIONALIDADES, prompt: "Nacionalidad?" %></br>
+
+		<div class="field">
+			<small><%= form.label 'Genero' %></small></br>
+			<%= form.label :genero, "Masculino"  %>
+			<%= form.radio_button :genero, 'Masculino', :checked => true %>
+			<%= form.label :genero, "Femenino" %>
+			<%= form.radio_button :genero, 'Femenino' %>
+		</div>
+
+		<small><%= form.label 'Categoría' %></small></br>
+		<%= form.select :categoria, Investigador::CATEGORIAS, prompt: "Categoria?" %></br>
+		<small><%= form.label 'Horas Dedicación' %></small></br>
+		<%= form.text_field(:horas_dedicacion, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Profesión' %></small></br>
+		<%= form.select :profesion, Investigador::PROFESIONES, prompt: "Profesión?" %></br>
+		<small><%= form.label 'Otra Profesión' %></small></br>
+		<%= form.text_field(:otra_profesion, size: 74, class: 'form-control-sm') %>
+
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+		<small><%= form.label 'Grados Académicos' %></small></br>
+
+		<ul>
+		<% @objeto.grado_academicos.each do |ga| %>
+			<li><%= ga.grado_academico %></li>
+		<% end %>
+		</ul>
+	</div>
+	<div class='col-md-6'>
+		<%= form.select :grado_academico_ids,
+		    options_from_collection_for_select(GradoAcademico.all, :id, :grado_academico),
+		    { include_blank: false },
+		    multiple: true,
+		    class: 'select multiple-select',
+		    size: 5 %>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+		<small><%= form.label 'Institución a la que pertenece' %></small></br>
+		<%= form.text_field(:institucion, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Cargo Actual' %></small></br>
+		<%= form.text_field(:cargo, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'E-mail' %></small></br>
+		<%= form.text_field(:email, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Telefono 1' %></small></br>
+		<%= form.text_field(:telefono_1, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Telefono 2' %></small></br>
+		<%= form.text_field(:telefono_2, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Celular' %></small></br>
+		<%= form.text_field(:celular, size: 74, class: 'form-control-sm') %>
+	</div>
+</div>
+<div class='row'>
+	<div class='col-md-6'>
+		<small><%= form.label 'Líneas de Investigación Vinculadas' %></small></br>
+
+		<ul>
+		<% @objeto.linea_investigaciones.each do |li| %>
+			<li><%= li.linea_investigacion %></li>
+		<% end %>
+		</ul>
+	</div>
+	<div class='col-md-6'>
+		<%= form.select :linea_investigacion_ids,
+		    options_from_collection_for_select(LineaInvestigacion.all, :id, :linea_investigacion),
+		    { include_blank: false },
+		    multiple: true,
+		    class: 'select multiple-select',
+		    size: 5 %>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+		<small><%= form.label 'Disciplinas Vinculadas' %></small></br>
+
+		<ul>
+		<% @objeto.disciplinas.each do |dis| %>
+			<li><%= dis.disciplina %></li>
+		<% end %>
+		</ul>
+	</div>
+	<div class='col-md-6'>
+		<%= form.select :disciplina_ids,
+		    options_from_collection_for_select(Disciplina.all, :id, :disciplina),
+		    { include_blank: false },
+		    multiple: true,
+		    class: 'select multiple-select',
+		    size: 5 %>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+		<small><%= form.label 'Fuentes de Financiamiento' %></small></br>
+		<%= form.select :fuente_financiamiento, Investigador::FINANCIAMIENTOS, prompt: "Fuentes de Financiamiento?" %></br>
+
+		<small><%= form.label 'Relación con Centro' %></small></br>
+		<%= form.select :relacion_centro, Investigador::RELACION_CENTRO, prompt: "Relación con Centro?" %></br>
+
+		<small><%= form.label 'Fecha Inicio' %></small></br>
+		<%= form.text_field(:fecha_inicio, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Fecha Término' %></small></br>
+		<%= form.text_field(:fecha_termino, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Vigencia' %></small></br>
+		<%= form.text_field(:vigencia, size: 74, class: 'form-control-sm') %>
+
+	</div>
+</div>

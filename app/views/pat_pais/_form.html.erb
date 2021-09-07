@@ -1,0 +1,27 @@
+<%= form_with(model: pat_pai, local: true) do |form| %>
+  <% if pat_pai.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pat_pai.errors.count, "error") %> prohibited this pat_pai from being saved:</h2>
+
+      <ul>
+      <% pat_pai.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :patente_id %>
+    <%= form.number_field :patente_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pais_id %>
+    <%= form.number_field :pais_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

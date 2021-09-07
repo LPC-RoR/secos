@@ -1,0 +1,2 @@
+module FjDisHelper
+end

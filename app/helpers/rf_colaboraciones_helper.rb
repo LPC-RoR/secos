@@ -1,0 +1,2 @@
+module RfColaboracionesHelper
+end

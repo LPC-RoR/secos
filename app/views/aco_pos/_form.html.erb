@@ -1,0 +1,27 @@
+<%= form_with(model: aco_po, local: true) do |form| %>
+  <% if aco_po.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(aco_po.errors.count, "error") %> prohibited this aco_po from being saved:</h2>
+
+      <ul>
+      <% aco_po.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :aco_id %>
+    <%= form.number_field :aco_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :publico_objetivo_id %>
+    <%= form.number_field :publico_objetivo_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

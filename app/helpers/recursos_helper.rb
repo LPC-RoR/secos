@@ -73,6 +73,7 @@ module RecursosHelper
 				[1, 'list', 'Archivos'],
 				[2, 'item', 'Datos Centro'],
 				[2, 'item', 'Disciplinas'],
+				[2, 'item', 'Grados Académicos'],
 			]
 		end
 	end
@@ -247,7 +248,6 @@ module RecursosHelper
 
 	def detail_controller_path(controller)
 		if File.exist?("app/views/#{controller}/_detail.html.erb")
-#		if ['publicaciones'].include?(controller)
 			"#{controller}/detail"
 		else
 			'0p/form/detail'

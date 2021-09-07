@@ -1,0 +1,27 @@
+<%= form_with(model: pp_i, local: true) do |form| %>
+  <% if pp_i.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pp_i.errors.count, "error") %> prohibited this pp_i from being saved:</h2>
+
+      <ul>
+      <% pp_i.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :producto_pme_id %>
+    <%= form.number_field :producto_pme_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :investigador_id %>
+    <%= form.number_field :investigador_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,104 @@
+<div class='row'>
+	<div class='col-md-6'>
+
+		<h3 class='text-info'> Registrar Artículo o Entrevista</h3>
+
+		<small><%= form.label 'Tema' %></small></br>
+		<%= form.text_field(:tema, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Actividad' %></small></br>
+		<%= form.select :actividad, ArticuloEntrevista::ACTIVIDADES, prompt: "Actividad?" %></br>
+		<small><b><%= form.label 'Descripción Actividad' %></b></small></br>
+	  	<%= form.text_area :descripcion, size: '66x8' %><!--/br-->
+
+		<small><%= form.label 'Tipo Medio' %></small></br>
+		<%= form.select :tipo_medio, ArticuloEntrevista::TIPOS_MEDIO, prompt: "Tipo Medio?" %></br>
+		<small><%= form.label 'Nombre del Medio' %></small></br>
+		<%= form.text_field(:nombre_medio, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Sección' %></small></br>
+		<%= form.text_field(:seccion, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Fecha Publicación' %></small></br>
+		<%= form.text_field(:fecha_publicacion, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Alcance' %></small></br>
+		<%= form.select :alcance, ArticuloEntrevista::ALCANCES, prompt: "Alcance?" %></br>
+		<small><%= form.label 'Link a Articulo o Entrevista' %></small></br>
+		<%= form.text_field(:link, size: 74, class: 'form-control-sm') %>
+
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+		<small><%= form.label 'Público Objetivo' %></small></br>
+
+		<ul>
+		<% @objeto.publico_objetivos.each do |po| %>
+			<li><%= po.publico_objetivo %></li>
+		<% end %>
+		</ul>
+	</div>
+	<div class='col-md-6'>
+		<%= form.select :publico_objetivo_ids,
+		    options_from_collection_for_select(PublicoObjetivo.all, :id, :publico_objetivo),
+		    { include_blank: false },
+		    multiple: true,
+		    class: 'select multiple-select',
+		    size: 5 %>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+		<small><%= form.label 'Líneas de Investigación' %></small></br>
+
+		<ul>
+		<% @objeto.linea_investigaciones.each do |li| %>
+			<li><%= li.linea_investigacion %></li>
+		<% end %>
+		</ul>
+	</div>
+	<div class='col-md-6'>
+		<%= form.select :linea_investigacion_ids,
+		    options_from_collection_for_select(LineaInvestigacion.all, :id, :linea_investigacion),
+		    { include_blank: false },
+		    multiple: true,
+		    class: 'select multiple-select',
+		    size: 5 %>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+		<small><%= form.label 'Investigadores del Centro Entrevistados' %></small></br>
+
+		<ul>
+		<% @objeto.investigadores.each do |inv| %>
+			<li><%= inv.investigador %></li>
+		<% end %>
+		</ul>
+	</div>
+	<div class='col-md-6'>
+		<%= form.select :investigador_ids,
+		    options_from_collection_for_select(Investigador.all, :id, :investigador),
+		    { include_blank: false },
+		    multiple: true,
+		    class: 'select multiple-select',
+		    size: 5 %>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+		<small><%= form.label 'Adjunto de Artículo o Entrevista' %></small></br>
+		<p>
+		  	<% if @objeto.adjunto.present? %>
+			  	<i><%= @objeto.adjunto.url.split('/').last %></i></br>
+				<label>
+				  <%= form.check_box :remove_adjunto %>
+				  Remueve Documento Documento Decreto Aprobatorio Extensión
+			Adjunto de Artículo o Entrevista	</label>
+		  	<% else %>
+			    <%= form.file_field :adjunto %>
+		    <% end %>
+		</p>
+	</div>
+</div>

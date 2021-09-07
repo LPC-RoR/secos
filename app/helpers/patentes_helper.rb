@@ -1,0 +1,2 @@
+module PatentesHelper
+end

@@ -16,6 +16,9 @@ class LineaInvestigacionesController < ApplicationController
   # GET /linea_investigaciones/new
   def new
     @objeto = LineaInvestigacion.new
+    @objeto.li_dis.build
+
+  #  4.times { @objeto.disciplinas.build }
   end
 
   # GET /linea_investigaciones/1/edit
@@ -74,6 +77,6 @@ class LineaInvestigacionesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def linea_investigacion_params
-      params.require(:linea_investigacion).permit(:linea_investigacion, :objetivo, :descripcion, :conceptos_clave, :fecha_inicio, :fecha_termino, :validez)
+      params.require(:linea_investigacion).permit(:linea_investigacion, :objetivo, :descripcion, :conceptos_clave, :fecha_inicio, :fecha_termino, :validez, disciplina_ids: [])
     end
 end

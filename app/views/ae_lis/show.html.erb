@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Articulo entrevista:</strong>
+  <%= @ae_li.articulo_entrevista_id %>
+</p>
+
+<p>
+  <strong>Linea investigacion:</strong>
+  <%= @ae_li.linea_investigacion_id %>
+</p>
+
+<%= link_to 'Edit', edit_ae_li_path(@ae_li) %> |
+<%= link_to 'Back', ae_lis_path %>

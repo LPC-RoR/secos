@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Rfc As</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Rf colaboracion</th>
+      <th>Investigador</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rfc_as.each do |rfc_a| %>
+      <tr>
+        <td><%= rfc_a.rf_colaboracion_id %></td>
+        <td><%= rfc_a.investigador %></td>
+        <td><%= link_to 'Show', rfc_a %></td>
+        <td><%= link_to 'Edit', edit_rfc_a_path(rfc_a) %></td>
+        <td><%= link_to 'Destroy', rfc_a, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rfc A', new_rfc_a_path %>

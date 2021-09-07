@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  premio: MyString
+  fecha: 2021-09-02 17:32:54
+  contribucion: MyString
+  institucion: MyString
+  pais: MyString
+
+two:
+  premio: MyString
+  fecha: 2021-09-02 17:32:54
+  contribucion: MyString
+  institucion: MyString
+  pais: MyString

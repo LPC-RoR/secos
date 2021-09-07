@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Patente:</strong>
+  <%= @pat_pai.patente_id %>
+</p>
+
+<p>
+  <strong>Pais:</strong>
+  <%= @pat_pai.pais_id %>
+</p>
+
+<%= link_to 'Edit', edit_pat_pai_path(@pat_pai) %> |
+<%= link_to 'Back', pat_pais_path %>

@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tipo_pasante: MyString
+  nombres: MyString
+  paterno: MyString
+  materno: MyString
+  grado_academico: MyString
+  pais: MyString
+  institucion_procedencia: MyString
+  institucion_pasantia: MyString
+  region: MyString
+  descripcion_pasantia: MyText
+  fecha_inicio: 2021-09-05 23:15:52
+  fecha_termino: 2021-09-05 23:15:52
+
+two:
+  tipo_pasante: MyString
+  nombres: MyString
+  paterno: MyString
+  materno: MyString
+  grado_academico: MyString
+  pais: MyString
+  institucion_procedencia: MyString
+  institucion_pasantia: MyString
+  region: MyString
+  descripcion_pasantia: MyText
+  fecha_inicio: 2021-09-05 23:15:52
+  fecha_termino: 2021-09-05 23:15:52

@@ -1,0 +1,42 @@
+<%= form_with(model: nivel_formacion, local: true) do |form| %>
+  <% if nivel_formacion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(nivel_formacion.errors.count, "error") %> prohibited this nivel_formacion from being saved:</h2>
+
+      <ul>
+      <% nivel_formacion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nivel_en_formacion %>
+    <%= form.text_field :nivel_en_formacion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :titulo_grado %>
+    <%= form.text_field :titulo_grado %>
+  </div>
+
+  <div class="field">
+    <%= form.label :descripcion %>
+    <%= form.text_area :descripcion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha_inicio %>
+    <%= form.datetime_select :fecha_inicio %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha_obtencion %>
+    <%= form.datetime_select :fecha_obtencion %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha_publicacion: 2021-09-02 11:25:16
+  categoria_publicacion: MyString
+  otra_categoria: MyString
+  titulo: MyString
+  autores: MyString
+  fuente: MyString
+  volumen: MyString
+  numero: MyString
+  pagina_inicial: MyString
+  issn: MyString
+  doi: MyString
+  cuartil: MyString
+  n_autores_inv_asociados: 1
+  n_autores_estudiantes: MyString
+  n_autores_otros: MyString
+  ligada_red_formal: MyString
+  red_formal: MyString
+  documento_relacionado: MyString
+
+two:
+  fecha_publicacion: 2021-09-02 11:25:16
+  categoria_publicacion: MyString
+  otra_categoria: MyString
+  titulo: MyString
+  autores: MyString
+  fuente: MyString
+  volumen: MyString
+  numero: MyString
+  pagina_inicial: MyString
+  issn: MyString
+  doi: MyString
+  cuartil: MyString
+  n_autores_inv_asociados: 1
+  n_autores_estudiantes: MyString
+  n_autores_otros: MyString
+  ligada_red_formal: MyString
+  red_formal: MyString
+  documento_relacionado: MyString

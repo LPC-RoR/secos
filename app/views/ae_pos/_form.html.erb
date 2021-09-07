@@ -1,0 +1,27 @@
+<%= form_with(model: ae_po, local: true) do |form| %>
+  <% if ae_po.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ae_po.errors.count, "error") %> prohibited this ae_po from being saved:</h2>
+
+      <ul>
+      <% ae_po.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :articulo_entrevista_id %>
+    <%= form.number_field :articulo_entrevista_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :publico_objetivo %>
+    <%= form.number_field :publico_objetivo %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

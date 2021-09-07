@@ -1,0 +1,56 @@
+<div class='row'>
+	<div class='col-md-6'>
+
+		<h3 class='text-info'>Registrar Vínculo con Otros Sectores</h3>
+
+		<small><%= form.label 'Actividad' %></small></br>
+		<%= form.text_field(:actividad, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Tipo de Conexion' %></small></br>
+		<%= form.text_field(:tipo_conexion, size: 74, class: 'form-control-sm') %>
+
+		<small><%= form.label 'Tipo de Actividad' %></small></br>
+		<%= form.select :tipo_actividad, Vinculo::TIPOS_ACTIVIDAD, prompt: "Tipo de Actividad?" %></br>
+		<small><%= form.label 'Otro tipo de Actividad' %></small></br>
+		<%= form.text_field(:otro_tipo_actividad, size: 74, class: 'form-control-sm') %>
+
+		<small><b><%= form.label 'Objetivo Actividad' %></b></small></br>
+	  	<%= form.text_area :objetivo_actividad, size: '66x8' %><!--/br-->
+		<small><%= form.label 'Fecha Inicio' %></small></br>
+		<%= form.text_field(:fecha_inicio, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Fecha Término' %></small></br>
+		<%= form.text_field(:fecha_termino, size: 74, class: 'form-control-sm') %>
+
+		<small><%= form.label 'Investigador Encargado' %></small></br>
+		<%= form.select :investigador_encargado, Investigador.all, prompt: "Investigador Encargado?" %></br>
+
+		<small><%= form.label 'Fondos Aportados en Pesos (excluyendo lo aportado por el Centro Milenio)' %></small></br>
+		<%= form.text_field(:fondos_pesos, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Fondos Aportados en Dólares' %></small></br>
+		<%= form.text_field(:fondos_dolares, size: 74, class: 'form-control-sm') %>
+
+		<small><%= form.label 'Costo Total del Vínculo en Pesos' %></small></br>
+		<%= form.text_field(:costo_vinculo_pesos, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Costo Total del Vínculo en Dólares' %></small></br>
+		<%= form.text_field(:costo_vinculo_dolares, size: 74, class: 'form-control-sm') %>
+
+		<small><%= form.label 'Nombre de la Institución' %></small></br>
+		<%= form.text_field(:nombre_institucion, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'País de la Institución' %></small></br>
+		<%= form.select :pais_institucion, Aco::PAISES, prompt: "País de la Institución?" %></br>
+		<small><%= form.label 'Región de Institución' %></small></br>
+		<%= form.select :region_institucion, Investigador::REGIONES, prompt: "Región de Institución?" %></br>
+
+		<small><%= form.label 'Ciudad' %></small></br>
+		<%= form.text_field(:ciudad, size: 74, class: 'form-control-sm') %>
+
+		<small><%= form.label 'Tipo de Institución' %></small></br>
+		<%= form.select :tipo_institucion, Vinculo::TIPOS_INSTITUCION, prompt: "Tipo de Institución?" %></br>
+		<small><%= form.label 'Otro Tipo de Institución' %></small></br>
+		<%= form.text_field(:otro_tipo_institucion, size: 74, class: 'form-control-sm') %>
+
+		<small><%= form.label 'Sector Económico' %></small></br>
+		<%= form.select :sector_economico, Vinculo::SECTORES_ECONOMICOS, prompt: "Sector Económico?" %></br>
+		<small><%= form.label 'Otro Sector Económico' %></small></br>
+		<%= form.text_field(:otro_sector_economico, size: 74, class: 'form-control-sm') %>
+	</div>
+</div>

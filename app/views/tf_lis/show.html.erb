@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tesis finalizada:</strong>
+  <%= @tf_li.tesis_finalizada_id %>
+</p>
+
+<p>
+  <strong>Lineainvestigacion:</strong>
+  <%= @tf_li.LineaInvestigacion %>
+</p>
+
+<%= link_to 'Edit', edit_tf_li_path(@tf_li) %> |
+<%= link_to 'Back', tf_lis_path %>

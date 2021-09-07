@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Fj Is</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Formacion joven</th>
+      <th>Investigador</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fj_is.each do |fj_i| %>
+      <tr>
+        <td><%= fj_i.formacion_joven_id %></td>
+        <td><%= fj_i.investigador_id %></td>
+        <td><%= link_to 'Show', fj_i %></td>
+        <td><%= link_to 'Edit', edit_fj_i_path(fj_i) %></td>
+        <td><%= link_to 'Destroy', fj_i, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Fj I', new_fj_i_path %>

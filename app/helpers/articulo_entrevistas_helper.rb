@@ -1,0 +1,2 @@
+module ArticuloEntrevistasHelper
+end

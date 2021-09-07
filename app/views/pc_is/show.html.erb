@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Presentacion congreso:</strong>
+  <%= @pc_i.presentacion_congreso_id %>
+</p>
+
+<p>
+  <strong>Investigador:</strong>
+  <%= @pc_i.investigador_id %>
+</p>
+
+<%= link_to 'Edit', edit_pc_i_path(@pc_i) %> |
+<%= link_to 'Back', pc_is_path %>

@@ -1,0 +1,146 @@
+<div class='row'>
+	<div class='col-md-6'>
+
+		<h3 class='text-info'> Registrar Joven en Formación</h3>
+
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+		<small><%= form.label 'Nivel de Formación' %></small></br>
+
+		<ul>
+		<% @objeto.nivel_formaciones.each do |nf| %>
+			<li><%= nf.nivel_formacion %></li>
+		<% end %>
+		</ul>
+	</div>
+	<div class='col-md-6'>
+		<%= form.select :nivel_formacion_ids,
+		    options_from_collection_for_select(NivelFormacion.all, :id, :nivel_formacion),
+		    { include_blank: false },
+		    multiple: true,
+		    class: 'select multiple-select',
+		    size: 5 %>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+
+		<div class="field">
+			<small><%= form.label 'Tipo Documento' %></small></br>
+			<%= form.label :tipo_documento, "RUT"  %>
+			<%= form.radio_button :tipo_documento, 'RUT', :checked => true %>
+			<%= form.label :tipo_documento, "Pasaporte" %>
+			<%= form.radio_button :tipo_documento, 'Pasaporte' %>
+		</div>
+
+		<small><%= form.label 'N° RUT / Pasaporte ( Formato de RUT: 12345678-9 )' %></small></br>
+		<%= form.text_field(:rut_pasaporte, size: 74, class: 'form-control-sm') %>
+
+		<small><%= form.label 'Nombres' %></small></br>
+		<%= form.text_field(:nombres, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Apellido Paterno' %></small></br>
+		<%= form.text_field(:paterno, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Apellido Materno' %></small></br>
+		<%= form.text_field(:materno, size: 74, class: 'form-control-sm') %>
+
+		<small><%= form.label 'Email' %></small></br>
+		<%= form.text_field(:email, size: 74, class: 'form-control-sm') %>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+		<small><%= form.label 'Disciplina' %></small></br>
+
+		<ul>
+		<% @objeto.disciplinas.each do |dis| %>
+			<li><%= dis.disciplina %></li>
+		<% end %>
+		</ul>
+	</div>
+	<div class='col-md-6'>
+		<%= form.select :disciplina_ids,
+		    options_from_collection_for_select(Disciplina.all, :id, :disciplina),
+		    { include_blank: false },
+		    multiple: true,
+		    class: 'select multiple-select',
+		    size: 5 %>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+		<small><%= form.label 'Nacionalidad' %></small></br>
+		<%= form.select :nacionalidad, Investigador::NACIONALIDADES, prompt: "Nacionalidad?" %></br>
+
+		<div class="field">
+			<small><%= form.label 'Genero' %></small></br>
+			<%= form.label :genero, "Masculino"  %>
+			<%= form.radio_button :genero, 'Masculino', :checked => true %>
+			<%= form.label :genero, "Femenino" %>
+			<%= form.radio_button :genero, 'Femenino' %>
+		</div>
+
+		<small><%= form.label 'Profesión/Título/Grado Actual' %></small></br>
+		<%= form.text_field(:profesion_titulo_grado, size: 74, class: 'form-control-sm') %>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+		<small><%= form.label 'Tutor' %></small></br>
+
+		<ul>
+		<% @objeto.investigadores.each do |inv| %>
+			<li><%= inv.investigador %></li>
+		<% end %>
+		</ul>
+	</div>
+	<div class='col-md-6'>
+		<%= form.select :investigador_ids,
+		    options_from_collection_for_select(Investigador.all, :id, :investigador),
+		    { include_blank: false },
+		    multiple: true,
+		    class: 'select multiple-select',
+		    size: 5 %>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-6'>
+		<small><%= form.label 'Universidad de Formación' %></small></br>
+		<%= form.select :universidad_formación, FormacionJoven::UNIVERSIDADES, prompt: "Universidad de Formación?" %></br>
+		<small><%= form.label 'Otra Universidad de Formación' %></small></br>
+		<%= form.text_field(:otra_universidad_formacion, size: 74, class: 'form-control-sm') %>.
+
+		<small><%= form.label 'Región Universidad de Formación' %></small></br>
+		<%= form.select :region_universidad_formacion, Investigador::REGIONES, prompt: "Región Universidad de Formación?" %></br>
+
+		<small><%= form.label 'Universidad de Origen' %></small></br>
+		<%= form.text_field(:universidad_origen, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'País Universidad de Origen' %></small></br>
+		<%= form.select :pais_universidad_origen, Pais.all, prompt: "País Universidad de Origen?" %></br>
+		<small><%= form.label 'Fecha Nacimiento' %></small></br>
+		<%= form.text_field(:fecha_nacimiento, size: 74, class: 'form-control-sm') %>
+
+		<small><%= form.label 'Tipo Financiamiento' %></small></br>
+		<%= form.select :tipo_financiamiento, FormacionJoven::FINANCIAMIENTOS, prompt: "Tipo Financiamiento?" %></br>
+		<small><%= form.label 'Monto' %></small></br>
+		<%= form.text_field(:monto, size: 74, class: 'form-control-sm') %>
+
+		<small><%= form.label 'Relación con Centro' %></small></br>
+		<%= form.select :relacion_centro, Investigador::RELACION_CENTRO, prompt: "Relación con Centro?" %></br>
+
+		<small><%= form.label 'Fecha de Ingreso al Centro' %></small></br>
+		<%= form.text_field(:fecha_ingreso_centro, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Fecha de Desvinculación' %></small></br>
+		<%= form.text_field(:fecha_desvinculacion, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Estado' %></small></br>
+		<%= form.text_field(:estado, size: 74, class: 'form-control-sm') %>
+	</div>
+</div>
+

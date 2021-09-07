@@ -1,0 +1,34 @@
+<div class='row'>
+	<div class='col-md-6'>
+
+		<h3 class='text-info'>Registrar Pasantía de Externo</h3>
+
+		<small><%= form.label 'Tipo de Pasante' %></small></br>
+		<%= form.select :tipo_pasante, PasantiaExterno::TIPOS_PASANTE, prompt: "Tipo de Pasante?" %></br>
+
+		<small><%= form.label 'Nombres' %></small></br>
+		<%= form.text_field(:nombres, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Apellido Paterno' %></small></br>
+		<%= form.text_field(:paterno, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Apellido Materno' %></small></br>
+		<%= form.text_field(:materno, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Grado Académico' %></small></br>
+		<%= form.select :grado_academico, PasantiaExterno::GRADOS_ACADEMICOS, prompt: "Grado Académico?" %></br>
+
+		<small><%= form.label 'País de Procedencia' %></small></br>
+		<%= form.select :pais, Pais.all, prompt: "País de Procedencia?" %></br>
+		<small><%= form.label 'Institución de Procedencia' %></small></br>
+		<%= form.text_field(:institucion_procedencia, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Institución donde será Pasante' %></small></br>
+		<%= form.text_field(:institucion_pasantia, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Región' %></small></br>
+		<%= form.select :region, Investigador::REGIONES, prompt: "Región?" %></br>
+		<small><b><%= form.label 'Descripción de Pasantía' %></b></small></br>
+	  	<%= form.text_area :descripcion_pasantia, size: '66x8' %><!--/br-->
+
+		<small><%= form.label 'Fecha Inicio' %></small></br>
+		<%= form.text_field(:fecha_inicio, size: 74, class: 'form-control-sm') %>
+		<small><%= form.label 'Fecha Término' %></small></br>
+		<%= form.text_field(:fecha_termino, size: 74, class: 'form-control-sm') %>
+	</div>
+</div>

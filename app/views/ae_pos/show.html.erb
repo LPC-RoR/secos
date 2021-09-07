@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Articulo entrevista:</strong>
+  <%= @ae_po.articulo_entrevista_id %>
+</p>
+
+<p>
+  <strong>Publico objetivo:</strong>
+  <%= @ae_po.publico_objetivo %>
+</p>
+
+<%= link_to 'Edit', edit_ae_po_path(@ae_po) %> |
+<%= link_to 'Back', ae_pos_path %>

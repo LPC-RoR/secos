@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  actividad_difusion_id: 1
+  publico_objetivo_id: 1
+
+two:
+  actividad_difusion_id: 1
+  publico_objetivo_id: 1

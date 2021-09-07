@@ -1,0 +1,27 @@
+<%= form_with(model: i_li, local: true) do |form| %>
+  <% if i_li.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(i_li.errors.count, "error") %> prohibited this i_li from being saved:</h2>
+
+      <ul>
+      <% i_li.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :investigador_id %>
+    <%= form.number_field :investigador_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :linea_investigacion_id %>
+    <%= form.number_field :linea_investigacion_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
