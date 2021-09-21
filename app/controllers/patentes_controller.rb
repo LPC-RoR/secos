@@ -4,6 +4,8 @@ class PatentesController < ApplicationController
   before_action :carga_temas_ayuda
   before_action :set_patente, only: %i[ show edit update destroy ]
 
+  include Sidebar
+
   # GET /patentes or /patentes.json
   def index
     @coleccion = Patente.all
@@ -11,15 +13,18 @@ class PatentesController < ApplicationController
 
   # GET /patentes/1 or /patentes/1.json
   def show
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /patentes/new
   def new
     @objeto = Patente.new
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /patentes/1/edit
   def edit
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # POST /patentes or /patentes.json

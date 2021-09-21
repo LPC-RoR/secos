@@ -30,54 +30,6 @@ module RecursosHelper
 		end
 	end
 
-	def side_list(list_name)
-		case list_name
-		when 'Ingreso Datos Anuales'
-			[
-				[1, 'item', 'Datos Centro'],
-				[1, 'list', 'Investigación'],
-				[2, 'item', 'Líneas de Investigación'],
-				[2, 'item', 'Investigadores Centro'],
-				[2, 'item', 'Actividades Científicas Organizadas'],
-				[2, 'item', 'Publicaciones'],
-				[2, 'list', 'Propiedad Intelectual'],
-				[3, 'item', 'Patentes'],
-				[2, 'item', 'Presentaciones Congresos'],
-				[2, 'list', 'Premios y Honores'],
-				[3, 'item', 'P. y H. Investigadores'],
-				[3, 'item', 'P. y H. Centro'],
-				[1, 'item', 'Comités Editoriales'],
-				[1, 'list', 'Formación Capital Humano'],
-				[2, 'item', 'Formación de jóvenes'],
-				[2, 'item', 'Tésis Finalizadas'],
-				[2, 'list', 'Pasantías'],
-				[3, 'item', 'Internos'],
-				[3, 'item', 'Externos'],
-				[1, 'list', 'Redes de Colaboración'],
-				[2, 'item', 'Redes Formales de Colaboración'],
-				[2, 'item', 'Redes de Colaboración'],
-				[1, 'list', 'Actividades de Difusión y PME'],
-				[2, 'item', 'Actividades de Difusión'],
-				[2, 'item', 'Producto de PME (concurso milenio)'],
-				[2, 'item', 'Fondos Actividades de Difusión (concurso milenio)'],
-				[2, 'item', 'Artículos y Entrevistas en Medios de Comunicación'],
-				[1, 'item', 'Vínculos con Otros Sectores'],
-				[1, 'item', 'Personal Técnico y Administrativo'],
-				[1, 'item', 'Fuentes de Financiamiento']
-			]
-		when 'Administracion'
-			[
-				[1, 'item', 'Administradores'],
-				[1, 'item', 'Nómina'],
-				[1, 'item', 'Perfiles'],
-				[1, 'list', 'Archivos'],
-				[2, 'item', 'Datos Centro'],
-				[2, 'item', 'Disciplinas'],
-				[2, 'item', 'Grados Académicos'],
-			]
-		end
-	end
-
 	def display_item_app(item, tipo_item)
 		case item
 		when 'Temas'
@@ -88,6 +40,76 @@ module RecursosHelper
 	end
 
 	## ------------------------------------------------------- TABLA | BTNS
+
+	def cristiano(field)
+
+		if ['nombre_espaniol'].include?(field)
+			'Nombre (Español)'
+		elsif ['linea_investigacion', 'Linea investigacion', 'linea_investigaciones'].include?(field)
+			'Línea Investigación'
+		elsif ['datos_centros'].include?(field)
+			'Datos Centro'
+		elsif ['investigadores'].include?(field)
+			'Investigador'
+		elsif ['titulo_actividad'].include?(field)
+			'Título Actividad'
+		elsif ['Aco', 'acos'].include?(field)
+			'Actividad Científica Organizada'
+		elsif ['Publicacion'].include?(field)
+			'Publicación'
+		elsif ['Titulo, titulo'].include?(field)
+			'Título'
+		elsif ['Presentacion congreso'].include?(field)
+			'Presentación Congreso'
+		elsif ['Nombre presentacion'].include?(field)
+			'Nombre Presdentación'
+		elsif ['Pyh investigador', 'pyh_investigadores'].include?(field)
+			'Premios y Honores Investigador'
+		elsif ['Pyh centro', 'pyh_centro'].include?(field)
+			'Premios y Honores Centro'
+		elsif ['Comite editorial'].include?(field)
+			'Comité Editorial'
+		elsif ['Formacion joven'].include?(field)
+			'Formación de Jóvenes'
+		elsif ['Tesis finalizada'].include?(field)
+			'Tesis Finalizada'
+		elsif ['Nombre tesis'].include?(field)
+			'Nombre Tesis'
+		elsif ['Pasantia interno', 'pasantia_internos'].include?(field)
+			'Pasantía Interno'
+		elsif ['Pasantia externo', 'pasantia_externos'].include?(field)
+			'Pasantía Externo'
+		elsif ['Rf colaboracion', 'rf_colaboraciones'].include?(field)
+			'Red Formal de Colaboración'
+		elsif ['Nombre red'].include?(field)
+			'Nombre Red'
+		elsif ['R colaboracion', 'r_colaboraciones'].include?(field)
+			'Red de Colaboración'
+		elsif ['Actividad difusion', 'actividad_difusiones'].include?(field)
+			'Actividad de Difusión'
+		elsif ['Titulo evento'].include?(field)
+			'Título Evento'
+		elsif ['Producto pme', 'producto_pmes'].include?(field)
+			'Producto de PME'
+		elsif ['Aporte actividad', 'aporte_actividades'].include?(field)
+			'Fondos Actividad de Difusión'
+		elsif ['Articulo entrevista', 'articulo_entrevistas'].include?(field)
+			'Artículo o Entrevista'
+		elsif ['Vinculo', 'vinculos'].include?(field)
+			'Vínculo con otro Sector'
+		elsif ['Tecnico administrativo', 'tecnico_administrativos'].include?(field)
+			'Técnico o Administrativo'
+		elsif ['Fuente financiamiento', 'fuente_financiamientos'].include?(field)
+			'Fuente de Financiamiento'
+		elsif ['administradores'].include?(field)
+			'Administrador'
+		elsif ['Nomina' 'nominas'].include?(field)
+			'Nómina'
+		else
+			field
+		end
+
+	end
 
 	def tr_row(objeto)
 		case objeto.class.name
@@ -106,8 +128,6 @@ module RecursosHelper
 		case objeto.class.name
 		when 'Carga'
 			objeto.estado == 'ingreso'
-		when 'Publicacion'
-			objeto.origen == 'ingreso'
 		when 'Carpeta'
 			not Carpeta::NOT_MODIFY.include?(objeto.carpeta) and controller_name == 'proyectos'
 		when 'Texto'
@@ -270,11 +290,21 @@ module RecursosHelper
 	def show_title(objeto)
 		case objeto.class.name
 		when 'Publicacion'
-			objeto.title
-		when 'Linea'
-			objeto.columnas.order(:orden).first.columna
-		when 'Imagen'
-			objeto.nota
+			objeto.titulo
+		when 'Aco'
+			objeto.titulo_evento
+		when 'Patente'
+			objeto.titulo
+		when 'PresentacionCongreso'
+			objeto.nombre_presentacion
+		when 'PyhInvestigador'
+			objeto.premio
+		when 'PyhCentro'
+			objeto.premio
+		when 'ComiteEditorial'
+			objeto.publicacion
+		when 'FormacionJoven'
+			objeto.nombre
 		else
 			objeto.send(objeto.class.name.tableize.singularize)
 		end

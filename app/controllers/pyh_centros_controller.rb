@@ -4,6 +4,8 @@ class PyhCentrosController < ApplicationController
   before_action :carga_temas_ayuda
   before_action :set_pyh_centro, only: %i[ show edit update destroy ]
 
+  include Sidebar
+
   # GET /pyh_centros or /pyh_centros.json
   def index
     @coleccion = PyhCentro.all
@@ -11,15 +13,18 @@ class PyhCentrosController < ApplicationController
 
   # GET /pyh_centros/1 or /pyh_centros/1.json
   def show
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /pyh_centros/new
   def new
     @objeto = PyhCentro.new
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /pyh_centros/1/edit
   def edit
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # POST /pyh_centros or /pyh_centros.json

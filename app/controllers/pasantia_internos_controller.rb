@@ -4,6 +4,8 @@ class PasantiaInternosController < ApplicationController
   before_action :carga_temas_ayuda
   before_action :set_pasantia_interno, only: %i[ show edit update destroy ]
 
+  include Sidebar
+
   # GET /pasantia_internos or /pasantia_internos.json
   def index
     @coleccion = PasantiaInterno.all
@@ -11,15 +13,18 @@ class PasantiaInternosController < ApplicationController
 
   # GET /pasantia_internos/1 or /pasantia_internos/1.json
   def show
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /pasantia_internos/new
   def new
     @objeto = PasantiaInterno.new
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /pasantia_internos/1/edit
   def edit
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # POST /pasantia_internos or /pasantia_internos.json

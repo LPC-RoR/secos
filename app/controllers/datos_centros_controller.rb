@@ -4,6 +4,8 @@ class DatosCentrosController < ApplicationController
   before_action :carga_temas_ayuda
   before_action :set_datos_centro, only: %i[ show edit update destroy ]
 
+  include Sidebar
+
   # GET /datos_centros or /datos_centros.json
   def index
     @coleccion = DatosCentro.all
@@ -15,11 +17,13 @@ class DatosCentrosController < ApplicationController
 
   # GET /datos_centros/new
   def new
+    carga_sidebar('Administración')
     @objeto = DatosCentro.new
   end
 
   # GET /datos_centros/1/edit
   def edit
+    carga_sidebar('Administración')
   end
 
   # POST /datos_centros or /datos_centros.json
@@ -28,7 +32,8 @@ class DatosCentrosController < ApplicationController
 
     respond_to do |format|
       if @objeto.save
-        format.html { redirect_to @objeto, notice: "Datos centro was successfully created." }
+        set_redireccion
+        format.html { redirect_to @redireccion, notice: "Datos centro was successfully created." }
         format.json { render :show, status: :created, location: @objeto }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -41,7 +46,8 @@ class DatosCentrosController < ApplicationController
   def update
     respond_to do |format|
       if @objeto.update(datos_centro_params)
-        format.html { redirect_to @objeto, notice: "Datos centro was successfully updated." }
+        set_redireccion
+        format.html { redirect_to @redireccion, notice: "Datos centro was successfully updated." }
         format.json { render :show, status: :ok, location: @objeto }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,9 +58,10 @@ class DatosCentrosController < ApplicationController
 
   # DELETE /datos_centros/1 or /datos_centros/1.json
   def destroy
+    set_redireccion
     @objeto.destroy
     respond_to do |format|
-      format.html { redirect_to datos_centros_url, notice: "Datos centro was successfully destroyed." }
+      format.html { redirect_to @redireccion, notice: "Datos centro was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -63,6 +70,10 @@ class DatosCentrosController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_datos_centro
       @objeto = DatosCentro.find(params[:id])
+    end
+
+    def set_redireccion
+      @redireccion = '/recursos/administracion?t=Datos Centro'
     end
 
     # Only allow a list of trusted parameters through.

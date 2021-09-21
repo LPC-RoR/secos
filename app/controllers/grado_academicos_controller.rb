@@ -4,6 +4,8 @@ class GradoAcademicosController < ApplicationController
   before_action :carga_temas_ayuda
   before_action :set_grado_academico, only: %i[ show edit update destroy ]
 
+  include Sidebar
+
   # GET /grado_academicos or /grado_academicos.json
   def index
     @coleccion = GradoAcademico.all
@@ -11,15 +13,18 @@ class GradoAcademicosController < ApplicationController
 
   # GET /grado_academicos/1 or /grado_academicos/1.json
   def show
+    carga_sidebar('Administración')
   end
 
   # GET /grado_academicos/new
   def new
     @objeto = GradoAcademico.new
+    carga_sidebar('Administración')
   end
 
   # GET /grado_academicos/1/edit
   def edit
+    carga_sidebar('Administración')
   end
 
   # POST /grado_academicos or /grado_academicos.json

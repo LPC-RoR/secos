@@ -17,8 +17,22 @@ class Patente < ApplicationRecord
 		'Rechazada'
 	]
 
+	DISPLAY_FIELDS = [
+		['titulo',          'Título',                     'string'],
+		['descripcion',     'Descripción',                'text'],
+		['categoria',       'Categoría',                  'string'],
+		['solicitante',     'Solicitante',                'string'],
+		['inventor',        'Inventor',                   'string'],
+		['paises',          'País(es) Donde se Presenta', 'asociation'],
+		['n_solicitud',     'Número de Solicitud',        'string'],
+		['fecha_solicitud', 'Fecha de Solicitud',         'datetime'],
+		['estado',          'Estado',                     'string'],
+		['n_registro',      'Número de Registro',         'string'],
+		['fecha_registro',  'Fecha de Registro',          'datetime']
+	]
+
 	TABLA_FIELDS = [
-		['titulo', 'normal']
+		['titulo', 'show']
 	]
 
 	has_many :pat_pais

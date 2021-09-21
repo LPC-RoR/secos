@@ -4,6 +4,8 @@ class FormacionJovenesController < ApplicationController
   before_action :carga_temas_ayuda
   before_action :set_formacion_joven, only: %i[ show edit update destroy ]
 
+  include Sidebar
+
   # GET /formacion_jovenes or /formacion_jovenes.json
   def index
     @coleccion = FormacionJoven.all
@@ -11,15 +13,18 @@ class FormacionJovenesController < ApplicationController
 
   # GET /formacion_jovenes/1 or /formacion_jovenes/1.json
   def show
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /formacion_jovenes/new
   def new
     @objeto = FormacionJoven.new
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /formacion_jovenes/1/edit
   def edit
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # POST /formacion_jovenes or /formacion_jovenes.json

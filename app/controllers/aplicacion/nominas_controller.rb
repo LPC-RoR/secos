@@ -4,6 +4,8 @@ class Aplicacion::NominasController < ApplicationController
   before_action :carga_temas_ayuda
   before_action :set_nomina, only: %i[ show edit update destroy ]
 
+  include Sidebar
+
   # GET /nominas or /nominas.json
   def index
     @coleccion = Nomina.all
@@ -11,15 +13,18 @@ class Aplicacion::NominasController < ApplicationController
 
   # GET /nominas/1 or /nominas/1.json
   def show
+    carga_sidebar('Administración')
   end
 
   # GET /nominas/new
   def new
     @objeto = Nomina.new
+    carga_sidebar('Administración')
   end
 
   # GET /nominas/1/edit
   def edit
+    carga_sidebar('Administración')
   end
 
   # POST /nominas or /nominas.json

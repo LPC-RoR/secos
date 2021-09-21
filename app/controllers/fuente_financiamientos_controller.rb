@@ -4,6 +4,8 @@ class FuenteFinanciamientosController < ApplicationController
   before_action :carga_temas_ayuda
   before_action :set_fuente_financiamiento, only: %i[ show edit update destroy ]
 
+  include Sidebar
+
   # GET /fuente_financiamientos or /fuente_financiamientos.json
   def index
     @coleccion = FuenteFinanciamiento.all
@@ -11,15 +13,18 @@ class FuenteFinanciamientosController < ApplicationController
 
   # GET /fuente_financiamientos/1 or /fuente_financiamientos/1.json
   def show
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /fuente_financiamientos/new
   def new
     @objeto = FuenteFinanciamiento.new
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /fuente_financiamientos/1/edit
   def edit
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # POST /fuente_financiamientos or /fuente_financiamientos.json

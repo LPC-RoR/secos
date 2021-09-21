@@ -3,6 +3,8 @@ class Aplicacion::PerfilesController < ApplicationController
   before_action :inicia_sesion
   before_action :set_perfil, only: [:show, :edit, :update, :destroy, :desvincular]
 
+  include Sidebar
+
   # GET /perfiles
   # GET /perfiles.json
   def index
@@ -12,15 +14,18 @@ class Aplicacion::PerfilesController < ApplicationController
   # GET /perfiles/1
   # GET /perfiles/1.json
   def show
+    carga_sidebar('Administración')
   end
 
   # GET /perfiles/new
   def new
     @objeto = Perfil.new
+    carga_sidebar('Administración')
   end
 
   # GET /perfiles/1/edit
   def edit
+    carga_sidebar('Administración')
   end
 
   # POST /perfiles

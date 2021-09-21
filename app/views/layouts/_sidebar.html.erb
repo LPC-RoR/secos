@@ -1,0 +1,14 @@
+<% if ['recursos', 'datos_centros', 'linea_investigaciones', 'investigadores', 'acos', 'publicaciones', 'patentes', 'presentacion_congresos', 'pyh_investigadores', 'pyh_centros', 'comite_editoriales', 'formacion_jovenes', 'tesis_finalizadas', 'pasantia_internos', 'pasantia_externos', 'rf_colaboraciones', 'r_colaboraciones', 'actividad_difusiones', 'producto_pmes', 'aporte_actividades', 'articulo_entrevistas', 'vinculos', 'tecnico_administrativos', 'fuente_financiamientos', 'administradores', 'nominas', 'perfiles', 'disciplinas', 'grado_academicos'].include?(controller_name) and action_name != 'home' %>
+
+	<div class='row'>
+		<div class='col-md-4'>
+			<%= render partial: '0p/sidelist/sidelist', locals: {sidebar: @sidebar, name_list: @side_name, link: @side_link } %>
+		</div>
+		<div class='col-md-8'>
+			<%= yield %>
+		</div>
+	</div>
+
+<% else %>
+	<%= yield %>
+<% end %>

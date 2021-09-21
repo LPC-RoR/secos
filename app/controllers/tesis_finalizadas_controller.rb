@@ -4,6 +4,8 @@ class TesisFinalizadasController < ApplicationController
   before_action :carga_temas_ayuda
   before_action :set_tesis_finalizada, only: %i[ show edit update destroy ]
 
+  include Sidebar
+
   # GET /tesis_finalizadas or /tesis_finalizadas.json
   def index
     @coleccion = TesisFinalizada.all
@@ -11,15 +13,18 @@ class TesisFinalizadasController < ApplicationController
 
   # GET /tesis_finalizadas/1 or /tesis_finalizadas/1.json
   def show
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /tesis_finalizadas/new
   def new
     @objeto = TesisFinalizada.new
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /tesis_finalizadas/1/edit
   def edit
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # POST /tesis_finalizadas or /tesis_finalizadas.json

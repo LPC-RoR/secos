@@ -1,4 +1,7 @@
 class Aplicacion::RecursosController < ApplicationController
+
+  include Sidebar
+
   before_action :inicia_sesion
   before_action :carga_temas_ayuda
 #  before_action :set_recurso, only: [:show, :edit, :update, :destroy]
@@ -9,87 +12,76 @@ class Aplicacion::RecursosController < ApplicationController
   end
 
   def ingreso_datos_anuales
+    # Trae sidebar desde concern 'sidebar.rb'
+#    @side_name = 'Ingreso Datos Anuales'
+#    @side_link = '/recursos/ingreso_datos_anuales'
+#    @sidebar = side_list('Ingreso Datos Anuales')
+
+    carga_sidebar('Ingreso Datos Anuales')
+
+    # parámetro 't'
     @t = params[:t].blank? ? 'Datos Centro' : params[:t]
 
-    @coleccion = {}
+    # Trae nombre de la tabla desde concer 'sidebar'
+    @tabla = hash_tablas('Ingreso Datos Anuales')[@t]
+    @set_display = set_tabla('Ingreso Datos Anuales', @tabla)
 
-    case @t
-    when 'Datos Centro'
-      @tabla = 'datos_centros'
-    when 'Líneas de Investigación'
-      @tabla = 'linea_investigaciones'
-    when 'Investigadores Centro'
-      @tabla = 'investigadores'
-    when 'Actividades Científicas Organizadas'
-      @tabla = 'acos'
-    when 'Publicaciones'
-      @tabla = 'publicaciones'
-    when 'Patentes'
-      @tabla = 'patentes'
-    when 'Presentaciones Congresos'
-      @tabla = 'presentacion_congresos'
-    when 'P. y H. Investigadores'
-      @tabla = 'pyh_investigadores'
-    when 'P. y H. Centro'
-      @tabla = 'pyh_centros'
-    when 'Comités Editoriales'
-      @tabla = 'comite_editoriales'
-    when 'Formación de jóvenes'
-      @tabla = 'formacion_jovenes'
-    when 'Tésis Finalizadas'
-      @tabla = 'tesis_finalizadas'
-    when 'Internos'
-      @tabla = 'pasantia_internos'
-    when 'Externos'
-      @tabla = 'pasantia_externos'
-    when 'Redes Formales de Colaboración'
-      @tabla = 'rf_colaboraciones'
-    when 'Redes de Colaboración'
-      @tabla = 'r_colaboraciones'
-    when 'Actividades de Difusión'
-      @tabla = 'actividad_difusiones'
-    when 'Producto de PME (concurso milenio)'
-      @tabla = 'producto_pmes'
-    when 'Fondos Actividades de Difusión (concurso milenio)'
-      @tabla = 'aporte_actividades'
-    when 'Artículos y Entrevistas en Medios de Comunicación'
-      @tabla = 'articulo_entrevistas'
-    when 'Vínculos con Otros Sectores'
-      @tabla = 'vinculos'
-    when 'Personal Técnico y Administrativo'
-      @tabla = 'tecnico_administrativos'
-    when 'Fuentes de Financiamiento'
-      @tabla = 'fuente_financiamientos'
+    if @set_display[0] == 'show'
+      case @tabla
+      when 'datos_centros'
+        @objeto = DatosCentro.first
+      end
+    elsif @set_display[0] == 'list'
+      @new_button = true unless ['Perfiles'].include?(@t)
+
+      @coleccion = {}
+      @coleccion[@tabla] = @tabla.classify.constantize.all
     end
 
-    @new_button = true
-
-    @coleccion[@tabla] = @tabla.classify.constantize.all
+    # INICIALIZA TABLAS
+    case @t
+    when 'Presentaciones Congresos'
+      if Pais.all.empty?
+        Aco::PAISES.each do |pais|
+          Pais.create(pais: pais)
+        end
+      end
+    end
+    
   end
 
   def administracion
+    # Trae sidebar desde concern 'sidebar.rb'
+#    @side_name = 'Administración'
+#    @side_link = '/recursos/administracion'
+#    @sidebar = side_list('Administración')
+
+    carga_sidebar('Administración')
+
+    # parámetro 't'
     @t = params[:t].blank? ? 'Administradores' : params[:t]
 
-    @coleccion = {}
+    # Trae nombre de la tabla desde concer 'sidebar'
+    @tabla = hash_tablas('Administración')[@t]
+    @set_display = set_tabla('Administración', @tabla)
 
-    case @t
-    when 'Administradores'
-      @tabla = 'administradores'
-    when 'Nómina'
-      @tabla = 'nominas'
-    when 'Perfiles'
-      @tabla = 'perfiles'
-    when 'Datos Centro'
-      @tabla = 'datos_centros'
-    when 'Disciplinas'
-      @tabla = 'disciplinas'
-    when 'Grados Académicos'
-      @tabla = 'grado_academicos'
+    if @set_display[0] == 'show'
+    elsif @set_display[0] == 'list'
+      @new_button = true unless ['Perfiles'].include?(@t)
+
+      @coleccion = {}
+      @coleccion[@tabla] = @tabla.classify.constantize.all
     end
 
-    @new_button = true unless ['Perfiles'].include?(@t)
-
-    @coleccion[@tabla] = @tabla.classify.constantize.all
+    # INICIALIZA TABLAS
+    case @t
+    when 'Disciplinas'
+      if @coleccion[@tabla].empty?
+        Disciplina::DISCIPLINAS.each do |disciplina|
+          Disciplina.create(disciplina: disciplina)
+        end
+      end
+    end
     
   end
 

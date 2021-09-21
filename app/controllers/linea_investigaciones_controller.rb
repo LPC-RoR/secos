@@ -4,6 +4,8 @@ class LineaInvestigacionesController < ApplicationController
   before_action :carga_temas_ayuda
   before_action :set_linea_investigacion, only: %i[ show edit update destroy ]
 
+  include Sidebar
+
   # GET /linea_investigaciones or /linea_investigaciones.json
   def index
     @coleccion = LineaInvestigacion.all
@@ -11,10 +13,12 @@ class LineaInvestigacionesController < ApplicationController
 
   # GET /linea_investigaciones/1 or /linea_investigaciones/1.json
   def show
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /linea_investigaciones/new
   def new
+    carga_sidebar('Ingreso Datos Anuales')
     @objeto = LineaInvestigacion.new
     @objeto.li_dis.build
 
@@ -23,6 +27,7 @@ class LineaInvestigacionesController < ApplicationController
 
   # GET /linea_investigaciones/1/edit
   def edit
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # POST /linea_investigaciones or /linea_investigaciones.json

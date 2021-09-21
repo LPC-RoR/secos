@@ -4,6 +4,8 @@ class ActividadDifusionesController < ApplicationController
   before_action :carga_temas_ayuda
   before_action :set_actividad_difusion, only: %i[ show edit update destroy ]
 
+  include Sidebar
+
   # GET /actividad_difusiones or /actividad_difusiones.json
   def index
     @coleccion = ActividadDifusion.all
@@ -11,15 +13,18 @@ class ActividadDifusionesController < ApplicationController
 
   # GET /actividad_difusiones/1 or /actividad_difusiones/1.json
   def show
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /actividad_difusiones/new
   def new
     @objeto = ActividadDifusion.new
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /actividad_difusiones/1/edit
   def edit
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # POST /actividad_difusiones or /actividad_difusiones.json

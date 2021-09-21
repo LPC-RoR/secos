@@ -4,6 +4,8 @@ class PresentacionCongresosController < ApplicationController
   before_action :carga_temas_ayuda
   before_action :set_presentacion_congreso, only: %i[ show edit update destroy ]
 
+  include Sidebar
+
   # GET /presentacion_congresos or /presentacion_congresos.json
   def index
     @coleccion = PresentacionCongreso.all
@@ -11,15 +13,18 @@ class PresentacionCongresosController < ApplicationController
 
   # GET /presentacion_congresos/1 or /presentacion_congresos/1.json
   def show
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /presentacion_congresos/new
   def new
     @objeto = PresentacionCongreso.new
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /presentacion_congresos/1/edit
   def edit
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # POST /presentacion_congresos or /presentacion_congresos.json

@@ -4,6 +4,8 @@ class ArticuloEntrevistasController < ApplicationController
   before_action :carga_temas_ayuda
   before_action :set_articulo_entrevista, only: %i[ show edit update destroy ]
 
+  include Sidebar
+
   # GET /articulo_entrevistas or /articulo_entrevistas.json
   def index
     @coleccion = ArticuloEntrevista.all
@@ -11,15 +13,18 @@ class ArticuloEntrevistasController < ApplicationController
 
   # GET /articulo_entrevistas/1 or /articulo_entrevistas/1.json
   def show
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /articulo_entrevistas/new
   def new
     @objeto = ArticuloEntrevista.new
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /articulo_entrevistas/1/edit
   def edit
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # POST /articulo_entrevistas or /articulo_entrevistas.json

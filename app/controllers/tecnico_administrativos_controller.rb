@@ -4,6 +4,8 @@ class TecnicoAdministrativosController < ApplicationController
   before_action :carga_temas_ayuda
   before_action :set_tecnico_administrativo, only: %i[ show edit update destroy ]
 
+  include Sidebar
+
   # GET /tecnico_administrativos or /tecnico_administrativos.json
   def index
     @coleccion = TecnicoAdministrativo.all
@@ -11,15 +13,18 @@ class TecnicoAdministrativosController < ApplicationController
 
   # GET /tecnico_administrativos/1 or /tecnico_administrativos/1.json
   def show
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /tecnico_administrativos/new
   def new
     @objeto = TecnicoAdministrativo.new
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /tecnico_administrativos/1/edit
   def edit
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # POST /tecnico_administrativos or /tecnico_administrativos.json

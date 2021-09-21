@@ -23,7 +23,7 @@
 
 
 		<small><%= form.label 'Fecha de Nacimiento' %></small></br>
-		<%= form.text_field(:fecha_nacimiento, size: 74, class: 'form-control-sm') %>
+		<%= form.date_select :fecha_nacimiento, {order: [:day, :month, :year], prompt: { day: 'Día?', month: 'Mes?', year: 'Año?' }, start_year: Date.today.year + 1, end_year: Date.today.year - 100}, {required: true} %></br>
 		<small><%= form.label 'Nacionalidad' %></small></br>
 		<%= form.select :nacionalidad, Investigador::NACIONALIDADES, prompt: "Nacionalidad?" %></br>
 
@@ -44,9 +44,9 @@
 
 
 		<small><%= form.label 'Fecha Ingreso al Centro' %></small></br>
-		<%= form.text_field(:fecha_ingreso, size: 74, class: 'form-control-sm') %>
+		<%= form.date_select :fecha_ingreso, {order: [:day, :month, :year], prompt: { day: 'Día?', month: 'Mes?', year: 'Año?' }, start_year: Date.today.year + 1, end_year: Date.today.year - 100}, {required: true} %></br>
 		<small><%= form.label 'Fecha Desvinculación del Centro' %></small></br>
-		<%= form.text_field(:fecha_desvinculacion, size: 74, class: 'form-control-sm') %>
+		<%= form.date_select :fecha_desvinculacion, {order: [:day, :month, :year], prompt: { day: 'Día?', month: 'Mes?', year: 'Año?' }, start_year: Date.today.year + 1, end_year: Date.today.year - 100}, {required: true} %></br>
 
 	</div>
 </div>

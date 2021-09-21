@@ -116,8 +116,32 @@ class FormacionJoven < ApplicationRecord
 		'Mixto (ICM + Externo)'
 	]
 
+	DISPLAY_FIELDS = [
+		['tipo_documento',               'Tipo Documento',                  'string'],
+		['rut_pasaporte',                'RUT / Pasaporte',                 'string'],
+		['nombres',                      'Nombres',                         'string'],
+		['paterno',                      'Apellido Paterno',                'string'],
+		['materno',                      'Apellido Materno',                'string'],
+		['email',                        'E-mail',                          'string'],
+		['nacionalidad',                 'Nacionalidad',                    'string'],
+		['genero',                       'Género',                          'string'],
+		['profesion_titulo_grado',       'Profesión/Título/Grado Actual',   'string'],
+		['universidad_formacion',        'Universidad de Formación',        'string'],
+		['otra_universidad_formacion',   'Otra Universidad de Formación',   'string'],
+		['region_universidad_formacion', 'Región Universidad de Formación', 'string'],
+		['universidad_origen',           'Universidad de Origen',           'string'],
+		['pais_universidad_origen',      'País Universidad de Origen',      'string'],
+		['fecha_nacimiento',             'Fecha de Nacimiento',             'datetime'],
+		['tipo_financiamiento',          'Tipo de Financiamiento',          'string'],
+		['monto',                        'Monto',                           'string'],
+		['relacion_centro',              'Relación con el Centro',          'string'],
+		['fecha_ingreso_centro',         'Fecha de Ingreso al Centro',      'datetime'],
+		['fecha_desvinculacion',         'Fecha de Desvinculación',         'datetime'],
+		['estado',                       'Estado',                          'string']
+	]
+
 	TABLA_FIELDS = [
-		['nombres', 'normal']
+		['nombres', 'show']
 	]
 
 	has_many :fj_nfores
@@ -128,5 +152,9 @@ class FormacionJoven < ApplicationRecord
 
 	has_many :fj_is
 	has_many :investigadores, through: :fj_is
+
+	def nombre
+		"#{nombres} #{paterno} #{materno}"
+	end
 
 end

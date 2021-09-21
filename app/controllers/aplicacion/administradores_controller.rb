@@ -4,6 +4,8 @@ class Aplicacion::AdministradoresController < ApplicationController
   before_action :carga_temas_ayuda
   before_action :set_administrador, only: [:show, :edit, :update, :destroy]
 
+  include Sidebar
+
   # GET /administradores
   # GET /administradores.json
   def index
@@ -15,15 +17,18 @@ class Aplicacion::AdministradoresController < ApplicationController
   # GET /administradores/1
   # GET /administradores/1.json
   def show
+    carga_sidebar('Administración')
   end
 
   # GET /administradores/new
   def new
     @objeto = Administrador.new
+    carga_sidebar('Administración')
   end
 
   # GET /administradores/1/edit
   def edit
+    carga_sidebar('Administración')
   end
 
   # POST /administradores

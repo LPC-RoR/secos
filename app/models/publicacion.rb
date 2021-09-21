@@ -15,9 +15,32 @@ class Publicacion < ApplicationRecord
 		'Q4'
 	]
 
+	DISPLAY_FIELDS = [
+		['fecha_publicacion',       'Fecha de Publicación',                           'datetime'],
+		['categoria_publicacion',   'Categoria Publicación',                          'string'],
+		['otra_categoria',          'Otra Categoría',                                 'string'],
+		['titulo',                  'Título',                                         'string'],
+		['autores',                 'Autores',                                        'string'],
+		['fuente',                  'Fuente',                                         'string'],
+		['volumen',                 'Volumen',                                        'string'],
+		['numero',                  'Número',                                         'string'],
+		['pagina_inicial',          'Página Inicial',                                 'string'],
+		['issn',                    'ISSN',                                           'string'],
+		['doi',                     'DOI',                                            'string'],
+		['cuartil',                 'Cuartil',                                        'string'],
+		['n_autores_inv_asociados', 'N° Autores Investigadores Asociados del Centro', 'string'],
+		['n_autores_estudiantes',   'N° Autores Estudiantes',                         'string'],
+		['n_autores_otros',         'N° Autores "Otros Investigadores"',              'string'],
+		['linea_investigaciones',   'Líneas de Investigación Vinculadas',             'asociation'],
+		['investigadores',          'Invstigadores Asociados',                        'asociation'],
+		['ligada_red_formal',       '¿Ligada a Red Formal de Colaboración?',          'string'],
+		['red_formal',              'Red Formal de Colaboración en la que Participa', 'string'],
+		['documento_relacionado',   'Documento Relacionado',                          'file']
+	]
+
 	TABLA_FIELDS = [
 		['autores', 'normal'], 
-		['titulo',  'normal']
+		['titulo',  'show']
 	]
 
 	has_many :p_lis

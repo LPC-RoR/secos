@@ -4,6 +4,8 @@ class AcosController < ApplicationController
   before_action :carga_temas_ayuda
   before_action :set_aco, only: %i[ show edit update destroy ]
 
+  include Sidebar
+
   # GET /acos or /acos.json
   def index
     @coleccion = Aco.all
@@ -11,15 +13,18 @@ class AcosController < ApplicationController
 
   # GET /acos/1 or /acos/1.json
   def show
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /acos/new
   def new
+    carga_sidebar('Ingreso Datos Anuales')
     @objeto = Aco.new
   end
 
   # GET /acos/1/edit
   def edit
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # POST /acos or /acos.json

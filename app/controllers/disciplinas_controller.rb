@@ -4,6 +4,8 @@ class DisciplinasController < ApplicationController
   before_action :carga_temas_ayuda
   before_action :set_disciplina, only: %i[ show edit update destroy ]
 
+  include Sidebar
+
   # GET /disciplinas or /disciplinas.json
   def index
     @coleccion = Disciplina.all
@@ -11,15 +13,18 @@ class DisciplinasController < ApplicationController
 
   # GET /disciplinas/1 or /disciplinas/1.json
   def show
+    carga_sidebar('Administración')
   end
 
   # GET /disciplinas/new
   def new
     @objeto = Disciplina.new
+    carga_sidebar('Administración')
   end
 
   # GET /disciplinas/1/edit
   def edit
+    carga_sidebar('Administración')
   end
 
   # POST /disciplinas or /disciplinas.json

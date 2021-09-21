@@ -4,6 +4,8 @@ class PyhInvestigadoresController < ApplicationController
   before_action :carga_temas_ayuda
   before_action :set_pyh_investigador, only: %i[ show edit update destroy ]
 
+  include Sidebar
+
   # GET /pyh_investigadores or /pyh_investigadores.json
   def index
     @coleccion = PyhInvestigador.all
@@ -11,15 +13,18 @@ class PyhInvestigadoresController < ApplicationController
 
   # GET /pyh_investigadores/1 or /pyh_investigadores/1.json
   def show
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /pyh_investigadores/new
   def new
     @objeto = PyhInvestigador.new
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /pyh_investigadores/1/edit
   def edit
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # POST /pyh_investigadores or /pyh_investigadores.json

@@ -4,6 +4,8 @@ class PasantiaExternosController < ApplicationController
   before_action :carga_temas_ayuda
   before_action :set_pasantia_externo, only: %i[ show edit update destroy ]
 
+  include Sidebar
+
   # GET /pasantia_externos or /pasantia_externos.json
   def index
     @coleccion = PasantiaExterno.all
@@ -11,15 +13,18 @@ class PasantiaExternosController < ApplicationController
 
   # GET /pasantia_externos/1 or /pasantia_externos/1.json
   def show
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /pasantia_externos/new
   def new
     @objeto = PasantiaExterno.new
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /pasantia_externos/1/edit
   def edit
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # POST /pasantia_externos or /pasantia_externos.json

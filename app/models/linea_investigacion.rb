@@ -1,7 +1,18 @@
 class LineaInvestigacion < ApplicationRecord
 
+	DISPLAY_FIELDS = [
+		['linea_investigacion',              'Línea de Investigación',                  'string'],
+		['objetivo',                         'Objetivo',                                'text'],
+		['descripcion',                      'Descripción',                             'text'],
+		['conceptos_clave',                  'Conceptos Clave',                         'text'],
+		['disciplinas',                      'Disciplina(s)',                           'asociation'],
+		['fecha_inicio',                     'Fecha Inicio',                            'datetime'],
+		['fecha_termino',                    'Fecha Término',                           'datetime'],
+		['validez',                          'Validez',                                 'string']
+	]
+
 	TABLA_FIELDS = [
-		['linea_investigacion', 'normal']
+		['linea_investigacion', 'show']
 	]
 
 	has_many :li_dis

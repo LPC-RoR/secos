@@ -4,6 +4,8 @@ class AporteActividadesController < ApplicationController
   before_action :carga_temas_ayuda
   before_action :set_aporte_actividad, only: %i[ show edit update destroy ]
 
+  include Sidebar
+
   # GET /aporte_actividades or /aporte_actividades.json
   def index
     @coleccion = AporteActividad.all
@@ -11,15 +13,18 @@ class AporteActividadesController < ApplicationController
 
   # GET /aporte_actividades/1 or /aporte_actividades/1.json
   def show
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /aporte_actividades/new
   def new
     @objeto = AporteActividad.new
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /aporte_actividades/1/edit
   def edit
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # POST /aporte_actividades or /aporte_actividades.json

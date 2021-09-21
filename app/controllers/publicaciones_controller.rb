@@ -4,6 +4,8 @@ class PublicacionesController < ApplicationController
   before_action :carga_temas_ayuda
   before_action :set_publicacion, only: %i[ show edit update destroy ]
 
+  include Sidebar
+
   # GET /publicaciones or /publicaciones.json
   def index
     @coleccion = Publicacion.all
@@ -11,15 +13,18 @@ class PublicacionesController < ApplicationController
 
   # GET /publicaciones/1 or /publicaciones/1.json
   def show
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /publicaciones/new
   def new
     @objeto = Publicacion.new
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /publicaciones/1/edit
   def edit
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # POST /publicaciones or /publicaciones.json
@@ -74,6 +79,6 @@ class PublicacionesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def publicacion_params
-      params.require(:publicacion).permit(:fecha_publicacion, :categoria_publicacion, :otra_categoria, :titulo, :autores, :fuente, :volumen, :numero, :pagina_inicial, :issn, :doi, :cuartil, :n_autores_inv_asociados, :n_autores_estudiantes, :n_autores_otros, :ligada_red_formal, :red_formal, :documento_relacionado)
+      params.require(:publicacion).permit(:fecha_publicacion, :categoria_publicacion, :otra_categoria, :titulo, :autores, :fuente, :volumen, :numero, :pagina_inicial, :issn, :doi, :cuartil, :n_autores_inv_asociados, :n_autores_estudiantes, :n_autores_otros, :ligada_red_formal, :red_formal, :documento_relacionado, linea_investigacion_ids: [], investigador_ids: [])
     end
 end

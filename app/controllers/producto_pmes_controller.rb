@@ -4,6 +4,8 @@ class ProductoPmesController < ApplicationController
   before_action :carga_temas_ayuda
   before_action :set_producto_pme, only: %i[ show edit update destroy ]
 
+  include Sidebar
+
   # GET /producto_pmes or /producto_pmes.json
   def index
     @coleccion = ProductoPme.all
@@ -11,15 +13,18 @@ class ProductoPmesController < ApplicationController
 
   # GET /producto_pmes/1 or /producto_pmes/1.json
   def show
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /producto_pmes/new
   def new
     @objeto = ProductoPme.new
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /producto_pmes/1/edit
   def edit
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # POST /producto_pmes or /producto_pmes.json

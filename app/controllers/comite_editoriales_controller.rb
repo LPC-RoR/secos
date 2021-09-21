@@ -4,6 +4,8 @@ class ComiteEditorialesController < ApplicationController
   before_action :carga_temas_ayuda
   before_action :set_comite_editorial, only: %i[ show edit update destroy ]
 
+  include Sidebar
+
   # GET /comite_editoriales or /comite_editoriales.json
   def index
     @coleccion = ComiteEditorial.all
@@ -11,15 +13,18 @@ class ComiteEditorialesController < ApplicationController
 
   # GET /comite_editoriales/1 or /comite_editoriales/1.json
   def show
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /comite_editoriales/new
   def new
     @objeto = ComiteEditorial.new
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /comite_editoriales/1/edit
   def edit
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # POST /comite_editoriales or /comite_editoriales.json

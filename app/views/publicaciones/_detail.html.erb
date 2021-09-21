@@ -1,45 +1,37 @@
-<div class='row'>
-	<div class='col-md-6'>
-
 		<h3 class='text-info'>Registrar Publicación</h3>
 
 		<small><%= form.label 'Fecha Publicación' %></small></br>
-		<%= form.text_field(:fecha_publicacion, size: 74, class: 'form-control-sm') %>
+		<%= form.date_select :fecha_publicacion, {order: [:day, :month, :year], prompt: { day: 'Día?', month: 'Mes?', year: 'Año?' }, start_year: Date.today.year + 1, end_year: Date.today.year - 100}, {required: true} %></br>
 		<small><%= form.label 'Categoría Publicación' %></small></br>
 		<%= form.select :categoria_publicacion, Publicacion::CATEGORIAS, prompt: "Categoría Publicación?" %></br>
 		<small><%= form.label 'Otra Categoría' %></small></br>
-		<%= form.text_field(:otra_categoria, size: 74, class: 'form-control-sm') %>
+		<%= form.text_field(:otra_categoria, size: 74, class: 'form-control-sm') %></br>
 		<small><%= form.label 'Título' %></small></br>
-		<%= form.text_field(:titulo, size: 74, class: 'form-control-sm') %>
+		<%= form.text_field(:titulo, size: 74, class: 'form-control-sm') %></br>
 		<small><%= form.label 'Autores' %></small></br>
-		<%= form.text_field(:autores, size: 74, class: 'form-control-sm') %>
+		<%= form.text_field(:autores, size: 74, class: 'form-control-sm') %></br>
 		<small><%= form.label 'Fuente (Nombre completo de la revisto o de la editorial)' %></small></br>
-		<%= form.text_field(:materno, size: 74, class: 'form-control-sm') %>
+		<%= form.text_field(:fuente, size: 74, class: 'form-control-sm') %></br>
 		<small><%= form.label 'Volumen' %></small></br>
-		<%= form.text_field(:volumen, size: 74, class: 'form-control-sm') %>
+		<%= form.text_field(:volumen, size: 74, class: 'form-control-sm') %></br>
 		<small><%= form.label 'Número' %></small></br>
-		<%= form.text_field(:numero, size: 74, class: 'form-control-sm') %>
+		<%= form.text_field(:numero, size: 74, class: 'form-control-sm') %></br>
 		<small><%= form.label 'Página Inicial' %></small></br>
-		<%= form.text_field(:pagina_inicial, size: 74, class: 'form-control-sm') %>
+		<%= form.text_field(:pagina_inicial, size: 74, class: 'form-control-sm') %></br>
 		<small><%= form.label 'ISSN (Print)' %></small></br>
-		<%= form.text_field(:issn, size: 74, class: 'form-control-sm') %>
+		<%= form.text_field(:issn, size: 74, class: 'form-control-sm') %></br>
 		<small><%= form.label 'DOI' %></small></br>
-		<%= form.text_field(:doi, size: 74, class: 'form-control-sm') %>
+		<%= form.text_field(:doi, size: 74, class: 'form-control-sm') %></br>
 		<small><%= form.label 'Cuartil' %></small></br>
 		<%= form.select :cuartil, Publicacion::CUARTILES, prompt: "Cuartil?" %></br>
 
 		<small><%= form.label 'N° Autores Investigadores Asociados del Centro' %></small></br>
-		<%= form.text_field(:n_autores_inv_asociados, size: 74, class: 'form-control-sm') %>
+		<%= form.text_field(:n_autores_inv_asociados, size: 74, class: 'form-control-sm') %></br>
 		<small><%= form.label 'N° Autores Estudiantes' %></small></br>
-		<%= form.text_field(:n_autores_estudiantes, size: 74, class: 'form-control-sm') %>
+		<%= form.text_field(:n_autores_estudiantes, size: 74, class: 'form-control-sm') %></br>
 		<small><%= form.label 'N° Autores "Otros Investigadores"' %></small></br>
-		<%= form.text_field(:n_autores_otros, size: 74, class: 'form-control-sm') %>
+		<%= form.text_field(:n_autores_otros, size: 74, class: 'form-control-sm') %></br>
 
-	</div>
-</div>
-
-<div class='row'>
-	<div class='col-md-6'>
 		<small><%= form.label 'Líneas de Investigación Vinculadas' %></small></br>
 
 		<ul>
@@ -47,39 +39,28 @@
 			<li><%= li.linea_investigacion %></li>
 		<% end %>
 		</ul>
-	</div>
-	<div class='col-md-6'>
+
 		<%= form.select :linea_investigacion_ids,
 		    options_from_collection_for_select(LineaInvestigacion.all, :id, :linea_investigacion),
 		    { include_blank: false },
 		    multiple: true,
 		    class: 'select multiple-select',
-		    size: 5 %>
-	</div>
-</div>
+		    size: 5 %></br>
 
-<div class='row'>
-	<div class='col-md-6'>
-		<small><%= form.label 'Invstigadores Asociados' %></small></br>
+		<small><%= form.label 'Investigadores Asociados' %></small></br>
 
 		<ul>
 		<% @objeto.investigadores.each do |inv| %>
 			<li><%= "#{inv.nombre} #{inv.paterno} #{inv.materno}" %></li>
 		<% end %>
 		</ul>
-	</div>
-	<div class='col-md-6'>
+
 		<%= form.select :investigador_ids,
-		    options_from_collection_for_select(Investigador.all, :id, :nombre),
+		    options_from_collection_for_select(Investigador.all, :id, :investigador),
 		    { include_blank: false },
 		    multiple: true,
 		    class: 'select multiple-select',
 		    size: 5 %>
-	</div>
-</div>
-
-<div class='row'>
-	<div class='col-md-6'>
 
 		<div class="field">
 			<small><%= form.label '¿Ligada a Red Formal de Colaboración?' %></small></br>
@@ -104,6 +85,3 @@
 			    <%= form.file_field :documento_relacionado %>
 		    <% end %>
 		</p>
-
-	</div>
-</div>

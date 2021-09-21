@@ -4,6 +4,8 @@ class RColaboracionesController < ApplicationController
   before_action :carga_temas_ayuda
   before_action :set_r_colaboracion, only: %i[ show edit update destroy ]
 
+  include Sidebar
+
   # GET /r_colaboraciones or /r_colaboraciones.json
   def index
     @coleccion = RColaboracion.all
@@ -11,15 +13,18 @@ class RColaboracionesController < ApplicationController
 
   # GET /r_colaboraciones/1 or /r_colaboraciones/1.json
   def show
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /r_colaboraciones/new
   def new
     @objeto = RColaboracion.new
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /r_colaboraciones/1/edit
   def edit
+    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # POST /r_colaboraciones or /r_colaboraciones.json

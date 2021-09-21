@@ -33,7 +33,7 @@
 		<small><%= form.label 'Nombre Publicación' %></small></br>
 		<%= form.text_field(:nombre_publicacion, size: 74, class: 'form-control-sm') %>
 		<small><%= form.label 'Categoría' %></small></br>
-		<%= form.select :pais, Publicacion::CATEGORIAS, prompt: "Categoría?" %></br>
+		<%= form.select :categoria, Publicacion::CATEGORIAS, prompt: "Categoría?" %></br>
 
 		<small><%= form.label 'Otra Categoría' %></small></br>
 		<%= form.text_field(:otra_categoria, size: 74, class: 'form-control-sm') %>

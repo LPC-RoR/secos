@@ -1,60 +1,40 @@
-<div class='row'>
-	<div class='col-md-6'>
+<h3 class='text-info'> Ingresar Línea de Investigación</h3>
 
-		<h3 class='text-info'> Ingresar Línea de Investigación</h3>
+<small><%= form.label 'Línea de Investigación' %></small></br>
+<%= form.text_field(:linea_investigacion, size: 74, class: 'form-control-sm') %></br>
 
-		<small><b><%= form.label 'Línea de Investigación' %></b></small></br>
-		<%= form.text_field(:linea_investigacion, size: 74, class: 'form-control-sm') %>
+<small><%= form.label 'Objetivo' %></small></br>
+	<%= form.text_area :objetivo, size: '66x8' %></br>
 
-		<small><b><%= form.label 'Objetivo' %></b></small></br>
-	  	<%= form.text_area :objetivo, size: '66x8' %><!--/br-->
+<small><%= form.label 'Descripción' %></small></br>
+	<%= form.text_area :descripcion, size: '66x8' %></br>
 
-		<small><b><%= form.label 'Descripción' %></b></small></br>
-	  	<%= form.text_area :descripcion, size: '66x8' %><!--/br-->
+<small><%= form.label 'Conceptos Clave' %></small></br>
+	<%= form.text_area :conceptos_clave, size: '66x8' %></br>
 
-		<small><b><%= form.label 'Conceptos Clave' %></b></small></br>
-	  	<%= form.text_area :conceptos_clave, size: '66x8' %><!--/br-->
+<small><%= form.label 'Disciplinas' %></small></br>
+<div class="field">
+	<%= form.select :disciplina_ids,
+    options_from_collection_for_select(Disciplina.all, :id, :disciplina),
+    { include_blank: false },
+    multiple: true,
+    class: 'select multiple-select',
+    size: 5 %>
+</div>
+<div class="field">
 
-	</div>
+	<ul>
+	<% @objeto.disciplinas.each do |disc| %>
+		<li><%= disc.disciplina %></li>
+	<% end %>
+	</ul>
 </div>
 
-<div class='row'>
-	<div class='col-md-6'>
-		<div class="field">
-			<small><b><%= form.label 'Disciplinas' %></b></small></br>
+<small><%= form.label 'Fecha Inicio' %></small></br>
+<%= form.date_select :fecha_inicio, {order: [:day, :month, :year], prompt: { day: 'Día?', month: 'Mes?', year: 'Año?' }, start_year: Date.today.year + 1, end_year: Date.today.year - 100}, {required: true} %></br>
 
-			<ul>
-			<% @objeto.disciplinas.each do |disc| %>
-				<li><%= disc.disciplina %></li>
-			<% end %>
-			</ul>
-		</div>
-	</div>
-		    
-	<div class='col-md-6'>
-		<div class="field">
-			<%= form.select :disciplina_ids,
-		    options_from_collection_for_select(Disciplina.all, :id, :disciplina),
-		    { include_blank: false },
-		    multiple: true,
-		    class: 'select multiple-select',
-		    size: 5 %>
-		</div>
+<small><%= form.label 'Fecha Término' %></small></br>
+<%= form.date_select :fecha_termino, {order: [:day, :month, :year], prompt: { day: 'Día?', month: 'Mes?', year: 'Año?' }, start_year: Date.today.year + 10, end_year: Date.today.year - 100}, {required: true} %></br>
 
-	</div>
-</div>
-
-<div class='row'>
-	<div class='col-md-6'>
-
-		<small><b><%= form.label 'Fecha Inicio' %></b></small></br>
-		<%= form.text_field(:fecha_inicio, size: 74, class: 'form-control-sm') %>
-
-		<small><b><%= form.label 'Fecha Término' %></b></small></br>
-		<%= form.text_field(:fecha_termino, size: 74, class: 'form-control-sm') %>
-
-		<small><b><%= form.label 'Validez' %></b></small></br>
-		<%= form.text_field(:validez, size: 74, class: 'form-control-sm') %>
-
-	</div>
-</div>
+<small><%= form.label 'Validez' %></small></br>
+<%= form.text_field(:validez, size: 74, class: 'form-control-sm') %></br>

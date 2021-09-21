@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_07_202118) do
+ActiveRecord::Schema.define(version: 2021_09_21_145732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -554,11 +554,11 @@ ActiveRecord::Schema.define(version: 2021_09_07_202118) do
     t.string "nombre_presentacion"
     t.string "nombre_evento"
     t.string "link_presentacion"
-    t.string "fecha"
     t.string "ciudad"
     t.string "pais"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "fecha"
   end
 
   create_table "producto_pmes", force: :cascade do |t|
@@ -665,19 +665,19 @@ ActiveRecord::Schema.define(version: 2021_09_07_202118) do
 
   create_table "rfc_as", force: :cascade do |t|
     t.integer "rf_colaboracion_id"
-    t.integer "investigador"
+    t.integer "investigador_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["investigador"], name: "index_rfc_as_on_investigador"
+    t.index ["investigador_id"], name: "index_rfc_as_on_investigador_id"
     t.index ["rf_colaboracion_id"], name: "index_rfc_as_on_rf_colaboracion_id"
   end
 
   create_table "rfc_is", force: :cascade do |t|
     t.integer "rf_colaboracion_id"
-    t.integer "investigador"
+    t.integer "investigador_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["investigador"], name: "index_rfc_is_on_investigador"
+    t.index ["investigador_id"], name: "index_rfc_is_on_investigador_id"
     t.index ["rf_colaboracion_id"], name: "index_rfc_is_on_rf_colaboracion_id"
   end
 
@@ -725,10 +725,10 @@ ActiveRecord::Schema.define(version: 2021_09_07_202118) do
 
   create_table "tf_lis", force: :cascade do |t|
     t.integer "tesis_finalizada_id"
-    t.integer "LineaInvestigacion"
+    t.integer "linea_investigacion_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["LineaInvestigacion"], name: "index_tf_lis_on_LineaInvestigacion"
+    t.index ["linea_investigacion_id"], name: "index_tf_lis_on_linea_investigacion_id"
     t.index ["tesis_finalizada_id"], name: "index_tf_lis_on_tesis_finalizada_id"
   end
 
