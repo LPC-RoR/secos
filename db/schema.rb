@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_21_145732) do
+ActiveRecord::Schema.define(version: 2021_09_21_193822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -274,11 +274,11 @@ ActiveRecord::Schema.define(version: 2021_09_21_145732) do
     t.string "tipo_financiamiento"
     t.decimal "monto"
     t.string "relacion_centro"
-    t.string "fecha_ingreso_centro"
     t.datetime "fecha_desvinculacion"
     t.string "estado"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "fecha_ingreso_centro"
   end
 
   create_table "fuente_financiamientos", force: :cascade do |t|

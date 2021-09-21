@@ -16,7 +16,7 @@
 		<%= form.select :grado_academico, PasantiaExterno::GRADOS_ACADEMICOS, prompt: "Grado Académico?" %></br>
 
 		<small><%= form.label 'País de Procedencia' %></small></br>
-		<%= form.select :pais, Pais.all, prompt: "País de Procedencia?" %></br>
+		<%= form.select :pais, Pais.all.map {|pais| pais.pais}, prompt: "País de Procedencia?" %></br>
 		<small><%= form.label 'Institución de Procedencia' %></small></br>
 		<%= form.text_field(:institucion_procedencia, size: 74, class: 'form-control-sm') %>
 		<small><%= form.label 'Institución donde será Pasante' %></small></br>

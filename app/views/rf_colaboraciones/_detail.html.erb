@@ -66,7 +66,7 @@
 	</div>
 	<div class='col-md-6'>
 		<%= form.select :investigador_ids,
-		    options_from_collection_for_select(Investigador.all, :id, :alumno),
+		    options_from_collection_for_select(Investigador.all, :id, :investigador),
 		    { include_blank: false },
 		    multiple: true,
 		    class: 'select multiple-select',

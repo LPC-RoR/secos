@@ -305,6 +305,16 @@ module RecursosHelper
 			objeto.publicacion
 		when 'FormacionJoven'
 			objeto.nombre
+		when 'TesisFinalizada'
+			objeto.nombre_tesis
+		when 'PasantiaInterno'
+			objeto.estudiante
+		when 'PasantiaExterno'
+			objeto.nombre
+		when 'RfColaboracion'
+			objeto.nombre_red
+		when 'RColaboracion'
+			objeto.nombre_red
 		else
 			objeto.send(objeto.class.name.tableize.singularize)
 		end

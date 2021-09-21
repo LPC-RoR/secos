@@ -113,7 +113,7 @@
 <div class='row'>
 	<div class='col-md-6'>
 		<small><%= form.label 'Universidad de Formación' %></small></br>
-		<%= form.select :universidad_formación, FormacionJoven::UNIVERSIDADES, prompt: "Universidad de Formación?" %></br>
+		<%= form.select :universidad_formacion, FormacionJoven::UNIVERSIDADES, prompt: "Universidad de Formación?" %></br>
 		<small><%= form.label 'Otra Universidad de Formación' %></small></br>
 		<%= form.text_field(:otra_universidad_formacion, size: 74, class: 'form-control-sm') %>
 

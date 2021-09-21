@@ -4,11 +4,13 @@
 		<h3 class='text-info'>Registrar Tesis</h3>
 
 		<small><%= form.label 'Estudiante' %></small></br>
-		<%= form.select :estudiante, Investigador.all, prompt: "Estudiante?" %></br>
+		<%= form.select :estudiante, Investigador.all.map{|inv| inv.investigador}, prompt: "Estudiante?" %></br>
 
 		<small><%= form.label 'Nivel de Formación' %></small></br>
-		<%= form.select :estudiante, TesisFinalizada::NIVELES_FORMACION, prompt: "Nivel de Formación?" %></br>
+		<%= form.select :nivel_formacion, TesisFinalizada::NIVELES_FORMACION, prompt: "Nivel de Formación?" %></br>
 
+		<small><%= form.label 'Nombre de Tesis' %></small></br>
+		<%= form.text_field(:nombre_tesis, size: 74, class: 'form-control-sm') %>
 	</div>
 </div>
 
