@@ -315,6 +315,20 @@ module RecursosHelper
 			objeto.nombre_red
 		when 'RColaboracion'
 			objeto.nombre_red
+		when 'ActividadDifusion'
+			objeto.titulo_evento
+		when 'ProductoPme'
+			objeto.producto
+		when 'AporteActividad'
+			objeto.actividad_producto
+		when 'ArticuloEntrevista'
+			objeto.actividad
+		when 'Vinculo'
+			objeto.actividad
+		when 'TecnicoAdministrativo'
+			objeto.nombre
+		when 'FuenteFinanciamiento'
+			objeto.fondos
 		else
 			objeto.send(objeto.class.name.tableize.singularize)
 		end

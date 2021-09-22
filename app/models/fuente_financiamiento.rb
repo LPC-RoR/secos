@@ -26,8 +26,14 @@ class FuenteFinanciamiento < ApplicationRecord
 		'Fondos ICM'
 	]
 
+	DISPLAY_FIELDS = [
+		['fondos',               'Fondos',                  'string'],
+		['otro_fondo',                'Otro Fondo',                 'string'],
+		['monto_pesos',                      'Monto en Pesoso',                         'string']
+	]
+
 	TABLA_FIELDS = [
-		['fondos', 'normal']
+		['fondos', 'show']
 	]
 
 end

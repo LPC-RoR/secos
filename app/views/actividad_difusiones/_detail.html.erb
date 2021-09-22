@@ -52,9 +52,9 @@
 		<small><%= form.label 'Fecha' %></small></br>
 		<%= form.date_select :fecha, {order: [:day, :month, :year], prompt: { day: 'Día?', month: 'Mes?', year: 'Año?' }, start_year: Date.today.year + 1, end_year: Date.today.year - 100}, {required: true} %></br>
 		<small><%= form.label 'País de la Institución' %></small></br>
-		<%= form.select :pais, Aco::PAISES, prompt: "País de la Institución?" %></br>
+		<%= form.select :pais_institucion, Aco::PAISES, prompt: "País de la Institución?" %></br>
 		<small><%= form.label 'Región de Ubicación' %></small></br>
-		<%= form.select :region, Investigador::REGIONES, prompt: "Región de Ubicación?" %></br>
+		<%= form.select :region_ubicacion, Investigador::REGIONES, prompt: "Región de Ubicación?" %></br>
 		<small><b><%= form.label 'Descripción de Actividad' %></b></small></br>
 	  	<%= form.text_area :descripcion_actividad, size: '66x8' %><!--/br-->
 

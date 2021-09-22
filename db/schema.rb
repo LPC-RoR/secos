@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_21_193822) do
+ActiveRecord::Schema.define(version: 2021_09_22_152340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,11 +110,11 @@ ActiveRecord::Schema.define(version: 2021_09_21_193822) do
 
   create_table "ae_pos", force: :cascade do |t|
     t.integer "articulo_entrevista_id"
-    t.integer "publico_objetivo"
+    t.integer "publico_objetivo_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["articulo_entrevista_id"], name: "index_ae_pos_on_articulo_entrevista_id"
-    t.index ["publico_objetivo"], name: "index_ae_pos_on_publico_objetivo"
+    t.index ["publico_objetivo_id"], name: "index_ae_pos_on_publico_objetivo_id"
   end
 
   create_table "aporte_actividades", force: :cascade do |t|

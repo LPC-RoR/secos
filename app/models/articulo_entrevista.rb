@@ -21,8 +21,21 @@ class ArticuloEntrevista < ApplicationRecord
 		'Local'
 	]
 
+	DISPLAY_FIELDS = [
+		['tema', 'Tema', 'string'],
+		['actividad',          'actividad',          'string'],
+		['descripcion',     ' Descripción Actividad',     'text'],
+		['tipo_medio',        'Tipo Medio',         'string'],
+		['nombre_medio',     'Nombre del Medio',     'string'],
+		['seccion',       'Sección',           'string'],
+		['fecha_publicacion',   'Fecha Publicación',    'string'],
+		['alcance',        'Alcance',     'string'],
+		['link',               'Link a Articulo o Entrevista',    'string'],
+		['adjunto',    'Adjunto de Artículo o Entrevista',   'file']
+	]
+
 	TABLA_FIELDS = [
-		['actividad', 'normal']
+		['actividad', 'show']
 	]
 
 	has_many :ae_is
@@ -34,5 +47,5 @@ class ArticuloEntrevista < ApplicationRecord
 	has_many :ae_pos
 	has_many :publico_objetivos, through: :ae_pos
 
-	mount_uploader :documento_relacionado, ArchivoUploader
+	mount_uploader :adjunto, ArchivoUploader
 end

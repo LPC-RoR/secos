@@ -14,7 +14,7 @@
 		</div>
 
 		<small><%= form.label 'Actividad o Producto' %></small></br>
-		<%= form.select :actividad_producto, ActividadDifusion.all, prompt: "Actividad o Producto?" %></br>
+		<%= form.select :actividad_producto, ActividadDifusion.all.map {|act_dif| act_dif.titulo_evento}, prompt: "Actividad o Producto?" %></br>
 
 		<small><%= form.label 'Colaborador' %></small></br>
 		<%= form.text_field(:colaborador, size: 74, class: 'form-control-sm') %>
