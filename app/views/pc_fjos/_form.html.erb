@@ -1,0 +1,27 @@
+<%= form_with(model: pc_fjo, local: true) do |form| %>
+  <% if pc_fjo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pc_fjo.errors.count, "error") %> prohibited this pc_fjo from being saved:</h2>
+
+      <ul>
+      <% pc_fjo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :presentacion_congreso_id %>
+    <%= form.number_field :presentacion_congreso_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :formacion_joven_id %>
+    <%= form.number_field :formacion_joven_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

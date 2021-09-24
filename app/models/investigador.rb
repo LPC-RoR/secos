@@ -242,7 +242,7 @@ class Investigador < ApplicationRecord
 		'Investigador Responsable Suplente',
 		'Investigador Adjunto',
 		'Investigador Asociado',
-		'Investigador Jovan',
+		'Investigador Joven',
 		'Investigador Senior',
 		'Postdoctorante'
 	]

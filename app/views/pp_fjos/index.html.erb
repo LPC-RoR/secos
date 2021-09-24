@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Pp Fjos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Producto pme</th>
+      <th>Formacion joven</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pp_fjos.each do |pp_fjo| %>
+      <tr>
+        <td><%= pp_fjo.producto_pme_id %></td>
+        <td><%= pp_fjo.formacion_joven_id %></td>
+        <td><%= link_to 'Show', pp_fjo %></td>
+        <td><%= link_to 'Edit', edit_pp_fjo_path(pp_fjo) %></td>
+        <td><%= link_to 'Destroy', pp_fjo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pp Fjo', new_pp_fjo_path %>

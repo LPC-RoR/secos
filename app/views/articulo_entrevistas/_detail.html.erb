@@ -1,104 +1,25 @@
-<div class='row'>
-	<div class='col-md-6'>
+<h3 class='text-info'> Registrar Artículo o Entrevista</h3>
 
-		<h3 class='text-info'> Registrar Artículo o Entrevista</h3>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :tema, label: 'Tema' } %>
 
-		<small><%= form.label 'Tema' %></small></br>
-		<%= form.text_field(:tema, size: 74, class: 'form-control-sm') %>
-		<small><%= form.label 'Actividad' %></small></br>
-		<%= form.select :actividad, ArticuloEntrevista::ACTIVIDADES, prompt: "Actividad?" %></br>
-		<small><b><%= form.label 'Descripción Actividad' %></b></small></br>
-	  	<%= form.text_area :descripcion, size: '66x8' %><!--/br-->
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :actividad, label: 'Actividad', sel_list: ArticuloEntrevista::ACTIVIDADES } %>
 
-		<small><%= form.label 'Tipo Medio' %></small></br>
-		<%= form.select :tipo_medio, ArticuloEntrevista::TIPOS_MEDIO, prompt: "Tipo Medio?" %></br>
-		<small><%= form.label 'Nombre del Medio' %></small></br>
-		<%= form.text_field(:nombre_medio, size: 74, class: 'form-control-sm') %>
-		<small><%= form.label 'Sección' %></small></br>
-		<%= form.text_field(:seccion, size: 74, class: 'form-control-sm') %>
-		<small><%= form.label 'Fecha Publicación' %></small></br>
-		<%= form.date_select :fecha_publicacion, {order: [:day, :month, :year], prompt: { day: 'Día?', month: 'Mes?', year: 'Año?' }, start_year: Date.today.year + 1, end_year: Date.today.year - 100}, {required: true} %></br>
-		<small><%= form.label 'Alcance' %></small></br>
-		<%= form.select :alcance, ArticuloEntrevista::ALCANCES, prompt: "Alcance?" %></br>
-		<small><%= form.label 'Link a Articulo o Entrevista' %></small></br>
-		<%= form.text_field(:link, size: 74, class: 'form-control-sm') %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text_area', token: :descripcion, label: 'Descripción Actividad' } %>
 
-	</div>
-</div>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :tipo_medio, label: 'Tipo Medio', sel_list: ArticuloEntrevista::TIPOS_MEDIO } %>
 
-<div class='row'>
-	<div class='col-md-6'>
-		<small><%= form.label 'Público Objetivo' %></small></br>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :nombre_medio, label: 'Nombre del Medio' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :seccion, label: 'Sección' } %>
 
-		<ul>
-		<% @objeto.publico_objetivos.each do |po| %>
-			<li><%= po.publico_objetivo %></li>
-		<% end %>
-		</ul>
-	</div>
-	<div class='col-md-6'>
-		<%= form.select :publico_objetivo_ids,
-		    options_from_collection_for_select(PublicoObjetivo.all, :id, :publico_objetivo),
-		    { include_blank: false },
-		    multiple: true,
-		    class: 'select multiple-select',
-		    size: 5 %>
-	</div>
-</div>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_publicacion, label: 'Fecha Publicación' } %>
 
-<div class='row'>
-	<div class='col-md-6'>
-		<small><%= form.label 'Líneas de Investigación' %></small></br>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :alcance, label: 'Alcance', sel_list: ArticuloEntrevista::ALCANCES } %>
 
-		<ul>
-		<% @objeto.linea_investigaciones.each do |li| %>
-			<li><%= li.linea_investigacion %></li>
-		<% end %>
-		</ul>
-	</div>
-	<div class='col-md-6'>
-		<%= form.select :linea_investigacion_ids,
-		    options_from_collection_for_select(LineaInvestigacion.all, :id, :linea_investigacion),
-		    { include_blank: false },
-		    multiple: true,
-		    class: 'select multiple-select',
-		    size: 5 %>
-	</div>
-</div>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :link, label: 'Link a Articulo o Entrevista' } %>
 
-<div class='row'>
-	<div class='col-md-6'>
-		<small><%= form.label 'Investigadores del Centro Entrevistados' %></small></br>
 
-		<ul>
-		<% @objeto.investigadores.each do |inv| %>
-			<li><%= inv.investigador %></li>
-		<% end %>
-		</ul>
-	</div>
-	<div class='col-md-6'>
-		<%= form.select :investigador_ids,
-		    options_from_collection_for_select(Investigador.all, :id, :investigador),
-		    { include_blank: false },
-		    multiple: true,
-		    class: 'select multiple-select',
-		    size: 5 %>
-	</div>
-</div>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :publico_objetivo, ids: :publico_objetivo_ids, label: 'Público Objetivo', asociation: 'investigadores', collection: PublicoObjetivo.all } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :linea_investigacion, ids: :linea_investigacion_ids, label: 'Líneas de Investigación', asociation: 'investigadores', collection: LineaInvestigacion.all } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :investigador, ids: :investigador_ids, label: 'Investigadores del Centro Entrevistados', asociation: 'investigadores', collection: Investigador.all } %>
 
-<div class='row'>
-	<div class='col-md-6'>
-		<small><%= form.label 'Adjunto de Artículo o Entrevista' %></small></br>
-		<p>
-		  	<% if @objeto.adjunto.present? %>
-			  	<i><%= @objeto.adjunto.url.split('/').last %></i></br>
-				<label>
-				  <%= form.check_box :remove_adjunto %>
-				  Remueve Documento Documento Decreto Aprobatorio Extensión
-			Adjunto de Artículo o Entrevista	</label>
-		  	<% else %>
-			    <%= form.file_field :adjunto %>
-		    <% end %>
-		</p>
-	</div>
-</div>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'file', token: :adjunto, label: 'Adjunto de Artículo o Entrevista' } %>

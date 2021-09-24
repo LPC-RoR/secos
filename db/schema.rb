@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_22_152340) do
+ActiveRecord::Schema.define(version: 2021_09_24_204058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -499,6 +499,15 @@ ActiveRecord::Schema.define(version: 2021_09_22_152340) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "pc_fjos", force: :cascade do |t|
+    t.integer "presentacion_congreso_id"
+    t.integer "formacion_joven_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["formacion_joven_id"], name: "index_pc_fjos_on_formacion_joven_id"
+    t.index ["presentacion_congreso_id"], name: "index_pc_fjos_on_presentacion_congreso_id"
+  end
+
   create_table "pc_is", force: :cascade do |t|
     t.integer "presentacion_congreso_id"
     t.integer "investigador_id"
@@ -526,6 +535,15 @@ ActiveRecord::Schema.define(version: 2021_09_22_152340) do
     t.datetime "updated_at", null: false
     t.index ["investigador_id"], name: "index_pis_on_investigador_id"
     t.index ["publicacion_id"], name: "index_pis_on_publicacion_id"
+  end
+
+  create_table "pp_fjos", force: :cascade do |t|
+    t.integer "producto_pme_id"
+    t.integer "formacion_joven_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["formacion_joven_id"], name: "index_pp_fjos_on_formacion_joven_id"
+    t.index ["producto_pme_id"], name: "index_pp_fjos_on_producto_pme_id"
   end
 
   create_table "pp_is", force: :cascade do |t|
@@ -670,6 +688,15 @@ ActiveRecord::Schema.define(version: 2021_09_22_152340) do
     t.datetime "updated_at", null: false
     t.index ["investigador_id"], name: "index_rfc_as_on_investigador_id"
     t.index ["rf_colaboracion_id"], name: "index_rfc_as_on_rf_colaboracion_id"
+  end
+
+  create_table "rfc_fjos", force: :cascade do |t|
+    t.integer "rf_colaboracion_id"
+    t.integer "formacion_joven_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["formacion_joven_id"], name: "index_rfc_fjos_on_formacion_joven_id"
+    t.index ["rf_colaboracion_id"], name: "index_rfc_fjos_on_rf_colaboracion_id"
   end
 
   create_table "rfc_is", force: :cascade do |t|

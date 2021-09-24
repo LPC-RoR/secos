@@ -55,7 +55,7 @@ module RecursosHelper
 			'Título Actividad'
 		elsif ['Aco', 'acos'].include?(field)
 			'Actividad Científica Organizada'
-		elsif ['Publicacion'].include?(field)
+		elsif ['Publicacion', 'publicaciones'].include?(field)
 			'Publicación'
 		elsif ['Titulo, titulo'].include?(field)
 			'Título'
@@ -65,13 +65,13 @@ module RecursosHelper
 			'Nombre Presdentación'
 		elsif ['Pyh investigador', 'pyh_investigadores'].include?(field)
 			'Premios y Honores Investigador'
-		elsif ['Pyh centro', 'pyh_centro'].include?(field)
+		elsif ['Pyh centro', 'pyh_centro', 'pyh_centros'].include?(field)
 			'Premios y Honores Centro'
-		elsif ['Comite editorial'].include?(field)
+		elsif ['Comite editorial', 'comite_editoriales'].include?(field)
 			'Comité Editorial'
-		elsif ['Formacion joven'].include?(field)
+		elsif ['Formacion joven', 'formacion_jovenes'].include?(field)
 			'Formación de Jóvenes'
-		elsif ['Tesis finalizada'].include?(field)
+		elsif ['Tesis finalizada', 'tesis_finalizadas'].include?(field)
 			'Tesis Finalizada'
 		elsif ['Nombre tesis'].include?(field)
 			'Nombre Tesis'

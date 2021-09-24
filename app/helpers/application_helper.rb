@@ -243,7 +243,7 @@ module ApplicationHelper
 	# Obtiene el campo para despleagar en una TABLA
 	# Resuelve BT_FIELDS y d_<campo> si es necesario 
 	def get_field(label, objeto)
-		if objeto.class::column_names.include?(label) or (label.split('_')[0] == 'd') or (label.split('_')[0] == 'm')
+		if objeto.class::column_names.include?(label) or objeto.class.instance_methods(false).include?(label.to_sym) or (label.split('_')[0] == 'd') or (label.split('_')[0] == 'm')
 			objeto.send(label)
 		elsif Rails.configuration.tables[:bt_fields][objeto.class.name].present?
 			if Rails.configuration.tables[:bt_fields][objeto.class.name][label].present?

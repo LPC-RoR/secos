@@ -5,6 +5,18 @@ class ActividadDifusion < ApplicationRecord
 		'Participa'
 	]
 
+	TIPOS_EVENTO = [
+		'Conferencia',
+		'Seminario',
+		'Foro',
+		'Exhibición',
+		'Workshop',
+		'Competencia',
+		'Concurso',
+		'Video Conferencia',
+		'Otro',
+	]
+
 	DISPLAY_FIELDS = [
 		['asociada_concurso_milenio', 'Actividad asociada a concurso Milenio de PME', 'string'],
 		['organizacion',          'Organización',          'string'],

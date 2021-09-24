@@ -38,4 +38,7 @@ class ProductoPme < ApplicationRecord
 	has_many :pp_pos
 	has_many :publico_objetivos, through: :pp_pos
 
+	has_many :pp_fjos
+	has_many :formacion_jovenes, through: :pp_fjos
+
 end

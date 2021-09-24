@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :pp_fjos
+  resources :rfc_fjos
+  resources :pc_fjos
   resources :fuente_financiamientos
   resources :tecnico_administrativos
   resources :vinculos

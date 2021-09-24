@@ -1,120 +1,50 @@
-		<h3 class='text-info'> Ingresar Investigador</h3>
+<h3 class='text-info'> Ingresar Investigador</h3>
 
-		<div class="field">
-			<small><%= form.label 'Tipo Documento' %></small></br>
-			<small><%= form.label :tipo_documento, "RUT"  %></small>
-			<%= form.radio_button :tipo_documento, 'RUT', :checked => true %>
-			<small><%= form.label :tipo_documento, "Pasaporte" %></small>
-			<%= form.radio_button :tipo_documento, 'Pasaporte' %>
-		</div>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'radio', token: :tipo_documento, label: 'Tipo Documento', radio_list: ['RUT', 'Pasaporte'] } %>
 
-		<small><%= form.label 'N° RUT / Pasaporte ( Formato de RUT: 12345678-9 )' %></small></br>
-		<%= form.text_field(:rut_pasaporte, size: 74, class: 'form-control-sm') %></br>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :rut_pasaporte, label: 'N° RUT / Pasaporte ( Formato de RUT: 12345678-9 )' } %>
 
-		<small><%= form.label 'Nombres' %></small></br>
-		<%= form.text_field(:nombres, size: 74, class: 'form-control-sm') %></br>
-		<small><%= form.label 'Apellido Paterno' %></small></br>
-		<%= form.text_field(:paterno, size: 74, class: 'form-control-sm') %></br>
-		<small><%= form.label 'Apellido Materno' %></small></br>
-		<%= form.text_field(:materno, size: 74, class: 'form-control-sm') %></br>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :nombres, label: 'Nombres' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :paterno, label: 'Apellido Paterno' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :materno, label: 'Apellido Materno' } %>
 
-		<small><%= form.label 'Dirección Correspondencia' %></small></br>
-		<%= form.text_field(:direccion_correspondencia, size: 74, class: 'form-control-sm') %></br>
-		<small><%= form.label 'Comuna' %></small></br>
-		<%= form.text_field(:comuna, size: 74, class: 'form-control-sm') %></br>
-		<small><%= form.label 'Región Correspondencia' %></small></br>
-		<%= form.select :region, Investigador::REGIONES, prompt: "Region Correspondencia?" %></br>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :direccion_correspondencia, label: 'Dirección Correspondencia' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :comuna, label: 'Comuna' } %>
 
-		<small><%= form.label 'Fecha de Nacimiento' %></small></br>
-		<%= form.date_select :fecha_nacimiento, {order: [:day, :month, :year], prompt: { day: 'Día?', month: 'Mes?', year: 'Año?' }, start_year: Date.today.year + 1, end_year: Date.today.year - 100}, {required: true} %></br>
-		<small><%= form.label 'Nacionalidad' %></small></br>
-		<%= form.select :nacionalidad, Investigador::NACIONALIDADES, prompt: "Nacionalidad?" %></br>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :region, label: 'Región Correspondencia', sel_list: Investigador::REGIONES } %>
 
-		<div class="field">
-			<small><%= form.label 'Genero' %></small></br>
-			<small><%= form.label :genero, "Masculino"  %></small>
-			<%= form.radio_button :genero, 'Masculino', :checked => true %>
-			<small><%= form.label :genero, "Femenino" %></small>
-			<%= form.radio_button :genero, 'Femenino' %>
-		</div>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_nacimiento, label: 'Fecha de Nacimiento' } %>
 
-		<small><%= form.label 'Categoría' %></small></br>
-		<%= form.select :categoria, Investigador::CATEGORIAS, prompt: "Categoria?" %></br>
-		<small><%= form.label 'Horas Dedicación' %></small></br>
-		<%= form.text_field(:horas_dedicacion, size: 74, class: 'form-control-sm') %></br>
-		<small><%= form.label 'Profesión' %></small></br>
-		<%= form.select :profesion, Investigador::PROFESIONES, prompt: "Profesión?" %></br>
-		<small><%= form.label 'Otra Profesión' %></small></br>
-		<%= form.text_field(:otra_profesion, size: 74, class: 'form-control-sm') %></br>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :nacionalidad, label: 'Nacionalidad', sel_list: Investigador::NACIONALIDADES } %>
 
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'radio', token: :genero, label: 'Género', radio_list: ['Masculino', 'Femenino'] } %>
 
-		<small><%= form.label 'Grados Académicos' %></small></br>
-		<%= form.select :grado_academico_ids,
-		    options_from_collection_for_select(GradoAcademico.all, :id, :grado_academico),
-		    { include_blank: false },
-		    multiple: true,
-		    class: 'select multiple-select',
-		    size: 5 %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :categoria, label: 'Categoría', sel_list: Investigador::CATEGORIAS } %>
 
-		<ul>
-		<% @objeto.grado_academicos.each do |ga| %>
-			<li><%= ga.grado_academico %></li>
-		<% end %>
-		</ul>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :horas_dedicacion, label: 'Horas Dedicación' } %>
 
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :profesion, label: 'Profesión', sel_list: Investigador::PROFESIONES } %>
 
-		<small><%= form.label 'Institución a la que pertenece' %></small></br>
-		<%= form.text_field(:institucion, size: 74, class: 'form-control-sm') %></br>
-		<small><%= form.label 'Cargo Actual' %></small></br>
-		<%= form.text_field(:cargo, size: 74, class: 'form-control-sm') %></br>
-		<small><%= form.label 'E-mail' %></small></br>
-		<%= form.text_field(:email, size: 74, class: 'form-control-sm') %></br>
-		<small><%= form.label 'Telefono 1' %></small></br>
-		<%= form.text_field(:telefono_1, size: 74, class: 'form-control-sm') %></br>
-		<small><%= form.label 'Telefono 2' %></small></br>
-		<%= form.text_field(:telefono_2, size: 74, class: 'form-control-sm') %></br>
-		<small><%= form.label 'Celular' %></small></br>
-		<%= form.text_field(:celular, size: 74, class: 'form-control-sm') %></br>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :otra_profesion, label: 'Otra Profesión' } %>
 
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :grado_academico, ids: :grado_academico_ids, label: 'Grados Académicos', asociation: 'grado_academicos', collection: GradoAcademico.all } %>
 
-		<small><%= form.label 'Líneas de Investigación Vinculadas' %></small></br>
-		<%= form.select :linea_investigacion_ids,
-		    options_from_collection_for_select(LineaInvestigacion.all, :id, :linea_investigacion),
-		    { include_blank: false },
-		    multiple: true,
-		    class: 'select multiple-select',
-		    size: 5 %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :institucion, label: 'Institución a la que pertenece' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :cargo, label: 'Cargo Actual' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :email, label: 'E-mail' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :telefono_1, label: 'Telefono 1' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :telefono_2, label: 'Telefono 2' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :celular, label: 'Celular' } %>
 
-		<ul>
-		<% @objeto.linea_investigaciones.each do |li| %>
-			<li><%= li.linea_investigacion %></li>
-		<% end %>
-		</ul>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :linea_investigacion, ids: :linea_investigacion_ids, label: 'Líneas de Investigación Vinculadas', asociation: 'linea_investigaciones', collection: LineaInvestigacion.all } %>
 
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :disciplina, ids: :disciplina_ids, label: 'Disciplinas Vinculadas', asociation: 'disciplinas', collection: Disciplina.all } %>
 
-		<small><%= form.label 'Disciplinas Vinculadas' %></small></br>
-		<%= form.select :disciplina_ids,
-		    options_from_collection_for_select(Disciplina.all, :id, :disciplina),
-		    { include_blank: false },
-		    multiple: true,
-		    class: 'select multiple-select',
-		    size: 5 %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :fuente_financiamiento, label: 'Fuentes de Financiamiento', sel_list: Investigador::FINANCIAMIENTOS } %>
 
-		<ul>
-		<% @objeto.disciplinas.each do |dis| %>
-			<li><%= dis.disciplina %></li>
-		<% end %>
-		</ul>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :relacion_centro, label: 'Relación con Centro', sel_list: Investigador::RELACION_CENTRO } %>
 
-		<small><%= form.label 'Fuentes de Financiamiento' %></small></br>
-		<%= form.select :fuente_financiamiento, Investigador::FINANCIAMIENTOS, prompt: "Fuentes de Financiamiento?" %></br>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_inicio, label: 'Fecha Inicio' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_termino, label: 'Fecha Término' } %>
 
-		<small><%= form.label 'Relación con Centro' %></small></br>
-		<%= form.select :relacion_centro, Investigador::RELACION_CENTRO, prompt: "Relación con Centro?" %></br>
-
-		<small><%= form.label 'Fecha Inicio' %></small></br>
-		<%= form.date_select :fecha_inicio, {order: [:day, :month, :year], prompt: { day: 'Día?', month: 'Mes?', year: 'Año?' }, start_year: Date.today.year + 1, end_year: Date.today.year - 100}, {required: true} %></br>
-		<small><%= form.label 'Fecha Término' %></small></br>
-		<%= form.date_select :fecha_termino, {order: [:day, :month, :year], prompt: { day: 'Día?', month: 'Mes?', year: 'Año?' }, start_year: Date.today.year + 1, end_year: Date.today.year - 100}, {required: true} %></br>
-		<small><%= form.label 'Vigencia' %></small></br>
-		<%= form.text_field(:vigencia, size: 74, class: 'form-control-sm') %></br>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :vigencia, label: 'Vigencia' } %>

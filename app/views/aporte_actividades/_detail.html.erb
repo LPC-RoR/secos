@@ -1,28 +1,11 @@
-<div class='row'>
-	<div class='col-md-6'>
+<h3 class='text-info'>Registro Aporte Actividad de Difusión Organizada</h3>
 
-		<h3 class='text-info'>Registro Aporte Actividad de Difusión Organizada</h3>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'radio', token: :tipo, label: 'Tipo', radio_list: ['Actividad Difusión', 'Producto PME', 'Actividad Científica'] } %>
 
-		<div class="field">
-			<small><%= form.label 'Tipo' %></small></br>
-			<%= form.label :tipo, "Actividad Difusión"  %>
-			<%= form.radio_button :tipo, 'Actividad Difusión', :checked => true %>
-			<%= form.label :tipo, "Producto PME" %>
-			<%= form.radio_button :tipo_documento, 'Producto PME' %>
-			<%= form.label :tipo, "Actividad Científica" %>
-			<%= form.radio_button :tipo, 'Actividad Científica' %>
-		</div>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :actividad_producto, label: 'Actividad o Producto', sel_list: ActividadDifusion.all.map {|act_dif| act_dif.titulo_evento} } %>
 
-		<small><%= form.label 'Actividad o Producto' %></small></br>
-		<%= form.select :actividad_producto, ActividadDifusion.all.map {|act_dif| act_dif.titulo_evento}, prompt: "Actividad o Producto?" %></br>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :colaborador, label: 'Colaborador' } %>
 
-		<small><%= form.label 'Colaborador' %></small></br>
-		<%= form.text_field(:colaborador, size: 74, class: 'form-control-sm') %>
-		<small><%= form.label 'Tipo Colaboración' %></small></br>
-		<%= form.select :tipo_colaboracion, AporteActividad::TIPOS_COLABORACIONES, prompt: "Tipo Colaboración?" %></br>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :tipo_colaboracion, label: 'Tipo Colaboración', sel_list: AporteActividad::TIPOS_COLABORACIONES } %>
 
-		<small><%= form.label 'Monto de Colaboración (en pesos)' %></small></br>
-		<%= form.text_field(:monto, size: 74, class: 'form-control-sm') %>
-
-	</div>
-</div>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :monto, label: 'Monto de Colaboración (en pesos)' } %>

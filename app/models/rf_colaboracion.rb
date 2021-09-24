@@ -25,4 +25,7 @@ class RfColaboracion < ApplicationRecord
 	has_many :rfc_as
 	has_many :alumnos, through: :rfc_as, source: 'investigador', foreign_key: 'investigador_id'
 
+	has_many :rfc_fjos
+	has_many :formacion_jovenes, through: :rfc_fjos
+
 end

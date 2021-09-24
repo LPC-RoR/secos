@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Presentacion congreso:</strong>
+  <%= @pc_fjo.presentacion_congreso_id %>
+</p>
+
+<p>
+  <strong>Formacion joven:</strong>
+  <%= @pc_fjo.formacion_joven_id %>
+</p>
+
+<%= link_to 'Edit', edit_pc_fjo_path(@pc_fjo) %> |
+<%= link_to 'Back', pc_fjos_path %>

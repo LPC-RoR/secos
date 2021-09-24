@@ -37,4 +37,7 @@ class PresentacionCongreso < ApplicationRecord
 	has_many :pc_is
 	has_many :investigadores, through: :pc_is
 
+	has_many :pc_fjos
+	has_many :formacion_jovenes, through: :pc_fjos
+
 end

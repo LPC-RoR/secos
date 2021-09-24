@@ -153,8 +153,21 @@ class FormacionJoven < ApplicationRecord
 	has_many :fj_is
 	has_many :investigadores, through: :fj_is
 
+	has_many :pc_fjos
+	has_many :presentacion_congresos, through: :pc_fjos
+
+	has_many :rfc_fjos
+	has_many :rf_colaboraciones, through: :rfc_fjos
+
+	has_many :pp_fjos
+	has_many :producto_pmes, through: :pp_fjos
+
 	def nombre
 		"#{nombres} #{paterno} #{materno}"
+	end
+
+	def formacion_joven
+		self.nombre
 	end
 
 end

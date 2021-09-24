@@ -1,75 +1,23 @@
-<div class='row'>
-	<div class='col-md-6'>
+<h3 class='text-info'>Registrar Red Formal de Colaboración</h3>
 
-		<h3 class='text-info'>Registrar Red Formal de Colaboración</h3>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :nombre_red, label: 'Nombre de la Red' } %>
 
-		<small><%= form.label 'Nombre de la Red' %></small></br>
-		<%= form.text_field(:nombre_red, size: 74, class: 'form-control-sm') %>
-		<small><b><%= form.label 'Objetivo' %></b></small></br>
-	  	<%= form.text_area :objetivo, size: '66x8' %><!--/br-->
-		<small><b><%= form.label 'Descripción' %></b></small></br>
-	  	<%= form.text_area :descripcion, size: '66x8' %><!--/br-->
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text_area', token: :objetivo, label: 'Objetivo' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text_area', token: :descripcion, label: 'Descripción' } %>
 
-		<small><%= form.label 'Alcance' %></small></br>
-		<%= form.select :alcance, Aco::ALCANCES, prompt: "Alcance?" %></br>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :alcance, label: 'Alcance', sel_list: Aco::ALCANCES } %>
 
-		<small><%= form.label 'N° Investigadores del Centro Milenio en la Red' %></small></br>
-		<%= form.text_field(:n_investigadores_milenio, size: 74, class: 'form-control-sm') %>
-		<small><%= form.label 'N° Postdoctorados/Estudiantes del Centro Milenio en la Red' %></small></br>
-		<%= form.text_field(:n_postdoc_estudiantes_milenio, size: 74, class: 'form-control-sm') %>
-		<small><%= form.label 'N° Investigadores Externos en la Red' %></small></br>
-		<%= form.text_field(:n_investigadores_externos, size: 74, class: 'form-control-sm') %>
-		<small><%= form.label 'N° Postdoctorados/Estudiantes Externos en la Red' %></small></br>
-		<%= form.text_field(:n_postdoc_estudiantes_externos, size: 74, class: 'form-control-sm') %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :n_investigadores_milenio, label: 'N° Investigadores del Centro Milenio en la Red' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :n_postdoc_estudiantes_milenio, label: 'N° Postdoctorados/Estudiantes del Centro Milenio en la Red' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :n_investigadores_externos, label: 'N° Investigadores Externos en la Red' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :n_postdoc_estudiantes_externos, label: 'N° Postdoctorados/Estudiantes Externos en la Red' } %>
 
-		<small><%= form.label 'Instituciones' %></small></br>
-		<%= form.text_field(:instituciones, size: 74, class: 'form-control-sm') %>
-		<small><%= form.label 'Sitio Web' %></small></br>
-		<%= form.text_field(:sitio_web, size: 74, class: 'form-control-sm') %>
-		<small><%= form.label 'Fecha Inicio Participación' %></small></br>
-		<%= form.date_select :fecha_inicio, {order: [:day, :month, :year], prompt: { day: 'Día?', month: 'Mes?', year: 'Año?' }, start_year: Date.today.year + 1, end_year: Date.today.year - 100}, {required: true} %></br>
-		<small><%= form.label 'Fecha Término Participación' %></small></br>
-		<%= form.date_select :fecha_termino, {order: [:day, :month, :year], prompt: { day: 'Día?', month: 'Mes?', year: 'Año?' }, start_year: Date.today.year + 1, end_year: Date.today.year - 100}, {required: true} %></br>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :instituciones, label: 'Instituciones' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :sitio_web, label: 'Sitio Web' } %>
 
-	</div>
-</div>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_inicio, label: 'Fecha Inicio Participación' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_termino, label: 'Fecha Término Participación' } %>
 
-<div class='row'>
-	<div class='col-md-6'>
-		<small><%= form.label 'Investigadores Asociados del Centro que Participan en la Red' %></small></br>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :investigador, ids: :investigador_ids, label: 'Investigadores Asociados del Centro que Participan en la Red', asociation: 'investigadores', collection: Investigador.all } %>
 
-		<ul>
-		<% @objeto.investigadores.each do |inv| %>
-			<li><%= inv.investigador %></li>
-		<% end %>
-		</ul>
-	</div>
-	<div class='col-md-6'>
-		<%= form.select :investigador_ids,
-		    options_from_collection_for_select(Investigador.all, :id, :investigador),
-		    { include_blank: false },
-		    multiple: true,
-		    class: 'select multiple-select',
-		    size: 5 %>
-	</div>
-</div>
-
-<div class='row'>
-	<div class='col-md-6'>
-		<small><%= form.label 'Estudiantes del Centro que Participan en la Red ' %></small></br>
-
-		<ul>
-		<% @objeto.investigadores.each do |al| %>
-			<li><%= al.investigador %></li>
-		<% end %>
-		</ul>
-	</div>
-	<div class='col-md-6'>
-		<%= form.select :investigador_ids,
-		    options_from_collection_for_select(Investigador.all, :id, :investigador),
-		    { include_blank: false },
-		    multiple: true,
-		    class: 'select multiple-select',
-		    size: 5 %>
-	</div>
-</div>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :formacion_joven, ids: :formacion_joven_ids, label: 'Estudiantes del Centro que Participan en la Red', asociation: 'formacion_jovenes', collection: FormacionJoven.all } %>
