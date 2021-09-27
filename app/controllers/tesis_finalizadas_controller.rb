@@ -79,6 +79,6 @@ class TesisFinalizadasController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def tesis_finalizada_params
-      params.require(:tesis_finalizada).permit(:estudiante, :nivel_formacion, :nombre_tesis, :fecha_aprobacion)
+      params.require(:tesis_finalizada).permit(:estudiante, :nivel_formacion, :nombre_tesis, :fecha_aprobacion, linea_investigacion_ids: [])
     end
 end

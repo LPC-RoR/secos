@@ -79,6 +79,6 @@ class FormacionJovenesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def formacion_joven_params
-      params.require(:formacion_joven).permit(:tipo_documento, :rut_pasaporte, :nombres, :paterno, :materno, :email, :nacionalidad, :genero, :profesion_titulo_grado, :universidad_formacion, :otra_universidad_formacion, :region_universidad_formacion, :universidad_origen, :pais_universidad_origen, :fecha_nacimiento, :tipo_financiamiento, :monto, :relacion_centro, :fecha_ingreso_centro, :fecha_desvinculacion, :estado)
+      params.require(:formacion_joven).permit(:tipo_documento, :rut_pasaporte, :nombres, :paterno, :materno, :email, :nacionalidad, :genero, :profesion_titulo_grado, :universidad_formacion, :otra_universidad_formacion, :region_universidad_formacion, :universidad_origen, :pais_universidad_origen, :fecha_nacimiento, :tipo_financiamiento, :monto, :relacion_centro, :fecha_ingreso_centro, :fecha_desvinculacion, :estado, disciplina_ids: [], investigador_ids: [])
     end
 end

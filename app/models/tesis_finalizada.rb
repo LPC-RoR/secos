@@ -8,10 +8,11 @@ class TesisFinalizada < ApplicationRecord
 	]
 
 	DISPLAY_FIELDS = [
-		['estudiante', 'Estudiante',                         'string'],
-		['nivel_formacion',       'Nivel de Formación',                               'string'],
-		['nombre_tesis',        'Nombre de Tesis',                                'string'],
-		['fecha_aprobacion', 'Fecha Aprobación Tesis', 'datetime']
+		['estudiante',            'Estudiante',              'string'],
+		['nivel_formacion',       'Nivel de Formación',      'string'],
+		['nombre_tesis',          'Nombre de Tesis',         'string'],
+		['linea_investigaciones', 'Líneas de Investigación', 'asociation'],
+		['fecha_aprobacion',      'Fecha Aprobación Tesis',  'datetime']
 	]
 
 	TABLA_FIELDS = [

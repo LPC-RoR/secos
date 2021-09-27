@@ -79,6 +79,6 @@ class PatentesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def patente_params
-      params.require(:patente).permit(:titulo, :descripcion, :categoria, :solicitante, :inventor, :n_solicitud, :fecha_solicitud, :estado, :n_registro, :fecha_registro)
+      params.require(:patente).permit(:titulo, :descripcion, :categoria, :solicitante, :inventor, :n_solicitud, :fecha_solicitud, :estado, :n_registro, :fecha_registro, pais_ids: [])
     end
 end

@@ -105,6 +105,10 @@ module RecursosHelper
 			'Administrador'
 		elsif ['Nomina' 'nominas'].include?(field)
 			'Nómina'
+		elsif ['disciplinas'].include?(field)
+			'Disciplina'
+		elsif ['publico_objetivos'].include?(field)
+			'Público Objetivo'
 		else
 			field
 		end
@@ -302,7 +306,7 @@ module RecursosHelper
 		when 'PyhCentro'
 			objeto.premio
 		when 'ComiteEditorial'
-			objeto.publicacion
+			objeto.nombre_publicacion
 		when 'FormacionJoven'
 			objeto.nombre
 		when 'TesisFinalizada'

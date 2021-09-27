@@ -79,6 +79,6 @@ class RfColaboracionesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def rf_colaboracion_params
-      params.require(:rf_colaboracion).permit(:nombre_red, :objetivo, :descripcion, :alcance, :n_investigadores_milenio, :n_postdoc_estudiantes_milenio, :n_investigadores_externos, :n_postdoc_estudiantes_externos, :instituciones, :sitio_web, :fecha_inicio, :fecha_termino)
+      params.require(:rf_colaboracion).permit(:nombre_red, :objetivo, :descripcion, :alcance, :n_investigadores_milenio, :n_postdoc_estudiantes_milenio, :n_investigadores_externos, :n_postdoc_estudiantes_externos, :instituciones, :sitio_web, :fecha_inicio, :fecha_termino, investigador_ids: [], formacion_joven_ids: [])
     end
 end

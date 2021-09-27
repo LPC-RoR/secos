@@ -1,141 +1,59 @@
 <h3 class='text-info'>Datos del Centro</h3>
 
-<small><%= form.label 'Nombre Español del Centro' %></small></br>
-<%= form.text_field(:nombre_espaniol, size: 74, class: 'form-control-sm') %></br>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :nombre_espaniol, label: 'Nombre Español del Centro' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :nombre_ingles, label: 'Nombre Inglés del Centro' } %>
 
-<small><%= form.label 'Nombre Inglés del Centro' %></small></br>
-<%= form.text_field(:nombre_ingles, size: 74, class: 'form-control-sm') %></br>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text_area', token: :descripcion, label: 'Descripción del Centro' } %>
 
-<small><%= form.label 'Descripción del Centro' %></small></br>
-	<%= form.text_area :descripcion, size: '66x8' %></br>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :acronimo, label: 'Acrónimo' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :tipo_centro, label: 'Tipo de Centro' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :ambito, label: 'Ámbito' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :estado, label: 'Estado' } %>
 
-<small><%= form.label 'Acrónimo' %></small></br>
-<%= form.text_field(:acronimo, size: 74, class: 'form-control-sm') %></br>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'file', token: :doc_aprobatorio, label: 'Documento Decreto Aprobatorio' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'file', token: :doc_extension, label: 'Documento Decreto Aprobatorio Extensión' } %>
 
-<small><%= form.label 'Tipo de Centro' %></small></br>
-<%= form.text_field(:tipo_centro, size: 74, class: 'form-control-sm') %></br>
+</br><h3 class='text-info'>Datos de Etapa(s)</h3>
 
-<small><%= form.label 'Ámbito' %></small></br>
-<%= form.text_field(:ambito, size: 74, class: 'form-control-sm') %></br>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :etapa, label: 'Etapa' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :codigo_proyecto, label: 'Código Proyecto' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :decreto_aprobatorio, label: 'Decreto Aprobatorio' } %>
 
-<small><%= form.label 'Estado' %></small></br>
-<%= form.text_field(:estado, size: 74, class: 'form-control-sm') %></br>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_decreto_aprobatorio, label: 'Fecha Decreto Aprobatorio' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_inicio, label: 'Fecha Inicio' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_termino, label: 'Fecha Término' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_termino_extension, label: 'Fecha Término Extensión' } %>
 
-<small><%= form.label 'Documento Decreto Aprobatorio' %></small></br>
-<p>
-  	<% if @objeto.doc_aprobatorio.present? %>
-	  	<i><%= @objeto.doc_aprobatorio.url.split('/').last %></i></br>
-		<label>
-		  <%= form.check_box :remove_doc_aprobatorio %>
-		  Remueve Documento Decreto Aprobatorio
-		</label>
-  	<% else %>
-	    <%= form.file_field :doc_aprobatorio %>
-    <% end %>
-</p>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :personalidad_juridica, label: 'Personalidad Jurídica' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :direccion, label: 'Dirección' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :telefono, label: 'Teléfono' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :fax, label: 'Fax' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :sitio_web, label: 'Sitio Web' } %>
 
-<small><%= form.label 'Documento Decreto Aprobatorio Extensión' %></small></br>
-<p>
-  	<% if @objeto.doc_extension.present? %>
-	  	<i><%= @objeto.doc_extension.url.split('/').last %></i></br>
-		<label>
-		  <%= form.check_box :remove_doc_extension %>
-		  Remueve Documento Documento Decreto Aprobatorio Extensión
-		</label>
-  	<% else %>
-	    <%= form.file_field :doc_extension %>
-    <% end %>
-</p>
+</br><h3 class='text-info'>Institución(es) Albergante(s)</h3>
 
-</br></br>
-<h3 class='text-info'>Datos de Etapa(s)</h3>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :institucion_albergante, label: 'Institución Albergante' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :nombre_autoridad, label: 'Nombre de Autoridad' } %>
 
-<small><%= form.label 'Etapa' %></small></br>
-<%= form.text_field(:etapa, size: 74, class: 'form-control-sm') %></br>
+</br><h3 class='text-info'>Investigador Responsable</h3>
 
-<small><%= form.label 'Código Proyecto' %></small></br>
-<%= form.text_field(:codigo_proyecto, size: 74, class: 'form-control-sm') %></br>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :nombres_investigador_responsable, label: 'Nombres' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :paterno_investigador_responsable, label: 'Apellido Paterno' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :materno_investigador_responsable, label: 'Apellido Materno' } %>
 
-<small><%= form.label 'Decreto Aprobatorio' %></small></br>
-<%= form.text_field(:decreto_aprobatorio, size: 74, class: 'form-control-sm') %></br>
+</br><h3 class='text-info'>Datos Encargado Administrativo</h3>
 
-<small><%= form.label 'Fecha Decreto Aprobatorio' %></small></br>
-<%= form.text_field(:fecha_decreto_aprobatorio, size: 74, class: 'form-control-sm') %></br>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :admin_nombre, label: 'Nombre Encargado Administrativo' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :admin_telefono, label: 'Teléfono Encargado Administrativo' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :admin_email, label: 'E-mail Encargado Administrativo' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :admin_ejecutivo_rendiciones, label: 'Ejecutivo de Rendiciones' } %>
 
-<small><%= form.label 'Fecha Inicio Centro' %></small></br>
-<%= form.date_select :fecha_inicio, {order: [:day, :month, :year], prompt: { day: 'Día?', month: 'Mes?', year: 'Año?' }, start_year: Date.today.year + 1, end_year: Date.today.year - 100}, {required: true} %></br>
+</br><h3 class='text-info'>Datos Encargado Científico</h3>
 
-<small><%= form.label 'Fecha Término Centro' %></small></br>
-<%= form.date_select :fecha_termino, {order: [:day, :month, :year], prompt: { day: 'Día?', month: 'Mes?', year: 'Año?' }, start_year: Date.today.year + 1, end_year: Date.today.year - 100}, {required: true} %></br>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :cientif_nombre, label: 'Nombre Encargado Científico' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :cientif_email, label: 'E-mail Encargado Científico' } %>
 
-<small><%= form.label 'Fecha Término Extensión' %></small></br>
-<%= form.date_select :fecha_termino_extension, {order: [:day, :month, :year], prompt: { day: 'Día?', month: 'Mes?', year: 'Año?' }, start_year: Date.today.year + 1, end_year: Date.today.year - 100}, {required: true} %></br>
+</br><h3 class='text-info'>Datos Encargado PME y Redes</h3>
 
-<small><%= form.label 'Personalidad Jurídica' %></small></br>
-<%= form.text_field(:personalidad_juridica, size: 74, class: 'form-control-sm') %></br>
-
-<small><%= form.label 'Dirección' %></small></br>
-<%= form.text_field(:direccion, size: 74, class: 'form-control-sm') %></br>
-
-<small><%= form.label 'Teléfono' %></small></br>
-<%= form.text_field(:telefono, size: 74, class: 'form-control-sm') %></br>
-
-<small><%= form.label 'Fax' %></small></br>
-<%= form.text_field(:fax, size: 74, class: 'form-control-sm') %></br>
-
-<small><%= form.label 'Sitio Web' %></small></br>
-<%= form.text_field(:sitio_web, size: 74, class: 'form-control-sm') %></br>
-
-</br></br>
-<h3 class='text-info'>Institución(es) Albergante(s)</h3>
-
-<small><%= form.label 'Institución Albergante' %></small></br>
-<%= form.text_field(:institucion_albergante, size: 74, class: 'form-control-sm') %></br>
-
-<small><%= form.label 'Nombre de Autoridad' %></small></br>
-<%= form.text_field(:nombre_autoridad, size: 74, class: 'form-control-sm') %></br>
-
-</br></br>
-<h3 class='text-info'>Investigador Responsable</h3>
-
-<small><%= form.label 'Nombres' %></small></br>
-<%= form.text_field(:nombres_investigador_responsable, size: 74, class: 'form-control-sm') %></br>
-
-<small><%= form.label 'Apellido Paterno' %></small></br>
-<%= form.text_field(:paterno_investigador_responsable, size: 74, class: 'form-control-sm') %></br>
-
-<small><%= form.label 'Apellido Materno' %></small></br>
-<%= form.text_field(:materno_investigador_responsable, size: 74, class: 'form-control-sm') %></br>
-
-</br></br>
-<h3 class='text-info'>Datos Encargado Administrativo</h3>
-
-<small><%= form.label 'Nombre Encargado Administrativo' %></small></br>
-<%= form.text_field(:admin_nombre, size: 74, class: 'form-control-sm') %></br>
-
-<small><%= form.label 'Teléfono Encargado Administrativo' %></small></br>
-<%= form.text_field(:admin_telefono, size: 74, class: 'form-control-sm') %></br>
-
-<small><%= form.label 'E-mail Encargado Administrativo' %></small></br>
-<%= form.text_field(:admin_email, size: 74, class: 'form-control-sm') %></br>
-
-<small><%= form.label 'Ejecutivo de Rendiciones' %></small></br>
-<%= form.text_field(:admin_ejecutivo_rendiciones, size: 74, class: 'form-control-sm') %></br>
-
-</br></br>
-<h3 class='text-info'>Datos Encargado Científico</h3>
-
-<small><%= form.label 'Nombre Encargado Científico' %></small></br>
-<%= form.text_field(:cientif_nombre, size: 74, class: 'form-control-sm') %></br>
-
-<small><%= form.label 'E-mail Encargado Científico' %></small></br>
-<%= form.text_field(:cientif_email, size: 74, class: 'form-control-sm') %></br>
-
-</br></br>
-<h3 class='text-info'>Datos Encargado PME y Redes</h3>
-
-<small><%= form.label 'Nombre Encargado PME y Redes' %></small></br>
-<%= form.text_field(:pme_red_nombre, size: 74, class: 'form-control-sm') %></br>
-
-<small><%= form.label 'E-mail Encargado PME y Redes' %></small></br>
-<%= form.text_field(:pme_red_email, size: 74, class: 'form-control-sm') %></br>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :pme_red_nombre, label: 'Nombre Encargado PME y Redes' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :pme_red_email, label: 'E-mail Encargado PME y Redes' } %>

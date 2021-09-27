@@ -1,6 +1,7 @@
 class ComiteEditorial < ApplicationRecord
 
 	DISPLAY_FIELDS = [
+		['investigadores',     'Miembro Comité',     'asociation'],
 		['nombre_publicacion', 'Nombre Publicación', 'string'],
 		['categoria',          'Categoría',          'string'],
 		['otra_categoria',     'Otra Categoría',     'string'],
@@ -9,7 +10,7 @@ class ComiteEditorial < ApplicationRecord
 	]
 
 	TABLA_FIELDS = [
-		['publicacion', 'show']
+		['nombre_publicacion', 'show']
 	]
 
 	has_many :ci_is

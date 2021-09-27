@@ -79,6 +79,6 @@ class ActividadDifusionesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def actividad_difusion_params
-      params.require(:actividad_difusion).permit(:asociada_concurso_milenio, :organizacion, :alcance, :titulo_evento, :tipo_evento, :otro_tipo_evento, :fecha, :pais_institucion, :region_ubicacion, :descripcion_actividad, :n_asistentes_estudiantes, :n_total_asistentes, :duracion, :responsable_actividad)
+      params.require(:actividad_difusion).permit(:asociada_concurso_milenio, :organizacion, :alcance, :titulo_evento, :tipo_evento, :otro_tipo_evento, :fecha, :pais_institucion, :region_ubicacion, :descripcion_actividad, :n_asistentes_estudiantes, :n_total_asistentes, :duracion, :responsable_actividad, publico_objetivo_ids: [], investigador_ids: [])
     end
 end

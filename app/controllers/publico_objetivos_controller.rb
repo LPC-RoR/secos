@@ -1,5 +1,10 @@
 class PublicoObjetivosController < ApplicationController
+  before_action :authenticate_usuario!
+  before_action :inicia_sesion
+  before_action :carga_temas_ayuda
   before_action :set_publico_objetivo, only: %i[ show edit update destroy ]
+
+  include Sidebar
 
   # GET /publico_objetivos or /publico_objetivos.json
   def index
@@ -8,15 +13,18 @@ class PublicoObjetivosController < ApplicationController
 
   # GET /publico_objetivos/1 or /publico_objetivos/1.json
   def show
+    carga_sidebar('Administración')
   end
 
   # GET /publico_objetivos/new
   def new
     @objeto = PublicoObjetivo.new
+    carga_sidebar('Administración')
   end
 
   # GET /publico_objetivos/1/edit
   def edit
+    carga_sidebar('Administración')
   end
 
   # POST /publico_objetivos or /publico_objetivos.json

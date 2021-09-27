@@ -79,6 +79,6 @@ class ProductoPmesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def producto_pme_params
-      params.require(:producto_pme).permit(:fecha, :producto, :objetivo, :alcance, :tipo_producto, :otro_tipo_producto)
+      params.require(:producto_pme).permit(:fecha, :producto, :objetivo, :alcance, :tipo_producto, :otro_tipo_producto, investigador_ids: [], formacion_joven_ids: [], publico_objetivo_ids: [])
     end
 end

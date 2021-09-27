@@ -79,6 +79,6 @@ class PresentacionCongresosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def presentacion_congreso_params
-      params.require(:presentacion_congreso).permit(:alcance, :tipo, :otro_tipo, :organizacion, :nombre_presentacion, :nombre_evento, :link_presentacion, :fecha, :ciudad, :pais)
+      params.require(:presentacion_congreso).permit(:alcance, :tipo, :otro_tipo, :organizacion, :nombre_presentacion, :nombre_evento, :link_presentacion, :fecha, :ciudad, :pais, asociado_ids: [], otro_ids: [], formacion_joven_ids: [])
     end
 end

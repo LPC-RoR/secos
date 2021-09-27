@@ -22,16 +22,19 @@ class ArticuloEntrevista < ApplicationRecord
 	]
 
 	DISPLAY_FIELDS = [
-		['tema', 'Tema', 'string'],
-		['actividad',          'actividad',          'string'],
-		['descripcion',     ' Descripción Actividad',     'text'],
-		['tipo_medio',        'Tipo Medio',         'string'],
-		['nombre_medio',     'Nombre del Medio',     'string'],
-		['seccion',       'Sección',           'string'],
-		['fecha_publicacion',   'Fecha Publicación',    'string'],
-		['alcance',        'Alcance',     'string'],
-		['link',               'Link a Articulo o Entrevista',    'string'],
-		['adjunto',    'Adjunto de Artículo o Entrevista',   'file']
+		['tema',                  'Tema',                                    'string'],
+		['actividad',             'Actividad',                               'string'],
+		['descripcion',           'Descripción Actividad',                   'text'],
+		['tipo_medio',            'Tipo Medio',                              'string'],
+		['nombre_medio',          'Nombre del Medio',                        'string'],
+		['seccion',               'Sección',                                 'string'],
+		['fecha_publicacion',     'Fecha Publicación',                       'string'],
+		['alcance',               'Alcance',                                 'string'],
+		['link',                  'Link a Articulo o Entrevista',            'string'],
+		['publico_objetivos',     'Público Objetivo',                        'asociation'],
+		['linea_investigaciones', 'Líneas de Investigación',                 'asociation'],
+		['investigadores',        'Investigadores del Centro Entrevistados', 'asociation'],
+		['adjunto',               'Adjunto de Artículo o Entrevista',        'file']
 	]
 
 	TABLA_FIELDS = [

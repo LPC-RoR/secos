@@ -7,6 +7,7 @@ class RColaboracion < ApplicationRecord
 		['institucion_co_participante', 'Institución Co-Participante',                                                    'string'],
 		['tipo_productos',              'Tipo de Productos',                                                              'string'],
 		['n_productos',                 'N° de Productos',                                                                'string'],
+		['investigadores',              'Investigadores del Centro Participantes en la Actividad',                        'asociation'],
 		['n_investigadores_milenio',    'N° Investigadores del Centro Milenio Participantes en la Actividad',             'string'],
 		['n_postdoc_alumnos_milenio',   'N° Postdoctorados/Estudiantes del Centro Milenio Participantes en la Actividad', 'string'],
 		['n_investigadores_externos',   'N° Investigadores Externos Participantes en la Actividad',                       'string'],

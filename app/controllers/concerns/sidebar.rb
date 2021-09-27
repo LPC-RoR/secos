@@ -45,6 +45,7 @@ module Sidebar
 				[2, 'item', 'Datos Centro'],
 				[2, 'item', 'Disciplinas'],
 				[2, 'item', 'Grados Académicos'],
+				[2, 'item', 'Público Objetivo'],
 			]
 		end
 	end
@@ -84,7 +85,8 @@ module Sidebar
 				'Perfiles'          => 'perfiles',
 				'Datos Centro'      => 'datos_centros',
 				'Disciplinas'       => 'disciplinas',
-				'Grados Académicos' => 'grado_academicos'
+				'Grados Académicos' => 'grado_academicos',
+				'Público Objetivo'  => 'publico_objetivos'
 			}
 		end
 	end

@@ -79,6 +79,6 @@ class AcosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def aco_params
-      params.require(:aco).permit(:titulo_evento, :tipo_evento, :otro_tipo_evento, :alcance, :duracion_dias, :fecha_inicio, :fecha_termino, :pais, :ciudad, :n_asistentes, :n_expositores_milenio, :n_expositores_extranjeros, :n_expositores_nacionales, :investigador_responsable)
+      params.require(:aco).permit(:titulo_evento, :tipo_evento, :otro_tipo_evento, :alcance, :duracion_dias, :fecha_inicio, :fecha_termino, :pais, :ciudad, :n_asistentes, :n_expositores_milenio, :n_expositores_extranjeros, :n_expositores_nacionales, :investigador_responsable, publico_objetivo_ids: [])
     end
 end

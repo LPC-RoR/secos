@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_24_204058) do
+ActiveRecord::Schema.define(version: 2021_09_25_031643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -329,10 +329,7 @@ ActiveRecord::Schema.define(version: 2021_09_24_204058) do
     t.string "paterno"
     t.string "materno"
     t.string "direccion_correspondencia"
-    t.integer "region"
     t.datetime "fecha_nacimiento"
-    t.integer "nacionalidad"
-    t.integer "profesion"
     t.string "otra_profesion"
     t.string "institucion"
     t.string "cargo"
@@ -351,9 +348,9 @@ ActiveRecord::Schema.define(version: 2021_09_24_204058) do
     t.string "genero"
     t.string "categoria"
     t.integer "horas_dedicacion"
-    t.index ["nacionalidad"], name: "index_investigadores_on_nacionalidad"
-    t.index ["profesion"], name: "index_investigadores_on_profesion"
-    t.index ["region"], name: "index_investigadores_on_region"
+    t.string "region"
+    t.string "nacionalidad"
+    t.string "profesion"
   end
 
   create_table "li_dis", force: :cascade do |t|

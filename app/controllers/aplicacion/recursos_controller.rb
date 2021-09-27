@@ -81,6 +81,12 @@ class Aplicacion::RecursosController < ApplicationController
           Disciplina.create(disciplina: disciplina)
         end
       end
+    when 'Público Objetivo'
+      if @coleccion[@tabla].empty?
+        PublicoObjetivo::PUBLICOS_OBJETIVO.each do |po|
+          PublicoObjetivo.create(publico_objetivo: po)
+        end
+      end
     end
     
   end

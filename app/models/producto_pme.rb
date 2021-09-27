@@ -20,12 +20,15 @@ class ProductoPme < ApplicationRecord
 	]
 
 	DISPLAY_FIELDS = [
-		['fecha',              'Fecha',                 'datetime'],
-		['producto',           'Producto',              'string'],
-		['objetivo',           'Objetivo del Producto', 'text'],
-		['alcance',            'Alcance',               'string'],
-		['tipo_producto',      'Tipo Producto',         'string'],
-		['otro_tipo_producto', 'Otro Tipo de Producto', 'string']
+		['fecha',              'Fecha',                                   'datetime'],
+		['producto',           'Producto',                                'string'],
+		['objetivo',           'Objetivo del Producto',                   'text'],
+		['investigadores',     'Investigadores Participantes del Centro', 'asociation'],
+		['formacion_jovenes',  'Estudiantes Participantes del Centro',    'asociation'],
+		['alcance',            'Alcance',                                 'string'],
+		['publico_objetivos',  'Público Objetivo',                        'asociation'],
+		['tipo_producto',      'Tipo Producto',                           'string'],
+		['otro_tipo_producto', 'Otro Tipo de Producto',                   'string']
 	]
 
 	TABLA_FIELDS = [
