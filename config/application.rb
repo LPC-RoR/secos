@@ -16,6 +16,8 @@ module Secos
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
+    config.encoding = "utf-8"
+    
     config.i18n.default_locale = :es
     
     ## ------------------------------------------------- 0p
