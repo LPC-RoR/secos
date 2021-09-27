@@ -48,6 +48,7 @@ class Aplicacion::RecursosController < ApplicationController
           Pais.create(pais: pais)
         end
       end
+      Nomina.delete_all
       if Nomina.all.empty?
         Nomina::NOMINA.each do |usuario|
           Nomina.create(nombre: usuario[0], email: usuario[1])
