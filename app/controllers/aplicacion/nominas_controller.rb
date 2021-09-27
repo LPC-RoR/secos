@@ -79,6 +79,6 @@ class Aplicacion::NominasController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def nomina_params
-      params.require(:nomina).permit(:email, :tipo)
+      params.require(:nomina).permit(:email, :tipo, :nombre)
     end
 end
