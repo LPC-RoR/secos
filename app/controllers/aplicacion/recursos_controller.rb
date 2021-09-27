@@ -1,4 +1,6 @@
 class Aplicacion::RecursosController < ApplicationController
+  before_action :authenticate_usuario!, only: [:ingreso_datos_anuales, :administracion, :procesos, :borrar_archivos]
+  before_action :inicia_sesion
 
   include Sidebar
 
@@ -44,6 +46,11 @@ class Aplicacion::RecursosController < ApplicationController
       if Pais.all.empty?
         Aco::PAISES.each do |pais|
           Pais.create(pais: pais)
+        end
+      end
+      if Nomina.all.empty?
+        Nomina::NOMINA.each do |usuario|
+          Nomina.create(nombre: usuario[0], email: usuario[1])
         end
       end
     end
