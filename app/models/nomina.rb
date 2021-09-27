@@ -28,8 +28,6 @@ class Nomina < ApplicationRecord
 	]
 
 	TABLA_FIELDS = [
-		['nombre', 'normal'],
-		['tipo', 'normal'],
 		['email',  'normal']
 	]
 
