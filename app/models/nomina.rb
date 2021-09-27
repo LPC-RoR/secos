@@ -33,8 +33,8 @@ class Nomina < ApplicationRecord
 	]
 
  	FORM_FIELDS = [
-		['email', 'entry'],
-		['tipo',  'entry']
+		['nombre', 'entry'],
+		['email',  'entry']
 	]
 
 	validates :email, presence: true
