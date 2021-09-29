@@ -6,14 +6,14 @@
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :otro_tipo_evento, label: 'Otro Tipo de Evento' } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :alcance, label: 'Alcance', sel_list: Aco::ALCANCES } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :alcance, label: 'Alcance', sel_list: lgen_alcances } %>
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :duracion_dias, label: 'Duración en Días' } %>
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_inicio, label: 'Fecha Inicio' } %>
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_termino, label: 'Fecha Término' } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :pais, label: 'País', sel_list: Aco::PAISES } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :pais, label: 'País', sel_list: Pais.all.map {|pais| pais.pais} } %>
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :ciudad, label: 'Ciudad' } %>
 

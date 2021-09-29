@@ -57,12 +57,12 @@ module RecursosHelper
 			'Actividad Científica Organizada'
 		elsif ['Publicacion', 'publicaciones'].include?(field)
 			'Publicación'
-		elsif ['Titulo, titulo'].include?(field)
+		elsif ['Titulo', 'titulo'].include?(field)
 			'Título'
-		elsif ['Presentacion congreso'].include?(field)
+		elsif ['Presentacion congreso', 'presentacion_congresos'].include?(field)
 			'Presentación Congreso'
 		elsif ['Nombre presentacion'].include?(field)
-			'Nombre Presdentación'
+			'Nombre Presentación'
 		elsif ['Pyh investigador', 'pyh_investigadores'].include?(field)
 			'Premios y Honores Investigador'
 		elsif ['Pyh centro', 'pyh_centro', 'pyh_centros'].include?(field)
@@ -79,6 +79,8 @@ module RecursosHelper
 			'Pasantía Interno'
 		elsif ['Pasantia externo', 'pasantia_externos'].include?(field)
 			'Pasantía Externo'
+		elsif ['Descripcion pasantia'].include?(field)
+			'Descripción Pasantía'
 		elsif ['Rf colaboracion', 'rf_colaboraciones'].include?(field)
 			'Red Formal de Colaboración'
 		elsif ['Nombre red'].include?(field)
@@ -93,6 +95,8 @@ module RecursosHelper
 			'Producto de PME'
 		elsif ['Aporte actividad', 'aporte_actividades'].include?(field)
 			'Fondos Actividad de Difusión'
+		elsif ['Actividad producto'].include?(field)
+			'Actividad Producto'
 		elsif ['Articulo entrevista', 'articulo_entrevistas'].include?(field)
 			'Artículo o Entrevista'
 		elsif ['Vinculo', 'vinculos'].include?(field)
@@ -109,6 +113,8 @@ module RecursosHelper
 			'Disciplina'
 		elsif ['publico_objetivos'].include?(field)
 			'Público Objetivo'
+		elsif ['Propietario'].include?(field)
+			'Creado por'
 		else
 			field
 		end

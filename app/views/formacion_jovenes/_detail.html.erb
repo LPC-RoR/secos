@@ -13,7 +13,7 @@
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :disciplina, ids: :disciplina_ids, label: 'Disciplina', asociation: 'disciplinas', collection: Disciplina.all } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :nacionalidad, label: 'nacionalidad', sel_list: Investigador::NACIONALIDADES } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :nacionalidad, label: 'nacionalidad', sel_list: lgen_nacionalidades } %>
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'radio', token: :genero, label: 'Género', radio_list: ['Masculino', 'Femenino'] } %>
 
@@ -21,11 +21,11 @@
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :investigador, ids: :investigador_ids, label: 'Tutor', asociation: 'investigadores', collection: Investigador.all } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :universidad_formacion, label: 'Universidad de Formación', sel_list: FormacionJoven::UNIVERSIDADES } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :universidad_formacion, label: 'Universidad de Formación', sel_list: lgen_universidades } %>
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :otra_universidad_formacion, label: 'Otra Universidad de Formación' } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :region_universidad_formacion, label: 'Región Universidad de Formación', sel_list: Investigador::REGIONES } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :region_universidad_formacion, label: 'Región Universidad de Formación', sel_list: lgen_regiones } %>
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :universidad_origen, label: 'Universidad de Origen' } %>
 
@@ -37,7 +37,7 @@
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :monto, label: 'Monto' } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :relacion_centro, label: 'Relación con Centro', sel_list: Investigador::RELACION_CENTRO } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :relacion_centro, label: 'Relación con Centro', sel_list: lgen_relacion_centro } %>
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_ingreso_centro, label: 'Fecha de Ingreso al Centro' } %>
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_desvinculacion, label: 'Fecha de Desvinculación' } %>

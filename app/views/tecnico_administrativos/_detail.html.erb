@@ -9,13 +9,13 @@
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_nacimiento, label: 'Fecha de Nacimiento' } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :nacionalidad, label: 'Nacionalidad', sel_list: Investigador::NACIONALIDADES } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :nacionalidad, label: 'Nacionalidad', sel_list: lgen_nacionalidades } %>
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'radio', token: :genero, label: 'Género', radio_list: ['Masculino', 'Femenino'] } %>
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :categoria, label: 'Categoría', sel_list: TecnicoAdministrativo::CATEGORIAS } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :relacion_centro, label: 'Relación con el Centro', sel_list: TecnicoAdministrativo::RELACIONES_CENTRO } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :tipo_financiamiento, label: 'Tipo de Financiamiento', sel_list: TecnicoAdministrativo::FINANCIAMIENTOS } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :relacion_centro, label: 'Relación con el Centro', sel_list: lgen_relacion_centro } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :tipo_financiamiento, label: 'Tipo de Financiamiento', sel_list: lgen_financiamientos } %>
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_ingreso, label: 'Fecha Ingreso al Centro' } %>
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_desvinculacion, label: 'Fecha Desvinculación del Centro' } %>

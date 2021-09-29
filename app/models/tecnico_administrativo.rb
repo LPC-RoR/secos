@@ -5,18 +5,6 @@ class TecnicoAdministrativo < ApplicationRecord
 		'Personal Administrativo'
 	]
 
-	RELACIONES_CENTRO = [
-		'Full Time',
-		'Part Time'
-	]
-
-	FINANCIAMIENTOS = [
-		'Fondos ICM',
-		'Adscrito',
-		'Financiamiento Externo',
-		'Mixto (ICM + Externo)'
-	]
-
 	DISPLAY_FIELDS = [
 		['tipo_documento', 'Tipo Documento',                         'string'],
 		['rut_pasaporte',       'RUT / Pasaporte',                               'string'],

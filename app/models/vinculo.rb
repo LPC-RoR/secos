@@ -18,46 +18,6 @@ class Vinculo < ApplicationRecord
 		'Spin Off'
 	]
 
-	SECTORES_ECONOMICOS = [
-		'Actividades empresariales',
-		'Acuicultura',
-		'Agricultura',
-		'Alimentos procesados y bebidas no alcoholicas',
-		'Apicultura',
-		'Biotecnología',
-		'Capital humano',
-		'Comercio',
-		'Comunicaciones',
-		'Construcción',
-		'Educación',
-		'Energía',
-		'Enseñanza',
-		'Financiero',
-		'Floricultura',
-		'Forestal',
-		'Fruticultura',
-		'Hoteles',
-		'Industrias creativas (Audio-Visuales-Literatura)',
-		'Logística',
-		'Manufactura metalmecánica',
-		'Medicina y salud humana',
-		'Medio ambiente',
-		'Minería',
-		'Otras manofacturas (vidrio, plástico, tabaco, textil, etc.)',
-		'Otro',
-		'Pecuario',
-		'Pesca artesanal',
-		'Pesca industrial',
-		'Sector público',
-		'Servicios financieros y empresariales',
-		'Silvicultura',
-		'Sustancias químicas',
-		'TIC\'s',
-		'Transporte',
-		'Turismo',
-		'Vitivinícola'
-	]
-
 	DISPLAY_FIELDS = [
 		['actividad', 'Actividad',                         'string'],
 		['tipo_conexion',       'Tipo de Conexión',                               'string'],

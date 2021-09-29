@@ -4,7 +4,7 @@
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :nombre_publicacion, label: 'Nombre Publicación' } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :categoria, label: 'Categoría', sel_list: Publicacion::CATEGORIAS } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :categoria, label: 'Categoría', sel_list: lgen_categorias } %>
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :otra_categoria, label: 'Otra Categoría' } %>
 

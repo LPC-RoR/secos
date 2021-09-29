@@ -3,7 +3,7 @@
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'radio', token: :asociada_concurso_milenio, label: 'Actividad asociada a concurso Milenio de PME', radio_list: ['Sí', 'No'] } %>
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :organizacion, label: 'Organización', sel_list: ActividadDifusion::ORGANIZACIONES } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :alcance, label: 'Alcance', sel_list: Aco::ALCANCES } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :alcance, label: 'Alcance', sel_list: lgen_alcances } %>
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :titulo_evento, label: 'Título Evento' } %>
 
@@ -16,7 +16,7 @@
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha, label: 'Fecha' } %>
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :pais_institucion, label: 'País de la Institución', sel_list: Pais.all.map {|pais| pais.pais} } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :region_ubicacion, label: 'Región de Ubicación', sel_list: Investigador::REGIONES } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :region_ubicacion, label: 'Región de Ubicación', sel_list: lgen_regiones } %>
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text_area', token: :descripcion_actividad, label: 'Descripción de Actividad' } %>
 

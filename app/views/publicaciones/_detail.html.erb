@@ -2,7 +2,7 @@
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_publicacion, label: 'Fecha Publicación' } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :categoria_publicacion, label: 'Categoría Publicación', sel_list: Publicacion::CATEGORIAS } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :categoria_publicacion, label: 'Categoría Publicación', sel_list: lgen_categorias } %>
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :otra_categoria, label: 'Otra Categoría' } %>
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :titulo, label: 'Título' } %>
@@ -25,7 +25,7 @@
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'radio', token: :ligada_red_formal, label: '¿Ligada a Red Formal de Colaboración?', radio_list: ['Sí', 'No'] } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :red_formal, label: 'Red Formal de Colaboración en la que Participa', sel_list: Investigador::CATEGORIAS } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :red_formal, label: 'Red Formal de Colaboración en la que Participa', sel_list: RfColaboracion.all.map {|rfc| rfc.nombre_red} } %>
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'file', token: :documento_relacionado, label: 'Documento Relacionado' } %>
 

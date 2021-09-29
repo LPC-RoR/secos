@@ -1,13 +1,5 @@
 class Publicacion < ApplicationRecord
 
-	CATEGORIAS = [
-		'ISI/WOS o Similar a ISI/WOS standard',
-		'SCIELO o Similar a SCIELO standard',
-		'Libros y Capítulos de Libros',
-		'Otras Publicaciones',
-		'Scopus'
-	]
-
 	CUARTILES = [
 		'Q1',
 		'Q2',

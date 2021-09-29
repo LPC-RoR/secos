@@ -22,7 +22,7 @@
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :nombre_institucion, label: 'Nombre de la Institución' } %>
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :pais_institucion, label: 'País de la Institución', sel_list: Pais.all.map {|pais| pais.pais} } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :region_institucion, label: 'Región de Institución', sel_list: Investigador::REGIONES } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :region_institucion, label: 'Región de Institución', sel_list: lgen_regiones } %>
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :ciudad, label: 'Ciudad' } %>
 
@@ -30,7 +30,7 @@
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :otro_tipo_institucion, label: 'Otro Tipo de Institución' } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :sector_economico, label: 'Sector Económico', sel_list: Vinculo::SECTORES_ECONOMICOS } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :sector_economico, label: 'Sector Económico', sel_list: lgen_sectores_economicos } %>
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :otro_sector_economico, label: 'Otro Sector Económico' } %>
 

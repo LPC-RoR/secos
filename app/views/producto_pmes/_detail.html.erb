@@ -9,7 +9,7 @@
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :investigador, ids: :investigador_ids, label: 'Investigadores Participantes del Centro', asociation: 'investigadores', collection: Investigador.all } %>
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :formacion_joven, ids: :formacion_joven_ids, label: 'Estudiantes Participantes del Centro', asociation: 'formacion_jovenes', collection: FormacionJoven.all } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :alcance, label: 'Alcance', sel_list: Aco::ALCANCES } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :alcance, label: 'Alcance', sel_list: lgen_alcances } %>
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :publico_objetivo, ids: :publico_objetivo_ids, label: 'Público Objetivo', asociation: 'publico_objetivos', collection: PublicoObjetivo.all } %>
 
