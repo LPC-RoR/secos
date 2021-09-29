@@ -19,7 +19,7 @@ class AcosController < ApplicationController
   # GET /acos/new
   def new
     carga_sidebar('Ingreso Datos Anuales')
-    @objeto = Aco.new
+    @objeto = Aco.new(propietario: current_usuario.email)
   end
 
   # GET /acos/1/edit
@@ -79,6 +79,6 @@ class AcosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def aco_params
-      params.require(:aco).permit(:titulo_evento, :tipo_evento, :otro_tipo_evento, :alcance, :duracion_dias, :fecha_inicio, :fecha_termino, :pais, :ciudad, :n_asistentes, :n_expositores_milenio, :n_expositores_extranjeros, :n_expositores_nacionales, :investigador_responsable, publico_objetivo_ids: [])
+      params.require(:aco).permit(:titulo_evento, :tipo_evento, :otro_tipo_evento, :alcance, :duracion_dias, :fecha_inicio, :fecha_termino, :pais, :ciudad, :n_asistentes, :n_expositores_milenio, :n_expositores_extranjeros, :n_expositores_nacionales, :investigador_responsable, :propietario, publico_objetivo_ids: [])
     end
 end

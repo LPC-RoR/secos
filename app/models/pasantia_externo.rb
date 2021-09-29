@@ -28,7 +28,8 @@ class PasantiaExterno < ApplicationRecord
 	]
 
 	TABLA_FIELDS = [
-		['descripcion_pasantia', 'show']
+		['descripcion_pasantia', 'show'],
+		['propietario',  'normal'],
 	]
 
 	def nombre

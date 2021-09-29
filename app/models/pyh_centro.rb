@@ -9,7 +9,8 @@ class PyhCentro < ApplicationRecord
 	]
 
 	TABLA_FIELDS = [
-		['premio', 'show']
+		['premio',      'show'],
+		['propietario', 'normal']
 	]
 
 end

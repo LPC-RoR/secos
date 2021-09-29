@@ -18,7 +18,7 @@ class RColaboracionesController < ApplicationController
 
   # GET /r_colaboraciones/new
   def new
-    @objeto = RColaboracion.new
+    @objeto = RColaboracion.new(propietario: current_usuario.email)
     carga_sidebar('Ingreso Datos Anuales')
   end
 
@@ -79,6 +79,6 @@ class RColaboracionesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def r_colaboracion_params
-      params.require(:r_colaboracion).permit(:nombre_red, :objetivo, :descripcion, :institucion_co_participante, :tipo_productos, :n_productos, :n_investigadores_milenio, :n_postdoc_alumnos_milenio, :n_investigadores_externos, :n_postdoc_alumnos_externos, investigador_ids: [])
+      params.require(:r_colaboracion).permit(:nombre_red, :objetivo, :descripcion, :institucion_co_participante, :tipo_productos, :n_productos, :n_investigadores_milenio, :n_postdoc_alumnos_milenio, :n_investigadores_externos, :n_postdoc_alumnos_externos, :propietario, investigador_ids: [])
     end
 end

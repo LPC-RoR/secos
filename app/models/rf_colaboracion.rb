@@ -18,7 +18,8 @@ class RfColaboracion < ApplicationRecord
 	]
 
 	TABLA_FIELDS = [
-		['nombre_red', 'show']
+		['nombre_red', 'show'],
+		['propietario',  'normal']
 	]
 
 	has_many :rfc_is

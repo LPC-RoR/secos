@@ -39,8 +39,9 @@ class Publicacion < ApplicationRecord
 	]
 
 	TABLA_FIELDS = [
-		['autores', 'normal'], 
-		['titulo',  'show']
+		['autores',     'normal'], 
+		['titulo',      'show'],
+		['propietario', 'normal']
 	]
 
 	has_many :p_lis

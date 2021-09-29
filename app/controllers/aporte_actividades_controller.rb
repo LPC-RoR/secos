@@ -18,7 +18,7 @@ class AporteActividadesController < ApplicationController
 
   # GET /aporte_actividades/new
   def new
-    @objeto = AporteActividad.new
+    @objeto = AporteActividad.new(propietario: current_usuario.email)
     carga_sidebar('Ingreso Datos Anuales')
   end
 
@@ -79,6 +79,6 @@ class AporteActividadesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def aporte_actividad_params
-      params.require(:aporte_actividad).permit(:tipo, :actividad_producto, :colaborador, :tipo_colaboracion, :monto)
+      params.require(:aporte_actividad).permit(:tipo, :actividad_producto, :colaborador, :tipo_colaboracion, :monto, :propietario)
     end
 end

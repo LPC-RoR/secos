@@ -34,7 +34,8 @@ class TecnicoAdministrativo < ApplicationRecord
 	]
 
 	TABLA_FIELDS = [
-		['nombre', 'show']
+		['nombre', 'show'],
+		['propietario',  'normal']
 	]
 
 	def nombre

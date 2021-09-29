@@ -16,6 +16,7 @@ class AporteActividad < ApplicationRecord
 
 	TABLA_FIELDS = [
 		['actividad_producto', 'show'], 
+		['propietario',  'normal']
 	]
 
 	end

@@ -38,7 +38,8 @@ class ArticuloEntrevista < ApplicationRecord
 	]
 
 	TABLA_FIELDS = [
-		['actividad', 'show']
+		['actividad', 'show'],
+		['propietario',  'normal']
 	]
 
 	has_many :ae_is

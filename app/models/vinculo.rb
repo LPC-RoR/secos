@@ -82,7 +82,8 @@ class Vinculo < ApplicationRecord
 	]
 
 	TABLA_FIELDS = [
-		['actividad', 'show']
+		['actividad', 'show'],
+		['propietario',  'normal']
 	]
 
 end

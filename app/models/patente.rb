@@ -32,7 +32,8 @@ class Patente < ApplicationRecord
 	]
 
 	TABLA_FIELDS = [
-		['titulo', 'show']
+		['titulo',      'show'],
+		['propietario', 'normal']
 	]
 
 	has_many :pat_pais

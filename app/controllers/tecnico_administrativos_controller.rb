@@ -18,7 +18,7 @@ class TecnicoAdministrativosController < ApplicationController
 
   # GET /tecnico_administrativos/new
   def new
-    @objeto = TecnicoAdministrativo.new
+    @objeto = TecnicoAdministrativo.new(propietario: current_usuario.email)
     carga_sidebar('Ingreso Datos Anuales')
   end
 
@@ -79,6 +79,6 @@ class TecnicoAdministrativosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def tecnico_administrativo_params
-      params.require(:tecnico_administrativo).permit(:tipo_documento, :rut_pasaporte, :nombres, :paterno, :materno, :fecha_nacimiento, :nacionalidad, :genero, :categoria, :relacion_centro, :tipo_financiamiento, :fecha_ingreso, :fecha_desvinculacion)
+      params.require(:tecnico_administrativo).permit(:tipo_documento, :rut_pasaporte, :nombres, :paterno, :materno, :fecha_nacimiento, :nacionalidad, :genero, :categoria, :relacion_centro, :tipo_financiamiento, :fecha_ingreso, :fecha_desvinculacion, :propietario)
     end
 end

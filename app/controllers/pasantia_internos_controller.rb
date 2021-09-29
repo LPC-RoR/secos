@@ -18,7 +18,7 @@ class PasantiaInternosController < ApplicationController
 
   # GET /pasantia_internos/new
   def new
-    @objeto = PasantiaInterno.new
+    @objeto = PasantiaInterno.new(propietario: current_usuario.email)
     carga_sidebar('Ingreso Datos Anuales')
   end
 
@@ -79,6 +79,6 @@ class PasantiaInternosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pasantia_interno_params
-      params.require(:pasantia_interno).permit(:estudiante, :institucion, :pais, :tutor, :proyecto, :descripcion, :fecha_inicio, :fecha_termino, :unidad_departamento)
+      params.require(:pasantia_interno).permit(:estudiante, :institucion, :pais, :tutor, :proyecto, :descripcion, :fecha_inicio, :fecha_termino, :unidad_departamento, :propietario)
     end
 end

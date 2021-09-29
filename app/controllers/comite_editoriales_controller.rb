@@ -18,7 +18,7 @@ class ComiteEditorialesController < ApplicationController
 
   # GET /comite_editoriales/new
   def new
-    @objeto = ComiteEditorial.new
+    @objeto = ComiteEditorial.new(propietario: current_usuario.email)
     carga_sidebar('Ingreso Datos Anuales')
   end
 
@@ -79,6 +79,6 @@ class ComiteEditorialesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def comite_editorial_params
-      params.require(:comite_editorial).permit(:nombre_publicacion, :categoria, :otra_categoria, :anio_inicio, :anio_termino, investigador_ids: [])
+      params.require(:comite_editorial).permit(:nombre_publicacion, :categoria, :otra_categoria, :anio_inicio, :anio_termino, :propietario, investigador_ids: [])
     end
 end

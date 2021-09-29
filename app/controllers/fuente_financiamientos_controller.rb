@@ -18,7 +18,7 @@ class FuenteFinanciamientosController < ApplicationController
 
   # GET /fuente_financiamientos/new
   def new
-    @objeto = FuenteFinanciamiento.new
+    @objeto = FuenteFinanciamiento.new(propietario: current_usuario.email)
     carga_sidebar('Ingreso Datos Anuales')
   end
 
@@ -79,6 +79,6 @@ class FuenteFinanciamientosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def fuente_financiamiento_params
-      params.require(:fuente_financiamiento).permit(:fondos, :otro_fondo, :monto_pesos)
+      params.require(:fuente_financiamiento).permit(:fondos, :otro_fondo, :monto_pesos, :propietario)
     end
 end

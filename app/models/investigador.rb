@@ -369,7 +369,8 @@ class Investigador < ApplicationRecord
 	]
 
 	TABLA_FIELDS = [
-		['investigador', 'show']
+		['investigador', 'show'],
+		['propietario',  'normal']
 	]
 
 	has_many :i_gas

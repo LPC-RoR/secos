@@ -16,7 +16,8 @@ class TesisFinalizada < ApplicationRecord
 	]
 
 	TABLA_FIELDS = [
-		['nombre_tesis', 'show']
+		['nombre_tesis', 'show'],
+		['propietario',  'normal']
 	]
 
 	has_many :tf_lis

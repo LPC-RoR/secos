@@ -10,7 +10,8 @@ class ComiteEditorial < ApplicationRecord
 	]
 
 	TABLA_FIELDS = [
-		['nombre_publicacion', 'show']
+		['nombre_publicacion', 'show'],
+		['propietario',  'normal']
 	]
 
 	has_many :ci_is

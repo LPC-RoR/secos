@@ -13,7 +13,8 @@ class PasantiaInterno < ApplicationRecord
 	]
 
 	TABLA_FIELDS = [
-		['proyecto', 'show']
+		['proyecto', 'show'],
+		['propietario',  'normal']
 	]
 
 end

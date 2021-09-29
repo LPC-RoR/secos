@@ -12,7 +12,8 @@ class LineaInvestigacion < ApplicationRecord
 	]
 
 	TABLA_FIELDS = [
-		['linea_investigacion', 'show']
+		['linea_investigacion', 'show'],
+		['propietario',         'normal']
 	]
 
 	has_many :li_dis

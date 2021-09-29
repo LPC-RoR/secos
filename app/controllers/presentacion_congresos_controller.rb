@@ -18,7 +18,7 @@ class PresentacionCongresosController < ApplicationController
 
   # GET /presentacion_congresos/new
   def new
-    @objeto = PresentacionCongreso.new
+    @objeto = PresentacionCongreso.new(propietario: current_usuario.email)
     carga_sidebar('Ingreso Datos Anuales')
   end
 
@@ -79,6 +79,6 @@ class PresentacionCongresosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def presentacion_congreso_params
-      params.require(:presentacion_congreso).permit(:alcance, :tipo, :otro_tipo, :organizacion, :nombre_presentacion, :nombre_evento, :link_presentacion, :fecha, :ciudad, :pais, asociado_ids: [], otro_ids: [], formacion_joven_ids: [])
+      params.require(:presentacion_congreso).permit(:alcance, :tipo, :otro_tipo, :organizacion, :nombre_presentacion, :nombre_evento, :link_presentacion, :fecha, :ciudad, :pais, :propietario, asociado_ids: [], otro_ids: [], formacion_joven_ids: [])
     end
 end

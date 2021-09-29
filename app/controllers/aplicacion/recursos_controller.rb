@@ -1,4 +1,5 @@
 class Aplicacion::RecursosController < ApplicationController
+
   before_action :inicia_sesion
   before_action :authenticate_usuario!, only: [:ingreso_datos_anuales, :administracion, :procesos, :borrar_archivos]
   before_action :carga_temas_ayuda
@@ -47,7 +48,7 @@ class Aplicacion::RecursosController < ApplicationController
           Pais.create(pais: pais)
         end
       end
-      Nomina.delete_all
+#      Nomina.delete_all
       if Nomina.all.empty?
         Nomina::NOMINA.each do |usuario|
           Nomina.create(nombre: usuario[0], email: usuario[1])

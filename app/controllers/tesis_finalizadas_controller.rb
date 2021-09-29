@@ -18,7 +18,7 @@ class TesisFinalizadasController < ApplicationController
 
   # GET /tesis_finalizadas/new
   def new
-    @objeto = TesisFinalizada.new
+    @objeto = TesisFinalizada.new(propietario: current_usuario.email)
     carga_sidebar('Ingreso Datos Anuales')
   end
 
@@ -79,6 +79,6 @@ class TesisFinalizadasController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def tesis_finalizada_params
-      params.require(:tesis_finalizada).permit(:estudiante, :nivel_formacion, :nombre_tesis, :fecha_aprobacion, linea_investigacion_ids: [])
+      params.require(:tesis_finalizada).permit(:estudiante, :nivel_formacion, :nombre_tesis, :fecha_aprobacion, :propietario, linea_investigacion_ids: [])
     end
 end

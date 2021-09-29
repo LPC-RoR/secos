@@ -18,7 +18,7 @@ class ProductoPmesController < ApplicationController
 
   # GET /producto_pmes/new
   def new
-    @objeto = ProductoPme.new
+    @objeto = ProductoPme.new(propietario: current_usuario.email)
     carga_sidebar('Ingreso Datos Anuales')
   end
 
@@ -79,6 +79,6 @@ class ProductoPmesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def producto_pme_params
-      params.require(:producto_pme).permit(:fecha, :producto, :objetivo, :alcance, :tipo_producto, :otro_tipo_producto, investigador_ids: [], formacion_joven_ids: [], publico_objetivo_ids: [])
+      params.require(:producto_pme).permit(:fecha, :producto, :objetivo, :alcance, :tipo_producto, :otro_tipo_producto, :propietario, investigador_ids: [], formacion_joven_ids: [], publico_objetivo_ids: [])
     end
 end

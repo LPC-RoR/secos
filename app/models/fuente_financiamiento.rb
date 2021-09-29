@@ -33,7 +33,8 @@ class FuenteFinanciamiento < ApplicationRecord
 	]
 
 	TABLA_FIELDS = [
-		['fondos', 'show']
+		['fondos', 'show'],
+		['propietario',  'normal']
 	]
 
 end

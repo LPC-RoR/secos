@@ -32,7 +32,8 @@ class ProductoPme < ApplicationRecord
 	]
 
 	TABLA_FIELDS = [
-		['producto', 'show']
+		['producto', 'show'],
+		['propietario',  'normal']
 	]
 
 	has_many :pp_is

@@ -258,6 +258,7 @@ class Aco < ApplicationRecord
 
 	TABLA_FIELDS = [
 		['titulo_evento', 'show'], 
+		['propietario',   'normal']
 	]
 
 	has_many :aco_pos

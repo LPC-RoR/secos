@@ -34,7 +34,8 @@ class PresentacionCongreso < ApplicationRecord
 	]
 
 	TABLA_FIELDS = [
-		['nombre_presentacion', 'show']
+		['nombre_presentacion', 'show'],
+		['propietario',         'normal']
 	]
 
 	has_many :pc_is

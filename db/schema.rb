@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_27_121425) do
+ActiveRecord::Schema.define(version: 2021_09_29_025018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 2021_09_27_121425) do
     t.string "investigador_responsable"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "propietario"
+    t.index ["propietario"], name: "index_acos_on_propietario"
   end
 
   create_table "actividad_difusiones", force: :cascade do |t|
@@ -60,6 +62,8 @@ ActiveRecord::Schema.define(version: 2021_09_27_121425) do
     t.string "responsable_actividad"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "propietario"
+    t.index ["propietario"], name: "index_actividad_difusiones_on_propietario"
   end
 
   create_table "ad_is", force: :cascade do |t|
@@ -125,6 +129,8 @@ ActiveRecord::Schema.define(version: 2021_09_27_121425) do
     t.decimal "monto"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "propietario"
+    t.index ["propietario"], name: "index_aporte_actividades_on_propietario"
   end
 
   create_table "archivos", force: :cascade do |t|
@@ -151,6 +157,8 @@ ActiveRecord::Schema.define(version: 2021_09_27_121425) do
     t.string "adjunto"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "propietario"
+    t.index ["propietario"], name: "index_articulo_entrevistas_on_propietario"
   end
 
   create_table "ci_is", force: :cascade do |t|
@@ -170,6 +178,8 @@ ActiveRecord::Schema.define(version: 2021_09_27_121425) do
     t.integer "anio_termino"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "propietario"
+    t.index ["propietario"], name: "index_comite_editoriales_on_propietario"
   end
 
   create_table "datos_centros", force: :cascade do |t|
@@ -211,6 +221,8 @@ ActiveRecord::Schema.define(version: 2021_09_27_121425) do
     t.datetime "updated_at", null: false
     t.boolean "remove_doc_aprobatorio"
     t.boolean "remove_doc_extension"
+    t.string "propietario"
+    t.index ["propietario"], name: "index_datos_centros_on_propietario"
     t.index ["remove_doc_aprobatorio"], name: "index_datos_centros_on_remove_doc_aprobatorio"
     t.index ["remove_doc_extension"], name: "index_datos_centros_on_remove_doc_extension"
   end
@@ -279,6 +291,8 @@ ActiveRecord::Schema.define(version: 2021_09_27_121425) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "fecha_ingreso_centro"
+    t.string "propietario"
+    t.index ["propietario"], name: "index_formacion_jovenes_on_propietario"
   end
 
   create_table "fuente_financiamientos", force: :cascade do |t|
@@ -287,6 +301,8 @@ ActiveRecord::Schema.define(version: 2021_09_27_121425) do
     t.decimal "monto_pesos"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "propietario"
+    t.index ["propietario"], name: "index_fuente_financiamientos_on_propietario"
   end
 
   create_table "grado_academicos", force: :cascade do |t|
@@ -351,6 +367,8 @@ ActiveRecord::Schema.define(version: 2021_09_27_121425) do
     t.string "region"
     t.string "nacionalidad"
     t.string "profesion"
+    t.string "propietario"
+    t.index ["propietario"], name: "index_investigadores_on_propietario"
   end
 
   create_table "li_dis", force: :cascade do |t|
@@ -372,6 +390,8 @@ ActiveRecord::Schema.define(version: 2021_09_27_121425) do
     t.string "validez"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "propietario"
+    t.index ["propietario"], name: "index_linea_investigaciones_on_propietario"
   end
 
   create_table "mensajes", force: :cascade do |t|
@@ -446,6 +466,8 @@ ActiveRecord::Schema.define(version: 2021_09_27_121425) do
     t.datetime "fecha_termino"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "propietario"
+    t.index ["propietario"], name: "index_pasantia_externos_on_propietario"
   end
 
   create_table "pasantia_internos", force: :cascade do |t|
@@ -460,6 +482,8 @@ ActiveRecord::Schema.define(version: 2021_09_27_121425) do
     t.string "unidad_departamento"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "propietario"
+    t.index ["propietario"], name: "index_pasantia_internos_on_propietario"
   end
 
   create_table "pasos", force: :cascade do |t|
@@ -495,6 +519,8 @@ ActiveRecord::Schema.define(version: 2021_09_27_121425) do
     t.datetime "fecha_registro"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "propietario"
+    t.index ["propietario"], name: "index_patentes_on_propietario"
   end
 
   create_table "pc_fjos", force: :cascade do |t|
@@ -575,6 +601,8 @@ ActiveRecord::Schema.define(version: 2021_09_27_121425) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "fecha"
+    t.string "propietario"
+    t.index ["propietario"], name: "index_presentacion_congresos_on_propietario"
   end
 
   create_table "producto_pmes", force: :cascade do |t|
@@ -586,6 +614,8 @@ ActiveRecord::Schema.define(version: 2021_09_27_121425) do
     t.string "otro_tipo_producto"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "propietario"
+    t.index ["propietario"], name: "index_producto_pmes_on_propietario"
   end
 
   create_table "publicaciones", force: :cascade do |t|
@@ -609,6 +639,8 @@ ActiveRecord::Schema.define(version: 2021_09_27_121425) do
     t.string "documento_relacionado"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "propietario"
+    t.index ["propietario"], name: "index_publicaciones_on_propietario"
   end
 
   create_table "publico_objetivos", force: :cascade do |t|
@@ -625,6 +657,8 @@ ActiveRecord::Schema.define(version: 2021_09_27_121425) do
     t.string "pais"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "propietario"
+    t.index ["propietario"], name: "index_pyh_centros_on_propietario"
   end
 
   create_table "pyh_investigadores", force: :cascade do |t|
@@ -636,6 +670,8 @@ ActiveRecord::Schema.define(version: 2021_09_27_121425) do
     t.string "pais"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "propietario"
+    t.index ["propietario"], name: "index_pyh_investigadores_on_propietario"
   end
 
   create_table "r_colaboraciones", force: :cascade do |t|
@@ -651,6 +687,8 @@ ActiveRecord::Schema.define(version: 2021_09_27_121425) do
     t.integer "n_postdoc_alumnos_externos"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "propietario"
+    t.index ["propietario"], name: "index_r_colaboraciones_on_propietario"
   end
 
   create_table "rc_is", force: :cascade do |t|
@@ -677,6 +715,8 @@ ActiveRecord::Schema.define(version: 2021_09_27_121425) do
     t.datetime "fecha_termino"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "propietario"
+    t.index ["propietario"], name: "index_rf_colaboraciones_on_propietario"
   end
 
   create_table "rfc_as", force: :cascade do |t|
@@ -722,6 +762,8 @@ ActiveRecord::Schema.define(version: 2021_09_27_121425) do
     t.datetime "fecha_desvinculacion"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "propietario"
+    t.index ["propietario"], name: "index_tecnico_administrativos_on_propietario"
   end
 
   create_table "tema_ayudas", force: :cascade do |t|
@@ -746,6 +788,8 @@ ActiveRecord::Schema.define(version: 2021_09_27_121425) do
     t.datetime "fecha_aprobacion"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "propietario"
+    t.index ["propietario"], name: "index_tesis_finalizadas_on_propietario"
   end
 
   create_table "tf_lis", force: :cascade do |t|
@@ -803,6 +847,8 @@ ActiveRecord::Schema.define(version: 2021_09_27_121425) do
     t.string "otro_sector_economico"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "propietario"
+    t.index ["propietario"], name: "index_vinculos_on_propietario"
   end
 
 end

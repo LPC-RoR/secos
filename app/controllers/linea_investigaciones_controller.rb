@@ -19,7 +19,7 @@ class LineaInvestigacionesController < ApplicationController
   # GET /linea_investigaciones/new
   def new
     carga_sidebar('Ingreso Datos Anuales')
-    @objeto = LineaInvestigacion.new
+    @objeto = LineaInvestigacion.new(propietario: current_usuario.email)
     @objeto.li_dis.build
 
   #  4.times { @objeto.disciplinas.build }
@@ -82,6 +82,6 @@ class LineaInvestigacionesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def linea_investigacion_params
-      params.require(:linea_investigacion).permit(:linea_investigacion, :objetivo, :descripcion, :conceptos_clave, :fecha_inicio, :fecha_termino, :validez, disciplina_ids: [])
+      params.require(:linea_investigacion).permit(:linea_investigacion, :objetivo, :descripcion, :conceptos_clave, :fecha_inicio, :fecha_termino, :validez, :propietario, disciplina_ids: [])
     end
 end

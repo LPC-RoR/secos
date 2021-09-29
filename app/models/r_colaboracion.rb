@@ -15,7 +15,8 @@ class RColaboracion < ApplicationRecord
 	]
 
 	TABLA_FIELDS = [
-		['nombre_red', 'show']
+		['nombre_red', 'show'],
+		['propietario',  'normal']
 	]
 
 	has_many :rc_is

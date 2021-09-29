@@ -18,7 +18,7 @@ class PublicacionesController < ApplicationController
 
   # GET /publicaciones/new
   def new
-    @objeto = Publicacion.new
+    @objeto = Publicacion.new(propietario: current_usuario.email)
     carga_sidebar('Ingreso Datos Anuales')
   end
 
@@ -79,6 +79,6 @@ class PublicacionesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def publicacion_params
-      params.require(:publicacion).permit(:fecha_publicacion, :categoria_publicacion, :otra_categoria, :titulo, :autores, :fuente, :volumen, :numero, :pagina_inicial, :issn, :doi, :cuartil, :n_autores_inv_asociados, :n_autores_estudiantes, :n_autores_otros, :ligada_red_formal, :red_formal, :documento_relacionado, linea_investigacion_ids: [], investigador_ids: [])
+      params.require(:publicacion).permit(:fecha_publicacion, :categoria_publicacion, :otra_categoria, :titulo, :autores, :fuente, :volumen, :numero, :pagina_inicial, :issn, :doi, :cuartil, :n_autores_inv_asociados, :n_autores_estudiantes, :n_autores_otros, :ligada_red_formal, :red_formal, :documento_relacionado, :propietario, linea_investigacion_ids: [], investigador_ids: [])
     end
 end

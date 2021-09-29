@@ -18,7 +18,7 @@ class PyhInvestigadoresController < ApplicationController
 
   # GET /pyh_investigadores/new
   def new
-    @objeto = PyhInvestigador.new
+    @objeto = PyhInvestigador.new(propietario: current_usuario.email)
     carga_sidebar('Ingreso Datos Anuales')
   end
 
@@ -79,6 +79,6 @@ class PyhInvestigadoresController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pyh_investigador_params
-      params.require(:pyh_investigador).permit(:investigador, :premio, :fecha, :contribucion, :institucion, :pais)
+      params.require(:pyh_investigador).permit(:investigador, :premio, :fecha, :contribucion, :institucion, :pais, :propietario)
     end
 end

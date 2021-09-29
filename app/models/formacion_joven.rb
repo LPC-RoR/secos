@@ -143,7 +143,8 @@ class FormacionJoven < ApplicationRecord
 	]
 
 	TABLA_FIELDS = [
-		['nombres', 'show']
+		['nombres', 'show'],
+		['propietario',  'normal']
 	]
 
 	has_many :fj_nfores

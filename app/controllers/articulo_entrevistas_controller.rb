@@ -18,7 +18,7 @@ class ArticuloEntrevistasController < ApplicationController
 
   # GET /articulo_entrevistas/new
   def new
-    @objeto = ArticuloEntrevista.new
+    @objeto = ArticuloEntrevista.new(propietario: current_usuario.email)
     carga_sidebar('Ingreso Datos Anuales')
   end
 
@@ -79,6 +79,6 @@ class ArticuloEntrevistasController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def articulo_entrevista_params
-      params.require(:articulo_entrevista).permit(:tema, :actividad, :descripcion, :tipo_medio, :nombre_medio, :seccion, :fecha_publicacion, :alcance, :link, :adjunto, publico_objetivo_ids: [], linea_investigacion_ids: [], investigador_ids: [])
+      params.require(:articulo_entrevista).permit(:tema, :actividad, :descripcion, :tipo_medio, :nombre_medio, :seccion, :fecha_publicacion, :alcance, :link, :adjunto, :propietario, publico_objetivo_ids: [], linea_investigacion_ids: [], investigador_ids: [])
     end
 end

@@ -18,7 +18,7 @@ class PyhCentrosController < ApplicationController
 
   # GET /pyh_centros/new
   def new
-    @objeto = PyhCentro.new
+    @objeto = PyhCentro.new(propietario: current_usuario.email)
     carga_sidebar('Ingreso Datos Anuales')
   end
 
@@ -79,6 +79,6 @@ class PyhCentrosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pyh_centro_params
-      params.require(:pyh_centro).permit(:premio, :fecha, :contribucion, :institucion, :pais)
+      params.require(:pyh_centro).permit(:premio, :fecha, :contribucion, :institucion, :pais, :propietario)
     end
 end

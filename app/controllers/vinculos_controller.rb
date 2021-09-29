@@ -18,7 +18,7 @@ class VinculosController < ApplicationController
 
   # GET /vinculos/new
   def new
-    @objeto = Vinculo.new
+    @objeto = Vinculo.new(propietario: current_usuario.email)
     carga_sidebar('Ingreso Datos Anuales')
   end
 
@@ -79,6 +79,6 @@ class VinculosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def vinculo_params
-      params.require(:vinculo).permit(:actividad, :tipo_conexion, :tipo_actividad, :otro_tipo_actividad, :objetivo_actividad, :fecha_inicio, :fecha_termino, :investigador_encargado, :fondos_pesos, :fondos_dolares, :costo_vinculo_pesos, :costo_vinculo_dolares, :nombre_institucion, :pais_institucion, :region_institucion, :ciudad, :tipo_institucion, :otro_tipo_institucion, :sector_economico, :otro_sector_economico)
+      params.require(:vinculo).permit(:actividad, :tipo_conexion, :tipo_actividad, :otro_tipo_actividad, :objetivo_actividad, :fecha_inicio, :fecha_termino, :investigador_encargado, :fondos_pesos, :fondos_dolares, :costo_vinculo_pesos, :costo_vinculo_dolares, :nombre_institucion, :pais_institucion, :region_institucion, :ciudad, :tipo_institucion, :otro_tipo_institucion, :sector_economico, :otro_sector_economico, :propietario)
     end
 end

@@ -18,7 +18,7 @@ class PasantiaExternosController < ApplicationController
 
   # GET /pasantia_externos/new
   def new
-    @objeto = PasantiaExterno.new
+    @objeto = PasantiaExterno.new(propietario: current_usuario.email)
     carga_sidebar('Ingreso Datos Anuales')
   end
 
@@ -79,6 +79,6 @@ class PasantiaExternosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pasantia_externo_params
-      params.require(:pasantia_externo).permit(:tipo_pasante, :nombres, :paterno, :materno, :grado_academico, :pais, :institucion_procedencia, :institucion_pasantia, :region, :descripcion_pasantia, :fecha_inicio, :fecha_termino)
+      params.require(:pasantia_externo).permit(:tipo_pasante, :nombres, :paterno, :materno, :grado_academico, :pais, :institucion_procedencia, :institucion_pasantia, :region, :descripcion_pasantia, :fecha_inicio, :fecha_termino, :propietario)
     end
 end

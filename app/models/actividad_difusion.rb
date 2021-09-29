@@ -38,6 +38,7 @@ class ActividadDifusion < ApplicationRecord
 
 	TABLA_FIELDS = [
 		['titulo_evento', 'show'], 
+		['propietario',  'normal']
 	]
 
 	has_many :ad_pos

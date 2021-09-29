@@ -18,7 +18,7 @@ class PatentesController < ApplicationController
 
   # GET /patentes/new
   def new
-    @objeto = Patente.new
+    @objeto = Patente.new(propietario: current_usuario.email)
     carga_sidebar('Ingreso Datos Anuales')
   end
 
@@ -79,6 +79,6 @@ class PatentesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def patente_params
-      params.require(:patente).permit(:titulo, :descripcion, :categoria, :solicitante, :inventor, :n_solicitud, :fecha_solicitud, :estado, :n_registro, :fecha_registro, pais_ids: [])
+      params.require(:patente).permit(:titulo, :descripcion, :categoria, :solicitante, :inventor, :n_solicitud, :fecha_solicitud, :estado, :n_registro, :fecha_registro, :propietario, pais_ids: [])
     end
 end
