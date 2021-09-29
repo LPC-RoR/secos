@@ -1,11 +1,10 @@
 class Aplicacion::RecursosController < ApplicationController
-  before_action :authenticate_usuario!, only: [:ingreso_datos_anuales, :administracion, :procesos, :borrar_archivos]
   before_action :inicia_sesion
+  before_action :authenticate_usuario!, only: [:ingreso_datos_anuales, :administracion, :procesos, :borrar_archivos]
+  before_action :carga_temas_ayuda
 
   include Sidebar
 
-  before_action :inicia_sesion
-  before_action :carga_temas_ayuda
 #  before_action :set_recurso, only: [:show, :edit, :update, :destroy]
 
   def home
