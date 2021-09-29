@@ -23,3 +23,6 @@
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :investigador, ids: :investigador_ids, label: 'Investigadores del Centro Entrevistados', asociation: 'investigadores', collection: Investigador.all } %>
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'file', token: :adjunto, label: 'Adjunto de Artículo o Entrevista' } %>
+
+
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'hidden', token: :propietario } %>

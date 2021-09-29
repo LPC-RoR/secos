@@ -25,3 +25,6 @@
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :investigador_responsable, label: 'Investigador Responsable' } %>
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :publico_objetivo, ids: :publico_objetivo_ids, label: 'Público Objetivo', asociation: 'publico_objetivos', collection: PublicoObjetivo.all } %>
+
+
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'hidden', token: :propietario } %>

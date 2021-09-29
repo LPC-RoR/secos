@@ -22,3 +22,6 @@
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :ciudad, label: 'Ciudad' } %>
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :pais, label: 'País', sel_list: Pais.all.map {|pais| pais.pais} } %>
+
+
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'hidden', token: :propietario } %>

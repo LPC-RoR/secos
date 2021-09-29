@@ -16,3 +16,6 @@
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :tipo_producto, label: 'Tipo Producto', sel_list: ProductoPme::TIPOS_PRODUCTO } %>
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :otro_tipo_producto, label: 'Otro Tipo Producto' } %>
+
+
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'hidden', token: :propietario } %>

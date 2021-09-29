@@ -9,3 +9,6 @@
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :tipo_colaboracion, label: 'Tipo Colaboración', sel_list: AporteActividad::TIPOS_COLABORACIONES } %>
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :monto, label: 'Monto de Colaboración (en pesos)' } %>
+
+
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'hidden', token: :propietario } %>

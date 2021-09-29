@@ -21,3 +21,6 @@
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :investigador, ids: :investigador_ids, label: 'Investigadores Asociados del Centro que Participan en la Red', asociation: 'investigadores', collection: Investigador.all } %>
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :formacion_joven, ids: :formacion_joven_ids, label: 'Estudiantes del Centro que Participan en la Red', asociation: 'formacion_jovenes', collection: FormacionJoven.all } %>
+
+
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'hidden', token: :propietario } %>

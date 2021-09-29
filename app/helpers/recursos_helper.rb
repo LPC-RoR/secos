@@ -129,27 +129,15 @@ module RecursosHelper
 	end
 
 	def crud_conditions(objeto, btn)
-		case objeto.class.name
-		when 'Carga'
-			objeto.estado == 'ingreso'
-		when 'Carpeta'
-			not Carpeta::NOT_MODIFY.include?(objeto.carpeta) and controller_name == 'proyectos'
-		when 'Texto'
-			false
-		when 'Clasificacion'
-			false
-		when 'Tema'
-			['publicaciones', 'temas'].include?(controller_name)
-		when 'Proyecto'
-			controller_name == 'proyectos'
-		when 'Tabla'
-			controller_name == 'datos'
-		when 'Perfil'
-			false
-		when 'Sumario'
-			false
+		if ['LineaInvestigacion', 'Investigador', 'Aco', 'Publicacion', 'Patente', 'PresentacionCongreso', 'PyhInvestigador', 'PyhCentro', 'ComiteEditorial', 'FormacionJoven', 'TesisFinalizada', 'PasantiaInterno', 'PasantiaExterno', 'RfColaboracion', 'RColaboracion', 'ActividadDifusion', 'ProductoPme', 'AporteActividad', 'ArticuloEntrevista', 'Vinculo', 'TecnicoAdministrativo', 'FuenteFinanciamiento'].include?(objeto.class.name)
+			(objeto.propietario == current_usuario.email) or session[:es_administrador]
 		else
-			['TemaAyuda', 'Tutorial', 'Paso'].include?(objeto.class.name) ? (usuario_signed_in? ? session[:es_administrador] : false) : true
+			case objeto.class.name
+			when 'Perfil'
+				false
+			else
+				['TemaAyuda', 'Tutorial', 'Paso'].include?(objeto.class.name) ? (usuario_signed_in? ? session[:es_administrador] : false) : true
+			end
 		end
 	end
 
