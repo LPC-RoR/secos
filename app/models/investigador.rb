@@ -61,6 +61,9 @@ class Investigador < ApplicationRecord
 	has_many :pc_is
 	has_many :presentacion_congresos, through: :pc_is
 
+	has_many :pc_iotros
+	has_many :o_presentacion_congresos, through: :pc_iotros, source: :presentacion_congreso
+
 	has_many :ci_is
 	has_many :comite_editoriales, through: :ci_is
 
@@ -90,6 +93,10 @@ class Investigador < ApplicationRecord
 
 	def investigador
 		"#{self.nombres} #{self.paterno} #{self.materno}"
+	end
+
+	def iotro
+		self.investigador
 	end
 
 end

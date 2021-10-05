@@ -34,8 +34,6 @@ class Aplicacion::RecursosController < ApplicationController
         @objeto = DatosCentro.first
       end
     elsif @set_display[0] == 'list'
-      @new_button = true unless ['Perfiles'].include?(@t)
-
       @coleccion = {}
       @coleccion[@tabla] = @tabla.classify.constantize.all
     end

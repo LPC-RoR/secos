@@ -135,8 +135,20 @@ module RecursosHelper
 		end
 	end
 
+	def new_button_conditions(controller)
+		if ['linea_investigaciones', 'investigadores', 'pyh_centros', 'aporte_actividades', 'tecnico_administrativos', 'fuente_financiamientos'].include?(controller)
+			session[:es_administrador]
+		elsif ['Perfil'].include?(controller)
+			false
+		else
+			true
+		end
+	end
+
 	def crud_conditions(objeto, btn)
-		if ['LineaInvestigacion', 'Investigador', 'Aco', 'Publicacion', 'Patente', 'PresentacionCongreso', 'PyhInvestigador', 'PyhCentro', 'ComiteEditorial', 'FormacionJoven', 'TesisFinalizada', 'PasantiaInterno', 'PasantiaExterno', 'RfColaboracion', 'RColaboracion', 'ActividadDifusion', 'ProductoPme', 'AporteActividad', 'ArticuloEntrevista', 'Vinculo', 'TecnicoAdministrativo', 'FuenteFinanciamiento'].include?(objeto.class.name)
+		if ['LineaInvestigacion', 'Investigador', 'PyhCentro', 'AporteActividad', 'TecnicoAdministrativo', 'FuenteFinanciamiento'].include?(objeto.class.name)
+			session[:es_administrador]
+		elsif ['Aco', 'Publicacion', 'Patente', 'PresentacionCongreso', 'PyhInvestigador', 'ComiteEditorial', 'FormacionJoven', 'TesisFinalizada', 'PasantiaInterno', 'PasantiaExterno', 'RfColaboracion', 'RColaboracion', 'ActividadDifusion', 'ProductoPme', 'ArticuloEntrevista', 'Vinculo'].include?(objeto.class.name)
 			(objeto.propietario == current_usuario.email) or session[:es_administrador]
 		else
 			case objeto.class.name

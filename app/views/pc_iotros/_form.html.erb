@@ -1,0 +1,27 @@
+<%= form_with(model: pc_iotro, local: true) do |form| %>
+  <% if pc_iotro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pc_iotro.errors.count, "error") %> prohibited this pc_iotro from being saved:</h2>
+
+      <ul>
+      <% pc_iotro.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :presentacion_congreso_id %>
+    <%= form.number_field :presentacion_congreso_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :investigador_id %>
+    <%= form.number_field :investigador_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

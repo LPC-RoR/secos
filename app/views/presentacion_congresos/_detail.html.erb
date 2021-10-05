@@ -9,7 +9,7 @@
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :investigador, ids: :investigador_ids, label: 'Autores Clasificados como "Asociados"', asociation: 'investigadores', collection: Investigador.all } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :investigador, ids: :investigador_ids, label: 'Autores Clasificados como "Otros"', asociation: 'investigadores', collection: Investigador.all } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :investigador, ids: :iotro_ids, label: 'Autores Clasificados como "Otros"', asociation: 'iotros', collection: Investigador.all } %>
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :formacion_joven, ids: :formacion_joven_ids, label: 'Autores Clasificados como Estudiantes', asociation: 'formacion_jovenes', collection: FormacionJoven.all } %>
 	

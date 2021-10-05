@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Pc Iotros</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Presentacion congreso</th>
+      <th>Investigador</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pc_iotros.each do |pc_iotro| %>
+      <tr>
+        <td><%= pc_iotro.presentacion_congreso_id %></td>
+        <td><%= pc_iotro.investigador_id %></td>
+        <td><%= link_to 'Show', pc_iotro %></td>
+        <td><%= link_to 'Edit', edit_pc_iotro_path(pc_iotro) %></td>
+        <td><%= link_to 'Destroy', pc_iotro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pc Iotro', new_pc_iotro_path %>

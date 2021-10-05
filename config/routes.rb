@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :pc_iotros
   resources :pp_fjos
   resources :rfc_fjos
   resources :pc_fjos
