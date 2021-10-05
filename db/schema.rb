@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_29_025018) do
+ActiveRecord::Schema.define(version: 2021_10_04_221707) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -140,6 +140,8 @@ ActiveRecord::Schema.define(version: 2021_09_29_025018) do
     t.integer "documento_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "directorio_id"
+    t.index ["directorio_id"], name: "index_archivos_on_directorio_id"
     t.index ["documento_id"], name: "index_archivos_on_documento_id"
     t.index ["orden"], name: "index_archivos_on_orden"
   end
@@ -227,6 +229,15 @@ ActiveRecord::Schema.define(version: 2021_09_29_025018) do
     t.index ["remove_doc_extension"], name: "index_datos_centros_on_remove_doc_extension"
   end
 
+  create_table "directorios", force: :cascade do |t|
+    t.string "directorio"
+    t.integer "proyecto_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["directorio"], name: "index_directorios_on_directorio"
+    t.index ["proyecto_id"], name: "index_directorios_on_proyecto_id"
+  end
+
   create_table "disciplinas", force: :cascade do |t|
     t.string "disciplina"
     t.datetime "created_at", null: false
@@ -238,6 +249,9 @@ ActiveRecord::Schema.define(version: 2021_09_29_025018) do
     t.string "documento"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "directorio_id"
+    t.boolean "publico"
+    t.index ["directorio_id"], name: "index_documentos_on_directorio_id"
   end
 
   create_table "fj_dis", force: :cascade do |t|
@@ -336,6 +350,20 @@ ActiveRecord::Schema.define(version: 2021_09_29_025018) do
     t.datetime "updated_at", null: false
     t.index ["investigador_id"], name: "index_i_lis_on_investigador_id"
     t.index ["linea_investigacion_id"], name: "index_i_lis_on_linea_investigacion_id"
+  end
+
+  create_table "imagenes", force: :cascade do |t|
+    t.integer "orden"
+    t.string "imagen"
+    t.string "nota"
+    t.integer "linea_id"
+    t.integer "directorio_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["directorio_id"], name: "index_imagenes_on_directorio_id"
+    t.index ["imagen"], name: "index_imagenes_on_imagen"
+    t.index ["linea_id"], name: "index_imagenes_on_linea_id"
+    t.index ["orden"], name: "index_imagenes_on_orden"
   end
 
   create_table "investigadores", force: :cascade do |t|
@@ -744,6 +772,15 @@ ActiveRecord::Schema.define(version: 2021_09_29_025018) do
     t.datetime "updated_at", null: false
     t.index ["investigador_id"], name: "index_rfc_is_on_investigador_id"
     t.index ["rf_colaboracion_id"], name: "index_rfc_is_on_rf_colaboracion_id"
+  end
+
+  create_table "subs", force: :cascade do |t|
+    t.integer "parent_id"
+    t.integer "child_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["child_id"], name: "index_subs_on_child_id"
+    t.index ["parent_id"], name: "index_subs_on_parent_id"
   end
 
   create_table "tecnico_administrativos", force: :cascade do |t|

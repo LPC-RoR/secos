@@ -11,18 +11,19 @@ class Archivo < ApplicationRecord
  	FORM_FIELDS = [
 		['nota',               'entry'],
 		['archivo',       'file_field'],
-		['linea_id',          'hidden'],
+#		['linea_id',          'hidden'],
 		['directorio_id',     'hidden'],
 		['documento_id',      'hidden']
 	]
 
 	mount_uploader :archivo, ArchivoUploader
 
-	belongs_to :linea, optional: true
+#	belongs_to :linea, optional: true
 	belongs_to :directorio, optional: true
 	belongs_to :documento, optional: true
 
 	def d_fecha
 		self.created_at
 	end
+
 end

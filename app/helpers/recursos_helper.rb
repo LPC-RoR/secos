@@ -10,6 +10,7 @@ module RecursosHelper
 	    [
 	        ['Ingreso Datos Anuales', '/recursos/ingreso_datos_anuales', 'usuario'],
 	        ['Administración',        '/recursos/administracion',          'admin'],
+	        ['Documentos',            directorios_path,                  'usuario'],
 	        ["Temas Ayuda",           "/tema_ayudas",                      'admin'],
 	        ["Procesos",              "/recursos/procesos",                  'dog']
 	    ]
@@ -139,6 +140,10 @@ module RecursosHelper
 			(objeto.propietario == current_usuario.email) or session[:es_administrador]
 		else
 			case objeto.class.name
+			when 'Documento'
+				session[:es_administrador]
+			when 'Archivo'
+				session[:es_administrador]
 			when 'Perfil'
 				false
 			else

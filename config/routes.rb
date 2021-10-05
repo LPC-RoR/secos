@@ -55,6 +55,7 @@ Rails.application.routes.draw do
   resources :disciplinas
   resources :linea_investigaciones
   resources :datos_centros
+
   scope module: 'aplicacion' do
     resources :recursos do
       collection do
@@ -72,6 +73,11 @@ Rails.application.routes.draw do
     resources :administradores
     resources :nominas
     resources :archivos
+    resources :imagenes
+    resources :directorios do
+      match :nuevo, via: :post, on: :collection
+    end
+    resources :subs
     resources :documentos do
       resources :archivos
     end

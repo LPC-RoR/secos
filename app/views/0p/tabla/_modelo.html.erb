@@ -24,7 +24,7 @@
 		<% when 'valor' %>
 			<td align='right'><small> <%= get_field(f[0], objeto) %> </small></td>
 		<% when 'diahora' %>
-			<td><small> <%= l(objeto.send(f[0])) %> </small></td>
+			<td><small> <%= objeto.send(f[0]).strftime("%d-%m-%Y") %> </small></td>
 		<% when 'link'  %>
 				<td><small><%= (get_field(f[0], objeto).blank? ? '[ link no disponible ]' : link_to( "[ #{get_field(f[0], objeto)} ]", get_field(f[0], objeto), target: :_blank)) %></small></td>
 		<% when 'url'  %>
