@@ -20,11 +20,13 @@ class InvestigadoresController < ApplicationController
   def new
     carga_sidebar('Ingreso Datos Anuales')
     @objeto = Investigador.new(propietario: current_usuario.email)
+    4.times { @objeto.nivel_formaciones.build }
   end
 
   # GET /investigadores/1/edit
   def edit
     carga_sidebar('Ingreso Datos Anuales')
+    2.times { @objeto.nivel_formaciones.build }
   end
 
   # POST /investigadores or /investigadores.json
@@ -79,6 +81,6 @@ class InvestigadoresController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def investigador_params
-      params.require(:investigador).permit(:tipo_documento, :rut_pasaporte, :nombres, :paterno, :materno, :direccion_correspondencia, :comuna, :region, :fecha_nacimiento, :genero, :categoria, :nacionalidad, :horas_dedicacion, :profesion, :otra_profesion, :institucion, :cargo, :email, :telefono_1, :telefono_2, :celular, :fuente_financiamiento, :relacion_centro, :fecha_inicio, :fecha_termino, :vigencia, :propietario, grado_academico_ids: [], linea_investigacion_ids: [], disciplina_ids: [])
+      params.require(:investigador).permit(:tipo_documento, :rut_pasaporte, :nombres, :paterno, :materno, :direccion_correspondencia, :comuna, :region, :fecha_nacimiento, :genero, :categoria, :nacionalidad, :horas_dedicacion, :profesion, :otra_profesion, :institucion, :cargo, :email, :telefono_1, :telefono_2, :celular, :fuente_financiamiento, :relacion_centro, :fecha_inicio, :fecha_termino, :vigencia, :propietario, grado_academico_ids: [], linea_investigacion_ids: [], disciplina_ids: [], nivel_formaciones_attributes: [:nivel_en_formacion, :titulo_grado, :descripcion, :fecha_inicio, :fecha_obtencion, :_destroy])
     end
 end

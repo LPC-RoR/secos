@@ -25,7 +25,7 @@ class Investigador < ApplicationRecord
 		['categoria',                 'Categoría',                          'string'],
 		['horas_dedicacion',          'Horas Dedicación',                   'string'],
 		['profesion',                 'Profesión',                          'string'],
-		['grado_academicos',          'Grado Académico',                    'asociation'],
+		['nivel_formaciones',         'Grado Académico',                    'asociation'],
 		['institucion',               'Institución a la que Pertenece',     'string'],
 		['cargo',                     'Cargo Actual',                       'string'],
 		['email',                     'E-mail',                             'string'],
@@ -46,8 +46,8 @@ class Investigador < ApplicationRecord
 		['propietario',  'normal']
 	]
 
-	has_many :i_gas
-	has_many :grado_academicos, through: :i_gas
+	has_many :nivel_formaciones
+	accepts_nested_attributes_for :nivel_formaciones, allow_destroy: true, reject_if: :all_blank
 
 	has_many :i_lis
 	has_many :linea_investigaciones, through: :i_lis
@@ -90,6 +90,7 @@ class Investigador < ApplicationRecord
 
 	validates :email, presence: true
 	validates :email, uniqueness: true
+
 
 	def investigador
 		"#{self.nombres} #{self.paterno} #{self.materno}"

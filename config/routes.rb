@@ -49,7 +49,6 @@ Rails.application.routes.draw do
   resources :acos
   resources :i_dis
   resources :i_lis
-  resources :i_gas
   resources :grado_academicos
   resources :li_dis
   resources :investigadores
