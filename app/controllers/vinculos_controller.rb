@@ -29,6 +29,7 @@ class VinculosController < ApplicationController
 
   # POST /vinculos or /vinculos.json
   def create
+    carga_sidebar('Ingreso Datos Anuales')
     @objeto = Vinculo.new(vinculo_params)
 
     respond_to do |format|
@@ -45,6 +46,7 @@ class VinculosController < ApplicationController
 
   # PATCH/PUT /vinculos/1 or /vinculos/1.json
   def update
+    carga_sidebar('Ingreso Datos Anuales')
     respond_to do |format|
       if @objeto.update(vinculo_params)
         set_redireccion

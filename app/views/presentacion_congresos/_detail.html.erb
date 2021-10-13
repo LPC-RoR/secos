@@ -1,27 +1,27 @@
 <h3 class='text-info'>Ingresar Presentación en Congreso</h3>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :alcance, label: 'Alcance', sel_list: lgen_alcances } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :tipo, label: 'Tipo', sel_list: PresentacionCongreso::TIPOS } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :alcance, label: 'Alcance', sel_list: lgen_alcances, v: true } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :tipo, label: 'Tipo', sel_list: PresentacionCongreso::TIPOS, v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :otro_tipo, label: 'Otro Tipo' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :otro_tipo, label: 'Otro Tipo', v: false } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :organizacion, label: 'Organización', sel_list: PresentacionCongreso::ORGANIZACIONES } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :organizacion, label: 'Organización', sel_list: PresentacionCongreso::ORGANIZACIONES, v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :investigador, ids: :investigador_ids, label: 'Autores Clasificados como "Asociados"', asociation: 'investigadores', collection: Investigador.all } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :investigador, ids: :investigador_ids, label: 'Autores Clasificados como "Asociados"', asociation: 'investigadores', collection: Investigador.all, v: false } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :investigador, ids: :iotro_ids, label: 'Autores Clasificados como "Otros"', asociation: 'iotros', collection: Investigador.all } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :investigador, ids: :iotro_ids, label: 'Autores Clasificados como "Otros"', asociation: 'iotros', collection: Investigador.all, v: false } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :formacion_joven, ids: :formacion_joven_ids, label: 'Autores Clasificados como Estudiantes', asociation: 'formacion_jovenes', collection: FormacionJoven.all } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :formacion_joven, ids: :formacion_joven_ids, label: 'Autores Clasificados como Estudiantes', asociation: 'formacion_jovenes', collection: FormacionJoven.all, v: false } %>
 	
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :nombre_presentacion, label: 'Nombre Presentación' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :nombre_evento, label: 'Nombre del Evento' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :link_presentacion, label: 'Link a Presentación' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :nombre_presentacion, label: 'Nombre Presentación', v: true } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :nombre_evento, label: 'Nombre del Evento', v: true } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :link_presentacion, label: 'Link a Presentación', v: false } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha, label: 'Fecha' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha, label: 'Fecha', v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :ciudad, label: 'Ciudad' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :ciudad, label: 'Ciudad', v: false } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :pais, label: 'País', sel_list: Pais.all.map {|pais| pais.pais} } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :pais, label: 'País', sel_list: Pais.all.map {|pais| pais.pais}, v: true } %>
 
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'hidden', token: :propietario } %>

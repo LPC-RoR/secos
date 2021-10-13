@@ -1,30 +1,30 @@
 <h3 class='text-info'>Registrar Actividad Científica Organizada</h3>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :titulo_evento, label: 'Título Evento' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :titulo_evento, label: 'Título Evento', v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :tipo_evento, label: 'Tipo Evento', sel_list: Aco::TIPOS_EVENTO } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :tipo_evento, label: 'Tipo Evento', sel_list: Aco::TIPOS_EVENTO, v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :otro_tipo_evento, label: 'Otro Tipo de Evento' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :otro_tipo_evento, label: 'Otro Tipo de Evento', v: false } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :alcance, label: 'Alcance', sel_list: lgen_alcances } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :alcance, label: 'Alcance', sel_list: lgen_alcances, v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :duracion_dias, label: 'Duración en Días' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :duracion_dias, label: 'Duración en Días', v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_inicio, label: 'Fecha Inicio' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_termino, label: 'Fecha Término' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_inicio, label: 'Fecha Inicio', v: true } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_termino, label: 'Fecha Término', v: false } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :pais, label: 'País', sel_list: Pais.all.map {|pais| pais.pais} } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :pais, label: 'País', sel_list: Pais.all.map {|pais| pais.pais}, v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :ciudad, label: 'Ciudad' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :ciudad, label: 'Ciudad', v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :n_asistentes, label: 'Número de Asistentes' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :n_expositores_milenio, label: 'Número expositores Milenio' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :n_expositores_extranjeros, label: 'Número expositores extranjeros' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :n_expositores_nacionales, label: 'Número expositores nacionales' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :n_asistentes, label: 'Número de Asistentes', v: true } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :n_expositores_milenio, label: 'Número expositores Milenio', v: true } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :n_expositores_extranjeros, label: 'Número expositores extranjeros', v: false } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :n_expositores_nacionales, label: 'Número expositores nacionales', v: false } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :investigador_responsable, label: 'Investigador Responsable' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :investigador_responsable, label: 'Investigador Responsable', v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :publico_objetivo, ids: :publico_objetivo_ids, label: 'Público Objetivo', asociation: 'publico_objetivos', collection: PublicoObjetivo.all } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :publico_objetivo, ids: :publico_objetivo_ids, label: 'Público Objetivo', asociation: 'publico_objetivos', collection: PublicoObjetivo.all, v: false } %>
 
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'hidden', token: :propietario } %>

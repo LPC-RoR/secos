@@ -14,4 +14,6 @@ class PyhInvestigador < ApplicationRecord
 		['propietario', 'normal']
 	]
 
+	validates_presence_of :investigador, :premio, :fecha, :contribucion, :institucion, :pais
+
 end

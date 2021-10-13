@@ -36,6 +36,8 @@ class Aco < ApplicationRecord
 		['propietario',   'normal']
 	]
 
+	validates_presence_of :titulo_evento, :tipo_evento, :alcance, :duracion_dias, :fecha_inicio, :pais, :ciudad, :n_asistentes, :n_expositores_milenio, :investigador_responsable
+
 	has_many :aco_pos
 	has_many :publico_objetivos, through: :aco_pos
 

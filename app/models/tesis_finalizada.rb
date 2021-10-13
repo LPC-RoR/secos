@@ -20,6 +20,8 @@ class TesisFinalizada < ApplicationRecord
 		['propietario',  'normal']
 	]
 
+	validates_presence_of :estudiante, :nivel_formacion, :nombre_tesis, :fecha_aprobacion
+
 	has_many :tf_lis
 	has_many :linea_investigaciones, through: :tf_lis
 

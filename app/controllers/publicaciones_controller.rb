@@ -29,6 +29,7 @@ class PublicacionesController < ApplicationController
 
   # POST /publicaciones or /publicaciones.json
   def create
+    carga_sidebar('Ingreso Datos Anuales')
     @objeto = Publicacion.new(publicacion_params)
 
     respond_to do |format|
@@ -45,6 +46,7 @@ class PublicacionesController < ApplicationController
 
   # PATCH/PUT /publicaciones/1 or /publicaciones/1.json
   def update
+    carga_sidebar('Ingreso Datos Anuales')
     respond_to do |format|
       if @objeto.update(publicacion_params)
         set_redireccion

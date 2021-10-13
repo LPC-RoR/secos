@@ -29,6 +29,7 @@ class PyhInvestigadoresController < ApplicationController
 
   # POST /pyh_investigadores or /pyh_investigadores.json
   def create
+    carga_sidebar('Ingreso Datos Anuales')
     @objeto = PyhInvestigador.new(pyh_investigador_params)
 
     respond_to do |format|
@@ -45,6 +46,7 @@ class PyhInvestigadoresController < ApplicationController
 
   # PATCH/PUT /pyh_investigadores/1 or /pyh_investigadores/1.json
   def update
+    carga_sidebar('Ingreso Datos Anuales')
     respond_to do |format|
       if @objeto.update(pyh_investigador_params)
         set_redireccion

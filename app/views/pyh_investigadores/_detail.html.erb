@@ -1,15 +1,15 @@
 <h3 class='text-info'>Registrar Premio a Investigador</h3>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :investigador, label: 'Investigador', sel_list: Investigador.all.map {|inv| inv.investigador} } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :investigador, label: 'Investigador', sel_list: Investigador.all.map {|inv| inv.investigador}, v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :premio, label: 'Premio' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :premio, label: 'Premio', v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha, label: 'Fecha' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha, label: 'Fecha', v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :contribucion, label: 'Contribución del Científico Premiado' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :institucion, label: 'Institución Otorgante' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :contribucion, label: 'Contribución del Científico Premiado', v: true } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :institucion, label: 'Institución Otorgante', v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :pais, label: 'País', sel_list: Pais.all.map {|pais| pais.pais} } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :pais, label: 'País', sel_list: Pais.all.map {|pais| pais.pais}, v: true } %>
 
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'hidden', token: :propietario } %>

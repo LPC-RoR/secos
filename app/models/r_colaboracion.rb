@@ -19,6 +19,8 @@ class RColaboracion < ApplicationRecord
 		['propietario',  'normal']
 	]
 
+	validates_presence_of :nombre_red, :objetivo, :descripcion, :institucion_co_participante, :tipo_productos, :n_investigadores_milenio, :n_postdoc_alumnos_milenio
+
 	has_many :rc_is
 	has_many :investigadores, through: :rc_is
 

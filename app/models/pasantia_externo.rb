@@ -36,4 +36,6 @@ class PasantiaExterno < ApplicationRecord
 		"#{nombres} #{paterno} #{materno}"
 	end
 
+	validates_presence_of :tipo_pasante, :nombres, :paterno, :grado_academico, :pais, :institucion_procedencia, :institucion_pasantia, :region, :descripcion_pasantia, :fecha_inicio
+
 end

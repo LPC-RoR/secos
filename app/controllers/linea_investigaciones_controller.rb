@@ -32,6 +32,7 @@ class LineaInvestigacionesController < ApplicationController
 
   # POST /linea_investigaciones or /linea_investigaciones.json
   def create
+    carga_sidebar('Ingreso Datos Anuales')
     @objeto = LineaInvestigacion.new(linea_investigacion_params)
 
     respond_to do |format|
@@ -48,6 +49,7 @@ class LineaInvestigacionesController < ApplicationController
 
   # PATCH/PUT /linea_investigaciones/1 or /linea_investigaciones/1.json
   def update
+    carga_sidebar('Ingreso Datos Anuales')
     respond_to do |format|
       if @objeto.update(linea_investigacion_params)
         set_redireccion

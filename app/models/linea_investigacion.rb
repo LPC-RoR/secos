@@ -16,6 +16,8 @@ class LineaInvestigacion < ApplicationRecord
 		['propietario',         'normal']
 	]
 
+	validates_presence_of :linea_investigacion, :objetivo, :descripcion, :fecha_inicio
+
 	has_many :li_dis
 	has_many :disciplinas, through: :li_dis
 

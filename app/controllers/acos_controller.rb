@@ -29,6 +29,7 @@ class AcosController < ApplicationController
 
   # POST /acos or /acos.json
   def create
+    carga_sidebar('Ingreso Datos Anuales')
     @objeto = Aco.new(aco_params)
 
     respond_to do |format|
@@ -45,6 +46,7 @@ class AcosController < ApplicationController
 
   # PATCH/PUT /acos/1 or /acos/1.json
   def update
+    carga_sidebar('Ingreso Datos Anuales')
     respond_to do |format|
       if @objeto.update(aco_params)
         set_redireccion

@@ -29,6 +29,7 @@ class ProductoPmesController < ApplicationController
 
   # POST /producto_pmes or /producto_pmes.json
   def create
+    carga_sidebar('Ingreso Datos Anuales')
     @objeto = ProductoPme.new(producto_pme_params)
 
     respond_to do |format|
@@ -45,6 +46,7 @@ class ProductoPmesController < ApplicationController
 
   # PATCH/PUT /producto_pmes/1 or /producto_pmes/1.json
   def update
+    carga_sidebar('Ingreso Datos Anuales')
     respond_to do |format|
       if @objeto.update(producto_pme_params)
         set_redireccion

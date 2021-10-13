@@ -38,6 +38,8 @@ class PresentacionCongreso < ApplicationRecord
 		['propietario',         'normal']
 	]
 
+	validates_presence_of :alcance, :tipo, :organizacion, :nombre_presentacion, :nombre_evento, :fecha, :pais
+
 	has_many :pc_is
 	has_many :investigadores, through: :pc_is
 

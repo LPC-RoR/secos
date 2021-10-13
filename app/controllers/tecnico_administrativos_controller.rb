@@ -29,6 +29,7 @@ class TecnicoAdministrativosController < ApplicationController
 
   # POST /tecnico_administrativos or /tecnico_administrativos.json
   def create
+    carga_sidebar('Ingreso Datos Anuales')
     @objeto = TecnicoAdministrativo.new(tecnico_administrativo_params)
 
     respond_to do |format|
@@ -45,6 +46,7 @@ class TecnicoAdministrativosController < ApplicationController
 
   # PATCH/PUT /tecnico_administrativos/1 or /tecnico_administrativos/1.json
   def update
+    carga_sidebar('Ingreso Datos Anuales')
     respond_to do |format|
       if @objeto.update(tecnico_administrativo_params)
         set_redireccion

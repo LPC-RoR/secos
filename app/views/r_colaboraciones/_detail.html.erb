@@ -1,20 +1,20 @@
 <h3 class='text-info'>Registrar Red de colaboración</h3>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :nombre_red, label: 'Nombre de la Red' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :nombre_red, label: 'Nombre de la Red', v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text_area', token: :objetivo, label: 'Objetivo' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text_area', token: :descripcion, label: 'Descripción' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text_area', token: :objetivo, label: 'Objetivo', v: true } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text_area', token: :descripcion, label: 'Descripción', v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :institucion_co_participante, label: 'Institución Co-Participante' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :tipo_productos, label: 'Tipo de Productos' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :n_productos, label: 'N° de Productos' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :institucion_co_participante, label: 'Institución Co-Participante', v: true } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :tipo_productos, label: 'Tipo de Productos', v: true } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :n_productos, label: 'N° de Productos', v: false } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :investigador, ids: :investigador_ids, label: 'Investigadores del Centro Participantes en la Actividad', asociation: 'investigadores', collection: Investigador.all } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :investigador, ids: :investigador_ids, label: 'Investigadores del Centro Participantes en la Actividad', asociation: 'investigadores', collection: Investigador.all, v: false } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :n_investigadores_milenio, label: 'N° Investigadores del Centro Milenio en la Red' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :n_postdoc_alumnos_milenio, label: 'N° Postdoctorados/Estudiantes del Centro Milenio en la Red' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :n_investigadores_externos, label: 'N° Investigadores Externos en la Red' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :n_postdoc_alumnos_externos, label: 'N° Postdoctorados/Estudiantes Externos en la Red' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :n_investigadores_milenio, label: 'N° Investigadores del Centro Milenio en la Red', v: true } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :n_postdoc_alumnos_milenio, label: 'N° Postdoctorados/Estudiantes del Centro Milenio en la Red', v: true } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :n_investigadores_externos, label: 'N° Investigadores Externos en la Red', v: false } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :n_postdoc_alumnos_externos, label: 'N° Postdoctorados/Estudiantes Externos en la Red', v: false } %>
 
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'hidden', token: :propietario } %>

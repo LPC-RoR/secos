@@ -29,6 +29,7 @@ class PatentesController < ApplicationController
 
   # POST /patentes or /patentes.json
   def create
+    carga_sidebar('Ingreso Datos Anuales')
     @objeto = Patente.new(patente_params)
 
     respond_to do |format|
@@ -45,6 +46,7 @@ class PatentesController < ApplicationController
 
   # PATCH/PUT /patentes/1 or /patentes/1.json
   def update
+    carga_sidebar('Ingreso Datos Anuales')
     respond_to do |format|
       if @objeto.update(patente_params)
         set_redireccion

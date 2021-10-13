@@ -20,17 +20,16 @@ class InvestigadoresController < ApplicationController
   def new
     carga_sidebar('Ingreso Datos Anuales')
     @objeto = Investigador.new(propietario: current_usuario.email)
-    4.times { @objeto.nivel_formaciones.build }
   end
 
   # GET /investigadores/1/edit
   def edit
     carga_sidebar('Ingreso Datos Anuales')
-    2.times { @objeto.nivel_formaciones.build }
   end
 
   # POST /investigadores or /investigadores.json
   def create
+    carga_sidebar('Ingreso Datos Anuales')
     @objeto = Investigador.new(investigador_params)
 
     respond_to do |format|
@@ -47,6 +46,7 @@ class InvestigadoresController < ApplicationController
 
   # PATCH/PUT /investigadores/1 or /investigadores/1.json
   def update
+    carga_sidebar('Ingreso Datos Anuales')
     respond_to do |format|
       if @objeto.update(investigador_params)
         set_redireccion

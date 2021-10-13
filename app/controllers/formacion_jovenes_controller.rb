@@ -29,6 +29,7 @@ class FormacionJovenesController < ApplicationController
 
   # POST /formacion_jovenes or /formacion_jovenes.json
   def create
+    carga_sidebar('Ingreso Datos Anuales')
     @objeto = FormacionJoven.new(formacion_joven_params)
 
     respond_to do |format|
@@ -45,6 +46,7 @@ class FormacionJovenesController < ApplicationController
 
   # PATCH/PUT /formacion_jovenes/1 or /formacion_jovenes/1.json
   def update
+    carga_sidebar('Ingreso Datos Anuales')
     respond_to do |format|
       if @objeto.update(formacion_joven_params)
         set_redireccion
@@ -79,6 +81,6 @@ class FormacionJovenesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def formacion_joven_params
-      params.require(:formacion_joven).permit(:tipo_documento, :rut_pasaporte, :nombres, :paterno, :materno, :email, :nacionalidad, :genero, :profesion_titulo_grado, :universidad_formacion, :otra_universidad_formacion, :region_universidad_formacion, :universidad_origen, :pais_universidad_origen, :fecha_nacimiento, :tipo_financiamiento, :monto, :relacion_centro, :fecha_ingreso_centro, :fecha_desvinculacion, :estado, :propietario, disciplina_ids: [], investigador_ids: [])
+      params.require(:formacion_joven).permit(:tipo_documento, :rut_pasaporte, :nombres, :paterno, :materno, :email, :nacionalidad, :genero, :profesion_titulo_grado, :universidad_formacion, :otra_universidad_formacion, :region_universidad_formacion, :universidad_origen, :pais_universidad_origen, :fecha_nacimiento, :tipo_financiamiento, :monto, :relacion_centro, :fecha_ingreso_centro, :fecha_desvinculacion, :estado, :propietario, disciplina_ids: [], investigador_ids: [], nivel_formaciones_attributes: [:nivel_en_formacion, :titulo_grado, :descripcion, :fecha_inicio, :fecha_obtencion, :_destroy])
     end
 end

@@ -29,6 +29,7 @@ class FuenteFinanciamientosController < ApplicationController
 
   # POST /fuente_financiamientos or /fuente_financiamientos.json
   def create
+    carga_sidebar('Ingreso Datos Anuales')
     @objeto = FuenteFinanciamiento.new(fuente_financiamiento_params)
 
     respond_to do |format|
@@ -45,6 +46,7 @@ class FuenteFinanciamientosController < ApplicationController
 
   # PATCH/PUT /fuente_financiamientos/1 or /fuente_financiamientos/1.json
   def update
+    carga_sidebar('Ingreso Datos Anuales')
     respond_to do |format|
       if @objeto.update(fuente_financiamiento_params)
         set_redireccion

@@ -46,4 +46,6 @@ class Vinculo < ApplicationRecord
 		['propietario',  'normal']
 	]
 
+	validates_presence_of :actividad, :tipo_conexion, :tipo_actividad, :objetivo_actividad, :fecha_inicio, :investigador_encargado, :fondos_pesos, :nombre_institucion, :pais_institucion, :ciudad, :tipo_institucion, :sector_economico
+
 end

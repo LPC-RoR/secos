@@ -19,4 +19,6 @@ class AporteActividad < ApplicationRecord
 		['propietario',  'normal']
 	]
 
+	validates_presence_of :tipo, :actividad_producto, :colaborador, :tipo_colaboracion, :monto
+
 	end

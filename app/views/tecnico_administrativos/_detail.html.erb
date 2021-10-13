@@ -1,24 +1,24 @@
 <h3 class='text-info'>Registro Personal Técnico y Administrativo</h3>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'radio', token: :tipo_documento, label: 'Tipo Documento', radio_list: ['RUT', 'Pasaporte'] } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'radio', token: :tipo_documento, label: 'Tipo Documento', radio_list: ['RUT', 'Pasaporte'], v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :rut_pasaporte, label: 'N° RUT / Pasaporte ( Formato de RUT: 12345678-9 )' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :nombres, label: 'Nombres' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :paterno, label: 'Apellido Paterno' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :materno, label: 'Apellido Materno' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :rut_pasaporte, label: 'N° RUT / Pasaporte ( Formato de RUT: 12345678-9 )', v: true } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :nombres, label: 'Nombres', v: true } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :paterno, label: 'Apellido Paterno', v: true } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :materno, label: 'Apellido Materno', v: false } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_nacimiento, label: 'Fecha de Nacimiento' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_nacimiento, label: 'Fecha de Nacimiento', v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :nacionalidad, label: 'Nacionalidad', sel_list: lgen_nacionalidades } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :nacionalidad, label: 'Nacionalidad', sel_list: lgen_nacionalidades, v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'radio', token: :genero, label: 'Género', radio_list: ['Masculino', 'Femenino'] } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'radio', token: :genero, label: 'Género', radio_list: ['Masculino', 'Femenino'], v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :categoria, label: 'Categoría', sel_list: TecnicoAdministrativo::CATEGORIAS } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :relacion_centro, label: 'Relación con el Centro', sel_list: lgen_relacion_centro } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :tipo_financiamiento, label: 'Tipo de Financiamiento', sel_list: lgen_financiamientos } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :categoria, label: 'Categoría', sel_list: TecnicoAdministrativo::CATEGORIAS, v: true } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :relacion_centro, label: 'Relación con el Centro', sel_list: lgen_relacion_centro, v: true } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :tipo_financiamiento, label: 'Tipo de Financiamiento', sel_list: lgen_financiamientos, v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_ingreso, label: 'Fecha Ingreso al Centro' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_desvinculacion, label: 'Fecha Desvinculación del Centro' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_ingreso, label: 'Fecha Ingreso al Centro', v: true } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_desvinculacion, label: 'Fecha Desvinculación del Centro', v: false } %>
 
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'hidden', token: :propietario } %>

@@ -29,7 +29,6 @@ Rails.application.routes.draw do
   resources :tesis_finalizadas
   resources :fj_is
   resources :fj_dis
-  resources :fj_nfores
   resources :nivel_formaciones
   resources :formacion_jovenes
   resources :ci_is

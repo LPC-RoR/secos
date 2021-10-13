@@ -1,32 +1,32 @@
 <h3 class='text-info'>Registrar Actividad de Difusión</h3>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'radio', token: :asociada_concurso_milenio, label: 'Actividad asociada a concurso Milenio de PME', radio_list: ['Sí', 'No'] } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'radio', token: :asociada_concurso_milenio, label: 'Actividad asociada a concurso Milenio de PME', radio_list: ['Sí', 'No'], v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :organizacion, label: 'Organización', sel_list: ActividadDifusion::ORGANIZACIONES } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :alcance, label: 'Alcance', sel_list: lgen_alcances } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :organizacion, label: 'Organización', sel_list: ActividadDifusion::ORGANIZACIONES, v: true } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :alcance, label: 'Alcance', sel_list: lgen_alcances, v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :titulo_evento, label: 'Título Evento' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :titulo_evento, label: 'Título Evento', v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :tipo_evento, label: 'Tipo de Evento', sel_list: ActividadDifusion::TIPOS_EVENTO } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :tipo_evento, label: 'Tipo de Evento', sel_list: ActividadDifusion::TIPOS_EVENTO, v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :otro_tipo_evento, label: 'Otro Tipo de Evento' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :otro_tipo_evento, label: 'Otro Tipo de Evento', v: false } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :publico_objetivo, ids: :publico_objetivo_ids, label: 'Público Objetivo', asociation: 'publico_objetivos', collection: PublicoObjetivo.all } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :publico_objetivo, ids: :publico_objetivo_ids, label: 'Público Objetivo', asociation: 'publico_objetivos', collection: PublicoObjetivo.all, v: false } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha, label: 'Fecha' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha, label: 'Fecha', v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :pais_institucion, label: 'País de la Institución', sel_list: Pais.all.map {|pais| pais.pais} } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :region_ubicacion, label: 'Región de Ubicación', sel_list: lgen_regiones } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :pais_institucion, label: 'País de la Institución', sel_list: Pais.all.map {|pais| pais.pais}, v: true } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :region_ubicacion, label: 'Región de Ubicación', sel_list: lgen_regiones, v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text_area', token: :descripcion_actividad, label: 'Descripción de Actividad' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text_area', token: :descripcion_actividad, label: 'Descripción de Actividad', v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :n_asistentes_estudiantes, label: 'N° de asistentes que son estudiantes del Centro' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :n_total_asistentes, label: 'N° total de asistentes' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :duracion, label: 'Duración (días)' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :n_asistentes_estudiantes, label: 'N° de asistentes que son estudiantes del Centro', v: false } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :n_total_asistentes, label: 'N° total de asistentes', v: true } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :duracion, label: 'Duración (días)', v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :responsable_actividad, label: 'Responsable de Actividad' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :responsable_actividad, label: 'Responsable de Actividad', v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :investigador, ids: :investigador_ids, label: 'Investigadores del Centro Participantes', asociation: 'investigadores', collection: Investigador.all } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :investigador, ids: :investigador_ids, label: 'Investigadores del Centro Participantes', asociation: 'investigadores', collection: Investigador.all, v: false } %>
 
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'hidden', token: :propietario } %>

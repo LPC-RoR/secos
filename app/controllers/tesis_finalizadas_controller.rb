@@ -29,6 +29,7 @@ class TesisFinalizadasController < ApplicationController
 
   # POST /tesis_finalizadas or /tesis_finalizadas.json
   def create
+    carga_sidebar('Ingreso Datos Anuales')
     @objeto = TesisFinalizada.new(tesis_finalizada_params)
 
     respond_to do |format|
@@ -45,6 +46,7 @@ class TesisFinalizadasController < ApplicationController
 
   # PATCH/PUT /tesis_finalizadas/1 or /tesis_finalizadas/1.json
   def update
+    carga_sidebar('Ingreso Datos Anuales')
     respond_to do |format|
       if @objeto.update(tesis_finalizada_params)
         set_redireccion

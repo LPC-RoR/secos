@@ -13,4 +13,6 @@ class PyhCentro < ApplicationRecord
 		['propietario', 'normal']
 	]
 
+	validates_presence_of :premio, :fecha, :contribucion, :institucion, :pais
+
 end

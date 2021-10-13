@@ -1,0 +1,14 @@
+<div class='nested-fields'>
+	<%= render partial: '0p/display/form_fields', locals: {form: f, helper_name: 'select', token: :nivel_en_formacion, label: 'Nivel en Formación', sel_list: NivelFormacion::NIVELES_FORMACION, v: false } %>
+
+	<%= render partial: '0p/display/form_fields', locals: {form: f, helper_name: 'text', token: :titulo_grado, label: 'Título o Nombre del Grado', v: false } %>
+
+	<%= render partial: '0p/display/form_fields', locals: {form: f, helper_name: 'text_area', token: :descripcion, label: 'Descripción', v: false } %>
+
+	<%= render partial: '0p/display/form_fields', locals: {form: f, helper_name: 'date', token: :fecha_inicio, label: 'Fecha Inicio', v: false } %>
+	<%= render partial: '0p/display/form_fields', locals: {form: f, helper_name: 'date', token: :fecha_obtencion, label: 'Fecha Obtención', v: false } %>
+
+
+	<%= link_to_remove_association "Remueve Grado Académico", f %>
+
+</div>

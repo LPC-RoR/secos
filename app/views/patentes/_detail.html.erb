@@ -1,24 +1,24 @@
 		<h3 class='text-info'>Registrar Propiedad Intelectual</h3>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :titulo, label: 'Título' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text_area', token: :descripcion, label: 'Descripción' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :titulo, label: 'Título', v: true } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text_area', token: :descripcion, label: 'Descripción', v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :categoria, label: 'Categoria', sel_list: Patente::CATEGORIAS } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :categoria, label: 'Categoria', sel_list: Patente::CATEGORIAS, v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :solicitante, label: 'Solicitante' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :inventor, label: 'Inventor' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :solicitante, label: 'Solicitante', v: true } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :inventor, label: 'Inventor', v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :pais, ids: :pais_ids, label: 'País(es) Donde se Presenta', asociation: 'paises', collection: Pais.all } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :pais, ids: :pais_ids, label: 'País(es) Donde se Presenta', asociation: 'paises', collection: Pais.all, v: false } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :n_solicitud, label: 'N° Solicitud' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :n_solicitud, label: 'N° Solicitud', v: false } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_solicitud, label: 'Fecha Solicitud' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_solicitud, label: 'Fecha Solicitud', v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :estado, label: 'Estado', sel_list: Patente::ESTADOS } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :estado, label: 'Estado', sel_list: Patente::ESTADOS, v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :n_registro, label: 'N° Registro' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :n_registro, label: 'N° Registro', v: false } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_registro, label: 'Fecha Registro' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_registro, label: 'Fecha Registro', v: false } %>
 
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'hidden', token: :propietario } %>

@@ -1,9 +1,9 @@
 <h3 class='text-info'>Registro Personal Técnico y Administrativo</h3>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :fondos, label: 'Fondos', sel_list: FuenteFinanciamiento::FONDOS } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :fondos, label: 'Fondos', sel_list: FuenteFinanciamiento::FONDOS, v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :otro_fondo, label: 'Otro Fondo' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :monto_pesos, label: 'Monto en Pesos' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :otro_fondo, label: 'Otro Fondo', v: false } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :monto_pesos, label: 'Monto en Pesos', v: true } %>
 
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'hidden', token: :propietario } %>

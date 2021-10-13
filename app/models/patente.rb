@@ -36,6 +36,8 @@ class Patente < ApplicationRecord
 		['propietario', 'normal']
 	]
 
+	validates_presence_of :titulo, :descripcion, :categoria, :solicitante, :inventor, :fecha_solicitud, :estado
+
 	has_many :pat_pais
 	has_many :paises, through: :pat_pais
 

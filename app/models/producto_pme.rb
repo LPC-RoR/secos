@@ -36,6 +36,8 @@ class ProductoPme < ApplicationRecord
 		['propietario',  'normal']
 	]
 
+	validates_presence_of :fecha, :producto, :objetivo, :alcance, :tipo_producto
+
 	has_many :pp_is
 	has_many :investigadores, through: :pp_is
 

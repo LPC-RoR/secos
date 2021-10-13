@@ -42,6 +42,8 @@ class ArticuloEntrevista < ApplicationRecord
 		['propietario',  'normal']
 	]
 
+	validates_presence_of :tema, :actividad, :descripcion, :tipo_medio, :nombre_medio, :seccion, :fecha_publicacion, :alcance, :link
+
 	has_many :ae_is
 	has_many :investigadores, through: :ae_is
 

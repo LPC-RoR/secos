@@ -1,14 +1,14 @@
 <h3 class='text-info'>Registro Aporte Actividad de Difusión Organizada</h3>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'radio', token: :tipo, label: 'Tipo', radio_list: ['Actividad Difusión', 'Producto PME', 'Actividad Científica'] } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'radio', token: :tipo, label: 'Tipo', radio_list: ['Actividad Difusión', 'Producto PME', 'Actividad Científica'], v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :actividad_producto, label: 'Actividad o Producto', sel_list: ActividadDifusion.all.map {|act_dif| act_dif.titulo_evento} } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :actividad_producto, label: 'Actividad o Producto', sel_list: ActividadDifusion.all.map {|act_dif| act_dif.titulo_evento}, v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :colaborador, label: 'Colaborador' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :colaborador, label: 'Colaborador', v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :tipo_colaboracion, label: 'Tipo Colaboración', sel_list: AporteActividad::TIPOS_COLABORACIONES } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :tipo_colaboracion, label: 'Tipo Colaboración', sel_list: AporteActividad::TIPOS_COLABORACIONES, v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :monto, label: 'Monto de Colaboración (en pesos)' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :monto, label: 'Monto de Colaboración (en pesos)', v: true } %>
 
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'hidden', token: :propietario } %>

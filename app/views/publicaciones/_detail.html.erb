@@ -1,33 +1,33 @@
 		<h3 class='text-info'>Registrar Publicación</h3>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_publicacion, label: 'Fecha Publicación' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_publicacion, label: 'Fecha Publicación', v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :categoria_publicacion, label: 'Categoría Publicación', sel_list: lgen_categorias } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :categoria_publicacion, label: 'Categoría Publicación', sel_list: lgen_categorias, v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :otra_categoria, label: 'Otra Categoría' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :titulo, label: 'Título' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :autores, label: 'Autores' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :fuente, label: 'Fuente (Nombre completo de la revisto o de la editorial)' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :volumen, label: 'Volumen' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :numero, label: 'Número' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :pagina_inicial, label: 'Página Inicial' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :issn, label: 'ISSN (Print)' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :doi, label: 'DOI' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :otra_categoria, label: 'Otra Categoría', v: false } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :titulo, label: 'Título', v: true } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :autores, label: 'Autores', v: true } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :fuente, label: 'Fuente (Nombre completo de la revisto o de la editorial)', v: true } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :volumen, label: 'Volumen', v: false } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :numero, label: 'Número', v: false } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :pagina_inicial, label: 'Página Inicial', v: false } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :issn, label: 'ISSN (Print)', v: false } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :doi, label: 'DOI', v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :cuartil, label: 'Cuartil', sel_list: Publicacion::CUARTILES } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :cuartil, label: 'Cuartil', sel_list: Publicacion::CUARTILES, v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :n_autores_inv_asociados, label: 'N° Autores Investigadores Asociados del Centro' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :n_autores_estudiantes, label: 'N° Autores Estudiantes' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :n_autores_otros, label: 'N° Autores "Otros Investigadores' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :n_autores_inv_asociados, label: 'N° Autores Investigadores Asociados del Centro', v: true } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :n_autores_estudiantes, label: 'N° Autores Estudiantes', v: false } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'number', token: :n_autores_otros, label: 'N° Autores "Otros Investigadores', v: false } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :linea_investigacion, ids: :linea_investigacion_ids, label: 'Líneas de Investigación Vinculadas', asociation: 'linea_investigaciones', collection: LineaInvestigacion.all } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :investigador, ids: :investigador_ids, label: 'Investigadores Asociados', asociation: 'investigadores', collection: Investigador.all } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :linea_investigacion, ids: :linea_investigacion_ids, label: 'Líneas de Investigación Vinculadas', asociation: 'linea_investigaciones', collection: LineaInvestigacion.all, v: false } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :investigador, ids: :investigador_ids, label: 'Investigadores Asociados', asociation: 'investigadores', collection: Investigador.all, v: false } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'radio', token: :ligada_red_formal, label: '¿Ligada a Red Formal de Colaboración?', radio_list: ['Sí', 'No'] } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'radio', token: :ligada_red_formal, label: '¿Ligada a Red Formal de Colaboración?', radio_list: ['Sí', 'No'], v: false } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :red_formal, label: 'Red Formal de Colaboración en la que Participa', sel_list: RfColaboracion.all.map {|rfc| rfc.nombre_red} } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :red_formal, label: 'Red Formal de Colaboración en la que Participa', sel_list: RfColaboracion.all.map {|rfc| rfc.nombre_red}, v: false } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'file', token: :documento_relacionado, label: 'Documento Relacionado' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'file', token: :documento_relacionado, label: 'Documento Relacionado', v: false } %>
 
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'hidden', token: :propietario } %>

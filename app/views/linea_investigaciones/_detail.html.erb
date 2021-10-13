@@ -1,18 +1,18 @@
 <h3 class='text-info'> Ingresar Línea de Investigación</h3>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :linea_investigacion, label: 'Línea de Investigación' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :linea_investigacion, label: 'Línea de Investigación', v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text_area', token: :objetivo, label: 'Objetivo' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text_area', token: :descripcion, label: 'Descripción' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text_area', token: :objetivo, label: 'Objetivo', v: true } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text_area', token: :descripcion, label: 'Descripción', v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text_area', token: :conceptos_clave, label: 'Conceptos Clave' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text_area', token: :conceptos_clave, label: 'Conceptos Clave', v: false } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :disciplina, ids: :disciplina_ids, label: 'Disciplinas', asociation: 'disciplinas', collection: Disciplina.all } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :disciplina, ids: :disciplina_ids, label: 'Disciplinas', asociation: 'disciplinas', collection: Disciplina.all, v: false } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_inicio, label: 'Fecha Inicio' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_termino, label: 'Fecha Término' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_inicio, label: 'Fecha Inicio', v: true } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_termino, label: 'Fecha Término', v: false } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :validez, label: 'Validez' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :validez, label: 'Validez', v: false } %>
 
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'hidden', token: :propietario } %>

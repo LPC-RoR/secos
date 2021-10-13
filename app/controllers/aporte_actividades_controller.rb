@@ -29,6 +29,7 @@ class AporteActividadesController < ApplicationController
 
   # POST /aporte_actividades or /aporte_actividades.json
   def create
+    carga_sidebar('Ingreso Datos Anuales')
     @objeto = AporteActividad.new(aporte_actividad_params)
 
     respond_to do |format|
@@ -45,6 +46,7 @@ class AporteActividadesController < ApplicationController
 
   # PATCH/PUT /aporte_actividades/1 or /aporte_actividades/1.json
   def update
+    carga_sidebar('Ingreso Datos Anuales')
     respond_to do |format|
       if @objeto.update(aporte_actividad_params)
         set_redireccion

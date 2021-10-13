@@ -1,48 +1,65 @@
 <h3 class='text-info'> Registrar Joven en Formación</h3>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :nivel_formacion, ids: :nivel_formacion_ids, label: 'Nivel de Formación', asociation: 'nivel_formaciones', collection: NivelFormacion.all } %>
+<div class='row'>
+	<div class='col-md-1'></div>
+	<div class='col-md-11'>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'radio', token: :tipo_documento, label: 'Tipo Documento', radio_list: ['RUT', 'Pasaporte'] } %>
+		<h3 class='text-info'>Grados Académicos</h3>
+		<div id='grados_academicos'>
+			<%= form.fields_for :nivel_formaciones do |f| %>
+				<%= render 'nivel_formacion_fields', :f => f %>
+			<% end %>
+		</div>
+	    <div class='links'>
+	      <%= link_to_add_association 'Agregar Grado Académico', form, :nivel_formaciones %>
+	    </div>
+
+	</div>
+</div>
+
+<%#= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :nivel_formacion, ids: :nivel_formacion_ids, label: 'Nivel de Formación', asociation: 'nivel_formaciones', collection: NivelFormacion.all } %>
+
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'radio', token: :tipo_documento, label: 'Tipo Documento', radio_list: ['RUT', 'Pasaporte'], v: true } %>
 
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :rut_pasaporte, label: 'N° RUT / Pasaporte ( Formato de RUT: 12345678-9 )' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :nombres, label: 'Nombres' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :paterno, label: 'Apellido Paterno' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :materno, label: 'Apellido Materno' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :email, label: 'Email' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :rut_pasaporte, label: 'N° RUT / Pasaporte ( Formato de RUT: 12345678-9 )', v: true } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :nombres, label: 'Nombres', v: true } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :paterno, label: 'Apellido Paterno', v: true } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :materno, label: 'Apellido Materno', v: false } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :email, label: 'Email', v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :disciplina, ids: :disciplina_ids, label: 'Disciplina', asociation: 'disciplinas', collection: Disciplina.all } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :disciplina, ids: :disciplina_ids, label: 'Disciplina', asociation: 'disciplinas', collection: Disciplina.all, v: false } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :nacionalidad, label: 'nacionalidad', sel_list: lgen_nacionalidades } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :nacionalidad, label: 'nacionalidad', sel_list: lgen_nacionalidades, v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'radio', token: :genero, label: 'Género', radio_list: ['Masculino', 'Femenino'] } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'radio', token: :genero, label: 'Género', radio_list: ['Masculino', 'Femenino'], v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :profesion_titulo_grado, label: 'Profesión/Título/Grado Actual' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :profesion_titulo_grado, label: 'Profesión/Título/Grado Actual', v: false } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :investigador, ids: :investigador_ids, label: 'Tutor', asociation: 'investigadores', collection: Investigador.all } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :investigador, ids: :investigador_ids, label: 'Tutor', asociation: 'investigadores', collection: Investigador.all, v: false } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :universidad_formacion, label: 'Universidad de Formación', sel_list: lgen_universidades } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :universidad_formacion, label: 'Universidad de Formación', sel_list: lgen_universidades, v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :otra_universidad_formacion, label: 'Otra Universidad de Formación' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :otra_universidad_formacion, label: 'Otra Universidad de Formación', v: false } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :region_universidad_formacion, label: 'Región Universidad de Formación', sel_list: lgen_regiones } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :region_universidad_formacion, label: 'Región Universidad de Formación', sel_list: lgen_regiones, v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :universidad_origen, label: 'Universidad de Origen' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :universidad_origen, label: 'Universidad de Origen', v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :pais_universidad_origen, label: 'País Universidad de Origen', sel_list: Pais.all.map {|pais| pais.pais} } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :pais_universidad_origen, label: 'País Universidad de Origen', sel_list: Pais.all.map {|pais| pais.pais}, v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_nacimiento, label: 'Fecha de Nacimiento' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_nacimiento, label: 'Fecha de Nacimiento', v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :tipo_financiamiento, label: 'Tipo Financiamiento', sel_list: FormacionJoven::FINANCIAMIENTOS } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :tipo_financiamiento, label: 'Tipo Financiamiento', sel_list: FormacionJoven::FINANCIAMIENTOS, v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :monto, label: 'Monto' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :monto, label: 'Monto', v: false } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :relacion_centro, label: 'Relación con Centro', sel_list: lgen_relacion_centro } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :relacion_centro, label: 'Relación con Centro', sel_list: lgen_relacion_centro, v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_ingreso_centro, label: 'Fecha de Ingreso al Centro' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_desvinculacion, label: 'Fecha de Desvinculación' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_ingreso_centro, label: 'Fecha de Ingreso al Centro', v: true } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_desvinculacion, label: 'Fecha de Desvinculación', v: false } %>	
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :estado, label: 'Estado' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :estado, label: 'Estado', v: false } %>
 
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'hidden', token: :propietario } %>

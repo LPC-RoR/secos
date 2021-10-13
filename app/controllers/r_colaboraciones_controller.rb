@@ -29,6 +29,7 @@ class RColaboracionesController < ApplicationController
 
   # POST /r_colaboraciones or /r_colaboraciones.json
   def create
+    carga_sidebar('Ingreso Datos Anuales')
     @objeto = RColaboracion.new(r_colaboracion_params)
 
     respond_to do |format|
@@ -45,6 +46,7 @@ class RColaboracionesController < ApplicationController
 
   # PATCH/PUT /r_colaboraciones/1 or /r_colaboraciones/1.json
   def update
+    carga_sidebar('Ingreso Datos Anuales')
     respond_to do |format|
       if @objeto.update(r_colaboracion_params)
         set_redireccion

@@ -29,6 +29,7 @@ class ComiteEditorialesController < ApplicationController
 
   # POST /comite_editoriales or /comite_editoriales.json
   def create
+    carga_sidebar('Ingreso Datos Anuales')
     @objeto = ComiteEditorial.new(comite_editorial_params)
 
     respond_to do |format|
@@ -45,6 +46,7 @@ class ComiteEditorialesController < ApplicationController
 
   # PATCH/PUT /comite_editoriales/1 or /comite_editoriales/1.json
   def update
+    carga_sidebar('Ingreso Datos Anuales')
     respond_to do |format|
       if @objeto.update(comite_editorial_params)
         set_redireccion

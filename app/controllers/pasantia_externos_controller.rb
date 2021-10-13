@@ -29,6 +29,7 @@ class PasantiaExternosController < ApplicationController
 
   # POST /pasantia_externos or /pasantia_externos.json
   def create
+    carga_sidebar('Ingreso Datos Anuales')
     @objeto = PasantiaExterno.new(pasantia_externo_params)
 
     respond_to do |format|
@@ -45,6 +46,7 @@ class PasantiaExternosController < ApplicationController
 
   # PATCH/PUT /pasantia_externos/1 or /pasantia_externos/1.json
   def update
+    carga_sidebar('Ingreso Datos Anuales')
     respond_to do |format|
       if @objeto.update(pasantia_externo_params)
         set_redireccion

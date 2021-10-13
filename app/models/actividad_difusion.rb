@@ -41,6 +41,8 @@ class ActividadDifusion < ApplicationRecord
 		['propietario',  'normal']
 	]
 
+	validates_presence_of :asociada_concurso_milenio, :organizacion, :alcance, :titulo_evento, :tipo_evento, :fecha, :pais_institucion, :region_ubicacion, :descripcion_actividad, :n_total_asistentes, :duracion, :responsable_actividad
+
 	has_many :ad_pos
 	has_many :publico_objetivos, through: :ad_pos
 

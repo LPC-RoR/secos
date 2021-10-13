@@ -46,7 +46,9 @@ class Investigador < ApplicationRecord
 		['propietario',  'normal']
 	]
 
-	has_many :nivel_formaciones
+	validates_presence_of :tipo_documento, :rut_pasaporte, :nombres, :paterno, :direccion_correspondencia, :region, :fecha_nacimiento, :nacionalidad, :genero, :categoria, :horas_dedicacion, :profesion, :institucion, :cargo, :email, :telefono_1, :fuente_financiamiento, :relacion_centro, :fecha_inicio
+
+	has_many :nivel_formaciones, inverse_of: :investigador
 	accepts_nested_attributes_for :nivel_formaciones, allow_destroy: true, reject_if: :all_blank
 
 	has_many :i_lis

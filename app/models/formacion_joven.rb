@@ -8,6 +8,7 @@ class FormacionJoven < ApplicationRecord
 	]
 
 	DISPLAY_FIELDS = [
+		['nivel_formaciones',            'Grado Académico',                 'asociation'],
 		['tipo_documento',               'Tipo Documento',                  'string'],
 		['rut_pasaporte',                'RUT / Pasaporte',                 'string'],
 		['nombres',                      'Nombres',                         'string'],
@@ -38,8 +39,10 @@ class FormacionJoven < ApplicationRecord
 		['propietario',  'normal']
 	]
 
-	has_many :fj_nfores
-	has_many :nivel_formaciones, through: :fj_nfores
+	validates_presence_of :tipo_documento, :rut_pasaporte, :nombres, :paterno, :email, :nacionalidad, :genero, :universidad_formacion, :region_universidad_formacion, :universidad_origen, :pais_universidad_origen, :fecha_nacimiento, :tipo_financiamiento, :relacion_centro, :fecha_ingreso_centro
+
+	has_many :nivel_formaciones
+	accepts_nested_attributes_for :nivel_formaciones, allow_destroy: true, reject_if: :all_blank
 
 	has_many :fj_dis
 	has_many :disciplinas, through: :fj_dis

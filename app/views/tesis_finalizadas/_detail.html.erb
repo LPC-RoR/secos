@@ -1,13 +1,13 @@
 <h3 class='text-info'>Registrar Tesis</h3>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :estudiante, label: 'Estudiante', sel_list: FormacionJoven.all.map {|fj| fj.formacion_joven} } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :nivel_formacion, label: 'Nivel de Formación', sel_list: TesisFinalizada::NIVELES_FORMACION } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :estudiante, label: 'Estudiante', sel_list: FormacionJoven.all.map {|fj| fj.formacion_joven}, v: true } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'select', token: :nivel_formacion, label: 'Nivel de Formación', sel_list: TesisFinalizada::NIVELES_FORMACION, v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :nombre_tesis, label: 'Nombre de Tesis' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :nombre_tesis, label: 'Nombre de Tesis', v: true } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :linea_investigacion, ids: :linea_investigacion_ids, label: 'Líneas de Investigación', asociation: 'linea_investigaciones', collection: LineaInvestigacion.all } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'm_select', token: :linea_investigacion, ids: :linea_investigacion_ids, label: 'Líneas de Investigación', asociation: 'linea_investigaciones', collection: LineaInvestigacion.all, v: false } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_aprobacion, label: 'Fecha Aprobación Tesis' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_aprobacion, label: 'Fecha Aprobación Tesis', v: true } %>
 
 
 <%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'hidden', token: :propietario } %>

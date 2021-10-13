@@ -22,6 +22,8 @@ class RfColaboracion < ApplicationRecord
 		['propietario',  'normal']
 	]
 
+	validates_presence_of :nombre_red, :objetivo, :descripcion, :alcance, :n_investigadores_milenio, :n_postdoc_estudiantes_milenio, :fecha_inicio
+
 	has_many :rfc_is
 	has_many :investigadores, through: :rfc_is
 

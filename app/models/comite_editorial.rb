@@ -14,6 +14,8 @@ class ComiteEditorial < ApplicationRecord
 		['propietario',  'normal']
 	]
 
+	validates_presence_of :nombre_publicacion, :categoria, :anio_inicio
+
 	has_many :ci_is
 	has_many :investigadores, through: :ci_is
 

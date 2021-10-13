@@ -26,6 +26,8 @@ class TecnicoAdministrativo < ApplicationRecord
 		['propietario',  'normal']
 	]
 
+	validates_presence_of :tipo_documento, :rut_pasaporte, :nombres, :paterno, :fecha_nacimiento, :nacionalidad, :genero, :categoria, :relacion_centro, :tipo_financiamiento, :fecha_ingreso
+
 	def nombre
 		"#{nombres} #{paterno} #{materno}"
 	end

@@ -1,4 +1,4 @@
-class PasantiaInterno < ApplicationRecord
+															class PasantiaInterno < ApplicationRecord
 
 	DISPLAY_FIELDS = [
 		['estudiante',          'Estudiante',            'string'],
@@ -16,5 +16,7 @@ class PasantiaInterno < ApplicationRecord
 		['proyecto', 'show'],
 		['propietario',  'normal']
 	]
+
+	validates_presence_of :estudiante, :institucion, :pais, :tutor, :proyecto, :descripcion, :fecha_inicio, :unidad_departamento
 
 end

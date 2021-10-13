@@ -29,6 +29,7 @@ class PresentacionCongresosController < ApplicationController
 
   # POST /presentacion_congresos or /presentacion_congresos.json
   def create
+    carga_sidebar('Ingreso Datos Anuales')
     @objeto = PresentacionCongreso.new(presentacion_congreso_params)
 
     respond_to do |format|
@@ -45,6 +46,7 @@ class PresentacionCongresosController < ApplicationController
 
   # PATCH/PUT /presentacion_congresos/1 or /presentacion_congresos/1.json
   def update
+    carga_sidebar('Ingreso Datos Anuales')
     respond_to do |format|
       if @objeto.update(presentacion_congreso_params)
         set_redireccion

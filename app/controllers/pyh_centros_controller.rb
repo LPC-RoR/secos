@@ -29,6 +29,7 @@ class PyhCentrosController < ApplicationController
 
   # POST /pyh_centros or /pyh_centros.json
   def create
+    carga_sidebar('Ingreso Datos Anuales')
     @objeto = PyhCentro.new(pyh_centro_params)
 
     respond_to do |format|
@@ -45,6 +46,7 @@ class PyhCentrosController < ApplicationController
 
   # PATCH/PUT /pyh_centros/1 or /pyh_centros/1.json
   def update
+    carga_sidebar('Ingreso Datos Anuales')
     respond_to do |format|
       if @objeto.update(pyh_centro_params)
         set_redireccion

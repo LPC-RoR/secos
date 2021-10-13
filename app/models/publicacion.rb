@@ -36,6 +36,8 @@ class Publicacion < ApplicationRecord
 		['propietario', 'normal']
 	]
 
+	validates_presence_of :fecha_publicacion, :categoria_publicacion, :titulo, :autores, :fuente, :doi, :cuartil, :n_autores_inv_asociados
+
 	has_many :p_lis
 	has_many :linea_investigaciones, through: :p_lis
 

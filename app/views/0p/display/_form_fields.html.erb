@@ -1,5 +1,7 @@
 <div class="field">
-	<%= render partial: '0p/display/label', locals: {form: form, label: label } unless helper_name == 'hidden' %>
+	<% unless helper_name == 'hidden' %>
+	<%= render partial: '0p/display/label', locals: {form: form, label: label, v: v }  %>
+	<% end %>
 	<% case helper_name %>
 	<% when 'radio' %>
 		<% radio_list.each_with_index do |radio, indice| %>

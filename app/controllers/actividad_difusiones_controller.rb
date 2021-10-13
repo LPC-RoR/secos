@@ -29,6 +29,7 @@ class ActividadDifusionesController < ApplicationController
 
   # POST /actividad_difusiones or /actividad_difusiones.json
   def create
+    carga_sidebar('Ingreso Datos Anuales')
     @objeto = ActividadDifusion.new(actividad_difusion_params)
 
     respond_to do |format|
@@ -45,6 +46,7 @@ class ActividadDifusionesController < ApplicationController
 
   # PATCH/PUT /actividad_difusiones/1 or /actividad_difusiones/1.json
   def update
+    carga_sidebar('Ingreso Datos Anuales')
     respond_to do |format|
       if @objeto.update(actividad_difusion_params)
         set_redireccion

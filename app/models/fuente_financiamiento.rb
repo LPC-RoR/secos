@@ -37,4 +37,6 @@ class FuenteFinanciamiento < ApplicationRecord
 		['propietario',  'normal']
 	]
 
+	validates_presence_of :fondos, :monto_pesos
+
 end

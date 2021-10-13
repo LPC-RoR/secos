@@ -29,6 +29,7 @@ class ArticuloEntrevistasController < ApplicationController
 
   # POST /articulo_entrevistas or /articulo_entrevistas.json
   def create
+    carga_sidebar('Ingreso Datos Anuales')
     @objeto = ArticuloEntrevista.new(articulo_entrevista_params)
 
     respond_to do |format|
@@ -45,6 +46,7 @@ class ArticuloEntrevistasController < ApplicationController
 
   # PATCH/PUT /articulo_entrevistas/1 or /articulo_entrevistas/1.json
   def update
+    carga_sidebar('Ingreso Datos Anuales')
     respond_to do |format|
       if @objeto.update(articulo_entrevista_params)
         set_redireccion
