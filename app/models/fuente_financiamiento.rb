@@ -27,9 +27,9 @@ class FuenteFinanciamiento < ApplicationRecord
 	]
 
 	DISPLAY_FIELDS = [
-		['fondos',               'Fondos',                  'string'],
-		['otro_fondo',                'Otro Fondo',                 'string'],
-		['monto_pesos',                      'Monto en Pesoso',                         'string']
+		['fondos',               'Fondos',         'string'],
+		['otro_fondo',           'Otro Fondo',     'string'],
+		['monto_pesos',          'Monto en Pesos', 'string']
 	]
 
 	TABLA_FIELDS = [
