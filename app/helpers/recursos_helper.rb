@@ -21,7 +21,7 @@ module RecursosHelper
 			@tab == 'ingreso'
 		elsif ['tema_ayudas', 'tutoriales'].include?(controller)
 			session[:es_administrador]
-		elsif ['perfiles'].include?(controller)
+		elsif ['perfiles', 'archivos', 'documentos'].include?(controller)
 			false
 		else
 			true
