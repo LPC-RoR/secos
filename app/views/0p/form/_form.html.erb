@@ -22,7 +22,7 @@
 		</br>
 
 		<div class="actions">
-		<%= form.submit "#{ action_name == 'new' ? 'Crear' : 'Modificar'} #{cristiano(@objeto.class.name.tableize)}" %>
+		<%= form.submit "#{ action_name == 'new' ? 'Crear' : 'Modificar'} #{cristiano(@objeto.class.name, 'class', 'singular')}" %>
 		</div>
 	<% end %>
 </div>

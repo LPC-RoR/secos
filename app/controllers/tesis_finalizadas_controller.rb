@@ -76,7 +76,7 @@ class TesisFinalizadasController < ApplicationController
     end
 
     def set_redireccion
-      @redireccion = '/recursos/ingreso_datos_anuales?t=Tésis Finalizadas'
+      @redireccion = '/recursos/ingreso_datos_anuales?t=Tesis Finalizadas'
     end
 
     # Only allow a list of trusted parameters through.

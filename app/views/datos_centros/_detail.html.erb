@@ -1,59 +1,59 @@
 <h3 class='text-info'>Datos del Centro</h3>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :nombre_espaniol, label: 'Nombre Español del Centro' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :nombre_ingles, label: 'Nombre Inglés del Centro' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :nombre_espaniol, label: 'Nombre Español del Centro', v: false } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :nombre_ingles, label: 'Nombre Inglés del Centro', v: false } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text_area', token: :descripcion, label: 'Descripción del Centro' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text_area', token: :descripcion, label: 'Descripción del Centro', v: false } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :acronimo, label: 'Acrónimo' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :tipo_centro, label: 'Tipo de Centro' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :ambito, label: 'Ámbito' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :estado, label: 'Estado' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :acronimo, label: 'Acrónimo', v: false } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :tipo_centro, label: 'Tipo de Centro', v: false } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :ambito, label: 'Ámbito', v: false } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :estado, label: 'Estado', v: false } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'file', token: :doc_aprobatorio, label: 'Documento Decreto Aprobatorio' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'file', token: :doc_extension, label: 'Documento Decreto Aprobatorio Extensión' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'file', token: :doc_aprobatorio, label: 'Documento Decreto Aprobatorio', v: false } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'file', token: :doc_extension, label: 'Documento Decreto Aprobatorio Extensión', v: false } %>
 
 </br><h3 class='text-info'>Datos de Etapa(s)</h3>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :etapa, label: 'Etapa' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :codigo_proyecto, label: 'Código Proyecto' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :decreto_aprobatorio, label: 'Decreto Aprobatorio' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :etapa, label: 'Etapa', v: false } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :codigo_proyecto, label: 'Código Proyecto', v: false } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :decreto_aprobatorio, label: 'Decreto Aprobatorio', v: false } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_decreto_aprobatorio, label: 'Fecha Decreto Aprobatorio' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_inicio, label: 'Fecha Inicio' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_termino, label: 'Fecha Término' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_termino_extension, label: 'Fecha Término Extensión' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_decreto_aprobatorio, label: 'Fecha Decreto Aprobatorio', v: false } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_inicio, label: 'Fecha Inicio', v: false } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_termino, label: 'Fecha Término', v: false } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'date', token: :fecha_termino_extension, label: 'Fecha Término Extensión', v: false } %>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :personalidad_juridica, label: 'Personalidad Jurídica' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :direccion, label: 'Dirección' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :telefono, label: 'Teléfono' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :fax, label: 'Fax' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :sitio_web, label: 'Sitio Web' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :personalidad_juridica, label: 'Personalidad Jurídica', v: false } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :direccion, label: 'Dirección', v: false } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :telefono, label: 'Teléfono', v: false } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :fax, label: 'Fax', v: false } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :sitio_web, label: 'Sitio Web', v: false } %>
 
 </br><h3 class='text-info'>Institución(es) Albergante(s)</h3>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :institucion_albergante, label: 'Institución Albergante' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :nombre_autoridad, label: 'Nombre de Autoridad' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :institucion_albergante, label: 'Institución Albergante', v: false } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :nombre_autoridad, label: 'Nombre de Autoridad', v: false } %>
 
 </br><h3 class='text-info'>Investigador Responsable</h3>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :nombres_investigador_responsable, label: 'Nombres' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :paterno_investigador_responsable, label: 'Apellido Paterno' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :materno_investigador_responsable, label: 'Apellido Materno' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :nombres_investigador_responsable, label: 'Nombres', v: false } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :paterno_investigador_responsable, label: 'Apellido Paterno', v: false } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :materno_investigador_responsable, label: 'Apellido Materno', v: false } %>
 
 </br><h3 class='text-info'>Datos Encargado Administrativo</h3>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :admin_nombre, label: 'Nombre Encargado Administrativo' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :admin_telefono, label: 'Teléfono Encargado Administrativo' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :admin_email, label: 'E-mail Encargado Administrativo' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :admin_ejecutivo_rendiciones, label: 'Ejecutivo de Rendiciones' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :admin_nombre, label: 'Nombre Encargado Administrativo', v: false } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :admin_telefono, label: 'Teléfono Encargado Administrativo', v: false } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :admin_email, label: 'E-mail Encargado Administrativo', v: false } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :admin_ejecutivo_rendiciones, label: 'Ejecutivo de Rendiciones', v: false } %>
 
 </br><h3 class='text-info'>Datos Encargado Científico</h3>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :cientif_nombre, label: 'Nombre Encargado Científico' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :cientif_email, label: 'E-mail Encargado Científico' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :cientif_nombre, label: 'Nombre Encargado Científico', v: false } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :cientif_email, label: 'E-mail Encargado Científico', v: false } %>
 
 </br><h3 class='text-info'>Datos Encargado PME y Redes</h3>
 
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :pme_red_nombre, label: 'Nombre Encargado PME y Redes' } %>
-<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :pme_red_email, label: 'E-mail Encargado PME y Redes' } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :pme_red_nombre, label: 'Nombre Encargado PME y Redes', v: false } %>
+<%= render partial: '0p/display/form_fields', locals: {form: form, helper_name: 'text', token: :pme_red_email, label: 'E-mail Encargado PME y Redes', v: false } %>

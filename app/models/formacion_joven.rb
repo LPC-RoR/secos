@@ -35,7 +35,7 @@ class FormacionJoven < ApplicationRecord
 	]
 
 	TABLA_FIELDS = [
-		['nombres', 'show'],
+		['nombre', 'show'],
 		['propietario',  'normal']
 	]
 

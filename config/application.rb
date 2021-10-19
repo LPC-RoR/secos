@@ -42,8 +42,6 @@ module Secos
 
     config.look_app = {
         aplicacion: {
-            favicon: false,
-            banner: false,
             nombre_aplicacion: 'Secos',
             home_link: 'http://www.secos.cl',
             portada: {
@@ -70,7 +68,6 @@ module Secos
         },
         navbar: {
             color: 'primary',
-            logo: false,
             nomenu_controllers: ['confirmations', 'mailer', 'passwords', 'registrations', 'sessions', 'unlocks'],
             item_contacto: true,
             item_ayuda: true
