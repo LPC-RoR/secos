@@ -17,7 +17,11 @@ module RecursosHelper
 	def new_button_conditions(controller)
 		if ['linea_investigaciones', 'investigadores', 'pyh_centros', 'aporte_actividades', 'tecnico_administrativos', 'fuente_financiamientos'].include?(controller)
 			session[:es_administrador]
-		elsif ['Perfil'].include?(controller)
+		elsif ['mensajes'].include?(controller)
+			@tab == 'ingreso'
+		elsif ['tema_ayudas', 'tutoriales'].include?(controller)
+			session[:es_administrador]
+		elsif ['perfiles'].include?(controller)
 			false
 		else
 			true

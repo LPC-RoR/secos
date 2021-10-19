@@ -38,4 +38,5 @@
 	</table>
 <% end %>
 
-<%= render partial: '0p/tabla/btn_nuevo', locals: {c: 'tema_ayudas'} if session[:es_administrador] %>
+<!-- Btn_nuevo manual -->
+<%= render partial: '0p/general/btn_turbolink', locals: {texto: "+ Tema Ayuda", link: get_new_link('tema_ayudas'), clr: c_color('tema_ayudas'), delete: false} if session[:es_administrador] %>

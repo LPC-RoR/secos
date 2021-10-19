@@ -35,7 +35,14 @@ class Aplicacion::RecursosController < ApplicationController
       end
     elsif @set_display[0] == 'list'
       @coleccion = {}
-      @coleccion[@tabla] = @tabla.classify.constantize.all
+
+      if @tabla.classify.constantize.all.count > 25
+        @coleccion[@tabla] = @tabla.classify.constantize.all.page(params[:page])
+        @paginate = true
+      else
+        @coleccion[@tabla] = @tabla.classify.constantize.all
+        @paginate = false
+      end
     end
 
     # INICIALIZA TABLAS
@@ -73,10 +80,15 @@ class Aplicacion::RecursosController < ApplicationController
 
     if @set_display[0] == 'show'
     elsif @set_display[0] == 'list'
-      @new_button = true unless ['Perfiles'].include?(@t)
-
       @coleccion = {}
-      @coleccion[@tabla] = @tabla.classify.constantize.all
+
+      if @tabla.classify.constantize.all.count > 25
+        @coleccion[@tabla] = @tabla.classify.constantize.all.page(params[:page])
+        @paginate = true
+      else
+        @coleccion[@tabla] = @tabla.classify.constantize.all
+        @paginate = false
+      end
     end
 
     # INICIALIZA TABLAS

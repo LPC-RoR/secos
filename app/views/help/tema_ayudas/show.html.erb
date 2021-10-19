@@ -8,6 +8,5 @@
 		<%= render partial: '0p/general/titulo', locals: {c: controller_name, a: nil, titulo: 'Tutoriales', size: '5'}  %>
 
 		<%= render partial: '0p/tabla/solo_tabla', locals: {c: 'tutoriales', a: 'index'} %>
-		<%= render partial: '0p/tabla/btn_nuevo', locals: {c: 'tutoriales'} if session[:es_administrador] %>
 	</div>
 </div>

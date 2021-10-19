@@ -51,6 +51,8 @@ module CapitanCristianoHelper
 			'Grado Académico'
 		elsif ['publico_objetivo', 'PublicoObjetivo', 'publico_objetivos'].include?(text)
 			'Público Objetivo'
+		elsif ['Nomina' 'nominas'].include?(text)
+			'Nómina'
 		else
 			case origen
 			when 'field'
@@ -75,30 +77,6 @@ module CapitanCristianoHelper
 				text
 			end
 		end
-	end
-
-	def cristiano2(field)
-
-		if ['opcion'].include?(field)
-			'texto1'
-		elsif ['titulo_actividad'].include?(field)
-			'Título Actividad'
-		elsif ['Nombre red'].include?(field)
-			'Nombre Red'
-		elsif ['Actividad producto'].include?(field)
-			'Actividad Producto'
-		elsif ['Fuente financiamiento', 'fuente_financiamientos'].include?(field)
-			'Fuente de Financiamiento'
-		elsif ['administradores'].include?(field)
-			'Administrador'
-		elsif ['Nomina' 'nominas'].include?(field)
-			'Nómina'
-		elsif ['disciplinas'].include?(field)
-			'Disciplina'
-		else
-			field
-		end
-
 	end
 
 end

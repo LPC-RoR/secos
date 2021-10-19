@@ -3,5 +3,4 @@
 <% elsif @set_display[0] == 'list' %>
 	<%= render partial: '0p/general/titulo', locals: {c: @tabla, a: nil, titulo: @t, size: '5'} %>
 	<%= render partial: '0p/tabla/solo_tabla', locals: {c: @tabla, a: 'index'} %>
-	<%= render partial: '0p/tabla/btn_nuevo', locals: {c: @tabla} if @new_button %>
 <% end %>

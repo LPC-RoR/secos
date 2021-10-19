@@ -1,7 +1,7 @@
 module ApplicationHelper
 	## USO GENERAL
 
-	## CAPITAN 
+	## CAPITAN s
 
 	## ------------------------------------------------------- HOME
 
@@ -78,15 +78,13 @@ module ApplicationHelper
 				(usuario_signed_in? and session[:es_administrador] == true)
 			when 'usuario'
 				usuario_signed_in? and display_item_app(item, tipo_item)
-			when 'anonimo'
-				true
 			when 'dog'
 				usuario_signed_in? and session[:perfil_activo]['email'] == 'hugo.chinga.g@gmail.com'
 			when 'excluir'
 				false
 			end
 		else
-			false
+			(tipo_item == 'anonimo' ? true : false)
 		end
 	end
 
@@ -219,11 +217,11 @@ module ApplicationHelper
 	end
 
 	def detail_partial(controller)
-		if ['tema_ayudas', 'tutoriales', 'pasos', 'mensajes'].include?(controller)
+		if ['conversaciones', 'mensajes', 'pasos', 'tema_ayudas', 'tutoriales'].include?(controller)
 			"help/0help/#{controller.singularize}/detail"
-		elsif ['etapas', 'tablas', 'encabezados', 'lineas', 'columnas'].include?(controller)
+		elsif ['caracteristicas', 'caracterizaciones', 'columnas', 'datos', 'directorios', 'encabezados', 'etapas', 'lineas', 'opciones', 'subs', 'tablas'].include?(controller)
 			"data/#{controller}/detail"
-		elsif ['observaciones', 'perfiles', 'mejoras', 'comentarios'].include?(controller)
+		elsif ['administradores', 'archivos', 'comentarios', 'directorios', 'documentos', 'imagenes', 'licencias', 'mejoras', 'nominas', 'observaciones', 'perfiles', 'recursos', 'subs'].include?(controller)
 			"aplicacion/#{controller}/detail"
 		else
 			detail_controller_path(controller)
