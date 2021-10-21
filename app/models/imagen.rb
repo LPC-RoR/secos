@@ -8,14 +8,6 @@ class Imagen < ApplicationRecord
 		['imagen',  'link_file']
 	]
 
- 	FORM_FIELDS = [
-		['orden',              'entry'],
-		['nota',               'entry'],
-		['imagen',        'file_field'],
-		['linea_id',          'hidden'],
-		['directorio_id',     'hidden']
-	]
-
 	mount_uploader :imagen, ImagenUploader
 
 	belongs_to :linea, optional: true

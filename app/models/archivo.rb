@@ -7,14 +7,6 @@ class Archivo < ApplicationRecord
 		['d_fecha',   'diahora']
 	]
 
- 	FORM_FIELDS = [
-		['nota',               'entry'],
-		['archivo',       'file_field'],
-#		['linea_id',          'hidden'],
-		['directorio_id',     'hidden'],
-		['documento_id',      'hidden']
-	]
-
 	mount_uploader :archivo, ArchivoUploader
 
 #	belongs_to :linea, optional: true
