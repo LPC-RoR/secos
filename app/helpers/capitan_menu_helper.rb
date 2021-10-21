@@ -12,17 +12,17 @@ module CapitanMenuHelper
 	    ## Menu principal de la aplicación
 	    # [ 'Item del menú', 'link', 'tipo_item' ]
 	    [
-	        ['Ingreso Datos Anuales', '/recursos/ingreso_datos_anuales', 'usuario'],
-	        ['Administración',        '/recursos/administracion',          'admin'],
-	        ['Documentos',            directorios_path,                  'usuario']
+	        ['Ingreso Datos Anuales', '/recursos/ingreso_datos_anuales', 'usuario', 'clipboard-check'],
+	        ['Administración',        '/recursos/administracion',        'admin',   'person-rolodex'],
+	        ['Documentos',            directorios_path,                  'usuario', 'archive']
 	    ]
 
 	end
 
 	def menu_base
 	    [
-	        ["Temas Ayuda",           "/tema_ayudas",                      'admin'],
-	        ["Procesos",              "/recursos/procesos",                  'dog']
+	        ["Contenido",  "/tema_ayudas",       'admin', 'stack'],
+	        ["Procesos",   "/recursos/procesos", 'dog',   'radioactive']
 	    ]
 	end
 
