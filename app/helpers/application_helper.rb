@@ -103,22 +103,6 @@ module ApplicationHelper
 		Rails.configuration.tables[:alias][controlador].present? ? Rails.configuration.tables[:alias][controlador] : controlador
 	end
 
-	# Maneja comportamiento por defecto y excepciones de TABLA
-	def in_t?(controlador, label)
-		excepcion = false
-
-		if config_exceptions_table(label)[controlador].present?
-			elementos = config_exceptions_table(label)[controlador]
-			excepcion_self       = (controller_name == controlador and action_name == 'index' and elementos.include?('self'))
-			excepcion_todo       = (elementos.include?('*'))
-			excepcion_controller = (elementos.include?(controller_name))
-			excepcion = (excepcion_self or excepcion_todo or excepcion_controller)
-		end
-		de = (controller_name == controlador and action_name == 'index') ? Rails.configuration.t_default[label]['self'] : Rails.configuration.t_default[label]['show']
-
-		(excepcion ? (not de) : de)
-	end
-
 	def c_tabs(controller)
 		if config_tables(:tabs)[controller].present?
 			config_tables(:tabs)[controller][controller_name].present? ? config_tables(:tabs)[controller][controller_name] : []
@@ -195,17 +179,6 @@ module ApplicationHelper
 		objeto.class.reflect_on_all_associations(:has_many).map { |a| objeto.send(a.name).any? }.include?(true)
 	end
 
-	## ------------------------------------------------------- FORM & SHOW
-
-	# Manejo de campos condicionales FORM y SHOW
-	def filtro_conditional_field?(objeto, field)
-		if Rails.configuration.form[:conditional_fields][objeto.class.name].present?
-			Rails.configuration.form[:conditional_fields][objeto.class.name].include?(field) ? get_field_condition(objeto, field) : true
-		else
-			true
-		end
-	end
-
 	## ------------------------------------------------------- FORM
 
 	def url_params(parametros)
@@ -218,8 +191,8 @@ module ApplicationHelper
 
 	def detail_partial(controller)
 		if ['conversaciones', 'mensajes', 'pasos', 'tema_ayudas', 'tutoriales'].include?(controller)
-			"help/0help/#{controller.singularize}/detail"
-		elsif ['caracteristicas', 'caracterizaciones', 'columnas', 'datos', 'directorios', 'encabezados', 'etapas', 'lineas', 'opciones', 'subs', 'tablas'].include?(controller)
+			"help/#{controller}/detail"
+		elsif ['caracteristicas', 'caracterizaciones', 'columnas', 'datos', 'encabezados', 'etapas', 'lineas', 'opciones', 'tablas'].include?(controller)
 			"data/#{controller}/detail"
 		elsif ['administradores', 'archivos', 'comentarios', 'directorios', 'documentos', 'imagenes', 'licencias', 'mejoras', 'nominas', 'observaciones', 'perfiles', 'recursos', 'subs'].include?(controller)
 			"aplicacion/#{controller}/detail"

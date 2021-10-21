@@ -1,5 +1,7 @@
 {
   "name": "secos",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap-icons": "^1.6.1"
+  }
 }

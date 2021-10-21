@@ -1,6 +1,6 @@
 <div class="field">
-	<% unless helper_name == 'hidden' %>
-	<%= render partial: '0p/display/label', locals: {form: form, label: label, v: v }  %>
+	<% unless ['hidden', 'check_box'].include?(helper_name) %>
+		<%= render partial: '0p/display/label', locals: {form: form, label: label, v: v }  %>
 	<% end %>
 	<% case helper_name %>
 	<% when 'radio' %>
@@ -12,6 +12,13 @@
 				<%= form.radio_button token, radio %>
 			<% end %>
 		<% end %>
+
+	<% when 'check_box' %>
+
+		<label>
+		  <%= form.check_box token %>
+		  <%= label %>
+		</label>
 
 	<% when 'text' %>
 		<%= form.text_field(token, size: 74, class: 'form-control-sm') %></br>

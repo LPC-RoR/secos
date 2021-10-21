@@ -4,22 +4,21 @@
   <!-- que NO son inline_form -->
   <% unless inline_form?(c) %>
     <% if @coleccion[c].count > 15 %>
+      <%= render partial: '0p/general/btn_turbolink', locals: {texto: cristiano(c, 'controller', 'singular'), gly: 'plus-circle', link: get_new_link(c), clr: c_color(c), delete: false} %>
 
-      <%= render partial: '0p/general/btn_turbolink', locals: {texto: "+ #{cristiano(c, 'controller', 'singular')}", link: get_new_link(c), clr: c_color(c), delete: false} %>
-
+      </br></br>
+      
     <% end %>
   <% else %>
     <%= render partial: "#{c}/inline_nuevo", locals: {c: c, a: a} %>
   <% end %>
 <% end %>
 
-</br></br>
-
 <%= paginate @coleccion[c] if @paginate %>
 
 <table class="table table-striped table-sm  thead-dark">
   <thead>
-   	<%= render partial: '0p/tabla/th', locals: {c: alias_tabla(c)} %>
+   	<%= render partial: '0p/tabla/th', locals: {c: alias_tabla(c)} unless ['directorios', 'documentos', 'archivos', 'imagenes'].include?(c) %>
   </thead>
 
   <tbody>
@@ -37,7 +36,7 @@
   <!-- que NO son inline_form -->
   <% unless inline_form?(c) %>
 
-    <%= render partial: '0p/general/btn_turbolink', locals: {texto: "+ #{cristiano(c, 'controller', 'singular')}", link: get_new_link(c), clr: c_color(c), delete: false} %>
+    <%= render partial: '0p/general/btn_turbolink', locals: {texto: cristiano(c, 'controller', 'singular'), gly: 'plus-circle', link: get_new_link(c), clr: c_color(c), delete: false} %>
 
   <% end %>
 <% end %>

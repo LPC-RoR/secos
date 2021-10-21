@@ -4,7 +4,6 @@ class Archivo < ApplicationRecord
 
 	TABLA_FIELDS = [
 		['archivo', 'link_file'],
-		['nota',       'normal'],
 		['d_fecha',   'diahora']
 	]
 
@@ -24,6 +23,10 @@ class Archivo < ApplicationRecord
 
 	def d_fecha
 		self.created_at
+	end
+
+	def d_nombre
+		(self.nombre.blank? ? (self.documento.present? ? self.documento.documento : self.archivo.url.split('/').last) : self.nombre)
 	end
 
 end

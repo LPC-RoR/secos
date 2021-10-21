@@ -21,4 +21,8 @@ class Imagen < ApplicationRecord
 	belongs_to :linea, optional: true
 	belongs_to :directorio, optional: true
 
+	def d_nombre
+		(self.nombre.blank? ? self.archivo.url.split('/').last : self.nombre)
+	end
+
 end

@@ -7,6 +7,7 @@ gem 'pg'
 
 gem 'bootstrap', '~> 4.5.2'
 gem 'jquery-rails'
+#gem 'bootstrap-icons-helper'
 
 gem 'devise'
 

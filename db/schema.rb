@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_12_205106) do
+ActiveRecord::Schema.define(version: 2021_10_21_203557) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -141,6 +141,7 @@ ActiveRecord::Schema.define(version: 2021_10_12_205106) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "directorio_id"
+    t.string "nombre"
     t.index ["directorio_id"], name: "index_archivos_on_directorio_id"
     t.index ["documento_id"], name: "index_archivos_on_documento_id"
     t.index ["orden"], name: "index_archivos_on_orden"
@@ -360,6 +361,7 @@ ActiveRecord::Schema.define(version: 2021_10_12_205106) do
     t.integer "directorio_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "nombre"
     t.index ["directorio_id"], name: "index_imagenes_on_directorio_id"
     t.index ["imagen"], name: "index_imagenes_on_imagen"
     t.index ["linea_id"], name: "index_imagenes_on_linea_id"
@@ -826,6 +828,7 @@ ActiveRecord::Schema.define(version: 2021_10_12_205106) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "activo"
+    t.string "credito_foto"
     t.index ["activo"], name: "index_tema_ayudas_on_activo"
     t.index ["orden"], name: "index_tema_ayudas_on_orden"
     t.index ["tipo"], name: "index_tema_ayudas_on_tipo"

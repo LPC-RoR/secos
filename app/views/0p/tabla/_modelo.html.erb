@@ -3,7 +3,22 @@
 	<!-- f : [campo, tipo_delpliegue] -->
 	<!-- Esta versión incluye en 'normal' los antiguos campos 'display'--> 
 	<!-- Hay que usar el nombre del campos display en TABLA_FIELDS -->
+
+	<td>
+		<% case objeto.class.name %>
+		<% when 'Directorio' %>
+			<td><i class="bi bi-folder2"></i></td>
+		<% when 'Documento'  %>
+			<i class="bi bi-journals"></i>
+		<% when 'Archivo'  %>
+			<i class="bi bi-file-text"></i>
+		<% when 'Imagen' %>
+			<i class="bi bi-file-richtext"></i>
+		<% end %>
+	</td>
+
 	<% m_tabla_fields(objeto).each do |f| %>
+
 		<% case f[1] %>
 		<% when 'show' %>
 			<% if show_link_condition(objeto) %>
@@ -28,9 +43,9 @@
 		<% when 'link'  %>
 				<td><small><%= (get_field(f[0], objeto).blank? ? '[ link no disponible ]' : link_to( "[ #{get_field(f[0], objeto)} ]", get_field(f[0], objeto), target: :_blank)) %></small></td>
 		<% when 'url'  %>
-			<td><small> <%= objeto.send(f[0]).send('url').present? ? objeto.send(f[0]).send('url').split('/').last : '[ sin archivo carga ]' %> </small></td>
+			<td><small> <%= (objeto.send(f[0]).send('url').present? ? objeto.d_nombre : '[ sin archivo carga ]') %> </small></td>
 		<% when 'link_file' %>
-			<td><small><%= (objeto.send(f[0]).present? ? link_to( objeto.send(f[0]).send('url').split('/').last, objeto.send(f[0]).send('url')) : '[ Sin archivo cargado ]') %></small></td>
+			<td><small><%= (objeto.send(f[0]).present? ? link_to( objeto.d_nombre, objeto.send(f[0]).send('url')) : '[ Sin archivo cargado ]') %></small></td>
 		<% end %>
 	<% end %>
 

@@ -23,16 +23,6 @@ module Secos
     ## ------------------------------------------------- 0p
     ## ------------------------------------------------- STANDARD
 
-    ## comportamiento por defecto de los elementos de una tabla
-    # Se verifica con el helper in_t?(c, label)
-    config.t_default = {
-        titulo:  {'self' => true,  'show' => false},
-        tabs:    {'self' => false, 'show' => false}, 
-        estados: {'self' => false, 'show' => false},
-        paginas: {'self' => false, 'show' => false},
-        nuevo:   {'self' => true,  'show' => false}
-    }
-
     config.look_parameters = {
         image_sizes: ['entire', 'half', 'quarter', 'thumb'],
         colors: ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark', 'muted', 'white']
@@ -141,33 +131,6 @@ module Secos
             'ingresos' => 'publicaciones'
         },
         sortable: {
-        }
-    }
-
-    ## ------------------------------------------------- FORM
-
-    config.form = {
-        conditional_fields: {
-            'Publicacion' => [
-                'd_quote',
-                'type_quote',
-                'd_author',
-                'title',
-                'author',
-                'd_journal',
-                'journal',
-                'year',
-                'volume',
-                'pages',
-                'd_doi',
-                'doi',
-                'abstract',
-                'book',
-                'editor',
-                'academic_degree',
-                'ciudad_pais'
-            ],
-            'Mensaje' => ['email']
         }
     }
 

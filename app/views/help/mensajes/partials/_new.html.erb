@@ -4,7 +4,7 @@
 	</div>
 	<div class='col-md-6'>
 		<% if objeto_tema_ayuda('mensaje').present? %>
-			<%= render partial: 'help/0help/tema_ayuda/mensaje', locals: {objeto: objeto_tema_ayuda('mensaje')} %>
+			<%= render partial: 'help/mensajes/elem_mensaje', locals: {elem: objeto_tema_ayuda('mensaje')} %>
 		<% end %>
 	</div>
 </div>

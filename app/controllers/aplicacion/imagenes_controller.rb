@@ -84,6 +84,6 @@ class Aplicacion::ImagenesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def imagen_params
-      params.require(:imagen).permit(:orden, :imagen, :nota, :linea_id, :directorio_id)
+      params.require(:imagen).permit(:orden, :imagen, :nota, :linea_id, :directorio_id, :nombre)
     end
 end

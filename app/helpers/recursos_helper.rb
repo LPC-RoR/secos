@@ -19,6 +19,8 @@ module RecursosHelper
 			session[:es_administrador]
 		elsif ['mensajes'].include?(controller)
 			@tab == 'ingreso'
+		elsif ['directorios'].include?(controller)
+			session[:es_administrador] and action_name == 'index'
 		elsif ['tema_ayudas', 'tutoriales'].include?(controller)
 			session[:es_administrador]
 		elsif ['perfiles', 'archivos', 'documentos'].include?(controller)
@@ -45,6 +47,10 @@ module RecursosHelper
 				['TemaAyuda', 'Tutorial', 'Paso'].include?(objeto.class.name) ? (usuario_signed_in? ? session[:es_administrador] : false) : true
 			end
 		end
+	end
+
+	def estados_conditions(objeto)
+		false
 	end
 
 	def x_conditions(objeto, btn)

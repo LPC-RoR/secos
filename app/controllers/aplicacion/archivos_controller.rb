@@ -86,6 +86,6 @@ class Aplicacion::ArchivosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def archivo_params
-      params.require(:archivo).permit(:orden, :archivo, :nota, :linea_id, :directorio_id, :documento_id)
+      params.require(:archivo).permit(:orden, :archivo, :nota, :nombre, :linea_id, :directorio_id, :documento_id)
     end
 end

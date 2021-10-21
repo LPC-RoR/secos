@@ -4,11 +4,6 @@ class Directorio < ApplicationRecord
 		['directorio', 'show'], 
 	]
 
- 	FORM_FIELDS = [
-		['directorio',   'entry']
-#		['proyecto_id', 'hidden']
-	]
-
 #	belongs_to :proyecto, optional: true
 
 	has_many :documentos

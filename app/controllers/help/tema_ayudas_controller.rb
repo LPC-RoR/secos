@@ -28,7 +28,7 @@ class Help::TemaAyudasController < ApplicationController
 
   # GET /tema_ayudas/new
   def new
-    @objeto = TemaAyuda.new
+    @objeto = TemaAyuda.new(tipo: params[:tipo])
   end
 
   def nuevo
@@ -101,6 +101,6 @@ class Help::TemaAyudasController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def tema_ayuda_params
-      params.require(:tema_ayuda).permit(:orden, :tema_ayuda, :detalle, :tipo, :ilustracion, :ilustracion_cache, :remove_ilustracion, :activo)
+      params.require(:tema_ayuda).permit(:orden, :tema_ayuda, :detalle, :tipo, :ilustracion, :ilustracion_cache, :remove_ilustracion, :activo, :credito_foto)
     end
 end

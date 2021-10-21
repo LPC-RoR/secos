@@ -1,0 +1,19 @@
+<div class='row'>
+	<div class='col-md-1'></div>
+	<div class='col-md-6'>
+		</br>
+		<h<%=config_init(:titulo_size)%> class="text-<%=config_init(:titulo_color)%>"><%= elem.tema_ayuda %></h<%=config_init(:titulo_size)%>>
+		<h<%=config_init(:detalle_size)%> class='text-<%=config_init(:detalle_color)%>'>
+			<%= sanitize elem.d_detalle %>
+		</h<%=config_init(:detalle_size)%>>
+	</div>
+	<div class='col-md-4'>
+		</br></br></br>
+		<%= render partial: '0p/imagenes/ilustracion', locals: {objeto: elem, class_image: config_init(:clase), size: config_init(:size) } %>
+
+		<% unless elem.credito_foto.blank? %>
+			<small><p class='text-center'><i>Crédito Fotografía: <b><%= sanitize elem.credito_foto %></b></i></p></small>
+		<% end %>
+	</div>
+	<div class='col-md-1'></div>
+</div>
