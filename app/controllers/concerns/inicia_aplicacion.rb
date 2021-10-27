@@ -9,6 +9,13 @@ module IniciaAplicacion
 		# SB_LISTAS
 
 		if ActiveRecord::Base.connection.table_exists? 'sb_listas'
+			# LISTA INGRESO
+			lista = SbLista.find_by(lista: 'Ingreso Datos Anuales')
+			if lista.blank?
+				lista = SbLista.create(lista: 'Ingreso Datos Anuales', acceso: 'admin', link: '/recursos/ingreso_datos_anuales')
+			end
+
+
 			# LISTA ADMINISTRACION
 			lista = SbLista.find_by(lista: 'Administración')
 			if lista.blank?
