@@ -1,8 +1,8 @@
 class ComiteEditorialesController < ApplicationController
   before_action :authenticate_usuario!
   before_action :inicia_sesion
-  before_action :carga_temas_ayuda
   before_action :set_comite_editorial, only: %i[ show edit update destroy ]
+  before_action :carga_solo_sidebar, only: %i[ show new edit create update ]
 
   include Sidebar
 
@@ -13,23 +13,19 @@ class ComiteEditorialesController < ApplicationController
 
   # GET /comite_editoriales/1 or /comite_editoriales/1.json
   def show
-    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /comite_editoriales/new
   def new
     @objeto = ComiteEditorial.new(propietario: current_usuario.email)
-    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /comite_editoriales/1/edit
   def edit
-    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # POST /comite_editoriales or /comite_editoriales.json
   def create
-    carga_sidebar('Ingreso Datos Anuales')
     @objeto = ComiteEditorial.new(comite_editorial_params)
 
     respond_to do |format|
@@ -46,7 +42,6 @@ class ComiteEditorialesController < ApplicationController
 
   # PATCH/PUT /comite_editoriales/1 or /comite_editoriales/1.json
   def update
-    carga_sidebar('Ingreso Datos Anuales')
     respond_to do |format|
       if @objeto.update(comite_editorial_params)
         set_redireccion
@@ -70,6 +65,10 @@ class ComiteEditorialesController < ApplicationController
   end
 
   private
+    def carga_solo_sidebar
+      carga_sidebar(nombre_sidebar(controller_name), nil)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_comite_editorial
       @objeto = ComiteEditorial.find(params[:id])

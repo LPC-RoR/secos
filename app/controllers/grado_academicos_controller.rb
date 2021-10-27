@@ -1,8 +1,8 @@
 class GradoAcademicosController < ApplicationController
   before_action :authenticate_usuario!
   before_action :inicia_sesion
-  before_action :carga_temas_ayuda
   before_action :set_grado_academico, only: %i[ show edit update destroy ]
+  before_action :carga_solo_sidebar, only: %i[ show new edit create update ]
 
   include Sidebar
 
@@ -13,18 +13,15 @@ class GradoAcademicosController < ApplicationController
 
   # GET /grado_academicos/1 or /grado_academicos/1.json
   def show
-    carga_sidebar('Administración')
   end
 
   # GET /grado_academicos/new
   def new
     @objeto = GradoAcademico.new
-    carga_sidebar('Administración')
   end
 
   # GET /grado_academicos/1/edit
   def edit
-    carga_sidebar('Administración')
   end
 
   # POST /grado_academicos or /grado_academicos.json
@@ -68,6 +65,10 @@ class GradoAcademicosController < ApplicationController
   end
 
   private
+    def carga_solo_sidebar
+      carga_sidebar(nombre_sidebar(controller_name), nil)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_grado_academico
       @objeto = GradoAcademico.find(params[:id])

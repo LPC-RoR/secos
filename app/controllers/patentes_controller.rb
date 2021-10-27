@@ -1,8 +1,8 @@
 class PatentesController < ApplicationController
   before_action :authenticate_usuario!
   before_action :inicia_sesion
-  before_action :carga_temas_ayuda
   before_action :set_patente, only: %i[ show edit update destroy ]
+  before_action :carga_solo_sidebar, only: %i[ show new edit create update ]
 
   include Sidebar
 
@@ -13,23 +13,19 @@ class PatentesController < ApplicationController
 
   # GET /patentes/1 or /patentes/1.json
   def show
-    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /patentes/new
   def new
     @objeto = Patente.new(propietario: current_usuario.email)
-    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /patentes/1/edit
   def edit
-    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # POST /patentes or /patentes.json
   def create
-    carga_sidebar('Ingreso Datos Anuales')
     @objeto = Patente.new(patente_params)
 
     respond_to do |format|
@@ -46,7 +42,6 @@ class PatentesController < ApplicationController
 
   # PATCH/PUT /patentes/1 or /patentes/1.json
   def update
-    carga_sidebar('Ingreso Datos Anuales')
     respond_to do |format|
       if @objeto.update(patente_params)
         set_redireccion
@@ -70,6 +65,10 @@ class PatentesController < ApplicationController
   end
 
   private
+    def carga_solo_sidebar
+      carga_sidebar(nombre_sidebar(controller_name), nil)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_patente
       @objeto = Patente.find(params[:id])

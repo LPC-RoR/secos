@@ -1,8 +1,8 @@
 class RfColaboracionesController < ApplicationController
   before_action :authenticate_usuario!
   before_action :inicia_sesion
-  before_action :carga_temas_ayuda
   before_action :set_rf_colaboracion, only: %i[ show edit update destroy ]
+  before_action :carga_solo_sidebar, only: %i[ show new edit create update ]
 
   include Sidebar
 
@@ -13,23 +13,19 @@ class RfColaboracionesController < ApplicationController
 
   # GET /rf_colaboraciones/1 or /rf_colaboraciones/1.json
   def show
-    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /rf_colaboraciones/new
   def new
     @objeto = RfColaboracion.new(propietario: current_usuario.email)
-    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /rf_colaboraciones/1/edit
   def edit
-    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # POST /rf_colaboraciones or /rf_colaboraciones.json
   def create
-    carga_sidebar('Ingreso Datos Anuales')
     @objeto = RfColaboracion.new(rf_colaboracion_params)
 
     respond_to do |format|
@@ -46,7 +42,6 @@ class RfColaboracionesController < ApplicationController
 
   # PATCH/PUT /rf_colaboraciones/1 or /rf_colaboraciones/1.json
   def update
-    carga_sidebar('Ingreso Datos Anuales')
     respond_to do |format|
       if @objeto.update(rf_colaboracion_params)
         set_redireccion
@@ -70,6 +65,10 @@ class RfColaboracionesController < ApplicationController
   end
 
   private
+    def carga_solo_sidebar
+      carga_sidebar(nombre_sidebar(controller_name), nil)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_rf_colaboracion
       @objeto = RfColaboracion.find(params[:id])

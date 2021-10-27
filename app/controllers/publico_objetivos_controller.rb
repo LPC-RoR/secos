@@ -1,8 +1,8 @@
 class PublicoObjetivosController < ApplicationController
   before_action :authenticate_usuario!
   before_action :inicia_sesion
-  before_action :carga_temas_ayuda
   before_action :set_publico_objetivo, only: %i[ show edit update destroy ]
+  before_action :carga_solo_sidebar, only: %i[ show new edit create update ]
 
   include Sidebar
 
@@ -13,18 +13,15 @@ class PublicoObjetivosController < ApplicationController
 
   # GET /publico_objetivos/1 or /publico_objetivos/1.json
   def show
-    carga_sidebar('Administración')
   end
 
   # GET /publico_objetivos/new
   def new
     @objeto = PublicoObjetivo.new
-    carga_sidebar('Administración')
   end
 
   # GET /publico_objetivos/1/edit
   def edit
-    carga_sidebar('Administración')
   end
 
   # POST /publico_objetivos or /publico_objetivos.json
@@ -68,6 +65,10 @@ class PublicoObjetivosController < ApplicationController
   end
 
   private
+    def carga_solo_sidebar
+      carga_sidebar(nombre_sidebar(controller_name), nil)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_publico_objetivo
       @objeto = PublicoObjetivo.find(params[:id])

@@ -1,8 +1,8 @@
 class PasantiaExternosController < ApplicationController
   before_action :authenticate_usuario!
   before_action :inicia_sesion
-  before_action :carga_temas_ayuda
   before_action :set_pasantia_externo, only: %i[ show edit update destroy ]
+  before_action :carga_solo_sidebar, only: %i[ show new edit create update ]
 
   include Sidebar
 
@@ -13,23 +13,19 @@ class PasantiaExternosController < ApplicationController
 
   # GET /pasantia_externos/1 or /pasantia_externos/1.json
   def show
-    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /pasantia_externos/new
   def new
     @objeto = PasantiaExterno.new(propietario: current_usuario.email)
-    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /pasantia_externos/1/edit
   def edit
-    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # POST /pasantia_externos or /pasantia_externos.json
   def create
-    carga_sidebar('Ingreso Datos Anuales')
     @objeto = PasantiaExterno.new(pasantia_externo_params)
 
     respond_to do |format|
@@ -46,7 +42,6 @@ class PasantiaExternosController < ApplicationController
 
   # PATCH/PUT /pasantia_externos/1 or /pasantia_externos/1.json
   def update
-    carga_sidebar('Ingreso Datos Anuales')
     respond_to do |format|
       if @objeto.update(pasantia_externo_params)
         set_redireccion
@@ -70,6 +65,10 @@ class PasantiaExternosController < ApplicationController
   end
 
   private
+    def carga_solo_sidebar
+      carga_sidebar(nombre_sidebar(controller_name), nil)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_pasantia_externo
       @objeto = PasantiaExterno.find(params[:id])

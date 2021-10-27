@@ -1,7 +1,59 @@
 module RecursosHelper
+	## ------------------------------------------------------- GENERAL
+
+	def app_setup
+		{
+			nombre: 'Secos',
+			home_link: 'http://www.secos.cl'
+		}
+	end
+
+	def portada_setup
+		{
+			size: nil,
+			clase: 'mx-auto d-block'
+		}
+	end
+
+	def tema_home_setup
+		{
+            size: 'half',
+            clase: 'mx-auto d-block',
+            titulo_size: 1,
+            titulo_color: 'primary',
+            detalle_size: 6,
+            detalle_color: 'primary'
+		}
+	end
+
+	def foot_setup
+		{
+            size: 'quarter',
+            clase: 'mx-auto d-block'
+		}
+	end
+
+	def app_color
+		{
+			app: 'primary',
+			navbar: 'primary',
+			help: 'dark',
+			data: 'success'
+		}
+	end
+
 	## ------------------------------------------------------- TABLA | BTNS
 
-	def tr_row(objeto)
+	def sortable_fields
+		{
+			'controller' => ['campo1', 'campo2']
+		}
+	end
+
+	# En modelo.html.erb define el tipo de tabla con la que se despliegan las tablas
+	# <tr class="table-<%=tr_row(objeto)%>">
+	# ex 'tr_row'
+	def table_class(objeto)
 		case objeto.class.name
 		when 'Publicacion'
 			if usuario_signed_in?
@@ -14,7 +66,11 @@ module RecursosHelper
 		end
 	end
 
-	def new_button_conditions(controller)
+	def app_alias_tabla(controller)
+		controller
+	end
+
+	def app_new_button_conditions(controller)
 		if ['linea_investigaciones', 'investigadores', 'pyh_centros', 'aporte_actividades', 'tecnico_administrativos', 'fuente_financiamientos'].include?(controller)
 			session[:es_administrador]
 		elsif ['mensajes'].include?(controller)
@@ -23,14 +79,14 @@ module RecursosHelper
 			session[:es_administrador] and action_name == 'index'
 		elsif ['tema_ayudas', 'tutoriales'].include?(controller)
 			session[:es_administrador]
-		elsif ['perfiles', 'archivos', 'documentos'].include?(controller)
+		elsif ['archivos', 'documentos'].include?(controller)
 			false
 		else
 			true
 		end
 	end
 
-	def crud_conditions(objeto, btn)
+	def app_crud_conditions(objeto, btn)
 		if ['LineaInvestigacion', 'Investigador', 'PyhCentro', 'AporteActividad', 'TecnicoAdministrativo', 'FuenteFinanciamiento'].include?(objeto.class.name)
 			session[:es_administrador]
 		elsif ['Aco', 'Publicacion', 'Patente', 'PresentacionCongreso', 'PyhInvestigador', 'ComiteEditorial', 'FormacionJoven', 'TesisFinalizada', 'PasantiaInterno', 'PasantiaExterno', 'RfColaboracion', 'RColaboracion', 'ActividadDifusion', 'ProductoPme', 'ArticuloEntrevista', 'Vinculo'].include?(objeto.class.name)
@@ -41,8 +97,6 @@ module RecursosHelper
 				session[:es_administrador]
 			when 'Archivo'
 				session[:es_administrador]
-			when 'Perfil'
-				false
 			else
 				['TemaAyuda', 'Tutorial', 'Paso'].include?(objeto.class.name) ? (usuario_signed_in? ? session[:es_administrador] : false) : true
 			end
@@ -168,30 +222,10 @@ module RecursosHelper
 		end
 	end
 
-	## ------------------------------------------------------- FORM & SHOW
-
-	def detail_controller_path(controller)
-		if File.exist?("app/views/#{controller}/_detail.html.erb")
-			"#{controller}/detail"
-		else
-			'0p/form/detail'
-		end
-	end
-
-	# apoyo de filtro_condicional_field? (abajo)
-	def get_field_condition(objeto, field)
-		case objeto.class.name
-		when 'Publicacion'
-			objeto.origen == 'ingreso'
-		when 'Mensaje'
-			field != 'email' or not usuario_signed_in?
-		end
-	end
-
 	## ------------------------------------------------------- SHOW
 
 	# Método de apoyo usado en get_new_link (abajo)
-	def show_title(objeto)
+	def app_show_title(objeto)
 		case objeto.class.name
 		when 'Publicacion'
 			objeto.titulo

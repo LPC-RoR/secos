@@ -1,8 +1,8 @@
 class PresentacionCongresosController < ApplicationController
   before_action :authenticate_usuario!
   before_action :inicia_sesion
-  before_action :carga_temas_ayuda
   before_action :set_presentacion_congreso, only: %i[ show edit update destroy ]
+  before_action :carga_solo_sidebar, only: %i[ show new edit create update ]
 
   include Sidebar
 
@@ -13,23 +13,19 @@ class PresentacionCongresosController < ApplicationController
 
   # GET /presentacion_congresos/1 or /presentacion_congresos/1.json
   def show
-    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /presentacion_congresos/new
   def new
     @objeto = PresentacionCongreso.new(propietario: current_usuario.email)
-    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /presentacion_congresos/1/edit
   def edit
-    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # POST /presentacion_congresos or /presentacion_congresos.json
   def create
-    carga_sidebar('Ingreso Datos Anuales')
     @objeto = PresentacionCongreso.new(presentacion_congreso_params)
 
     respond_to do |format|
@@ -46,7 +42,6 @@ class PresentacionCongresosController < ApplicationController
 
   # PATCH/PUT /presentacion_congresos/1 or /presentacion_congresos/1.json
   def update
-    carga_sidebar('Ingreso Datos Anuales')
     respond_to do |format|
       if @objeto.update(presentacion_congreso_params)
         set_redireccion
@@ -70,6 +65,10 @@ class PresentacionCongresosController < ApplicationController
   end
 
   private
+    def carga_solo_sidebar
+      carga_sidebar(nombre_sidebar(controller_name), nil)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_presentacion_congreso
       @objeto = PresentacionCongreso.find(params[:id])

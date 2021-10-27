@@ -1,4 +1,5 @@
 class Tutorial < ApplicationRecord
+
 	TABLA_FIELDS = [
 		['orden',      'normal'],
 		['tutorial',     'show']
@@ -18,8 +19,7 @@ class Tutorial < ApplicationRecord
 
 	has_many :pasos
 
-	validates :orden, :tutorial, :detalle, presence: true
-	validates :orden, numericality: { only_integer: true }
+	validates :tutorial, :detalle, presence: true
 
 	def d_detalle
 	  self.detalle.blank? ? '' : self.detalle.gsub(/\n/, '<br>')

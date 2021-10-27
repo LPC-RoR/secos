@@ -2,7 +2,6 @@ class Aplicacion::RecursosController < ApplicationController
 
   before_action :inicia_sesion
   before_action :authenticate_usuario!, only: [:ingreso_datos_anuales, :administracion, :procesos, :borrar_archivos]
-  before_action :carga_temas_ayuda
 
   include Sidebar
 
@@ -13,37 +12,15 @@ class Aplicacion::RecursosController < ApplicationController
     @coleccion['tema_ayudas'] = TemaAyuda.where(tipo: 'inicio').where(activo: true).order(:orden)
   end
 
+  def ayuda
+    carga_sidebar('Ayuda', params[:t])
+#    carga_tutorial(@sb_elementos, @t)
+  end
+
   def ingreso_datos_anuales
     # Trae sidebar desde concern 'sidebar.rb'
-#    @side_name = 'Ingreso Datos Anuales'
-#    @side_link = '/recursos/ingreso_datos_anuales'
-#    @sidebar = side_list('Ingreso Datos Anuales')
 
-    carga_sidebar('Ingreso Datos Anuales')
-
-    # parámetro 't'
-    @t = params[:t].blank? ? 'Datos Centro' : params[:t]
-
-    # Trae nombre de la tabla desde concer 'sidebar'
-    @tabla = hash_tablas('Ingreso Datos Anuales')[@t]
-    @set_display = set_tabla('Ingreso Datos Anuales', @tabla)
-
-    if @set_display[0] == 'show'
-      case @tabla
-      when 'datos_centros'
-        @objeto = DatosCentro.first
-      end
-    elsif @set_display[0] == 'list'
-      @coleccion = {}
-
-      if @tabla.classify.constantize.all.count > 25
-        @coleccion[@tabla] = @tabla.classify.constantize.all.page(params[:page])
-        @paginate = true
-      else
-        @coleccion[@tabla] = @tabla.classify.constantize.all
-        @paginate = false
-      end
-    end
+    carga_sidebar('Ingreso Datos Anuales', params[:t])
 
     # INICIALIZA TABLAS
     case @t
@@ -65,42 +42,19 @@ class Aplicacion::RecursosController < ApplicationController
 
   def administracion
     # Trae sidebar desde concern 'sidebar.rb'
-#    @side_name = 'Administración'
-#    @side_link = '/recursos/administracion'
-#    @sidebar = side_list('Administración')
 
-    carga_sidebar('Administración')
-
-    # parámetro 't'
-    @t = params[:t].blank? ? 'Administradores' : params[:t]
-
-    # Trae nombre de la tabla desde concer 'sidebar'
-    @tabla = hash_tablas('Administración')[@t]
-    @set_display = set_tabla('Administración', @tabla)
-
-    if @set_display[0] == 'show'
-    elsif @set_display[0] == 'list'
-      @coleccion = {}
-
-      if @tabla.classify.constantize.all.count > 25
-        @coleccion[@tabla] = @tabla.classify.constantize.all.page(params[:page])
-        @paginate = true
-      else
-        @coleccion[@tabla] = @tabla.classify.constantize.all
-        @paginate = false
-      end
-    end
+    carga_sidebar('Administración', params[:t])
 
     # INICIALIZA TABLAS
     case @t
     when 'Disciplinas'
-      if @coleccion[@tabla].empty?
+      if @coleccion[@controlador].empty?
         Disciplina::DISCIPLINAS.each do |disciplina|
           Disciplina.create(disciplina: disciplina)
         end
       end
     when 'Público Objetivo'
-      if @coleccion[@tabla].empty?
+      if @coleccion[@controlador].empty?
         PublicoObjetivo::PUBLICOS_OBJETIVO.each do |po|
           PublicoObjetivo.create(publico_objetivo: po)
         end

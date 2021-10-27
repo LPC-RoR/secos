@@ -1,8 +1,8 @@
 class TesisFinalizadasController < ApplicationController
   before_action :authenticate_usuario!
   before_action :inicia_sesion
-  before_action :carga_temas_ayuda
   before_action :set_tesis_finalizada, only: %i[ show edit update destroy ]
+  before_action :carga_solo_sidebar, only: %i[ show new edit create update ]
 
   include Sidebar
 
@@ -13,23 +13,19 @@ class TesisFinalizadasController < ApplicationController
 
   # GET /tesis_finalizadas/1 or /tesis_finalizadas/1.json
   def show
-    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /tesis_finalizadas/new
   def new
     @objeto = TesisFinalizada.new(propietario: current_usuario.email)
-    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /tesis_finalizadas/1/edit
   def edit
-    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # POST /tesis_finalizadas or /tesis_finalizadas.json
   def create
-    carga_sidebar('Ingreso Datos Anuales')
     @objeto = TesisFinalizada.new(tesis_finalizada_params)
 
     respond_to do |format|
@@ -46,7 +42,6 @@ class TesisFinalizadasController < ApplicationController
 
   # PATCH/PUT /tesis_finalizadas/1 or /tesis_finalizadas/1.json
   def update
-    carga_sidebar('Ingreso Datos Anuales')
     respond_to do |format|
       if @objeto.update(tesis_finalizada_params)
         set_redireccion
@@ -70,6 +65,10 @@ class TesisFinalizadasController < ApplicationController
   end
 
   private
+    def carga_solo_sidebar
+      carga_sidebar(nombre_sidebar(controller_name), nil)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_tesis_finalizada
       @objeto = TesisFinalizada.find(params[:id])

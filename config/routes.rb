@@ -56,8 +56,15 @@ Rails.application.routes.draw do
   resources :datos_centros
 
   scope module: 'aplicacion' do
+    resources :app_administradores
+    resources :app_nominas
+    resources :app_perfiles do
+      match :desvincular, via: :get, on: :member
+    end
+
     resources :recursos do
       collection do
+        match :ayuda, via: :get
         match :home, via: :get
         match :ingreso_datos_anuales, via: :get
         match :inicia_sesion, via: :get
@@ -82,7 +89,18 @@ Rails.application.routes.draw do
     end
   end
 
+  scope module: 'sidebar' do
+    resources :sb_elementos
+    resources :sb_listas do
+      resources :sb_elementos
+    end
+  end
+
   scope module: 'help' do
+    resources :hlp_tutoriales do
+      resources :hlp_pasos
+    end
+    resources :hlp_pasos
 #    resources :conversaciones
     resources :mensajes
     resources :pasos

@@ -1,8 +1,8 @@
 class DisciplinasController < ApplicationController
   before_action :authenticate_usuario!
   before_action :inicia_sesion
-  before_action :carga_temas_ayuda
   before_action :set_disciplina, only: %i[ show edit update destroy ]
+  before_action :carga_solo_sidebar, only: %i[ show new edit create update ]
 
   include Sidebar
 
@@ -13,18 +13,15 @@ class DisciplinasController < ApplicationController
 
   # GET /disciplinas/1 or /disciplinas/1.json
   def show
-    carga_sidebar('Administración')
   end
 
   # GET /disciplinas/new
   def new
     @objeto = Disciplina.new
-    carga_sidebar('Administración')
   end
 
   # GET /disciplinas/1/edit
   def edit
-    carga_sidebar('Administración')
   end
 
   # POST /disciplinas or /disciplinas.json
@@ -68,6 +65,10 @@ class DisciplinasController < ApplicationController
   end
 
   private
+    def carga_solo_sidebar
+      carga_sidebar(nombre_sidebar(controller_name), nil)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_disciplina
       @objeto = Disciplina.find(params[:id])

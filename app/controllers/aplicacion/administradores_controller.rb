@@ -1,8 +1,8 @@
 class Aplicacion::AdministradoresController < ApplicationController
   before_action :authenticate_usuario!
   before_action :inicia_sesion
-  before_action :carga_temas_ayuda
   before_action :set_administrador, only: [:show, :edit, :update, :destroy]
+  before_action :carga_solo_sidebar, only: %i[ show new edit create update ]
 
   include Sidebar
 
@@ -17,18 +17,15 @@ class Aplicacion::AdministradoresController < ApplicationController
   # GET /administradores/1
   # GET /administradores/1.json
   def show
-    carga_sidebar('Administración')
   end
 
   # GET /administradores/new
   def new
     @objeto = Administrador.new
-    carga_sidebar('Administración')
   end
 
   # GET /administradores/1/edit
   def edit
-    carga_sidebar('Administración')
   end
 
   # POST /administradores
@@ -75,6 +72,10 @@ class Aplicacion::AdministradoresController < ApplicationController
   end
 
   private
+    def carga_solo_sidebar
+      carga_sidebar(nombre_sidebar(controller_name), nil)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_administrador
       @objeto = Administrador.find(params[:id])

@@ -1,8 +1,8 @@
 class AcosController < ApplicationController
   before_action :authenticate_usuario!
   before_action :inicia_sesion
-  before_action :carga_temas_ayuda
   before_action :set_aco, only: %i[ show edit update destroy ]
+  before_action :carga_solo_sidebar, only: %i[ show new edit create update ]
 
   include Sidebar
 
@@ -13,23 +13,19 @@ class AcosController < ApplicationController
 
   # GET /acos/1 or /acos/1.json
   def show
-    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /acos/new
   def new
-    carga_sidebar('Ingreso Datos Anuales')
     @objeto = Aco.new(propietario: current_usuario.email)
   end
 
   # GET /acos/1/edit
   def edit
-    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # POST /acos or /acos.json
   def create
-    carga_sidebar('Ingreso Datos Anuales')
     @objeto = Aco.new(aco_params)
 
     respond_to do |format|
@@ -46,7 +42,6 @@ class AcosController < ApplicationController
 
   # PATCH/PUT /acos/1 or /acos/1.json
   def update
-    carga_sidebar('Ingreso Datos Anuales')
     respond_to do |format|
       if @objeto.update(aco_params)
         set_redireccion
@@ -70,6 +65,10 @@ class AcosController < ApplicationController
   end
 
   private
+    def carga_solo_sidebarf
+      carga_sidebar(nombre_sidebar(controller_name), nil)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_aco
       @objeto = Aco.find(params[:id])

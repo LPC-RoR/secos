@@ -1,8 +1,8 @@
 class PyhInvestigadoresController < ApplicationController
   before_action :authenticate_usuario!
   before_action :inicia_sesion
-  before_action :carga_temas_ayuda
   before_action :set_pyh_investigador, only: %i[ show edit update destroy ]
+  before_action :carga_solo_sidebar, only: %i[ show new edit create update ]
 
   include Sidebar
 
@@ -13,23 +13,19 @@ class PyhInvestigadoresController < ApplicationController
 
   # GET /pyh_investigadores/1 or /pyh_investigadores/1.json
   def show
-    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /pyh_investigadores/new
   def new
     @objeto = PyhInvestigador.new(propietario: current_usuario.email)
-    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /pyh_investigadores/1/edit
   def edit
-    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # POST /pyh_investigadores or /pyh_investigadores.json
   def create
-    carga_sidebar('Ingreso Datos Anuales')
     @objeto = PyhInvestigador.new(pyh_investigador_params)
 
     respond_to do |format|
@@ -46,7 +42,6 @@ class PyhInvestigadoresController < ApplicationController
 
   # PATCH/PUT /pyh_investigadores/1 or /pyh_investigadores/1.json
   def update
-    carga_sidebar('Ingreso Datos Anuales')
     respond_to do |format|
       if @objeto.update(pyh_investigador_params)
         set_redireccion
@@ -70,6 +65,10 @@ class PyhInvestigadoresController < ApplicationController
   end
 
   private
+    def carga_solo_sidebar
+      carga_sidebar(nombre_sidebar(controller_name), nil)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_pyh_investigador
       @objeto = PyhInvestigador.find(params[:id])

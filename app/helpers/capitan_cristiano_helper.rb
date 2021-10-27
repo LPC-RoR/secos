@@ -1,6 +1,27 @@
 module CapitanCristianoHelper
 
+	## ------------------------------------------------------- CRISTIANO BASE
 	def cristiano(text, origen, destino)
+		if ['AppAdministrador', 'app_administradores'].include?(text)
+			'Administrador'
+		elsif ['AppNomina', 'app_nominas'].include?(text)
+			'Nómina'
+		elsif ['AppPerfil', 'app_perfiles'].include?(text)
+			'Perfil'
+		elsif ['SbLista', 'sb_listas'].include?(text)
+			'Menú lateral'
+		elsif ['SbElemento', 'sb_elementos'].include?(text)
+			'Elemento menú lateral'
+		elsif ['HlpTutorial', 'hlp_tutoriales'].include?(text)
+			'Tutorial'
+		elsif ['HlpPaso', 'hlp_pasos'].include?(text)
+			'Paso'
+		else
+			cristiano_app(text, origen, destino)
+		end
+	end
+
+	def cristiano_app(text, origen, destino)
 		if ['nombre_espaniol'].include?(text)
 			'Nombre (Español)'
 		elsif ['linea_investigacion', 'LineaInvestigacion', 'linea_investigaciones'].include?(text)

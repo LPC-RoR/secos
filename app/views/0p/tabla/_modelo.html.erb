@@ -1,4 +1,4 @@
-<tr class="table-<%=tr_row(objeto)%>">
+<tr class="table-<%=table_class(objeto)%>">
 	<!-- Recorre los campos a desplegar en la table -->
 	<!-- f : [campo, tipo_delpliegue] -->
 	<!-- Esta versión incluye en 'normal' los antiguos campos 'display'--> 
@@ -45,7 +45,7 @@
 		<% when 'link_file' %>
 			<td>
 				<% if ['Documento', 'Archivo', 'Imagen'].include?(objeto.class.name) %>
-					<%= render partial: '0p/general/btn_turbolink', locals: {texto: nil, gly: 'download', link: objeto.send(f[0]).send('url'), delete: false, clr: c_color(objeto.class.name.tableize)} if objeto.send(f[0]).present? %>
+					<%= render partial: '0p/general/btn_turbolink', locals: {texto: nil, gly: 'download', link: objeto.send(f[0]).send('url'), delete: false, clr: color(objeto.class.name.tableize)} if objeto.send(f[0]).present? %>
 				<% else %>
 				<small><%= (objeto.send(f[0]).present? ? link_to( objeto.d_nombre, objeto.send(f[0]).send('url')) : '[ Sin archivo cargado ]') %></small>
 				<% end %>

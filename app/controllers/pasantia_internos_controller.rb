@@ -1,8 +1,8 @@
 class PasantiaInternosController < ApplicationController
   before_action :authenticate_usuario!
   before_action :inicia_sesion
-  before_action :carga_temas_ayuda
   before_action :set_pasantia_interno, only: %i[ show edit update destroy ]
+  before_action :carga_solo_sidebar, only: %i[ show new edit create update ]
 
   include Sidebar
 
@@ -13,23 +13,19 @@ class PasantiaInternosController < ApplicationController
 
   # GET /pasantia_internos/1 or /pasantia_internos/1.json
   def show
-    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /pasantia_internos/new
   def new
     @objeto = PasantiaInterno.new(propietario: current_usuario.email)
-    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /pasantia_internos/1/edit
   def edit
-    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # POST /pasantia_internos or /pasantia_internos.json
   def create
-    carga_sidebar('Ingreso Datos Anuales')
     @objeto = PasantiaInterno.new(pasantia_interno_params)
 
     respond_to do |format|
@@ -46,7 +42,6 @@ class PasantiaInternosController < ApplicationController
 
   # PATCH/PUT /pasantia_internos/1 or /pasantia_internos/1.json
   def update
-    carga_sidebar('Ingreso Datos Anuales')
     respond_to do |format|
       if @objeto.update(pasantia_interno_params)
         set_redireccion
@@ -70,6 +65,10 @@ class PasantiaInternosController < ApplicationController
   end
 
   private
+    def carga_solo_sidebar
+      carga_sidebar(nombre_sidebar(controller_name), nil)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_pasantia_interno
       @objeto = PasantiaInterno.find(params[:id])

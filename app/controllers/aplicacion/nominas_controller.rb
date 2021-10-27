@@ -1,8 +1,8 @@
 class Aplicacion::NominasController < ApplicationController
   before_action :authenticate_usuario!
   before_action :inicia_sesion
-  before_action :carga_temas_ayuda
   before_action :set_nomina, only: %i[ show edit update destroy ]
+  before_action :carga_solo_sidebar, only: %i[ show new edit create update ]
 
   include Sidebar
 
@@ -13,18 +13,15 @@ class Aplicacion::NominasController < ApplicationController
 
   # GET /nominas/1 or /nominas/1.json
   def show
-    carga_sidebar('Administración')
   end
 
   # GET /nominas/new
   def new
     @objeto = Nomina.new
-    carga_sidebar('Administración')
   end
 
   # GET /nominas/1/edit
   def edit
-    carga_sidebar('Administración')
   end
 
   # POST /nominas or /nominas.json
@@ -68,6 +65,10 @@ class Aplicacion::NominasController < ApplicationController
   end
 
   private
+    def carga_solo_sidebar
+      carga_sidebar(nombre_sidebar(controller_name), nil)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_nomina
       @objeto = Nomina.find(params[:id])

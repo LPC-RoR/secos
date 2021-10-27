@@ -1,8 +1,8 @@
 class LineaInvestigacionesController < ApplicationController
   before_action :authenticate_usuario!
   before_action :inicia_sesion
-  before_action :carga_temas_ayuda
   before_action :set_linea_investigacion, only: %i[ show edit update destroy ]
+  before_action :carga_solo_sidebar, only: %i[ show new edit create update ]
 
   include Sidebar
 
@@ -13,12 +13,10 @@ class LineaInvestigacionesController < ApplicationController
 
   # GET /linea_investigaciones/1 or /linea_investigaciones/1.json
   def show
-    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /linea_investigaciones/new
   def new
-    carga_sidebar('Ingreso Datos Anuales')
     @objeto = LineaInvestigacion.new(propietario: current_usuario.email)
     @objeto.li_dis.build
 
@@ -27,12 +25,10 @@ class LineaInvestigacionesController < ApplicationController
 
   # GET /linea_investigaciones/1/edit
   def edit
-    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # POST /linea_investigaciones or /linea_investigaciones.json
   def create
-    carga_sidebar('Ingreso Datos Anuales')
     @objeto = LineaInvestigacion.new(linea_investigacion_params)
 
     respond_to do |format|
@@ -49,7 +45,6 @@ class LineaInvestigacionesController < ApplicationController
 
   # PATCH/PUT /linea_investigaciones/1 or /linea_investigaciones/1.json
   def update
-    carga_sidebar('Ingreso Datos Anuales')
     respond_to do |format|
       if @objeto.update(linea_investigacion_params)
         set_redireccion
@@ -73,6 +68,10 @@ class LineaInvestigacionesController < ApplicationController
   end
 
   private
+    def carga_solo_sidebar
+      carga_sidebar(nombre_sidebar(controller_name), nil)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_linea_investigacion
       @objeto = LineaInvestigacion.find(params[:id])

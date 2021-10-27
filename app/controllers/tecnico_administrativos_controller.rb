@@ -1,8 +1,8 @@
 class TecnicoAdministrativosController < ApplicationController
   before_action :authenticate_usuario!
   before_action :inicia_sesion
-  before_action :carga_temas_ayuda
   before_action :set_tecnico_administrativo, only: %i[ show edit update destroy ]
+  before_action :carga_solo_sidebar, only: %i[ show new edit create update ]
 
   include Sidebar
 
@@ -13,23 +13,19 @@ class TecnicoAdministrativosController < ApplicationController
 
   # GET /tecnico_administrativos/1 or /tecnico_administrativos/1.json
   def show
-    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /tecnico_administrativos/new
   def new
     @objeto = TecnicoAdministrativo.new(propietario: current_usuario.email)
-    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /tecnico_administrativos/1/edit
   def edit
-    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # POST /tecnico_administrativos or /tecnico_administrativos.json
   def create
-    carga_sidebar('Ingreso Datos Anuales')
     @objeto = TecnicoAdministrativo.new(tecnico_administrativo_params)
 
     respond_to do |format|
@@ -46,7 +42,6 @@ class TecnicoAdministrativosController < ApplicationController
 
   # PATCH/PUT /tecnico_administrativos/1 or /tecnico_administrativos/1.json
   def update
-    carga_sidebar('Ingreso Datos Anuales')
     respond_to do |format|
       if @objeto.update(tecnico_administrativo_params)
         set_redireccion
@@ -70,6 +65,10 @@ class TecnicoAdministrativosController < ApplicationController
   end
 
   private
+    def carga_solo_sidebar
+      carga_sidebar(nombre_sidebar(controller_name), nil)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_tecnico_administrativo
       @objeto = TecnicoAdministrativo.find(params[:id])

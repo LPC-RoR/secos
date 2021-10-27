@@ -1,8 +1,8 @@
 class ActividadDifusionesController < ApplicationController
   before_action :authenticate_usuario!
   before_action :inicia_sesion
-  before_action :carga_temas_ayuda
   before_action :set_actividad_difusion, only: %i[ show edit update destroy ]
+  before_action :carga_solo_sidebar, only: %i[ show new edit create update ]
 
   include Sidebar
 
@@ -13,23 +13,19 @@ class ActividadDifusionesController < ApplicationController
 
   # GET /actividad_difusiones/1 or /actividad_difusiones/1.json
   def show
-    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /actividad_difusiones/new
   def new
     @objeto = ActividadDifusion.new(propietario: current_usuario.email)
-    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /actividad_difusiones/1/edit
   def edit
-    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # POST /actividad_difusiones or /actividad_difusiones.json
   def create
-    carga_sidebar('Ingreso Datos Anuales')
     @objeto = ActividadDifusion.new(actividad_difusion_params)
 
     respond_to do |format|
@@ -46,7 +42,6 @@ class ActividadDifusionesController < ApplicationController
 
   # PATCH/PUT /actividad_difusiones/1 or /actividad_difusiones/1.json
   def update
-    carga_sidebar('Ingreso Datos Anuales')
     respond_to do |format|
       if @objeto.update(actividad_difusion_params)
         set_redireccion
@@ -70,6 +65,10 @@ class ActividadDifusionesController < ApplicationController
   end
 
   private
+    def carga_solo_sidebar
+      carga_sidebar(nombre_sidebar(controller_name), nil)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_actividad_difusion
       @objeto = ActividadDifusion.find(params[:id])

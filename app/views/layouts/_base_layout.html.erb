@@ -1,8 +1,8 @@
-<% if ['recursos', 'datos_centros', 'linea_investigaciones', 'investigadores', 'acos', 'publicaciones', 'patentes', 'presentacion_congresos', 'pyh_investigadores', 'pyh_centros', 'comite_editoriales', 'formacion_jovenes', 'tesis_finalizadas', 'pasantia_internos', 'pasantia_externos', 'rf_colaboraciones', 'r_colaboraciones', 'actividad_difusiones', 'producto_pmes', 'aporte_actividades', 'articulo_entrevistas', 'vinculos', 'tecnico_administrativos', 'fuente_financiamientos', 'administradores', 'nominas', 'perfiles', 'disciplinas', 'grado_academicos', 'publico_objetivos'].include?(controller_name) and action_name != 'home' %>
+<% if ['sb_listas', 'sb_elementos', 'hlp_tutoriales', 'hlp_pasos', 'recursos', 'datos_centros', 'linea_investigaciones', 'investigadores', 'acos', 'publicaciones', 'patentes', 'presentacion_congresos', 'pyh_investigadores', 'pyh_centros', 'comite_editoriales', 'formacion_jovenes', 'tesis_finalizadas', 'pasantia_internos', 'pasantia_externos', 'rf_colaboraciones', 'r_colaboraciones', 'actividad_difusiones', 'producto_pmes', 'aporte_actividades', 'articulo_entrevistas', 'vinculos', 'tecnico_administrativos', 'fuente_financiamientos', 'app_administradores', 'app_nominas', 'app_perfiles', 'disciplinas', 'grado_academicos', 'publico_objetivos'].include?(controller_name) and action_name != 'home' %>
 
 	<div class='row'>
 		<div class='col-md-4'>
-			<%= render partial: '0p/sidelist/sidelist', locals: {sidebar: @sidebar, name_list: @side_name, link: @side_link } %>
+			<%= render partial: '0p/sidelist/sidelist', locals: {sb_list: @sb_elementos, name_list: @sb_name, sb_link: @sb_link } %>
 		</div>
 		<div class='col-md-8'>
 			<%= yield %>

@@ -1,8 +1,8 @@
 class DatosCentrosController < ApplicationController
   before_action :authenticate_usuario!
   before_action :inicia_sesion
-  before_action :carga_temas_ayuda
   before_action :set_datos_centro, only: %i[ show edit update destroy ]
+  before_action :carga_solo_sidebar, only: %i[ show new edit create update ]
 
   include Sidebar
 
@@ -17,13 +17,11 @@ class DatosCentrosController < ApplicationController
 
   # GET /datos_centros/new
   def new
-    carga_sidebar('Administración')
     @objeto = DatosCentro.new
   end
 
   # GET /datos_centros/1/edit
   def edit
-    carga_sidebar('Administración')
   end
 
   # POST /datos_centros or /datos_centros.json
@@ -67,6 +65,10 @@ class DatosCentrosController < ApplicationController
   end
 
   private
+    def carga_solo_sidebar
+      carga_sidebar(nombre_sidebar(controller_name), nil)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_datos_centro
       @objeto = DatosCentro.find(params[:id])

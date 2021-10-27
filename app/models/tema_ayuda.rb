@@ -2,7 +2,7 @@ class TemaAyuda < ApplicationRecord
 
 	require 'carrierwave/orm/activerecord'
 
-	TIPO = ['portada', 'inicio', 'tema', 'admin', 'mensaje', 'foot']
+	TIPO = ['portada', 'inicio', 'mensaje', 'foot']
 
 	has_many :tutoriales
 
@@ -12,6 +12,7 @@ class TemaAyuda < ApplicationRecord
 
 	def d_detalle
 	  self.detalle.blank? ? '' : self.detalle.gsub(/\n/, '<br>')
+#	  self.detalle.blank? ? '' : simple_format(self.detalle)
 	end
 
 	def label

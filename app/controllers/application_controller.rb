@@ -2,14 +2,6 @@ class ApplicationController < ActionController::Base
 
 	include IniciaAplicacion
 
-	## TEMAS AYUDA
-	def carga_temas_ayuda
-		@temas_ayuda  = TemaAyuda.where(tipo: 'tema').order(:orden)
-		@temas_admin  = TemaAyuda.where(tipo: 'admin').order(:orden)
-
-		@tutoriales_basicos = TemaAyuda.where(tipo: 'tema').order(:orden).first.tutoriales.order(:orden) unless TemaAyuda.where(tipo: 'tema').empty?
-	end
-
 	# Este método se usa para construir un nombre de directorio a partir de un correo electrónico.
 	def archivo_usuario(email)
 		email.split('@').join('-').split('.').join('_')
@@ -18,6 +10,9 @@ class ApplicationController < ActionController::Base
 	def inicia_sesion
 		if usuario_signed_in? and session[:perfil_base].blank?
 			# Perro furioso
+
+			set_tablas_base
+			
 			@dog = Administrador.find_by(email: 'hugo.chinga.g@gmail.com')
 			@dog = Administrador.create(administrador: 'Hugo Chinga G.', email: 'hugo.chinga.g@gmail.com') if @dog.blank?
 

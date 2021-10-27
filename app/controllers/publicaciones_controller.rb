@@ -1,8 +1,8 @@
 class PublicacionesController < ApplicationController
   before_action :authenticate_usuario!
   before_action :inicia_sesion
-  before_action :carga_temas_ayuda
   before_action :set_publicacion, only: %i[ show edit update destroy ]
+  before_action :carga_solo_sidebar, only: %i[ show new edit create update ]
 
   include Sidebar
 
@@ -13,23 +13,19 @@ class PublicacionesController < ApplicationController
 
   # GET /publicaciones/1 or /publicaciones/1.json
   def show
-    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /publicaciones/new
   def new
     @objeto = Publicacion.new(propietario: current_usuario.email)
-    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # GET /publicaciones/1/edit
   def edit
-    carga_sidebar('Ingreso Datos Anuales')
   end
 
   # POST /publicaciones or /publicaciones.json
   def create
-    carga_sidebar('Ingreso Datos Anuales')
     @objeto = Publicacion.new(publicacion_params)
 
     respond_to do |format|
@@ -46,7 +42,6 @@ class PublicacionesController < ApplicationController
 
   # PATCH/PUT /publicaciones/1 or /publicaciones/1.json
   def update
-    carga_sidebar('Ingreso Datos Anuales')
     respond_to do |format|
       if @objeto.update(publicacion_params)
         set_redireccion
@@ -70,6 +65,10 @@ class PublicacionesController < ApplicationController
   end
 
   private
+    def carga_solo_sidebar
+      carga_sidebar(nombre_sidebar(controller_name), nil)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_publicacion
       @objeto = Publicacion.find(params[:id])
