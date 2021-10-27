@@ -160,6 +160,10 @@ module ApplicationHelper
 				session[:es_administrador]
 		elsif ['AppPerfil'].include?(objeto.class.name)
 			false
+		elsif ['SbLista'].include?(objeto.class.name)
+			(usuario_signed_in? and session[:perfil_activo]['email'] == 'hugo.chinga.g@gmail.com') or (session[:es_administrador] and objeto.acceso != 'dog') or (objeto.acceso == 'usuario')
+		elsif ['SbElemento'].include?(objeto.class.name)
+			(usuario_signed_in? and session[:perfil_activo]['email'] == 'hugo.chinga.g@gmail.com') or (session[:es_administrador] and objeto.sb_lista.acceso != 'dog') or (objeto.sb_lista.acceso == 'usuario')
 		else
 			app_crud_conditions(objeto, btn)
 		end
