@@ -159,7 +159,7 @@ module Sidebar
     	@sb_link = (lista.blank? ? nil : lista.link)
 	    @sb_elementos = get_elementos(lista)
 
-	    unless ['new', 'edit'].include?(action_name)
+	    unless ['new', 'edit', 'update'].include?(action_name)
 	    	@t = get_t(@sb_elementos, param_t)
 	    	@controlador = get_controller(@sb_elementos, @t)
 	    	@despliegue = get_display(@sb_elementos, @t)
@@ -171,7 +171,6 @@ module Sidebar
 			    @coleccion = {}
 			    @coleccion['hlp_pasos'] = @objeto.hlp_pasos.order(:orden) unless @objeto.blank?
 		    elsif @despliegue == 'list'
-		    	puts 'ENTROOOOO'
 		    	@coleccion = {}
 
 				if @controlador.classify.constantize.all.count > 25
@@ -186,28 +185,7 @@ module Sidebar
 	end
 
 	def nombre_sidebar(controller)
-		if ['linea_investigaciones',
-			'investigadores',
-			'acos',
-			'publicaciones',
-			'patentes',
-			'presentacion_congresos',
-			'pyh_investigadores',
-			'pyh_centros',
-			'comite_editoriales',
-			'formacion_jovenes',
-			'tesis_finalizadas',
-			'pasantia_internos',
-			'pasantia_externos',
-			'rf_colaboraciones',
-			'r_colaboraciones',
-			'actividad_difusiones',
-			'producto_pmes',
-			'aporte_actividades',
-			'articulo_entrevistas',
-			'vinculos',
-			'tecnico_administrativos',
-			'fuente_financiamientos'].include?(controller)
+		if ['linea_investigaciones', 'investigadores', 'acos', 'publicaciones', 'patentes', 'presentacion_congresos', 'pyh_investigadores', 'pyh_centros', 'comite_editoriales', 'formacion_jovenes', 'tesis_finalizadas', 'pasantia_internos', 'pasantia_externos', 'rf_colaboraciones', 'r_colaboraciones', 'actividad_difusiones', 'producto_pmes', 'aporte_actividades', 'articulo_entrevistas', 'vinculos', 'tecnico_administrativos', 'fuente_financiamientos'].include?(controller)
 			'Ingreso Datos Anuales'
 		else
 			'Administración'

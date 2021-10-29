@@ -65,7 +65,7 @@ class AcosController < ApplicationController
   end
 
   private
-    def carga_solo_sidebarf
+    def carga_solo_sidebar
       carga_sidebar(nombre_sidebar(controller_name), nil)
     end
 

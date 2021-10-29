@@ -54,14 +54,16 @@ module ApplicationHelper
 		# ITEMS de MENU sólo para USUARIOS REGISTRADOS
 		if session[:hay_perfil] == true
 			case tipo_item
+			when 'dog'
+				usuario_signed_in? and session[:perfil_activo]['email'] == 'hugo.chinga.g@gmail.com'
 			when 'admin'
 				(usuario_signed_in? and session[:es_administrador] == true)
 			when 'usuario'
 				usuario_signed_in? and display_item_app(item, tipo_item)
-			when 'dog'
-				usuario_signed_in? and session[:perfil_activo]['email'] == 'hugo.chinga.g@gmail.com'
 			when 'excluir'
 				false
+			when 'anonimo'
+				true
 			end
 		else
 			(tipo_item == 'anonimo' ? true : false)
@@ -214,7 +216,6 @@ module ApplicationHelper
 	# Obtiene el campo para despleagar en una TABLA
 	# Resuelve BT_FIELDS y d_<campo> si es necesario 
 	def get_field(label, objeto)
-
 		success = true
 		label.split(':').each do |field_name|
 			if success
@@ -225,9 +226,7 @@ module ApplicationHelper
 				end
 			end
 		end
-
 		success ? objeto : 'Objeto NO Encontrado'
-
 	end
 
 	## ------------------------------------------------------- SHOW
