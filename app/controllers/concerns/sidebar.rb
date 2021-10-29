@@ -159,7 +159,7 @@ module Sidebar
     	@sb_link = (lista.blank? ? nil : lista.link)
 	    @sb_elementos = get_elementos(lista)
 
-	    unless ['new', 'edit', 'update'].include?(action_name)
+	    unless ['new', 'edit', 'update', 'show'].include?(action_name)
 	    	@t = get_t(@sb_elementos, param_t)
 	    	@controlador = get_controller(@sb_elementos, @t)
 	    	@despliegue = get_display(@sb_elementos, @t)
