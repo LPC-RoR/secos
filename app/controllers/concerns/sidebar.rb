@@ -96,9 +96,6 @@ module Sidebar
 	end
 
 	def get_elemento_id(controlador, nombre_elemento)
-		puts "************************* get_elemento_id"
-		puts controlador
-		puts nombre_elemento
-		SbElemento.where(controlador: controlador).find_by(elemento: nombre_elemento).id
+		SbElemento.where(despliegue: 'list').where(controlador: controlador).find_by(elemento: nombre_elemento).id
 	end
 end
