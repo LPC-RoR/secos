@@ -8,6 +8,28 @@ module CapitanCristianoHelper
 			'Nómina'
 		elsif ['AppPerfil', 'app_perfiles'].include?(text)
 			'Perfil'
+		elsif ['AppObservacion', 'app_observaciones'].include?(text)
+			'Observación'
+		elsif ['AppMejora', 'app_mejoras'].include?(text)
+			'Mejora'
+		elsif ['AppImagen', 'app_imagenes'].include?(text)
+			'Imagen'
+		elsif ['AppContacto', 'app_contactos'].include?(text)
+			'Contacto'
+		elsif ['AppMensaje', 'app_mensajes'].include?(text)
+			'Mensaje'
+		elsif ['AppDirectorio', 'app_directorios'].include?(text)
+			'Directorio'
+		elsif ['AppDocumento', 'app_documentos'].include?(text)
+			'Documento'
+		elsif ['AppArchivo', 'app_archivos'].include?(text)
+			'Archivo'
+		elsif ['HTema', 'h_temas'].include?(text)
+			'Tema'
+		elsif ['HLink', 'h_links'].include?(text)
+			'Enlace'
+		elsif ['HImagen', 'h_imagenes'].include?(text)
+			'Imagen'
 		elsif ['SbLista', 'sb_listas'].include?(text)
 			'Menú lateral'
 		elsif ['SbElemento', 'sb_elementos'].include?(text)
@@ -16,6 +38,12 @@ module CapitanCristianoHelper
 			'Tutorial'
 		elsif ['HlpPaso', 'hlp_pasos'].include?(text)
 			'Paso'
+		elsif ['st_modelo', 'StModelo', 'st_modelos'].include?(text)
+			'Modelo'
+		elsif ['st_estado', 'StEstado', 'st_estados'].include?(text)
+			'Estado'
+		elsif ['created_at'].include?(text)
+			'Fecha'
 		else
 			cristiano_app(text, origen, destino)
 		end
@@ -87,6 +115,7 @@ module CapitanCristianoHelper
 				when 'singular'
 					text.tableize.humanize.singularize
 				when 'plural'
+					text.pluralize
 				end
 			when 'controller'
 				case destino

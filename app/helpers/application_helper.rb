@@ -1,6 +1,12 @@
 module ApplicationHelper
 	## ------------------------------------------------------- HOME
 
+	def img_class 
+		{
+			centrada: 'mx-auto d-block'
+		}
+	end
+
 	def color(ref)
 		if [:app, :navbar].include?(ref)
 			app_color[ref]
@@ -11,6 +17,17 @@ module ApplicationHelper
 		end
 	end
 
+	def table_types_base
+		{
+			simple: '',
+			striped: 'table-striped',
+			bordered: 'table-bordered',
+			borderless: 'table-borderless',
+			hover: 'table-hover',
+			small: 'table-small'
+		}
+	end
+
 	def colors
 		['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark', 'muted', 'white']
 	end
@@ -19,10 +36,17 @@ module ApplicationHelper
 		['entire', 'half', 'quarter', 'thumb']
 	end
 
+	def foot?
+		h_imagen = HImagen.find_by(nombre: 'Foot')
+		h_imagen.blank? ? false : (h_imagen.imagenes.empty? ? false : h_imagen.imagenes.first.present?)
+	end
+
+	# DEPRECATED
 	def objeto_tema_ayuda(tipo)
 		TemaAyuda.where(tipo: tipo).any? ? TemaAyuda.where(tipo: tipo).first : nil
 	end
 
+	# DEPRECATED
 	def coleccion_tema_ayuda(tipo)
 		temas_ayuda_tipo = TemaAyuda.where(tipo: tipo)
 		if temas_ayuda_tipo.any?
@@ -31,6 +55,48 @@ module ApplicationHelper
 		else
 			nil
 		end
+	end
+
+	## ------------------------------------------------------- SCOPES & PARTIALS
+
+	def controllers_scope
+		{
+			aplicacion: ['app_administradores', 'app_nominas', 'app_perfiles', 'app_observaciones', 'app_mejoras', 'app_imagenes', 'app_contactos', 'app_mensajes', 'app_repos', 'app_directorios', 'app_documentos', 'app_archivos', 'archivos', 'comentarios', 'directorios', 'documentos', 'imagenes', 'licencias', 'mejoras', 'observaciones', 'recursos', 'subs'],
+			home:       ['h_temas', 'h_links', 'h_imagenes'],
+			help:       ['conversaciones', 'mensajes', 'hlp_pasos', 'temaf_ayudas', 'hlp_tutoriales'],
+			sidebar:    ['sb_listas', 'sb_elementos'],
+			busqueda:   ['b_clave_facetas', 'b_claves', 'b_indice_facetas', 'b_indices', 'b_palabras', 'b_reglas'],
+			estados:    ['st_modelos', 'st_estados'],
+			data:       ['caracteristicas', 'caracterizaciones', 'columnas', 'datos', 'encabezados', 'etapas', 'lineas', 'opciones', 'tablas']
+		}
+	end
+
+	def scope_controller(controller)
+		if controllers_scope[:aplicacion].include?(controller)
+			'aplicacion'
+		elsif controllers_scope[:home].include?(controller)
+			'home'
+		elsif controllers_scope[:help].include?(controller)
+			'help'
+		elsif controllers_scope[:sidebar].include?(controller)
+			'sidebar'
+		elsif controllers_scope[:busqueda].include?(controller)
+			'busqueda'
+		elsif controllers_scope[:estados].include?(controller)
+			'estados'
+		elsif controllers_scope[:data].include?(controller)
+			'data'
+		else
+			app_scope_controller(controller)
+		end
+	end
+
+	def partial?(controller, partial)
+		File.exist?("app/views/#{(scope_controller(controller).blank? ? '' : "#{scope_controller(controller)}/")}#{controller}/_#{partial}.html.erb")
+	end
+
+	def get_partial(controller, partial)
+		"#{(scope_controller(controller).blank? ? '' : "#{scope_controller(controller)}/")}#{controller}/#{partial}"
 	end
 
 	## ------------------------------------------------------- MENU
@@ -51,57 +117,64 @@ module ApplicationHelper
 	end
 
 	def display_item_menu?(item, tipo_item)
-		# ITEMS de MENU sólo para USUARIOS REGISTRADOS
-		if session[:hay_perfil] == true
-			case tipo_item
-			when 'dog'
-				usuario_signed_in? and session[:perfil_activo]['email'] == 'hugo.chinga.g@gmail.com'
-			when 'admin'
-				(usuario_signed_in? and session[:es_administrador] == true)
-			when 'usuario'
-				usuario_signed_in? and display_item_app(item, tipo_item)
-			when 'excluir'
+		# SEGURIDADA PARA IEMS DE MENÚS
+		if perfil? == true
+			if ['dog', 'admin', 'anonimo'].include?(tipo_item)
+				(usuario_signed_in? and seguridad_desde(tipo_item))
+			elsif ['nomina', 'general'].include?(tipo_item)
+				(usuario_signed_in? and seguridad_desde(tipo_item) and display_item_app(item, tipo_item))
+			elsif tipo_item == 'excluir'
 				false
-			when 'anonimo'
-				true
 			end
+# DEPRECATED
+#			when 'usuario'
+#				usuario_signed_in? and display_item_app(item, tipo_item)
 		else
-			(tipo_item == 'anonimo' ? true : false)
+			tipo_item == 'anonimo'
 		end
+	end
+
+	## ------------------------------------------------------- SIDEBAR + BANDEJA
+
+	def base_sidebar_controllers
+		[
+			'sb_listas', 'sb_elementos',
+			'app_recursos', 'app_administradores', 'app_nominas', 'app_perfiles', 'app_imagenes',
+			'h_portadas', 'h_temas', 'h_links', 'h_imagenes',
+			'hlp_tutoriales', 'hlp_pasos',
+			'st_modelos', 'st_estados'
+		]
+	end
+
+	def sidebar_controllers
+		base_sidebar_controllers.union(app_sidebar_controllers)
+	end
+
+	def base_bandeja_controllers
+		StModelo.all.order(:st_modelo).map {|st_modelo| st_modelo.st_modelo.tableize}
+	end
+
+	def bandeja_controllers
+		base_bandeja_controllers.union(app_bandeja_controllers)
 	end
 
 	## ------------------------------------------------------- TABLA
 
-	def controllers_scope
-		{
-			help: ['conversaciones', 'mensajes', 'hlp_pasos', 'temaf_ayudas', 'hlp_tutoriales'],
-			data: ['caracteristicas', 'caracterizaciones', 'columnas', 'datos', 'encabezados', 'etapas', 'lineas', 'opciones', 'tablas'],
-			aplicacion: ['app_administradores', 'app_nominas', 'app_perfiles', 'archivos', 'comentarios', 'directorios', 'documentos', 'imagenes', 'licencias', 'mejoras', 'observaciones', 'recursos', 'subs'],
-			sidebar: ['sb_listas', 'sb_elementos']
-		}
+	def table_types(controller)
+		if ['app_directorios', 'app_documentos', 'app_archivos'].include?(controller)
+			table_types_base[:borderless]
+		else
+			table_types_base[:striped]
+		end
 	end
 
-	# valida el uso de alias en las tablas
-	def alias_tabla(controller)
-		if controllers_scope[:help].include?(controller) or controllers_scope[:data].include?(controller) or controllers_scope[:aplicacion].include?(controller) or controllers_scope[:sidebar].include?(controller)
-			controller
-		else
-			app_alias_tabla(controller)
-		end
+	# Obtiene los campos a desplegar en la tabla desde el objeto
+	def m_tabla_fields(objeto)
+		objeto.class::TABLA_FIELDS
 	end
 
 	def inline_form?(controller)
-		if controllers_scope[:help].include?(controller)
-			File.exist?("app/views/help/#{controller}/_inline_nuevo.html.erb")
-		elsif controllers_scope[:data].include?(controller)
-			File.exist?("app/views/data/#{controller}/_inline_nuevo.html.erb")
-		elsif controllers_scope[:aplicacion].include?(controller)
-			File.exist?("app/views/aplicacion/#{controller}/_inline_nuevo.html.erb")
-		elsif controllers_scope[:sidebar].include?(controller)
-			File.exist?("app/views/sidebar/#{controller}/_inline_nuevo.html.erb")
-		else
-			File.exist?("app/views/#{controller}/_inline_nuevo.html.erb")
-		end
+		partial?(app_alias_tabla(controller), 'inline_nuevo')
 	end
 
 	# Objtiene LINK DEL BOTON NEW
@@ -112,20 +185,8 @@ module ApplicationHelper
 			tipo_new = 'normal'
 		end
 		if tipo_new == 'normal'
-			(alias_tabla(controller_name) == controller or @objeto.blank?) ? "/#{controller}/new" : "/#{@objeto.class.name.tableize}/#{@objeto.id}/#{controller}/new"
+			(app_alias_tabla(controller_name) == controller or @objeto.blank?) ? "/#{controller}/new" : "/#{@objeto.class.name.tableize}/#{@objeto.id}/#{controller}/new"
 		end
-	end
-
-	# Obtiene los campos a desplegar en la tabla desde el objeto
-	def m_tabla_fields(objeto)
-		objeto.class::TABLA_FIELDS
-	end
-
-	# Obtiene los estados de un modelo usando el controlador
-	# "-tabla.html.erb"
-	def c_estados(controller)
-#		dejamos con comentario para eliminar completamente el uso de config/application.rb
-#		Rails.configuration.x.tables.exceptions[controller][:estados]
 	end
 
 	def sortable?(controller, field)
@@ -144,28 +205,32 @@ module ApplicationHelper
 	end
 
 	## ------------------------------------------------------- TABLA | BTNS
+
 	def new_button_conditions(controller)
-		if ['app_administradores', 'app_nominas'].include?(controller)
-				session[:es_administrador]
-		elsif ['hlp_tutoriales', 'hlp_pasos'].include?(controller)
-				session[:es_administrador]
-		elsif ['app_perfiles'].include?(controller)
+		if ['app_administradores', 'app_nominas', 'hlp_tutoriales', 'hlp_pasos'].include?(controller)
+				seguridad_desde('admin')
+		elsif ['app_perfiles', 'usuarios', 'ind_palabras', 'app_contactos', 'app_directorios', 'app_documentos', 'app_archivos'].include?(controller)
 			false
+		elsif ['app_mensajes'].include?(controller)
+			action_name == 'index' and @e == 'ingreso'
+		elsif ['sb_listas'].include?(controller)
+				seguridad_desde('admin')
+		elsif ['sb_elementos'].include?(controller)
+				(@objeto.acceso == 'dog' ? dog? : seguridad_desde('admin'))
 		else
 			app_new_button_conditions(controller)
 		end
 	end
+	
 	def crud_conditions(objeto, btn)
-		if ['AppAdministrador', 'AppNomina'].include?(objeto.class.name)
-				session[:es_administrador]
-		elsif ['HlpTutorial', 'HlpPaso'].include?(objeto.class.name)
-				session[:es_administrador]
-		elsif ['AppPerfil'].include?(objeto.class.name)
+		if ['AppAdministrador', 'AppNomina', 'HlpTutorial', 'HlpPaso'].include?(objeto.class.name)
+				seguridad_desde('admin')
+		elsif ['AppPerfil', 'Usuario', 'AppMensaje' ].include?(objeto.class.name)
 			false
-		elsif ['SbLista'].include?(objeto.class.name)
-			(usuario_signed_in? and session[:perfil_activo]['email'] == 'hugo.chinga.g@gmail.com') or (session[:es_administrador] and objeto.acceso != 'dog') or (objeto.acceso == 'usuario')
-		elsif ['SbElemento'].include?(objeto.class.name)
-			(usuario_signed_in? and session[:perfil_activo]['email'] == 'hugo.chinga.g@gmail.com') or (session[:es_administrador] and objeto.sb_lista.acceso != 'dog') or (objeto.sb_lista.acceso == 'usuario')
+		elsif ['SbLista', 'SbElemento'].include?(objeto.class.name)
+			(usuario_signed_in? and seguridad_desde(objeto.acceso))
+		elsif ['AppObservacion', 'AppMejora'].include?(objeto.class.name)
+			(usuario_signed_in? and objeto.perfil.id == current_usuario.id)
 		else
 			app_crud_conditions(objeto, btn)
 		end
@@ -174,7 +239,6 @@ module ApplicationHelper
 	def link_x_btn(objeto, accion, objeto_ref)
 		ruta_raiz = "/#{objeto.class.name.tableize}/#{objeto.id}#{accion}"
 		ruta_objeto = (objeto_ref and @objeto.present?) ? "#{(!!accion.match(/\?+/) ? '&' : '?')}class_name=#{@objeto.class.name}&objeto_id=#{@objeto.id}" : ''
-#		"/#{objeto.class.name.tableize}/#{objeto.id}#{btn[1]}#{(!!btn[1].match(/\?+/) ? '&' : '?') if btn[2]}#{"class_name=#{@objeto.class.name}&objeto_id=#{@objeto.id if @objeto.present?}" if btn[2]}"
 		"#{ruta_raiz}#{ruta_objeto}"
 	end
 
@@ -187,6 +251,7 @@ module ApplicationHelper
 
 	## ------------------------------------------------------- FORM
 
+
 	def url_params(parametros)
 		params_options = "n_params=#{parametros.length}"
 		parametros.each_with_index do |obj, indice|
@@ -196,16 +261,8 @@ module ApplicationHelper
 	end
 
 	def detail_partial(controller)
-		if controllers_scope[:help].include?(controller)
-			"help/#{controller}/detail"
-		elsif controllers_scope[:data].include?(controller)
-			"data/#{controller}/detail"
-		elsif controllers_scope[:aplicacion].include?(controller)
-			"aplicacion/#{controller}/detail"
-		elsif controllers_scope[:sidebar].include?(controller)
-			"sidebar/#{controller}/detail"
-		elsif File.exist?("app/views/#{controller}/_detail.html.erb")
-			"#{controller}/detail"
+		if partial?(controller, 'detail')
+			get_partial(controller, 'detail')
 		else
 			'0p/form/detail'
 		end
@@ -216,6 +273,7 @@ module ApplicationHelper
 	# Obtiene el campo para despleagar en una TABLA
 	# Resuelve BT_FIELDS y d_<campo> si es necesario 
 	def get_field(label, objeto)
+
 		success = true
 		label.split(':').each do |field_name|
 			if success
@@ -226,7 +284,9 @@ module ApplicationHelper
 				end
 			end
 		end
+
 		success ? objeto : 'Objeto NO Encontrado'
+
 	end
 
 	## ------------------------------------------------------- SHOW
@@ -245,17 +305,7 @@ module ApplicationHelper
 	end
 
 	def status?(objeto)
-		if controllers_scope[:help].include?(controller)
-			File.exist?("app/views/help/#{controller}/_status.html.erb")
-		elsif controllers_scope[:data].include?(controller)
-			File.exist?("app/views/data/#{controller}/_status.html.erb")
-		elsif controllers_scope[:aplicacion].include?(controller)
-			File.exist?("app/views/aplicacion/#{controller}/_status.html.erb")
-		elsif controllers_scope[:sidebar].include?(controller)
-			File.exist?("app/views/sidebar/#{controller}/_status.html.erb")
-		else
-			File.exist?("app/views/#{controller}/_status.html.erb")
-		end
+		partial?(controller, 'status')
 	end
 
 	## ------------------------------------------------------- GENERAL
@@ -278,8 +328,7 @@ module ApplicationHelper
 	## ------------------------------------------------------- PUBLICACION
 
 	def get_evaluacion_publicacion(publicacion, item)
-		@activo = Perfil.find(session[:perfil_activo]['id'])
-		e = @activo.evaluaciones.find_by(aspecto: item, publicacion_id: publicacion.id)
+		e = perfil_activo.evaluaciones.find_by(aspecto: item, publicacion_id: publicacion.id)
 		e.blank? ? '[no evaluado]' : e.evaluacion
 	end
 

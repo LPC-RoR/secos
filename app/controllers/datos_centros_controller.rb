@@ -75,7 +75,7 @@ class DatosCentrosController < ApplicationController
     end
 
     def set_redireccion
-      @redireccion = '/recursos/administracion?t=Datos Centro'
+      @redireccion = "/app_recursos/administracion?id=#{get_elemento_id(controller_name, 'Datos Centro')}" 
     end
 
     # Only allow a list of trusted parameters through.

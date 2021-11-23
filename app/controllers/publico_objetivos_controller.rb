@@ -75,7 +75,7 @@ class PublicoObjetivosController < ApplicationController
     end
 
     def set_redireccion
-      @redireccion = '/recursos/administracion?t=Público Objetivo'
+      @redireccion = "/app_recursos/administracion?id=#{get_elemento_id(controller_name, 'Público Objetivo')}" 
     end
 
     # Only allow a list of trusted parameters through.

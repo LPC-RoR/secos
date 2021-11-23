@@ -2,6 +2,7 @@ class Aplicacion::AppNominasController < ApplicationController
   before_action :authenticate_usuario!
   before_action :inicia_sesion
   before_action :set_app_nomina, only: %i[ show edit update destroy ]
+  before_action :carga_solo_sidebar, only: %i[ show new edit create update ]
 
   include Sidebar
 
@@ -13,6 +14,7 @@ class Aplicacion::AppNominasController < ApplicationController
   # GET /app_nominas/1 or /app_nominas/1.json
   def show
     carga_sidebar('Administración', 'Nómina')
+    @modelos_disponibles = StModelo.where(st_modelo: (StModelo.all.map {|st_mod| st_mod.st_modelo} - @objeto.st_perfil_modelos.map {|st_mod| st_mod.st_perfil_modelo}))
   end
 
   # GET /app_nominas/new
@@ -73,7 +75,7 @@ class Aplicacion::AppNominasController < ApplicationController
     end
 
     def set_redireccion
-      @redireccion = '/recursos/administracion?t=Nómina'
+      @redireccion = "/app_recursos/administracion?id=#{get_elemento_id(controller_name, 'Nómina')}" 
     end
 
     # Only allow a list of trusted parameters through.

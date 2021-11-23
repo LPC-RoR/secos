@@ -2,5 +2,5 @@
 	<% unless gly.blank? %>
 		<i class=<%="bi-#{gly}"%>></i>
 	<% end %>
-    <%= c.humanize.singularize %>
+    <%= cristiano(c, 'controller', 'singular') unless ['app_directorios', 'app_documentos'].include?(c) %>
 <% end %>

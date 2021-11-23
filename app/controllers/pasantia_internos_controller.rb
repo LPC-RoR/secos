@@ -75,7 +75,7 @@ class PasantiaInternosController < ApplicationController
     end
 
     def set_redireccion
-      @redireccion = '/recursos/ingreso_datos_anuales?t=Internos'
+      @redireccion = "/app_recursos/ingreso_datos_anuales?id=#{get_elemento_id(controller_name, 'Internos')}" 
     end
 
     # Only allow a list of trusted parameters through.

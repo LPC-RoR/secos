@@ -75,7 +75,7 @@ class PresentacionCongresosController < ApplicationController
     end
 
     def set_redireccion
-      @redireccion = '/recursos/ingreso_datos_anuales?t=Presentaciones Congresos'
+      @redireccion = "/app_recursos/ingreso_datos_anuales?id=#{get_elemento_id(controller_name, 'Presentaciones Congresos')}" 
     end
 
     # Only allow a list of trusted parameters through.

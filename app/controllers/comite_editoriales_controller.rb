@@ -75,7 +75,7 @@ class ComiteEditorialesController < ApplicationController
     end
 
     def set_redireccion
-      @redireccion = '/recursos/ingreso_datos_anuales?t=Comités Editoriales'
+      @redireccion = "/app_recursos/ingreso_datos_anuales?id=#{get_elemento_id(controller_name, 'Comités Editoriales')}" 
     end
 
     # Only allow a list of trusted parameters through.

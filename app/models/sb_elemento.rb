@@ -3,8 +3,8 @@ class SbElemento < ApplicationRecord
 	belongs_to :sb_lista
 
 	TIPOS = ['item', 'list']
-	ACCESOS = ['usuario', 'admin', 'anonimo', 'dog']
-	DESPLIEGUES = ['show', 'list', 'ayuda']
+	ACCESOS = ['nomina', 'admin', 'anonimo', 'dog']
+	DESPLIEGUES = ['show', 'list', 'ayuda', 'ulist']
 
 	DISPLAY_FIELDS = [
 		['orden',       'Orden',            'number'],

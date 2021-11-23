@@ -8,22 +8,24 @@ module CapitanMenuHelper
 		}
 	end
 
+	def menu_base
+	    [
+	        ['',           '/app_recursos/administracion', 'admin', 'person-rolodex'],
+	        ["Contenido",  "/tema_ayudas",                 'admin', 'stack'],
+	        ["Procesos",   "/app_recursos/procesos",       'dog',   'radioactive']
+	    ]
+	end
+
 	def menu
 	    ## Menu principal de la aplicación
 	    # [ 'Item del menú', 'link', 'tipo_item' ]
 	    [
-	        ['Ingreso Datos Anuales', '/recursos/ingreso_datos_anuales', 'usuario', 'clipboard-check'],
-	        ['Administración',        '/recursos/administracion',        'admin',   'person-rolodex'],
-	        ['Documentos',            directorios_path,                  'usuario', 'archive']
+	        ['Ingreso Datos Anuales', '/app_recursos/ingreso_datos_anuales', 'nomina', 'clipboard-check'],
+	        ['Público', '/app_repos/publico', 'nomina', 'archive'],
+#	        ['Administración',        '/app_recursos/administracion',        'admin',   'person-rolodex'],
+	        ['Documentos',            directorios_path,                  'nomina', 'archive']
 	    ]
 
-	end
-
-	def menu_base
-	    [
-	        ["Contenido",  "/tema_ayudas",       'admin', 'stack'],
-	        ["Procesos",   "/recursos/procesos", 'dog',   'radioactive']
-	    ]
 	end
 
 	def dropdown_items(item)
@@ -42,12 +44,7 @@ module CapitanMenuHelper
 	end
 
 	def display_item_app(item, tipo_item)
-		case item
-		when 'Temas'
-			session[:hay_proyecto] and Proyecto.find(session[:proyecto_activo]['id']).carpetas_personalizadas.any?
-		else
-			true
-		end
+		true
 	end
 
 end

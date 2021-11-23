@@ -67,17 +67,13 @@ class Sidebar::SbListasController < ApplicationController
   end
 
   private
-    def carga_solo_sidebar
-      carga_sidebar(nombre_sidebar(controller_name), nil)
-    end
-
     # Use callbacks to share common setup or constraints between actions.
     def set_sb_lista
       @objeto = SbLista.find(params[:id])
     end
 
     def set_redireccion
-      @redireccion = '/recursos/administracion?t=Menús Laterales'
+      @redireccion = "/app_recursos/administracion?id=#{get_elemento_id(controller_name, 'Menús Laterales')}" 
     end
 
     # Only allow a list of trusted parameters through.

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_25_220249) do
+ActiveRecord::Schema.define(version: 2021_11_23_125525) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -143,6 +143,53 @@ ActiveRecord::Schema.define(version: 2021_10_25_220249) do
     t.index ["usuario_id"], name: "index_app_administradores_on_usuario_id"
   end
 
+  create_table "app_archivos", force: :cascade do |t|
+    t.string "archivo"
+    t.string "owner_class"
+    t.integer "owner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_class"], name: "index_app_archivos_on_owner_class"
+    t.index ["owner_id"], name: "index_app_archivos_on_owner_id"
+  end
+
+  create_table "app_dir_dires", force: :cascade do |t|
+    t.integer "parent_id"
+    t.integer "child_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["child_id"], name: "index_app_dir_dires_on_child_id"
+    t.index ["parent_id"], name: "index_app_dir_dires_on_parent_id"
+  end
+
+  create_table "app_directorios", force: :cascade do |t|
+    t.string "directorio"
+    t.integer "app_repo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "owner_class"
+    t.integer "owner_id"
+    t.index ["app_repo_id"], name: "index_app_directorios_on_app_repo_id"
+    t.index ["directorio"], name: "index_app_directorios_on_directorio"
+    t.index ["owner_class"], name: "index_app_directorios_on_owner_class"
+    t.index ["owner_id"], name: "index_app_directorios_on_owner_id"
+  end
+
+  create_table "app_documentos", force: :cascade do |t|
+    t.string "documento"
+    t.integer "app_directorio_id"
+    t.integer "app_repo_id"
+    t.boolean "publico"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "owner_class"
+    t.integer "owner_id"
+    t.index ["app_directorio_id"], name: "index_app_documentos_on_app_directorio_id"
+    t.index ["app_repo_id"], name: "index_app_documentos_on_app_repo_id"
+    t.index ["owner_class"], name: "index_app_documentos_on_owner_class"
+    t.index ["owner_id"], name: "index_app_documentos_on_owner_id"
+  end
+
   create_table "app_nominas", force: :cascade do |t|
     t.string "nombre"
     t.string "email"
@@ -161,6 +208,17 @@ ActiveRecord::Schema.define(version: 2021_10_25_220249) do
     t.index ["app_administrador_id"], name: "index_app_perfiles_on_app_administrador_id"
     t.index ["email"], name: "index_app_perfiles_on_email"
     t.index ["usuario_id"], name: "index_app_perfiles_on_usuario_id"
+  end
+
+  create_table "app_repos", force: :cascade do |t|
+    t.string "repositorio"
+    t.string "owner_class"
+    t.integer "owner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_class"], name: "index_app_repos_on_owner_class"
+    t.index ["owner_id"], name: "index_app_repos_on_owner_id"
+    t.index ["repositorio"], name: "index_app_repos_on_repositorio"
   end
 
   create_table "archivos", force: :cascade do |t|
@@ -354,6 +412,28 @@ ActiveRecord::Schema.define(version: 2021_10_25_220249) do
     t.string "grado_academico"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "h_imagenes", force: :cascade do |t|
+    t.string "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["nombre"], name: "index_h_imagenes_on_nombre"
+  end
+
+  create_table "h_links", force: :cascade do |t|
+    t.string "texto"
+    t.string "link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "h_temas", force: :cascade do |t|
+    t.string "tema"
+    t.string "detalle"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tema"], name: "index_h_temas_on_tema"
   end
 
   create_table "hlp_pasos", force: :cascade do |t|

@@ -7,7 +7,7 @@ class Usuario < ApplicationRecord
 	TABLA_FIELDS = [
 		['email',                 'normal'],
 		['d_tipo_usuario',        'normal'],
-		['d_fecha_incorporacion', 'normal']
+		['d_fecha_incorporacion', 'diahora']
 	]
 
 	def d_tipo_usuario
@@ -15,6 +15,6 @@ class Usuario < ApplicationRecord
 	end
 
 	def d_fecha_incorporacion
-		l(self.created_at)
+		self.created_at
 	end
 end

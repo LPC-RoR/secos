@@ -75,7 +75,7 @@ class TecnicoAdministrativosController < ApplicationController
     end
 
     def set_redireccion
-      @redireccion = '/recursos/ingreso_datos_anuales?t=Personal Técnico y Administrativo'
+      @redireccion = "/app_recursos/ingreso_datos_anuales?id=#{get_elemento_id(controller_name, 'Personal Técnico y Administrativo')}" 
     end
 
     # Only allow a list of trusted parameters through.

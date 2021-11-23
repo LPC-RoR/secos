@@ -75,7 +75,7 @@ class ArticuloEntrevistasController < ApplicationController
     end
 
     def set_redireccion
-      @redireccion = '/recursos/ingreso_datos_anuales?t=Artículos y Entrevistas en Medios de Comunicación'
+      @redireccion = "/app_recursos/ingreso_datos_anuales?id=#{get_elemento_id(controller_name, 'Artículos y Entrevistas en Medios de Comunicación')}" 
     end
 
     # Only allow a list of trusted parameters through.

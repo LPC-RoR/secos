@@ -75,7 +75,7 @@ class ProductoPmesController < ApplicationController
     end
 
     def set_redireccion
-      @redireccion = '/recursos/ingreso_datos_anuales?t=Producto de PME (concurso milenio)'
+      @redireccion = "/app_recursos/ingreso_datos_anuales?id=#{get_elemento_id(controller_name, 'Producto de PME (concurso milenio)')}" 
     end
 
     # Only allow a list of trusted parameters through.

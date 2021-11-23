@@ -75,7 +75,7 @@ class ActividadDifusionesController < ApplicationController
     end
 
     def set_redireccion
-      @redireccion = '/recursos/ingreso_datos_anuales?t=Actividades de Difusión'
+      @redireccion = "/app_recursos/ingreso_datos_anuales?id=#{get_elemento_id(controller_name, 'Actividades de Difusión')}" 
     end
 
     # Only allow a list of trusted parameters through.

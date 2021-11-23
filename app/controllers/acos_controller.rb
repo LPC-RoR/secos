@@ -75,7 +75,7 @@ class AcosController < ApplicationController
     end
 
     def set_redireccion
-      @redireccion = '/recursos/ingreso_datos_anuales?t=Actividades Científicas Organizadas'
+      @redireccion = "/app_recursos/ingreso_datos_anuales?id=#{get_elemento_id(controller_name, 'Actividades Científicas Organizadas')}" 
     end
 
     # Only allow a list of trusted parameters through.

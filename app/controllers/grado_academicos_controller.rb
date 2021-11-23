@@ -75,7 +75,7 @@ class GradoAcademicosController < ApplicationController
     end
 
     def set_redireccion
-      @redireccion = '/recursos/administracion?t=Grados Académicos'
+      @redireccion = "/app_recursos/administracion?id=#{get_elemento_id(controller_name, 'Grados Académicos')}" 
     end
 
     # Only allow a list of trusted parameters through.

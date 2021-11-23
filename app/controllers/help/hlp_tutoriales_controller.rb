@@ -75,7 +75,7 @@ class Help::HlpTutorialesController < ApplicationController
     end
 
     def set_redireccion
-      @redireccion = '/recursos/administracion?t=Tutoriales'
+      @redireccion = "/app_recursos/administracion?id=#{get_elemento_id(controller_name, 'Tutoriales')}" 
     end
 
     # Only allow a list of trusted parameters through.

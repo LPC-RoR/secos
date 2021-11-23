@@ -10,20 +10,17 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.uncountable %w( fish sheep )
 
     # palabras terminadas en 'or' {'investigador', 'autor'} y en 'en' {origen}
-    inflect.plural /(.[aeiou][drns])$/i, '\1es'
-    inflect.singular /(.[aeiou][drns])es$/i, '\1'
+    inflect.plural /(.[aeiou][drnsl])$/i, '\1es'
+    inflect.singular /(.[aeiou][drnsl])es$/i, '\1'
 
     # palabras terminadas en 'a', no agregue las otras vocales porque no hay problema
     inflect.plural /([ti]a)$/i, '\1s'
 
-    # palabras terminadas en 'cion' y 'sion'
-    inflect.plural /(ion)$/i, '\1es'
-    inflect.singular /(ion)es$/i, '\1'
+    inflect.singular /([icv]e)s$/i, '\1'
 
-    # palabras terminadas en 'l'
-    inflect.plural /(l)$/i, '\1es'
-    inflect.singular /(l)es$/i, '\1'
-
+    # raiz
+    inflect.plural /(rai)z$/i, '\1ces'
+    inflect.singular /(rai)ces$/i, '\1z'
 end
 
 # These inflection rules are supported but not enabled by default:

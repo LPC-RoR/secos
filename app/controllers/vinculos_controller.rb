@@ -75,7 +75,7 @@ class VinculosController < ApplicationController
     end
 
     def set_redireccion
-      @redireccion = '/recursos/ingreso_datos_anuales?t=Vínculos con Otros Sectores'
+      @redireccion = "/app_recursos/ingreso_datos_anuales?id=#{get_elemento_id(controller_name, 'Vínculos con Otros Sectores')}" 
     end
 
     # Only allow a list of trusted parameters through.
