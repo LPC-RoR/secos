@@ -150,12 +150,13 @@ module ApplicationHelper
 		base_sidebar_controllers.union(app_sidebar_controllers)
 	end
 
-	def base_bandeja_controllers
-		StModelo.all.order(:st_modelo).map {|st_modelo| st_modelo.st_modelo.tableize}
-	end
+#	def base_bandeja_controllers
+#		StModelo.all.order(:st_modelo).map {|st_modelo| st_modelo.st_modelo.tableize}
+#	end
 
 	def bandeja_controllers
-		base_bandeja_controllers.union(app_bandeja_controllers)
+#		base_bandeja_controllers.union(app_bandeja_controllers)
+		[]
 	end
 
 	## ------------------------------------------------------- TABLA
