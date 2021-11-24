@@ -21,9 +21,7 @@ module CapitanMenuHelper
 	    # [ 'Item del menú', 'link', 'tipo_item' ]
 	    [
 	        ['Ingreso Datos Anuales', '/app_recursos/ingreso_datos_anuales', 'nomina', 'clipboard-check'],
-	        ['Público', '/app_repos/publico', 'nomina', 'archive'],
-#	        ['Administración',        '/app_recursos/administracion',        'admin',   'person-rolodex'],
-	        ['Documentos',            directorios_path,                  'nomina', 'archive']
+	        ['Público', '/app_repos/publico', 'nomina', 'archive']
 	    ]
 
 	end
